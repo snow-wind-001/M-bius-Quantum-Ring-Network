@@ -1,0 +1,684 @@
+#!/usr/bin/env python3
+"""
+莫比乌斯量子环形网络训练脚本 - CIFAR-100
+基于HTML文档中的UHR (Unistochastic Hamiltonian Ring) 架构
+
+核心特性:
+1. 酉矩阵参数化 (H = |U|² 自动获得双随机性质)
+2. 推理环(实部)和更新环(虚部分离
+3. 哈密顿动力学优化
+4. CIFAR-100数据集支持
+"""
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch.utils.tensorboard import SummaryWriter
+from torchvision import datasets, transforms
+import torch.optim as optim
+import numpy as np
+import argparse
+import logging
+import os
+import time
+from datetime import datetime
+from typing import Dict, Tuple
+import math
+
+# 导入我们的模型
+from mobius_quantum_ring import (
+    MöbiusQuantumRing,
+    HamiltonianOptimizer,
+    create_mobius_model
+)
+
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("mobius_training.log"),
+        logging.StreamHandler()
+    ]
+)
+
+
+def get_cifar100_loaders(batch_size=64, num_workers=4, download=True):
+    """
+    获取CIFAR-100数据加载器
+    
+    Args:
+        batch_size: 批次大小
+        num_workers: 数据加载工作线程数
+        download: 是否下载数据集
+        
+    Returns:
+        train_loader, test_loader
+    """
+    # CIFAR-100的均值和标准差
+    mean = (0.5071, 0.4867, 0.4408)
+    std = (0.2675, 0.2565, 0.2761)
+    
+    # 训练数据增强
+    transform_train = transforms.Compose([
+        transforms.Resize((32, 32)),
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(15),
+        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
+        transforms.ToTensor(),
+        transforms.Normalize(mean, std),
+        transforms.RandomErasing(p=0.5)
+    ])
+    
+    # 测试数据转换
+    transform_test = transforms.Compose([
+        transforms.Resize((32, 32)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean, std)
+    ])
+    
+    # 加载CIFAR-100数据集
+    train_set = datasets.CIFAR100(
+        root='./data',
+        train=True,
+        download=download,
+        transform=transform_train
+    )
+    
+    test_set = datasets.CIFAR100(
+        root='./data',
+        train=False,
+        download=download,
+        transform=transform_test
+    )
+    
+    train_loader = torch.utils.data.DataLoader(
+        train_set,
+        batch_size=batch_size,
+        shuffle=True,
+        num_workers=num_workers,
+        pin_memory=True,
+        drop_last=True
+    )
+    
+    test_loader = torch.utils.data.DataLoader(
+        test_set,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=True
+    )
+    
+    return train_loader, test_loader
+
+
+def mixup_data(x, y, alpha=0.2):
+    """
+    Mixup数据增强
+    
+    Args:
+        x: 输入数据
+        y: 标签
+        alpha: Beta分布参数
+        
+    Returns:
+        mixed_x, y_a, y_b, lambda
+    """
+    if alpha > 0:
+        lam = np.random.beta(alpha, alpha)
+    else:
+        lam = 1
+    
+    batch_size = x.size(0)
+    index = torch.randperm(batch_size).to(x.device)
+    
+    mixed_x = lam * x + (1 - lam) * x[index, :]
+    y_a, y_b = y, y[index]
+    
+    return mixed_x, y_a, y_b, lam
+
+
+def mixup_criterion(criterion, pred, y_a, y_b, lam):
+    """Mixup损失函数"""
+    return lam * criterion(pred, y_a) + (1 - lam) * criterion(pred, y_b)
+
+
+def train_epoch(
+    model: nn.Module,
+    train_loader: torch.utils.data.DataLoader,
+    optimizer: optim.Optimizer,
+    criterion: nn.Module,
+    device: torch.device,
+    epoch: int,
+    use_hamiltonian: bool = False,
+    use_eqprop: bool = False,
+    eqprop_lr: float = 3e-4,
+    eqprop_unitary_lr_ratio: float = 0.5,
+    eqprop_injection_lr_ratio: float = 1.0,
+    eqprop_readout_lr_ratio: float = 1.0,
+    eqprop_adjoint_steps: int = 20,
+    eqprop_state_target_weight: float = 0.0,
+    eqprop_state_target_lr_ratio: float = 1.0,
+    mixup_alpha: float = 0.2,
+    mixup_prob: float = 0.5,
+    ortho_loss_weight: float = 0.01
+) -> Dict[str, float]:
+    """
+    训练一个epoch
+    
+    Args:
+        model: 模型
+        train_loader: 训练数据加载器
+        optimizer: 优化器
+        criterion: 损失函数
+        device: 设备
+        epoch: 当前epoch
+        use_hamiltonian: 是否使用哈密顿优化器
+        mixup_alpha: Mixup参数
+        mixup_prob: Mixup概率
+        ortho_loss_weight: 正交损失权重
+        
+    Returns:
+        训练指标字典
+    """
+    model.train()
+    
+    running_loss = 0.0
+    running_ortho_loss = 0.0
+    correct = 0
+    total = 0
+    
+    start_time = time.time()
+    
+    for batch_idx, (data, target) in enumerate(train_loader):
+        data, target = data.to(device), target.to(device)
+        
+        if use_eqprop:
+            # Strict HTML mode: no BPTT/autograd through relaxation.
+            pass
+        else:
+            # 清零梯度
+            optimizer.zero_grad()
+        
+        # 应用Mixup
+        apply_mixup = np.random.rand() < mixup_prob
+        if apply_mixup:
+            data, targets_a, targets_b, lam = mixup_data(data, target, mixup_alpha)
+        
+        if use_eqprop:
+            # In eqprop mode, we update parameters directly inside the model
+            # using the HTML fixed-point + adjoint-state procedure.
+            if apply_mixup:
+                # Build soft targets: lam * one_hot(a) + (1-lam) * one_hot(b)
+                num_classes = 100
+                ta = torch.zeros(data.size(0), num_classes, device=device, dtype=torch.float32)
+                tb = torch.zeros_like(ta)
+                ta.scatter_(1, targets_a.view(-1, 1), 1.0)
+                tb.scatter_(1, targets_b.view(-1, 1), 1.0)
+                soft_target = lam * ta + (1.0 - lam) * tb
+                step_info = model.eqprop_update_step(
+                    data,
+                    soft_target,
+                    lr=eqprop_lr,
+                    unitary_lr_ratio=eqprop_unitary_lr_ratio,
+                    injection_lr_ratio=eqprop_injection_lr_ratio,
+                    readout_lr_ratio=eqprop_readout_lr_ratio,
+                    adjoint_steps=eqprop_adjoint_steps,
+                    state_target_weight=eqprop_state_target_weight,
+                    state_target_lr_ratio=eqprop_state_target_lr_ratio,
+                )
+                output = step_info["logits"]
+                cls_loss = torch.tensor(step_info["loss"], device=device)
+            else:
+                step_info = model.eqprop_update_step(
+                    data,
+                    target,
+                    lr=eqprop_lr,
+                    unitary_lr_ratio=eqprop_unitary_lr_ratio,
+                    injection_lr_ratio=eqprop_injection_lr_ratio,
+                    readout_lr_ratio=eqprop_readout_lr_ratio,
+                    adjoint_steps=eqprop_adjoint_steps,
+                    state_target_weight=eqprop_state_target_weight,
+                    state_target_lr_ratio=eqprop_state_target_lr_ratio,
+                )
+                output = step_info["logits"]
+                cls_loss = torch.tensor(step_info["loss"], device=device)
+        else:
+            # 前向传播
+            output = model(data)
+            
+            # 计算分类损失
+            if apply_mixup:
+                cls_loss = mixup_criterion(criterion, output, targets_a, targets_b, lam)
+            else:
+                cls_loss = criterion(output, target)
+        
+        # 计算正交约束损失
+        ortho_loss = model.get_orthogonal_loss()
+        
+        if not use_eqprop:
+            # 总损失
+            total_loss = cls_loss + ortho_loss_weight * ortho_loss
+            
+            # 反向传播
+            if use_hamiltonian:
+                # 哈密顿优化器会自动处理backward
+                loss = total_loss
+                loss.backward()
+                optimizer.step()
+            else:
+                total_loss.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                optimizer.step()
+        
+        # 统计
+        running_loss += cls_loss.item()
+        running_ortho_loss += ortho_loss.item()
+        
+        if not apply_mixup:
+            _, predicted = torch.max(output.data, 1)
+            total += target.size(0)
+            correct += (predicted == target).sum().item()
+        
+        # 日志输出
+        if batch_idx % 100 == 0:
+            elapsed = time.time() - start_time
+            acc = 100. * correct / total if total > 0 else 0
+            
+            logging.info(
+                f'Train Epoch: {epoch} [{batch_idx * len(data)}/{len(train_loader.dataset)} '
+                f'({100. * batch_idx / len(train_loader):.0f}%)] '
+                f'Loss: {cls_loss.item():.6f} '
+                f'Ortho: {ortho_loss.item():.6f} '
+                f'Acc: {acc:.2f}% '
+                f'Time: {elapsed:.1f}s'
+            )
+    
+    return {
+        'loss': running_loss / len(train_loader),
+        'ortho_loss': running_ortho_loss / len(train_loader),
+        'accuracy': 100. * correct / total if total > 0 else 0
+    }
+
+
+def evaluate(
+    model: nn.Module,
+    test_loader: torch.utils.data.DataLoader,
+    criterion: nn.Module,
+    device: torch.device
+) -> Dict[str, float]:
+    """
+    评估模型
+    
+    Args:
+        model: 模型
+        test_loader: 测试数据加载器
+        criterion: 损失函数
+        device: 设备
+        
+    Returns:
+        评估指标字典
+    """
+    model.eval()
+    
+    test_loss = 0
+    correct = 0
+    total = 0
+    
+    # 每个类别的准确率统计
+    class_correct = [0] * 100
+    class_total = [0] * 100
+    
+    with torch.no_grad():
+        for data, target in test_loader:
+            data, target = data.to(device), target.to(device)
+            
+            output = model(data)
+            test_loss += criterion(output, target).item()
+            
+            _, predicted = torch.max(output.data, 1)
+            total += target.size(0)
+            correct += (predicted == target).sum().item()
+            
+            # 统计每个类别的准确率
+            for i in range(len(target)):
+                label = target[i].item()
+                class_total[label] += 1
+                if predicted[i] == target[i]:
+                    class_correct[label] += 1
+    
+    test_loss /= len(test_loader)
+    accuracy = 100. * correct / total
+    
+    # 计算每个类别的准确率
+    class_accuracies = []
+    for i in range(100):
+        if class_total[i] > 0:
+            acc = 100. * class_correct[i] / class_total[i]
+            class_accuracies.append(acc)
+    
+    avg_class_acc = np.mean(class_accuracies) if class_accuracies else 0
+    
+    return {
+        'loss': test_loss,
+        'accuracy': accuracy,
+        'avg_class_accuracy': avg_class_acc
+    }
+
+
+def train_mobius_quantum_ring(args):
+    """
+    训练莫比乌斯量子环形网络
+    
+    Args:
+        args: 命令行参数
+    """
+    # 设置设备
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    logging.info(f'Using device: {device}')
+    
+    # 创建保存目录
+    os.makedirs(args.save_dir, exist_ok=True)
+    
+    # 数据加载器
+    train_loader, test_loader = get_cifar100_loaders(
+        batch_size=args.batch_size,
+        num_workers=args.num_workers
+    )
+    logging.info(f'Data loaded: {len(train_loader)} train batches, {len(test_loader)} test batches')
+    
+    # 创建模型
+    relaxation_steps = args.relaxation_steps if args.relaxation_steps is not None else args.depth
+    model = create_mobius_model(
+        num_classes=100,  # CIFAR-100
+        img_size=32,
+        in_channels=3,
+        embed_dim=args.embed_dim,           # hidden_dim (ring nodes)
+        depth=relaxation_steps,             # relaxation steps K
+        alpha=args.alpha,                   # dissipation/injection coefficient
+        lora_rank=args.lora_rank,           # LoRA rank r
+        readout_dim=args.readout_dim,       # local sampling size |S|
+        readout_mode=args.readout_mode,
+        proto_tau=args.proto_tau,
+        base_unitary_init=args.base_unitary_init,
+        base_unitary_scale=args.base_unitary_scale,
+        base_unitary_seed=args.base_unitary_seed,
+        learnable_state_targets=args.eqprop_learnable_state_targets,
+        # legacy args kept for compatibility (ignored by the new implementation)
+        patch_size=4,
+        num_heads=args.num_heads,
+    ).to(device)
+    
+    # 统计参数量
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    logging.info(f'Model created with {total_params:,} parameters ({trainable_params:,} trainable)')
+    
+    # 选择优化器（eqprop模式不使用PyTorch优化器更新参数）
+    if args.use_eqprop:
+        optimizer = None
+        logging.info('Using strict EQPROP (Holomorphic Equilibrium Propagation) mode: no BPTT/autograd through relaxation')
+    elif args.use_hamiltonian:
+        logging.info('Using Hamiltonian Optimizer')
+        optimizer = HamiltonianOptimizer(
+            model.parameters(),
+            lr=args.lr,
+            momentum=0.9
+        )
+    else:
+        # 分离酉矩阵参数和其他参数
+        unitary_params = []
+        regular_params = []
+        
+        for name, param in model.named_parameters():
+            # New MQR implementation stores A as real/imag parts under `ring.unitary_param`.
+            if 'unitary_param.A_real' in name or 'unitary_param.A_imag' in name:
+                unitary_params.append(param)
+            else:
+                regular_params.append(param)
+        
+        logging.info(f'Unitary params: {len(unitary_params)}, Regular params: {len(regular_params)}')
+        
+        optimizer = optim.AdamW([
+            {'params': regular_params, 'lr': args.lr},
+            {'params': unitary_params, 'lr': args.lr * args.unitary_lr_ratio}
+        ], weight_decay=args.weight_decay)
+    
+    # 学习率调度器（eqprop模式手动计算cosine lr）
+    scheduler = None
+    if optimizer is not None and not args.use_hamiltonian:
+        scheduler = optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=args.epochs,
+            eta_min=args.lr * 0.01
+        )
+    
+    # 损失函数
+    criterion = nn.CrossEntropyLoss()
+    
+    # TensorBoard
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    writer = SummaryWriter(f'runs/mobius_quantum_ring_{timestamp}')
+    
+    # 训练循环
+    best_acc = 0.0
+    start_epoch = 0
+    
+    # 恢复训练
+    if args.resume:
+        if os.path.exists(args.resume):
+            checkpoint = torch.load(args.resume, map_location=device)
+            model.load_state_dict(checkpoint['model_state_dict'])
+            if (not args.use_hamiltonian) and (not args.use_eqprop):
+                optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            start_epoch = checkpoint['epoch'] + 1
+            best_acc = checkpoint.get('best_acc', 0.0)
+            logging.info(f'Resumed from epoch {start_epoch}, best_acc={best_acc:.2f}%')
+        else:
+            logging.warning(f'Checkpoint {args.resume} not found, starting from scratch')
+    
+    logging.info(f'Starting training for {args.epochs} epochs...')
+    
+    try:
+        for epoch in range(start_epoch, args.epochs):
+            start_time = time.time()
+            
+            # 训练
+            # In eqprop mode, compute a cosine lr manually (matching the scheduler behavior)
+            eqprop_lr = args.lr
+            if args.use_eqprop:
+                # cosine anneal to lr*0.01
+                t = epoch / max(1, args.epochs)
+                eqprop_lr = (args.lr * 0.01) + 0.5 * (args.lr - args.lr * 0.01) * (1.0 + math.cos(math.pi * t))
+            train_results = train_epoch(
+                model,
+                train_loader,
+                optimizer,
+                criterion,
+                device,
+                epoch,
+                use_hamiltonian=args.use_hamiltonian,
+                use_eqprop=args.use_eqprop,
+                eqprop_lr=eqprop_lr,
+                eqprop_unitary_lr_ratio=args.eqprop_unitary_lr_ratio,
+                eqprop_injection_lr_ratio=args.eqprop_injection_lr_ratio,
+                eqprop_readout_lr_ratio=args.eqprop_readout_lr_ratio,
+                eqprop_adjoint_steps=args.eqprop_adjoint_steps,
+                eqprop_state_target_weight=args.eqprop_state_target_weight,
+                eqprop_state_target_lr_ratio=args.eqprop_state_target_lr_ratio,
+                mixup_alpha=args.mixup_alpha,
+                mixup_prob=args.mixup_prob,
+                ortho_loss_weight=args.ortho_loss_weight
+            )
+            
+            # 评估
+            eval_results = evaluate(model, test_loader, criterion, device)
+            
+            # 更新学习率
+            if scheduler is not None:
+                scheduler.step()
+            
+            epoch_time = time.time() - start_time
+            
+            # 记录日志
+            logging.info(
+                f'Epoch {epoch}: '
+                f'Train Acc: {train_results["accuracy"]:.2f}%, '
+                f'Test Acc: {eval_results["accuracy"]:.2f}%, '
+                f'Train Loss: {train_results["loss"]:.4f}, '
+                f'Test Loss: {eval_results["loss"]:.4f}, '
+                f'Ortho Loss: {train_results["ortho_loss"]:.6f}, '
+                f'Time: {epoch_time:.1f}s'
+            )
+            
+            # TensorBoard记录
+            global_step = epoch * len(train_loader)
+            writer.add_scalar('Loss/Train', train_results['loss'], global_step)
+            writer.add_scalar('Loss/Test', eval_results['loss'], global_step)
+            writer.add_scalar('Loss/Ortho', train_results['ortho_loss'], global_step)
+            writer.add_scalar('Accuracy/Train', train_results['accuracy'], global_step)
+            writer.add_scalar('Accuracy/Test', eval_results['accuracy'], global_step)
+            writer.add_scalar('Accuracy/Test_ClassAvg', eval_results['avg_class_accuracy'], global_step)
+            
+            # 保存最佳模型
+            if eval_results['accuracy'] > best_acc:
+                best_acc = eval_results['accuracy']
+                checkpoint = {
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'best_acc': best_acc,
+                    'config': {
+                        'embed_dim': args.embed_dim,
+                        'depth': args.depth,
+                        'num_heads': args.num_heads
+                    }
+                }
+                if (not args.use_hamiltonian) and (not args.use_eqprop):
+                    checkpoint['optimizer_state_dict'] = optimizer.state_dict()
+                
+                save_path = os.path.join(args.save_dir, 'mobius_quantum_ring_best.pth')
+                torch.save(checkpoint, save_path)
+                logging.info(f'New best model saved: {best_acc:.2f}% accuracy')
+            
+            # 定期保存检查点
+            if (epoch + 1) % args.save_freq == 0:
+                checkpoint = {
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'best_acc': best_acc,
+                    'config': {
+                        'embed_dim': args.embed_dim,
+                        'depth': args.depth,
+                        'num_heads': args.num_heads
+                    }
+                }
+                if (not args.use_hamiltonian) and (not args.use_eqprop):
+                    checkpoint['optimizer_state_dict'] = optimizer.state_dict()
+                
+                save_path = os.path.join(args.save_dir, f'checkpoint_epoch_{epoch}.pth')
+                torch.save(checkpoint, save_path)
+                logging.info(f'Checkpoint saved: {save_path}')
+    
+    except KeyboardInterrupt:
+        logging.info('Training interrupted by user')
+    
+    except Exception as e:
+        logging.error(f'Training failed: {e}')
+        raise
+    
+    finally:
+        writer.close()
+        logging.info(f'Training completed! Best accuracy: {best_acc:.2f}%')
+    
+    return best_acc
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Train Möbius Quantum Ring on CIFAR-100')
+    
+    # 模型参数
+    parser.add_argument('--embed-dim', type=int, default=384, help='Embedding dimension')
+    parser.add_argument('--depth', type=int, default=12, help='Number of transformer layers')
+    parser.add_argument('--num-heads', type=int, default=8, help='Number of attention heads')
+    parser.add_argument('--relaxation-steps', type=int, default=None,
+                       help='Alias of --depth for MQR fixed-point relaxation steps K (if set, overrides --depth)')
+    parser.add_argument('--alpha', type=float, default=0.1,
+                       help='Dissipation/injection coefficient alpha in (0,1]')
+    parser.add_argument('--lora-rank', type=int, default=16,
+                       help='LoRA injection rank r for J(x)=W_up W_down x')
+    parser.add_argument('--readout-dim', type=int, default=16,
+                       help='Local projective sampling size |S| (default: first k nodes)')
+    parser.add_argument('--readout-mode', type=str, default='linear', choices=['linear', 'proto'],
+                       help='Readout mode: linear local readout, or prototype-distance logits (proto). '
+                            'Proto mode requires --eqprop-learnable-state-targets.')
+    parser.add_argument('--proto-tau', type=float, default=1.0,
+                       help='Temperature tau for prototype-distance logits (proto readout).')
+    
+    # 训练参数
+    parser.add_argument('--epochs', type=int, default=200, help='Number of training epochs')
+    parser.add_argument('--batch-size', type=int, default=64, help='Batch size')
+    parser.add_argument('--lr', type=float, default=3e-4, help='Learning rate')
+    parser.add_argument('--weight-decay', type=float, default=0.05, help='Weight decay')
+    parser.add_argument('--unitary-lr-ratio', type=float, default=0.5,
+                       help='Learning rate ratio for unitary parameters')
+    
+    # 哈密顿优化
+    parser.add_argument('--use-hamiltonian', action='store_true',
+                       help='Use Hamiltonian optimizer instead of AdamW')
+    parser.add_argument('--use-eqprop', action='store_true',
+                       help='Strict HTML mode: Holomorphic Equilibrium Propagation (no BPTT/autograd through relaxation)')
+    parser.add_argument('--eqprop-adjoint-steps', type=int, default=20,
+                       help='Adjoint fixed-point solver iterations (h^dagger) for eqprop mode')
+    parser.add_argument('--eqprop-unitary-lr-ratio', type=float, default=0.5,
+                       help='LR ratio for unitary manifold parameters (A_real/A_imag) in eqprop mode')
+    parser.add_argument('--eqprop-injection-lr-ratio', type=float, default=1.0,
+                       help='LR ratio for LoRA injection parameters in eqprop mode')
+    parser.add_argument('--eqprop-readout-lr-ratio', type=float, default=1.0,
+                       help='LR ratio for readout parameters in eqprop mode')
+    parser.add_argument('--eqprop-learnable-state-targets', action='store_true',
+                       help='Enable learnable GT equilibrium targets (class prototypes in hidden state space)')
+    parser.add_argument('--eqprop-state-target-weight', type=float, default=0.0,
+                       help='Weight for GT equilibrium-state matching loss in hidden space (requires --eqprop-learnable-state-targets)')
+    parser.add_argument('--eqprop-state-target-lr-ratio', type=float, default=1.0,
+                       help='LR ratio for GT equilibrium target parameters in eqprop mode')
+
+    # Dual-unitary / frozen world-model unitary
+    parser.add_argument('--base-unitary-init', type=str, default='identity', choices=['identity', 'random'],
+                       help='Frozen world-model unitary U_base initialization (identity=backward compatible)')
+    parser.add_argument('--base-unitary-scale', type=float, default=0.01,
+                       help='Scale for random U_base init (Cayley skew-Hermitian scale)')
+    parser.add_argument('--base-unitary-seed', type=int, default=None,
+                       help='Seed for random U_base init (for reproducibility)')
+    
+    # Mixup参数
+    parser.add_argument('--mixup-alpha', type=float, default=0.2, help='Mixup alpha parameter')
+    parser.add_argument('--mixup-prob', type=float, default=0.5, help='Mixup probability')
+    
+    # 正交约束
+    parser.add_argument('--ortho-loss-weight', type=float, default=0.01,
+                       help='Weight for orthogonal constraint loss')
+    
+    # 其他参数
+    parser.add_argument('--num-workers', type=int, default=4, help='Number of data loading workers')
+    parser.add_argument('--save-dir', default='./checkpoints', help='Directory to save checkpoints')
+    parser.add_argument('--save-freq', type=int, default=20, help='Save checkpoint every N epochs')
+    parser.add_argument('--resume', type=str, default=None, help='Path to checkpoint to resume from')
+    
+    args = parser.parse_args()
+    
+    # 打印配置
+    logging.info('=' * 60)
+    logging.info('Möbius Quantum Ring Training Configuration')
+    logging.info('=' * 60)
+    for arg in vars(args):
+        logging.info(f'{arg}: {getattr(args, arg)}')
+    logging.info('=' * 60)
+    
+    # 开始训练
+    best_accuracy = train_mobius_quantum_ring(args)
+    logging.info(f'Final best accuracy: {best_accuracy:.2f}%')
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,190 @@
+{
+  "sessions": [
+    {
+      "id": "3f221d57-0a88-4029-b482-acfb26b4806b",
+      "name": "Session 1",
+      "created": 1767749989491,
+      "lastModified": 1767750004999,
+      "snapshots": [
+        {
+          "id": "7d770c8a-9765-4a05-82a3-062f82e45e3b",
+          "timestamp": 1767749989493,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/mqr/ring.py",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/7d770c8a-9765-4a05-82a3-062f82e45e3b/ring.py",
+          "fileSize": 30044,
+          "fileHash": "85eaa4843a2c1aefc0fa2904cef878774a25ef2b3176d7dccffae12200b5fd23",
+          "prompt": "Pre-nonlinearity-fix snapshot: mqr/ring.py",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: mqr/ring.py [删除代码] ring.py 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "102ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        },
+        {
+          "id": "4a3d0d88-3799-434e-84a3-4ca0cd4f5f5b",
+          "timestamp": 1767749997992,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/mqr/unitary.py",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/4a3d0d88-3799-434e-84a3-4ca0cd4f5f5b/unitary.py",
+          "fileSize": 2504,
+          "fileHash": "de99b91a8e9ad3a233e3512a5c1118117ef50c71d6a2b34a39ba60d968d5c868",
+          "prompt": "Pre-nonlinearity-fix snapshot: mqr/unitary.py",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: mqr/unitary.py [删除代码] unitary.py 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "101ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        },
+        {
+          "id": "c9e2cdba-12d2-403d-a6a4-d48759439edb",
+          "timestamp": 1767749999372,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/train_mobius_cifar100.py",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/c9e2cdba-12d2-403d-a6a4-d48759439edb/train_mobius_cifar100.py",
+          "fileSize": 25792,
+          "fileHash": "ce5a13795f9c104198ce4c3d1f9fb4ddfb8c01a5eb520565852bb6e9130a540c",
+          "prompt": "Pre-nonlinearity-fix snapshot: train_mobius_cifar100.py",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: train_mobius_cif... [删除代码] train_mobius_cifar100.py 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "102ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        },
+        {
+          "id": "39c54791-9aa6-4367-a4ac-f292241a915e",
+          "timestamp": 1767750000665,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/test_mobius_model.py",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/39c54791-9aa6-4367-a4ac-f292241a915e/test_mobius_model.py",
+          "fileSize": 13889,
+          "fileHash": "6dacab0a89904ded627a56030836f7bc199ca888f97ea7cff111f8bb150b49b1",
+          "prompt": "Pre-nonlinearity-fix snapshot: test_mobius_model.py",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: test_mobius_mode... [删除代码] test_mobius_model.py 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "101ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        },
+        {
+          "id": "f3aeb3da-c345-4142-a483-cb45037cd008",
+          "timestamp": 1767750002189,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/paper/mqr_arxiv.tex",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/f3aeb3da-c345-4142-a483-cb45037cd008/mqr_arxiv.tex",
+          "fileSize": 40764,
+          "fileHash": "fac488be515607b3181f1fc485d85a5f268391a796cded61f1bd3a5b453e9d70",
+          "prompt": "Pre-nonlinearity-fix snapshot: paper/mqr_arxiv.tex",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: paper/mqr_arxiv.tex [删除代码] mqr_arxiv.tex 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "101ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        },
+        {
+          "id": "4ad3c6ec-ac0d-4c73-a96c-71875ee80a00",
+          "timestamp": 1767750003579,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/README.md",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/4ad3c6ec-ac0d-4c73-a96c-71875ee80a00/README.md",
+          "fileSize": 11143,
+          "fileHash": "d76231818c2de853fe27fbd8a94d4bfa314e4e4b70f4a3e131c47d23d0a2241a",
+          "prompt": "Pre-nonlinearity-fix snapshot: README.md",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: README.md [删除代码] README.md 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "101ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        },
+        {
+          "id": "4c4571dc-adfc-415b-9727-475d2c500832",
+          "timestamp": 1767750004999,
+          "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/CHANGELOG.md",
+          "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/4c4571dc-adfc-415b-9727-475d2c500832/CHANGELOG.md",
+          "fileSize": 3088,
+          "fileHash": "0f55b6a0eb74e843ec5979770bf98c66c6f6e8b7ef3bdd88841f4d50b2aabd51",
+          "prompt": "Pre-nonlinearity-fix snapshot: CHANGELOG.md",
+          "aiSummary": "Pre-nonlinearity-fix snapshot: CHANGELOG.md [删除代码] CHANGELOG.md 🟡",
+          "changeAnalysis": {
+            "added": 0,
+            "deleted": 0,
+            "modified": 0,
+            "complexity": "medium",
+            "intent": "删除代码",
+            "impact": "功能简化"
+          },
+          "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+          "metadata": {
+            "asyncAnalysis": false,
+            "analysisTime": "101ms",
+            "serenaUsed": true,
+            "llmUsed": true
+          }
+        }
+      ],
+      "currentSnapshotId": "4c4571dc-adfc-415b-9727-475d2c500832"
+    }
+  ],
+  "version": "2.0.0",
+  "currentSessionId": "3f221d57-0a88-4029-b482-acfb26b4806b"
+}

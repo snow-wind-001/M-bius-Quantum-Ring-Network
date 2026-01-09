@@ -1,0 +1,25 @@
+{
+  "id": "f3aeb3da-c345-4142-a483-cb45037cd008",
+  "timestamp": 1767750002189,
+  "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/paper/mqr_arxiv.tex",
+  "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/f3aeb3da-c345-4142-a483-cb45037cd008/mqr_arxiv.tex",
+  "fileSize": 40764,
+  "fileHash": "fac488be515607b3181f1fc485d85a5f268391a796cded61f1bd3a5b453e9d70",
+  "prompt": "Pre-nonlinearity-fix snapshot: paper/mqr_arxiv.tex",
+  "aiSummary": "Pre-nonlinearity-fix snapshot: paper/mqr_arxiv.tex [删除代码] mqr_arxiv.tex 🟡",
+  "changeAnalysis": {
+    "added": 0,
+    "deleted": 0,
+    "modified": 0,
+    "complexity": "medium",
+    "intent": "删除代码",
+    "impact": "功能简化"
+  },
+  "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+  "metadata": {
+    "asyncAnalysis": false,
+    "analysisTime": "101ms",
+    "serenaUsed": true,
+    "llmUsed": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "4ad3c6ec-ac0d-4c73-a96c-71875ee80a00",
+  "timestamp": 1767750003579,
+  "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/README.md",
+  "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/4ad3c6ec-ac0d-4c73-a96c-71875ee80a00/README.md",
+  "fileSize": 11143,
+  "fileHash": "d76231818c2de853fe27fbd8a94d4bfa314e4e4b70f4a3e131c47d23d0a2241a",
+  "prompt": "Pre-nonlinearity-fix snapshot: README.md",
+  "aiSummary": "Pre-nonlinearity-fix snapshot: README.md [删除代码] README.md 🟡",
+  "changeAnalysis": {
+    "added": 0,
+    "deleted": 0,
+    "modified": 0,
+    "complexity": "medium",
+    "intent": "删除代码",
+    "impact": "功能简化"
+  },
+  "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+  "metadata": {
+    "asyncAnalysis": false,
+    "analysisTime": "101ms",
+    "serenaUsed": true,
+    "llmUsed": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "39c54791-9aa6-4367-a4ac-f292241a915e",
+  "timestamp": 1767750000665,
+  "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/test_mobius_model.py",
+  "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/39c54791-9aa6-4367-a4ac-f292241a915e/test_mobius_model.py",
+  "fileSize": 13889,
+  "fileHash": "6dacab0a89904ded627a56030836f7bc199ca888f97ea7cff111f8bb150b49b1",
+  "prompt": "Pre-nonlinearity-fix snapshot: test_mobius_model.py",
+  "aiSummary": "Pre-nonlinearity-fix snapshot: test_mobius_mode... [删除代码] test_mobius_model.py 🟡",
+  "changeAnalysis": {
+    "added": 0,
+    "deleted": 0,
+    "modified": 0,
+    "complexity": "medium",
+    "intent": "删除代码",
+    "impact": "功能简化"
+  },
+  "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+  "metadata": {
+    "asyncAnalysis": false,
+    "analysisTime": "101ms",
+    "serenaUsed": true,
+    "llmUsed": true
+  }
+}

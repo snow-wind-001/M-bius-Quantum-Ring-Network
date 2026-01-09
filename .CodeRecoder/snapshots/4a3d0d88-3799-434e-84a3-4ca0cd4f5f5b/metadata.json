@@ -1,0 +1,25 @@
+{
+  "id": "4a3d0d88-3799-434e-84a3-4ca0cd4f5f5b",
+  "timestamp": 1767749997992,
+  "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/mqr/unitary.py",
+  "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/4a3d0d88-3799-434e-84a3-4ca0cd4f5f5b/unitary.py",
+  "fileSize": 2504,
+  "fileHash": "de99b91a8e9ad3a233e3512a5c1118117ef50c71d6a2b34a39ba60d968d5c868",
+  "prompt": "Pre-nonlinearity-fix snapshot: mqr/unitary.py",
+  "aiSummary": "Pre-nonlinearity-fix snapshot: mqr/unitary.py [删除代码] unitary.py 🟡",
+  "changeAnalysis": {
+    "added": 0,
+    "deleted": 0,
+    "modified": 0,
+    "complexity": "medium",
+    "intent": "删除代码",
+    "impact": "功能简化"
+  },
+  "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+  "metadata": {
+    "asyncAnalysis": false,
+    "analysisTime": "101ms",
+    "serenaUsed": true,
+    "llmUsed": true
+  }
+}

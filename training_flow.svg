@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="inferGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="adjointGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="updateGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowPurple2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a78bfa"/>
+    </marker>
+    <marker id="arrowGreen2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#34d399"/>
+    </marker>
+  </defs>
+  
+  <rect width="1000" height="650" fill="url(#bgGrad2)"/>
+  
+  <!-- Title -->
+  <text x="500" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Möbius Quantum Ring Training Flow</text>
+  <text x="500" y="65" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">Holomorphic Equilibrium Propagation (EQPROP Mode)</text>
+  
+  <!-- Phase 1: Inference Ring (Real Domain) -->
+  <g transform="translate(160, 200)">
+    <rect x="-140" y="-80" width="280" height="160" rx="15" fill="#1e293b" stroke="url(#inferGrad)" stroke-width="3"/>
+    <text x="0" y="-55" font-family="Arial, sans-serif" font-size="14" fill="#60a5fa" text-anchor="middle" font-weight="bold">Phase 1: Inference Ring</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">(Real Domain - Relaxation)</text>
+    
+    <text x="-110" y="-5" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">1. Compute H = |U|²</text>
+    <text x="-110" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">2. Inject J(x) = W_up·W_down·x</text>
+    <text x="-110" y="35" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">3. Relaxation loop (K steps):</text>
+    <text x="-90" y="55" font-family="monospace" font-size="12" fill="#60a5fa">h ← (1-α)h·Hᵀ + α·J(x)</text>
+    <text x="-110" y="75" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">4. Output: h* (fixed point)</text>
+  </g>
+  
+  <!-- Phase 2: Loss Computation -->
+  <g transform="translate(500, 200)">
+    <rect x="-100" y="-80" width="200" height="160" rx="15" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+    <text x="0" y="-55" font-family="Arial, sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" font-weight="bold">Phase 2: Loss & Gradient</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">(Output Layer)</text>
+    
+    <text x="-80" y="-5" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">1. y = W_readout·h*_S</text>
+    <text x="-80" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">2. L = CrossEntropy(y, target)</text>
+    <text x="-80" y="35" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">3. Compute ∂L/∂y</text>
+    <text x="-80" y="55" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">4. Map to ∇_h* L</text>
+    <text x="-80" y="75" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">(via readout Jacobian)</text>
+  </g>
+  
+  <!-- Phase 3: Adjoint State (Complex Domain) -->
+  <g transform="translate(840, 200)">
+    <rect x="-140" y="-80" width="280" height="160" rx="15" fill="#1e293b" stroke="url(#adjointGrad)" stroke-width="3"/>
+    <text x="0" y="-55" font-family="Arial, sans-serif" font-size="14" fill="#a78bfa" text-anchor="middle" font-weight="bold">Phase 3: Adjoint Ring</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">(Reverse Dynamics)</text>
+    
+    <text x="-115" y="-5" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">1. Init h† = 0</text>
+    <text x="-115" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">2. Adjoint relaxation (K steps):</text>
+    <text x="-95" y="35" font-family="monospace" font-size="12" fill="#a78bfa">h† ← (1-α)h†·H + α·∇_h*L</text>
+    <text x="-115" y="55" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">3. Compute ∂L/∂H ≈ h†⊗h*</text>
+    <text x="-115" y="75" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">(Outer product approximation)</text>
+  </g>
+  
+  <!-- Phase 4: Manifold Update -->
+  <g transform="translate(500, 470)">
+    <rect x="-200" y="-80" width="400" height="160" rx="15" fill="#1e293b" stroke="url(#updateGrad)" stroke-width="3"/>
+    <text x="0" y="-55" font-family="Arial, sans-serif" font-size="14" fill="#34d399" text-anchor="middle" font-weight="bold">Phase 4: Unitary Manifold Update</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">(Lie Algebra Phase Rotation)</text>
+    
+    <text x="-180" y="-5" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">1. Get current U from Cayley: U = (I-A)(I+A)⁻¹</text>
+    <text x="-180" y="15" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">2. Map gradient to Lie algebra:</text>
+    <text x="-150" y="35" font-family="monospace" font-size="11" fill="#34d399">inner = (∂L/∂H) ⊙ H</text>
+    <text x="-150" y="52" font-family="monospace" font-size="11" fill="#34d399">M = U† · inner</text>
+    <text x="-150" y="69" font-family="monospace" font-size="11" fill="#34d399">ΔA = skew(M) = (M - M†)/2</text>
+    <text x="-180" y="90" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">3. Update parameters: A ← A - lr·ΔA</text>
+  </g>
+  
+  <!-- Arrows connecting phases -->
+  <path d="M 300,200 L 395,200" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="345" y="190" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">h*</text>
+  
+  <path d="M 600,200 L 695,200" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="645" y="190" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">∇_h*L</text>
+  
+  <path d="M 840,280 L 840,340 L 700,340 L 700,385" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowPurple2)"/>
+  <text x="750" y="335" font-family="Arial, sans-serif" font-size="10" fill="#a78bfa">h†, ∂L/∂H</text>
+  
+  <path d="M 160,280 L 160,390 L 300,390" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="200" y="380" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa">h*</text>
+  
+  <!-- Loop back arrow -->
+  <path d="M 500,550 L 500,600 L 80,600 L 80,200 L 20,200" stroke="#34d399" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="280" y="615" font-family="Arial, sans-serif" font-size="11" fill="#34d399">Next iteration (Updated U)</text>
+  
+  <!-- Mode comparison box -->
+  <g transform="translate(850, 520)">
+    <rect x="-120" y="-60" width="240" height="120" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+    <text x="0" y="-40" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">Training Modes</text>
+    <text x="-100" y="-18" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa">• EQPROP: No BPTT through ring</text>
+    <text x="-100" y="0" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b">• AdamW: Standard autograd</text>
+    <text x="-100" y="18" font-family="Arial, sans-serif" font-size="10" fill="#a78bfa">• Hamiltonian: Symplectic update</text>
+    <text x="-100" y="42" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Cosine LR schedule (η_min=0.01η)</text>
+  </g>
+  
+  <!-- Key equations box -->
+  <g transform="translate(120, 520)">
+    <rect x="-100" y="-60" width="200" height="120" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+    <text x="0" y="-40" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">Key Equations</text>
+    <text x="-85" y="-18" font-family="monospace" font-size="9" fill="#60a5fa">U = (I-A)(I+A)⁻¹</text>
+    <text x="-85" y="0" font-family="monospace" font-size="9" fill="#a78bfa">H = |U|² (doubly stoch.)</text>
+    <text x="-85" y="18" font-family="monospace" font-size="9" fill="#34d399">A = skew-Hermitian</text>
+    <text x="-85" y="36" font-family="monospace" font-size="9" fill="#fbbf24">α ∈ (0,1] injection coef</text>
+  </g>
+</svg>

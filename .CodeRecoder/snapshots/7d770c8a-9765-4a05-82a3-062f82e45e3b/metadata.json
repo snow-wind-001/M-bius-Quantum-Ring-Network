@@ -1,0 +1,25 @@
+{
+  "id": "7d770c8a-9765-4a05-82a3-062f82e45e3b",
+  "timestamp": 1767749989493,
+  "originalPath": "/home/spikebai/owncode/MöbiusQuantumRing/mqr/ring.py",
+  "snapshotPath": "/home/spikebai/owncode/MöbiusQuantumRing/.CodeRecoder/snapshots/7d770c8a-9765-4a05-82a3-062f82e45e3b/ring.py",
+  "fileSize": 30044,
+  "fileHash": "85eaa4843a2c1aefc0fa2904cef878774a25ef2b3176d7dccffae12200b5fd23",
+  "prompt": "Pre-nonlinearity-fix snapshot: mqr/ring.py",
+  "aiSummary": "Pre-nonlinearity-fix snapshot: mqr/ring.py [删除代码] ring.py 🟡",
+  "changeAnalysis": {
+    "added": 0,
+    "deleted": 0,
+    "modified": 0,
+    "complexity": "medium",
+    "intent": "删除代码",
+    "impact": "功能简化"
+  },
+  "sessionId": "3f221d57-0a88-4029-b482-acfb26b4806b",
+  "metadata": {
+    "asyncAnalysis": false,
+    "analysisTime": "102ms",
+    "serenaUsed": true,
+    "llmUsed": true
+  }
+}
