@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-09-09
+
+- Added signed cyclic Givens propagation with sparse forward/inverse operations,
+  correct L2 and drift diagnostics, and an identity path without dense identity multiplication.
+- Added causal Go feedback windows, exact pending-window recovery, current-output
+  OGD consolidation, and optional ring modulation of frozen spatial features.
+- Added small-model Go comparisons and an evolving-game online entry point with
+  checkpoint continuation. Five paired seeds show about 50% / 61% less old-task
+  NLL increase with OGD in the global/spatial variants, at a cost to new-task adaptation.
+  Signed rings do not beat identity controls; Go strength improvement is not established.
+- Recorded eight live training games with 268 feedback positions and 38 updates,
+  including checkpoint continuation and a Sayuri policy teacher; all games were lost.
+- Added structural proofs, reachable-subspace diagnostics, ten passing root test
+  suites, result recomputation, full recorded-game replay, and a plotted research report.
+- Added a native CodeRecoder snapshot/verification helper. Fixed and tested a
+  manifest sorting inconsistency in the local companion CodeRecoder checkout;
+  that tool repair is separate from this repository.
+
 ## 2026-09-01
 
 - **Unknown contextual topology gate**:

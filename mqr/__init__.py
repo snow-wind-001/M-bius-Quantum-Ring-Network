@@ -46,6 +46,7 @@ from .utility import (
     UtilityDrivenMQR,
 )
 from .go import GoBoard, HeuristicGoTeacher
+from .go_online import GoOnlineSession, SpatialRingGoAgent, consolidate_task_memory
 from .go_agent import (
     GoAgentExample,
     GoAgentTrajectory,
@@ -115,6 +116,9 @@ __all__ = [
     "UtilityDrivenMQR",
     "GoBoard",
     "HeuristicGoTeacher",
+    "GoOnlineSession",
+    "SpatialRingGoAgent",
+    "consolidate_task_memory",
     "GoAgentExample",
     "GoAgentTrajectory",
     "GoVectorEncoder",

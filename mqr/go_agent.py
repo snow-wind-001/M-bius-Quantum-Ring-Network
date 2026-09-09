@@ -202,11 +202,14 @@ def generate_go_agent_trajectories(
     random_move_probability: float = 0.35,
     teacher: Optional[HeuristicGoTeacher] = None,
 ) -> List[GoAgentTrajectory]:
-    """Generate actual legal games and attach final-outcome value targets.
+    """Generate legal game prefixes with score-at-cutoff value targets.
 
     ``start_random_moves`` creates a distribution shift without an explicit task
     marker.  It is used for the tactical second phase in continual-learning
     tests, whereas the opening phase starts from an empty board.
+    ``winner`` and ``value_target`` use area at the recorded move limit; they
+    are terminal outcomes only when the board has actually terminated. Online
+    policy studies should omit these values when testing delayed game rewards.
     """
 
     if episode_count <= 0 or recorded_moves <= 0 or start_random_moves < 0:

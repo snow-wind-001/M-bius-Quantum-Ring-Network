@@ -1,0 +1,52 @@
+{
+  "seed": 909,
+  "dtype": "float64",
+  "signed_gradient_norm_at_identity": 2.4550640488809687,
+  "squared_gradient_norm_at_identity": 0.0,
+  "orthogonality_error": 4.282284117547757e-16,
+  "isotropic_stationary_covariance_error": 2.220446049250313e-16,
+  "damped_norm_error_32_steps": 6.661338147750939e-16,
+  "ogd_first_order_overlap": 4.85722573273506e-17,
+  "ogd_basis_orthogonality_error": 4.787585377895478e-16,
+  "ogd_retained_norm": 0.7617114157036221,
+  "low_rank_injection_reachability": {
+    "identity": {
+      "rank": 4,
+      "normalized_smallest_singular_value": 1.3038190748918204e-16,
+      "state_dimension": 8,
+      "injection_rank": 4,
+      "horizon": 32
+    },
+    "unistochastic": {
+      "rank": 8,
+      "normalized_smallest_singular_value": 0.054603170696062284,
+      "state_dimension": 8,
+      "injection_rank": 4,
+      "horizon": 32
+    },
+    "signed_givens": {
+      "rank": 8,
+      "normalized_smallest_singular_value": 0.46662674279071614,
+      "state_dimension": 8,
+      "injection_rank": 4,
+      "horizon": 32
+    },
+    "cyclic_shift": {
+      "rank": 8,
+      "normalized_smallest_singular_value": 0.5306486705497705,
+      "state_dimension": 8,
+      "injection_rank": 4,
+      "horizon": 32
+    },
+    "mobius_twisted_shift": {
+      "rank": 8,
+      "normalized_smallest_singular_value": 0.5084181798158859,
+      "state_dimension": 8,
+      "injection_rank": 4,
+      "horizon": 32
+    }
+  },
+  "stability_assumptions": "orthogonal carry; exogenous bounded writes; no state-dependent write feedback",
+  "covariance_assumptions": "zero-mean isotropic forcing, independent of previous state",
+  "performance_or_novelty_claim": false
+}

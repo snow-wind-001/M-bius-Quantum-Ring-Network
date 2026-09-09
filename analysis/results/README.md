@@ -233,6 +233,33 @@ diagnostics, not headline evidence. Interpret all multi-game metrics with
 `analysis/minicpm_go_real_games_report.md`; externally masked played-move
 legality is never evidence of internal rule learning.
 
+The 2026-09-09 signed-ring online Go study has the following canonical artifacts:
+
+- `orthogonal_go_online_5seed.json`: global readout, nine controls, five paired
+  seeds (17, 29, 43, 71, 101). The two `seeds_*` files are its original shards.
+- `orthogonal_go_online_spatial_5seed.json`: four spatial-modulation controls
+  on the same five seeds; report it separately from global readout.
+- `orthogonal_go_online_5seed_audit.json` and
+  `orthogonal_go_online_spatial_5seed_audit.json`: recomputed summaries, source
+  hashes, feedback-budget checks, and legal replay of all recorded evaluation games.
+  Reproduce with `analysis/orthogonal_go_online_verify.py`.
+- `orthogonal_ring_verification.json`: float64 structural and first-order OGD
+  checks, plus a low-rank input reachability diagnostic. It is not Go evidence.
+- `live_online_go_17.json`, `live_online_go_resumed_17.json`, and
+  `live_online_go_sayuri_17.json`: eight live supervised training games with
+  268 feedback positions and 38 parameter updates. All eight were lost.
+  `live_online_go_audit.json` replays legality, scores, and version continuation;
+  it does not recompute neural predictions. These are not held-out evaluations.
+- `orthogonal_go_online*development*.json`: seed 7 development diagnostics,
+  excluded from the five-seed summaries.
+
+Interpret these with `analysis/orthogonal_online_go_report.md`. OGD reduces
+old-task NLL increase but impairs new-task adaptation; signed rings do not
+establish an advantage over identity controls or improve Go strength reliably.
+Intervals are descriptive bootstrap intervals across five seeds. Total compute
+and parameter budgets are disclosed rather than exactly matched. Local trained
+states for these runs are under the ignored `checkpoints/` directory.
+
 JSON metrics contain model and teacher paths for local reproducibility but do
 not embed either checkpoint. Trainable `.pt` states are written under the
 git-ignored `.external/mqr-checkpoints/` directory.

@@ -66,7 +66,7 @@ class OrthogonalRingTests(unittest.TestCase):
         audit = core.transition_drift_diagnostics(0, reference)
         self.assertAlmostEqual(
             audit["transition_fro_drift"],
-            float((core.transition_matrix(0) - before).norm()), places=12,
+            float((core.transition_matrix(0) - before).detach().norm()), places=12,
         )
         self.assertTrue(audit["bounds_certified"])
 

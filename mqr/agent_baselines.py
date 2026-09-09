@@ -731,6 +731,8 @@ def estimate_core_forward_macs(core: nn.Module) -> int:
     transition = active_carry * core.ring_dim * core.ring_dim
     if core.transition_mode == "orthogonal":
         transition = active_carry * 2 * core.cyclic_givens_layers * core.ring_dim
+    elif core.transition_mode == "identity":
+        transition = 0
     readout = core.total_state_dim * core.output_dim
     # H is cached for no-grad inference and invalidated by tensor version
     # counters after a coordinate update.  Refresh cost is charged separately

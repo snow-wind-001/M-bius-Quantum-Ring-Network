@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "rules": {
+    "size": 5,
+    "komi": 2.5,
+    "window": 8,
+    "max_moves": 120
+  },
+  "records": {
+    "analysis/results/live_online_go_17.json": {
+      "valid": true,
+      "teacher": "heuristic",
+      "games": 4,
+      "first_game": 0,
+      "next_game": 4,
+      "first_parameter_version": 140,
+      "next_parameter_version": 161,
+      "feedback_positions": 146,
+      "parameter_updates": 21,
+      "terminated_games": 4,
+      "terminal_wins": 0,
+      "sha256": "a7940fd7835007ab197b1e64021aac780b6070096fac74355101bd6c2cbd345b"
+    },
+    "analysis/results/live_online_go_resumed_17.json": {
+      "valid": true,
+      "teacher": "heuristic",
+      "games": 2,
+      "first_game": 4,
+      "next_game": 6,
+      "first_parameter_version": 161,
+      "next_parameter_version": 171,
+      "feedback_positions": 73,
+      "parameter_updates": 10,
+      "terminated_games": 2,
+      "terminal_wins": 0,
+      "sha256": "8d6cd2bc4d9787c6260d5e870450a5593c1c9ef3c5d4264e976706f19306f922"
+    },
+    "analysis/results/live_online_go_sayuri_17.json": {
+      "valid": true,
+      "teacher": "sayuri",
+      "games": 2,
+      "first_game": 0,
+      "next_game": 2,
+      "first_parameter_version": 140,
+      "next_parameter_version": 147,
+      "feedback_positions": 49,
+      "parameter_updates": 7,
+      "terminated_games": 2,
+      "terminal_wins": 0,
+      "sha256": "2926a8717a9428ee865fda0a11fbd908c648df03b3ecfa1af2cc7000683fc201"
+    }
+  },
+  "continuations": [
+    {
+      "from": "analysis/results/live_online_go_17.json",
+      "to": "analysis/results/live_online_go_resumed_17.json",
+      "valid": true
+    }
+  ],
+  "neural_predictions_recomputed": false,
+  "held_out_strength_claim": false
+}

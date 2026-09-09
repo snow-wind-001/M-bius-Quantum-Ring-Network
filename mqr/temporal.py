@@ -759,6 +759,9 @@ class MultiTimescaleMQR(nn.Module):
                 # not solve Cayley or allocate a dense matmul to a dead path.
                 transition = None
                 value = torch.zeros_like(previous)
+            elif self.transition_mode == "identity":
+                transition = None
+                value = (1.0 - leak) * previous
             elif self.transition_mode == "orthogonal":
                 parameter = self.unitary_params[index]
                 value = (1.0 - leak) * parameter.apply_orthogonal(previous)

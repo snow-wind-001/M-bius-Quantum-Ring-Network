@@ -937,6 +937,12 @@ class TemporalUtilityMQRAgent(nn.Module):
             "count": 0,
         }
 
+    def _causal_state_output(
+        self, state: TemporalMQRState, previous_input: Optional[torch.Tensor]
+    ) -> GoMultiHeadOutput:
+        """State-only default; spatially conditioned agents can use past input."""
+        return self.readout_state(state)
+
     def _causal_features(
         self,
         x: torch.Tensor,
@@ -961,7 +967,7 @@ class TemporalUtilityMQRAgent(nn.Module):
                 x,
                 history["previous_input"].to(device=x.device, dtype=x.dtype),
             )
-        previous_output = self.readout_state(state)
+        previous_output = self._causal_state_output(state, history["previous_input"])
         policy = F.softmax(previous_output.policy_logits, dim=1)
         uncertainty = -(
             policy * policy.clamp_min(1e-12).log()

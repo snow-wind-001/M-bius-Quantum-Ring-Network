@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "seeds": [
+    17,
+    29,
+    43,
+    71,
+    101
+  ],
+  "methods": [
+    "frozen",
+    "spatial_sgd",
+    "stateless",
+    "identity",
+    "unistochastic",
+    "orthogonal",
+    "orthogonal_ogd",
+    "identity_ogd",
+    "gru"
+  ],
+  "paired_diagnostics": {
+    "ogd_reduction_in_old_task_nll_change": {
+      "mean": 0.005634311695272754,
+      "ci95": [
+        0.00256866286508739,
+        0.008797016801933477
+      ],
+      "n": 5
+    },
+    "orthogonal_vs_identity_ogd_b_nll_advantage": {
+      "mean": -0.003384893779630893,
+      "ci95": [
+        -0.012492005720854937,
+        0.004589609119472637
+      ],
+      "n": 5
+    }
+  },
+  "source_files_match_current_workspace": true,
+  "general_go_strength_established": false,
+  "all_recorded_games_replayed": true,
+  "confidence_intervals": "descriptive paired bootstrap across seeds; 10000 resamples"
+}

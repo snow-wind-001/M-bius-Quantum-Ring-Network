@@ -1,9 +1,18 @@
 # 项目总结 - 莫比乌斯量子环形网络重构
 
-> **历史文档提示（更新于 2026-09-01）**：本文后半部分记录早期实现与设想，
+> **历史文档提示（更新于 2026-09-09）**：本文后半部分记录早期实现与设想，
 > 其中 ViT 结构、哈密顿优化、量子隧穿等描述已不代表当前代码或已证明结论。
-> 当前算法以 [`analysis/mqr_sidecar_revision_plan.md`](analysis/mqr_sidecar_revision_plan.md)
-> 和 [`analysis/mqr_math_proof.md`](analysis/mqr_math_proof.md) 为准。
+> 当前围棋在线探索见 [`analysis/orthogonal_online_go_report.md`](analysis/orthogonal_online_go_report.md)；
+> 原有固定点与 sidecar 数学仍参考 [`analysis/mqr_sidecar_revision_plan.md`](analysis/mqr_sidecar_revision_plan.md)
+> 和 [`analysis/mqr_math_proof.md`](analysis/mqr_math_proof.md)。
+
+## 2026-09-09 正交时间环与围棋在线学习
+
+- 保留正交、环形状态和在线更新，新增直接有符号的稀疏 Givens 传播、有限轨迹反馈、当前参数下的 OGD 记忆重建及空间特征调节。
+- 五种子全局/空间实验中，OGD 将旧任务 NLL 增幅分别降低约 50% / 61%，但限制新任务适应。正交环未超过 identity 对照，尚无可靠棋力收益。
+- 实际在线对局和 checkpoint 继续运行共 8 局、268 次反馈、38 次更新，全部告负。逐步规则重放、反馈顺序和恢复测试通过。
+- 低秩写入的可到达子空间诊断说明旋转可以扩展历史容量；普通循环移位也是强对照，不能据此宣称正交环独有优势。
+- 已先推送工程基线至 GitHub，新增 CodeRecoder 生产内核的阶段快照及独立校验入口。详细数据、成本、边界与下一步假设见本轮研究报告。
 
 ## 2026-09-01 Phase IV 未知上下文拓扑正式门
 

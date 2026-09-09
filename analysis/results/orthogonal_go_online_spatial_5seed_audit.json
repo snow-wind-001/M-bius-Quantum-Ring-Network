@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "seeds": [
+    17,
+    29,
+    43,
+    71,
+    101
+  ],
+  "methods": [
+    "orthogonal",
+    "orthogonal_ogd",
+    "identity_ogd",
+    "stateless"
+  ],
+  "paired_diagnostics": {
+    "ogd_reduction_in_old_task_nll_change": {
+      "mean": 0.008842874101052712,
+      "ci95": [
+        0.004562773889241134,
+        0.014556315083367143
+      ],
+      "n": 5
+    },
+    "orthogonal_vs_identity_ogd_b_nll_advantage": {
+      "mean": -0.01378095324668691,
+      "ci95": [
+        -0.020328753856656157,
+        -0.005651534626658572
+      ],
+      "n": 5
+    }
+  },
+  "source_files_match_current_workspace": true,
+  "general_go_strength_established": false,
+  "all_recorded_games_replayed": true,
+  "confidence_intervals": "descriptive paired bootstrap across seeds; 10000 resamples"
+}

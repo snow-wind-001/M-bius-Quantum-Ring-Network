@@ -1,8 +1,15 @@
 # 莫比乌斯量子环形网络 (Möbius Quantum Ring Network)
 
-本 PyTorch 研究实现源自 HTML 中的 **MQR / UHR-Net (Möbius Quantum Ring / Unistochastic Hamiltonian Ring)** 设想，当前核心动力学为：**Cayley 酉矩阵参数化 → 幺模随机连接 \(H=|U|^2\) → 固定点松弛推理 → LoRA式注入 → 局部采样读出**。历史公式中的数学错误已在当前代码中修正。
+本 PyTorch 研究实现源自 HTML 中的 **MQR / UHR-Net (Möbius Quantum Ring / Unistochastic Hamiltonian Ring)** 设想，保留固定点推理路径：**Cayley 酉矩阵参数化 → 幺模随机连接 \(H=|U|^2\) → 固定点松弛推理 → LoRA 式注入 → 局部采样读出**；另提供跨观察的时间环记忆。当前探索新增直接保留符号的正交 Givens 环、轨迹反馈与 OGD 在线更新。历史公式中的数学错误已在当前代码中修正。
 
-> **证据状态（2026-09-01）**：结构约束、非线性隐式梯度、有限求解证书和
+> **当前进展（2026-09-09）**：按新的研究要求恢复围棋在线探索，保留正交、环形结构与在线更新。
+> 已实现 `GoOnlineSession`、有符号正交转移、当前参数下的 OGD 记忆重建、可选空间调节及对局保存恢复。
+> 五种子对照中，OGD 使全局/空间版本的旧任务 NLL 增幅降低约 50% / 61%，同时减弱新任务适应；
+> 正交环尚未超过 identity 对照，也未建立棋力优势。8 局真实在线运行完成 268 次反馈、38 次更新，全部告负。
+> 详见 [完整分析、实测表与复现命令](analysis/orthogonal_online_go_report.md)。本轮测试对象是微型围棋网络，
+> 不代表 MiniCPM 通用能力提升。使用 [CodeRecoder 入口](scripts/code_protect.mjs) 创建并独立校验外部保护快照。
+
+> **历史证据（2026-09-01）**：结构约束、非线性隐式梯度、有限求解证书和
 > 原子在线事务均有自动化检查。正式 10×10/13×13 实验各用 10 seeds，已实现
 > 48 B 循环状态接口和小于 1.05 的参数/前向/更新资源比。MQR 的 held-out
 > loss 在两个尺度都显著下降，但历史焦点准确率仍为 `0.500`，且 13×13
@@ -12,7 +19,7 @@
 > 缓冲区严格持平。随后完成的 Phase IV 使用未知 A/B 拓扑和严格匹配的
 > event/distractor `(key,value)` 边缘分布；Givens/分块 Cayley 均恢复 100%
 > 拓扑并击败 identity 与直接 ring buffer，但同资源可学习稀疏置换也达到
-> `1.000`，故独立优势仍为 false，Go/MiniCPM/策略 RL 继续冻结。
+> `1.000`，故独立优势仍为 false。当时据此暂停了 Go/MiniCPM/策略 RL；本轮重新开放围棋研究，保留历史负面结论。
 
 ## 🌟 核心机制与研究假设
 
@@ -31,6 +38,8 @@
 - **原型距离读出 (Prototype Readout, optional)**：可选用 \(\hat{y}_{c}=-\|h^\*_{\mathcal{S}}-p_{c,\mathcal{S}}\|^2/(2\tau)\) 直接产生 logits，将分类目标与目标平衡态绑定。
 - **多环在线学习 (Online Multi-Ring)**：严格采用“先预测、后更新”的 prequential 协议；显式上下文隔离不同环，并可在按学习率白化的完整参数梯度上执行低秩 OGD。
 - **时间型多尺度 MQR (Temporal MQR-v5)**：每个外部观察只推进一次环状态，显式分离遗忘率 `lambda`、写入强度 `kappa` 与门 `g`；v4 支持即时辅助事件门，v5 另以成对影子轨迹估计未来 write/no-write 损失差，让门学习“保存是否改善未来行为”，并支持候选延期晋升、独立 OGD/裁剪和完整恢复。
+- **有符号正交时间环**：`transition_mode="orthogonal"` 配合 `transition_structure="cyclic_givens"`，直接稀疏施加相邻旋转，保持无阻尼传播的 L2 范数；阻尼后有明确历史衰减。它与 `H=|U|²` 的平均化传播不同。
+- **围棋在线会话**：`GoOnlineSession` 支持先预测后反馈、有限轨迹梯度、未完成票据保存恢复；`consolidate_task_memory` 用已见训练窗口重建 OGD，`SpatialRingGoAgent` 可用环状态调节冻结空间特征。
 - **残差地址路由 MQR**：内容保存在物理槽中且无写时逐位不变；
   (H_\varepsilon=(1-\varepsilon)I+\varepsilon T) 只产生地址路由分数，
   straight-through top-1 提交离散地址。写门具有硬预算、正负收益平衡、
@@ -98,6 +107,7 @@ MöbiusQuantumRing/
 │   ├── agent.py                   # 统一四头 Agent、AWR/PPO、慢 LoRA 日程
 │   ├── agent_baselines.py         # identity/GRU/fast-weight 与资源审计
 │   ├── go_agent.py                # Go 向量/MiniCPM 编码、劫争配对与双轨迹
+│   ├── go_online.py               # 因果在线会话、空间调节与 OGD 记忆重建
 │   ├── minicpm.py                 # 本地 AWQ 解包、冻结主干与末层 LoRA
 │   ├── go.py                      # 任意棋盘 Go 规则与基础数据集
 │   ├── sayuri.py                  # 独立 Sayuri GTP 子进程适配
@@ -108,9 +118,12 @@ MöbiusQuantumRing/
 ├── experiments/temporal_mqr_learned_gate_digits.py # 因果辅助学习门实验
 ├── experiments/temporal_mqr_utility_digits.py # 无 marker 未来收益门实验
 ├── experiments/minicpm_go_online.py       # MiniCPM/MQR/Sayuri 在线闭环
+├── experiments/orthogonal_go_online.py    # 小型 Go 网络的正交环与 OGD 对照
+├── experiments/play_online_go.py          # 实际对局中继续学习与恢复
 ├── experiments/mqr_routed_memory_qualification.py # 无 marker 地址路由资格实验
 ├── experiments/mqr_contextual_topology_qualification.py # 未知上下文拓扑正式门
 ├── analysis/                     # 严格证明、研究方案与实验结果
+├── scripts/code_protect.mjs        # 使用本地 CodeRecoder 内核建立校验快照
 ├── mobius_quantum_ring.py         # 向后兼容门面（re-export mqr/）
 ├── train_mobius_cifar100.py       # CIFAR-100训练脚本
 ├── quick_start.py                 # 快速开始示例
@@ -135,7 +148,31 @@ pip install torch torchvision numpy tensorboard
 pip install scikit-learn
 ```
 
-### 在线推理与学习
+### 围棋在线探索
+
+以下命令训练微型空间基网络，然后在正交环和 OGD 系统上继续学习；默认教师在本地运行。
+
+```bash
+# 需要相邻 CodeRecoder 工程已构建，也可用 --coderecoder-root 指定位置。
+node scripts/code_protect.mjs snapshot --name before-online-go
+
+python3 experiments/orthogonal_go_online.py \
+  --seeds 17 --methods orthogonal_ogd identity_ogd orthogonal \
+  --checkpoint-dir checkpoints/orthogonal_go_online \
+  --output analysis/results/my_online_go.json
+
+python3 experiments/play_online_go.py \
+  --checkpoint checkpoints/orthogonal_go_online/orthogonal_ogd-17.pt \
+  --games 8 --save-to checkpoints/live_go.pt
+
+# 继续下一局，恢复模型、环状态与正交梯度记忆。
+python3 experiments/play_online_go.py \
+  --checkpoint checkpoints/live_go.pt --games 8 --save-to checkpoints/live_go.pt
+```
+
+这是教师监督的在线学习，默认每 8 次观察更新一次。真实对局在双方轮次都获得教师反馈；执行动作使用环境合法性约束，原始模型合法率另行记录。可选 `--readout spatial` 的独立实验、五种子结果及完整检查命令见 [研究报告](analysis/orthogonal_online_go_report.md)。checkpoint 保存在本地，不提交到 Git。
+
+### 通用在线推理与学习
 
 ```python
 import torch
