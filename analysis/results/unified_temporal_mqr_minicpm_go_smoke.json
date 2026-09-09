@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "experiment": "unified_temporal_mqr_minicpm_go",
+  "claim_scope": "external-gradient and schedule smoke test only",
+  "config": {
+    "model_path": "/home/spikebai/checkpoints/MiniCPM5-1B-AWQ-INT4",
+    "device": "cuda",
+    "dtype": "float16",
+    "seed": 20260827,
+    "board_size": 3,
+    "komi": 2.5,
+    "updates": 3,
+    "probe_examples": 2,
+    "twin_horizon": 1,
+    "max_length": 160,
+    "lora_rank": 4,
+    "lora_alpha": 8.0,
+    "lora_lr": 0.0002,
+    "lora_warmup": 1,
+    "lora_interval": 2,
+    "lora_ogd_rank": 2,
+    "output": "analysis/results/unified_temporal_mqr_minicpm_go_smoke.json",
+    "loss_weights": {
+      "placement": 1.0,
+      "legality": 0.5,
+      "pass_decision": 0.5,
+      "value": 0.25,
+      "awr": 0.5,
+      "ppo": 0.0,
+      "entropy": 0.0,
+      "reference_kl": 0.0,
+      "illegal_mass": 0.75
+    }
+  },
+  "metrics": {
+    "before": {
+      "count": 2.0,
+      "loss": 3.013845682144165,
+      "unmasked_legal_rate": 1.0,
+      "teacher_agreement": 0.0
+    },
+    "after": {
+      "count": 2.0,
+      "loss": 3.0937585830688477,
+      "unmasked_legal_rate": 1.0,
+      "teacher_agreement": 0.0
+    }
+  },
+  "lora": {
+    "trainable_parameters": 21504,
+    "schedule": {
+      "warmup_updates": 1,
+      "interval": 2,
+      "minimum_abs_advantage": 0.0
+    },
+    "opportunities": 3,
+    "scheduled": 1,
+    "updates": 1,
+    "ogd_rank": 1,
+    "adapter_drift": {
+      "max_abs": 3.706958011662209e-07,
+      "changed_tensors": 2.0,
+      "tensor_count": 4.0
+    },
+    "frozen_parameter_probe_max_abs_drift": 0.0
+  },
+  "updates": [
+    {
+      "index": 0,
+      "task_loss": 6.043972969055176,
+      "write_advantage": -0.09592202949523926,
+      "lora": {
+        "scheduled": false,
+        "did_update": false,
+        "update_index": 0,
+        "updates": 0
+      }
+    },
+    {
+      "index": 1,
+      "task_loss": 3.619788408279419,
+      "write_advantage": 0.0017189617156982422,
+      "lora": {
+        "scheduled": true,
+        "did_update": true,
+        "update_index": 1,
+        "updates": 1,
+        "raw_grad_norm": 0.018421100419612684,
+        "clip_scale": 1.0,
+        "update_norm": 3.684220083922537e-06,
+        "ogd_rank": 1,
+        "ogd_retained_norm": 1.0,
+        "ogd_max_abs_overlap": 0.0,
+        "ogd_projection_applied": true,
+        "ogd_memory_added": true
+      }
+    },
+    {
+      "index": 2,
+      "task_loss": 6.166851997375488,
+      "write_advantage": -0.05402878570556641,
+      "lora": {
+        "scheduled": false,
+        "did_update": false,
+        "update_index": 2,
+        "updates": 1
+      }
+    }
+  ],
+  "invariants": {
+    "pending_tickets": 0,
+    "max_unitary_error": 7.884246429057384e-07,
+    "max_stochastic_error": 8.344650268554688e-07,
+    "prediction_before_update": true,
+    "backbone_frozen": true
+  },
+  "mqr_effective": false
+}

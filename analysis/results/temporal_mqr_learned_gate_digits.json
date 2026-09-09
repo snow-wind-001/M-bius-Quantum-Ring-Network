@@ -1,0 +1,3955 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-24T11:14:11+0800",
+  "protocol": {
+    "dataset": "sklearn.datasets.load_digits (offline bundled dataset)",
+    "split": "70% train / 30% held out, stratified per seed",
+    "sequence": "digit cue with non-label event marker -> independent real-digit distractors -> exactly zero query",
+    "causal_order": "use theta_t gate and predict first; submit current event target afterward; submit digit class only after zero-query prediction",
+    "trainable_scope": "frozen reservoir/injection; online readout plus an independent auxiliary-event gate update",
+    "evaluation": "held-out streams with readout and gate updates disabled",
+    "matching": "seed/data/order/distractors/corruption uniforms and multiscale initial parameters are paired",
+    "gate_semantics": "external gates override state writes while the learned controller may train in the background; learned conditions use its continuous gate and the controller sees only the one-dimensional event marker",
+    "limitations": [
+      "the event label is immediate auxiliary supervision, not delayed reward",
+      "the cue marker explicitly exposes event type but never digit class",
+      "three seeds are a mechanism screen rather than confirmatory evidence",
+      "Digits fading memory is not language learning, Go strength, or animal learning"
+    ]
+  },
+  "configuration": {
+    "seeds": [
+      7,
+      17,
+      29
+    ],
+    "train_samples": 600,
+    "eval_samples": 240,
+    "distractor_counts": [
+      1,
+      4,
+      8,
+      16
+    ],
+    "total_state_dim": 48,
+    "injection_rank": 24,
+    "gate_rank": 8,
+    "readout_lr": 0.15,
+    "gate_lr": 0.05,
+    "gate_positive_weight": 8.25,
+    "max_update_norm": 0.25,
+    "gate_max_update_norm": 0.05
+  },
+  "environment": {
+    "python": "3.11.11",
+    "torch": "2.8.0+cu128",
+    "sklearn": "1.7.0",
+    "device": "cpu",
+    "torch_threads": 1
+  },
+  "initialization_audit": {
+    "multiscale_initial_parameters_matched_by_seed": {
+      "7": true,
+      "17": true,
+      "29": true
+    },
+    "multiscale_learned_controller_final_matched_by_seed": {
+      "7": true,
+      "17": true,
+      "29": true
+    }
+  },
+  "summary": {
+    "multiscale_ungated": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "training_accuracy": {
+        "mean": 0.15611111111111112,
+        "sample_std": 0.012285191326386662
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.1822222222222222,
+        "sample_std": 0.04438885412319595
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.16562862678064597,
+        "sample_std": 0.007381367174845672
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9954954954954954,
+        "sample_std": 0.0018983159915050313
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.041666666666666664,
+        "sample_std": 0.017559422921421233
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.10810810810810811,
+        "sample_std": 0.0
+      },
+      "training_effective_false_open_rate": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_distractor_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 15.190389787781491,
+        "sample_std": 0.08608476581835067
+      },
+      "evaluation_accuracy": {
+        "mean": 0.1986111111111111,
+        "sample_std": 0.016839382851364094
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.16666666666666666,
+        "sample_std": 0.016666666666666663
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.024971473861385037,
+        "sample_std": 0.0004020192953268767
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 0.10810810810810811,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.610998730552739,
+        "sample_std": 0.03343186831706127
+      },
+      "training_gate_max_drift": {
+        "mean": 3.710533936818441,
+        "sample_std": 0.015336092845779194
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "multiscale_oracle_gate": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "training_accuracy": {
+        "mean": 0.648888888888889,
+        "sample_std": 0.024171455464230104
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.7377777777777778,
+        "sample_std": 0.03671713698190735
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.16562862678064597,
+        "sample_std": 0.007381367174845672
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9954954954954954,
+        "sample_std": 0.0018983159915050313
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.041666666666666664,
+        "sample_std": 0.017559422921421233
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 15.157437729439053,
+        "sample_std": 0.027689499904162664
+      },
+      "evaluation_accuracy": {
+        "mean": 0.7277777777777779,
+        "sample_std": 0.07457440977032663
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.7666666666666666,
+        "sample_std": 0.08819171036881973
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.024971473861385037,
+        "sample_std": 0.0004020192953268767
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.62228855555602,
+        "sample_std": 0.00449952383825568
+      },
+      "training_gate_max_drift": {
+        "mean": 3.710533936818441,
+        "sample_std": 0.015336092845779194
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "multiscale_learned_gate": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "training_accuracy": {
+        "mean": 0.5599999999999999,
+        "sample_std": 0.014240006242195876
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.7111111111111111,
+        "sample_std": 0.0401847584889447
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.16562862678064597,
+        "sample_std": 0.007381367174845672
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9954954954954954,
+        "sample_std": 0.0018983159915050313
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.041666666666666664,
+        "sample_std": 0.017559422921421233
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.9964564564564564,
+        "sample_std": 0.002201838171750592
+      },
+      "training_effective_false_open_rate": {
+        "mean": 0.0006060606060606061,
+        "sample_std": 0.0
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.02777777777777778,
+        "sample_std": 0.020367003088692624
+      },
+      "training_effective_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 14.982823092779858,
+        "sample_std": 0.08286519225160714
+      },
+      "evaluation_accuracy": {
+        "mean": 0.7083333333333334,
+        "sample_std": 0.06548430685625715
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.7277777777777779,
+        "sample_std": 0.06735753140545636
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.024971473861385037,
+        "sample_std": 0.0004020192953268767
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.394763418059384,
+        "sample_std": 0.014471218820337294
+      },
+      "training_gate_max_drift": {
+        "mean": 3.710533936818441,
+        "sample_std": 0.015336092845779194
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "multiscale_learned_no_gate_updates": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 480,
+      "training_accuracy": {
+        "mean": 0.17777777777777778,
+        "sample_std": 0.01397749513934348
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.20222222222222222,
+        "sample_std": 0.04018475848894471
+      },
+      "training_mean_gate_loss": {
+        "mean": 1.2367962357160207,
+        "sample_std": 0.0
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.8918918918918918,
+        "sample_std": 0.0
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.10810810810810811,
+        "sample_std": 0.0
+      },
+      "training_effective_false_open_rate": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_cue_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 12.635066046665694,
+        "sample_std": 0.052208350575497074
+      },
+      "evaluation_accuracy": {
+        "mean": 0.2152777777777778,
+        "sample_std": 0.008673608331108886
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.18888888888888888,
+        "sample_std": 0.06309898162000305
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 1.2367962357160207,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 0.8918918918918918,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 0.10810810810810811,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.5000000596046448,
+        "sample_std": 0.0
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.345515587508594,
+        "sample_std": 0.04651428094366496
+      },
+      "training_gate_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "multiscale_oracle_false_open_10": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "training_accuracy": {
+        "mean": 0.45611111111111113,
+        "sample_std": 0.0175066125073208
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.5177777777777778,
+        "sample_std": 0.039063101847215426
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.16562862678064597,
+        "sample_std": 0.007381367174845672
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9954954954954954,
+        "sample_std": 0.0018983159915050313
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.041666666666666664,
+        "sample_std": 0.017559422921421233
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.9091891891891892,
+        "sample_std": 0.0037837837837838085
+      },
+      "training_effective_false_open_rate": {
+        "mean": 0.10181818181818182,
+        "sample_std": 0.004242424242424246
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.10181818181818182,
+        "sample_std": 0.004242424242424246
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 15.199663896661756,
+        "sample_std": 0.10112589190657452
+      },
+      "evaluation_accuracy": {
+        "mean": 0.525,
+        "sample_std": 0.03560001560548973
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.5388888888888889,
+        "sample_std": 0.05091750772173158
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.024971473861385037,
+        "sample_std": 0.0004020192953268767
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 0.9102102102102102,
+        "sample_std": 0.007595579501466559
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 0.10067340067340068,
+        "sample_std": 0.00851625580467457
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.10067340067340068,
+        "sample_std": 0.00851625580467457
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.577805486115622,
+        "sample_std": 0.11633139462765675
+      },
+      "training_gate_max_drift": {
+        "mean": 3.710533936818441,
+        "sample_std": 0.015336092845779194
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "multiscale_oracle_false_open_25": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "training_accuracy": {
+        "mean": 0.3438888888888889,
+        "sample_std": 0.020570565090637344
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.4022222222222222,
+        "sample_std": 0.02143033502442881
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.16562862678064597,
+        "sample_std": 0.007381367174845672
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9954954954954954,
+        "sample_std": 0.0018983159915050313
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.041666666666666664,
+        "sample_std": 0.017559422921421233
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.7772372372372373,
+        "sample_std": 0.007813119006670506
+      },
+      "training_effective_false_open_rate": {
+        "mean": 0.24976430976430977,
+        "sample_std": 0.008760163734751808
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.24976430976430977,
+        "sample_std": 0.008760163734751808
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 15.11086983889173,
+        "sample_std": 0.10937989422043229
+      },
+      "evaluation_accuracy": {
+        "mean": 0.3902777777777778,
+        "sample_std": 0.048828877309019296
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.4055555555555556,
+        "sample_std": 0.09179284245476838
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.024971473861385037,
+        "sample_std": 0.0004020192953268767
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 0.7797297297297296,
+        "sample_std": 0.012992977569239592
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 0.24696969696969698,
+        "sample_std": 0.014567883941268654
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.24696969696969698,
+        "sample_std": 0.014567883941268654
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.602824658319554,
+        "sample_std": 0.11655538096801953
+      },
+      "training_gate_max_drift": {
+        "mean": 3.710533936818441,
+        "sample_std": 0.015336092845779194
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "multiscale_oracle_false_close_10": {
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "training_accuracy": {
+        "mean": 0.5777777777777778,
+        "sample_std": 0.01946031098681888
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.64,
+        "sample_std": 0.033333333333333326
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.16562862678064597,
+        "sample_std": 0.007381367174845672
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9954954954954954,
+        "sample_std": 0.0018983159915050313
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.041666666666666664,
+        "sample_std": 0.017559422921421233
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9333507584035398,
+        "sample_std": 0.004952549373410504
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.10784831352030187,
+        "sample_std": 0.0005948729607466566
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.9886486486486487,
+        "sample_std": 0.0013603305288775987
+      },
+      "training_effective_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.105,
+        "sample_std": 0.012583057392117913
+      },
+      "training_effective_cue_mean": {
+        "mean": 0.895,
+        "sample_std": 0.01258305739211787
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 15.120088883890679,
+        "sample_std": 0.12184878435132628
+      },
+      "evaluation_accuracy": {
+        "mean": 0.6541666666666667,
+        "sample_std": 0.08207381501496754
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.6722222222222222,
+        "sample_std": 0.07698003589195009
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.024971473861385037,
+        "sample_std": 0.0004020192953268767
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9953246116638184,
+        "sample_std": 0.00011873372407121125
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.04248965779940287,
+        "sample_std": 0.0003383824365234161
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 0.9888888888888889,
+        "sample_std": 0.002752297714688164
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.10277777777777779,
+        "sample_std": 0.02545875386086578
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 0.8972222222222223,
+        "sample_std": 0.025458753860865796
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 12.640549187502378,
+        "sample_std": 0.20802052903979587
+      },
+      "training_gate_max_drift": {
+        "mean": 3.710533936818441,
+        "sample_std": 0.015336092845779194
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    },
+    "single_slow_learned_gate": {
+      "total_parameters": 7817,
+      "readout_parameters": 480,
+      "gate_parameters": 17,
+      "online_parameter_budget": 497,
+      "training_accuracy": {
+        "mean": 0.6238888888888888,
+        "sample_std": 0.023940512696016943
+      },
+      "training_last_quarter_accuracy": {
+        "mean": 0.7444444444444445,
+        "sample_std": 0.048227854253801584
+      },
+      "training_mean_gate_loss": {
+        "mean": 0.10709764479019039,
+        "sample_std": 0.020591994927621295
+      },
+      "training_controller_gate_accuracy": {
+        "mean": 0.9932132132132132,
+        "sample_std": 0.0016349138244824688
+      },
+      "training_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "training_controller_false_close_rate": {
+        "mean": 0.06277777777777778,
+        "sample_std": 0.01512295287646244
+      },
+      "training_controller_cue_mean": {
+        "mean": 0.9428854114976195,
+        "sample_std": 0.011142312000831076
+      },
+      "training_controller_distractor_mean": {
+        "mean": 0.051714868478677685,
+        "sample_std": 0.0009499783388140025
+      },
+      "training_effective_gate_accuracy": {
+        "mean": 0.9932132132132132,
+        "sample_std": 0.0017125017933193485
+      },
+      "training_effective_false_open_rate": {
+        "mean": 0.00040404040404040404,
+        "sample_std": 0.0
+      },
+      "training_effective_false_close_rate": {
+        "mean": 0.059444444444444446,
+        "sample_std": 0.015840641588203613
+      },
+      "training_effective_cue_mean": {
+        "mean": 0.9428854114976195,
+        "sample_std": 0.011142312000831076
+      },
+      "training_effective_distractor_mean": {
+        "mean": 0.051714868478677685,
+        "sample_std": 0.0009499783388140025
+      },
+      "training_milliseconds_per_sequence": {
+        "mean": 11.755582238895135,
+        "sample_std": 0.014783190511237082
+      },
+      "evaluation_accuracy": {
+        "mean": 0.7361111111111112,
+        "sample_std": 0.05357583756107195
+      },
+      "evaluation_last_quarter_accuracy": {
+        "mean": 0.7944444444444444,
+        "sample_std": 0.03849001794597504
+      },
+      "evaluation_mean_gate_loss": {
+        "mean": 0.00630552942554156,
+        "sample_std": 7.261654499297379e-05
+      },
+      "evaluation_controller_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_controller_cue_mean": {
+        "mean": 0.9987374544143677,
+        "sample_std": 2.9220322228541614e-05
+      },
+      "evaluation_controller_distractor_mean": {
+        "mean": 0.02564880686501662,
+        "sample_std": 0.00010065947141310597
+      },
+      "evaluation_effective_gate_accuracy": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_open_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_false_close_rate": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      },
+      "evaluation_effective_cue_mean": {
+        "mean": 0.9987374544143677,
+        "sample_std": 2.9220322228541614e-05
+      },
+      "evaluation_effective_distractor_mean": {
+        "mean": 0.02564880686501662,
+        "sample_std": 0.00010065947141310597
+      },
+      "evaluation_milliseconds_per_sequence": {
+        "mean": 9.261517387494678,
+        "sample_std": 0.03938142872152877
+      },
+      "training_gate_max_drift": {
+        "mean": 5.109610875447591,
+        "sample_std": 0.017862122465960917
+      },
+      "evaluation_parameter_max_drift": {
+        "mean": 0.0,
+        "sample_std": 0.0
+      }
+    }
+  },
+  "paired_contrasts": {
+    "learned_vs_ungated": {
+      "left": "multiscale_learned_gate",
+      "right": "multiscale_ungated",
+      "paired_differences": [
+        0.5208333333333334,
+        0.5708333333333333,
+        0.4375
+      ],
+      "mean": 0.5097222222222223,
+      "sample_std": 0.06735753140545633
+    },
+    "learned_gate_update_effect": {
+      "left": "multiscale_learned_gate",
+      "right": "multiscale_learned_no_gate_updates",
+      "paired_differences": [
+        0.5125000000000001,
+        0.5458333333333333,
+        0.4208333333333333
+      ],
+      "mean": 0.4930555555555555,
+      "sample_std": 0.06472877887628359
+    },
+    "oracle_vs_learned": {
+      "left": "multiscale_oracle_gate",
+      "right": "multiscale_learned_gate",
+      "paired_differences": [
+        0.008333333333333304,
+        0.03749999999999998,
+        0.012500000000000067
+      ],
+      "mean": 0.019444444444444448,
+      "sample_std": 0.015774745405000744
+    },
+    "oracle_false_open_10_cost": {
+      "left": "multiscale_oracle_false_open_10",
+      "right": "multiscale_oracle_gate",
+      "paired_differences": [
+        -0.1875,
+        -0.26249999999999996,
+        -0.15833333333333338
+      ],
+      "mean": -0.2027777777777778,
+      "sample_std": 0.0537376170059808
+    },
+    "oracle_false_open_25_cost": {
+      "left": "multiscale_oracle_false_open_25",
+      "right": "multiscale_oracle_gate",
+      "paired_differences": [
+        -0.3,
+        -0.4208333333333333,
+        -0.2916666666666667
+      ],
+      "mean": -0.33749999999999997,
+      "sample_std": 0.07228896488707277
+    },
+    "oracle_false_close_10_cost": {
+      "left": "multiscale_oracle_false_close_10",
+      "right": "multiscale_oracle_gate",
+      "paired_differences": [
+        -0.06666666666666665,
+        -0.0708333333333333,
+        -0.08333333333333337
+      ],
+      "mean": -0.07361111111111111,
+      "sample_std": 0.008673608331108917
+    },
+    "multiscale_vs_single_slow_learned": {
+      "left": "multiscale_learned_gate",
+      "right": "single_slow_learned_gate",
+      "paired_differences": [
+        -0.02083333333333326,
+        -0.02083333333333337,
+        -0.04166666666666674
+      ],
+      "mean": -0.02777777777777779,
+      "sample_std": 0.012028130608117258
+    }
+  },
+  "runs": [
+    {
+      "variant": "multiscale_ungated",
+      "seed": 7,
+      "gate_policy": "ungated",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "7dd00ce11ed3f396cd15d0079a4446b77db8900d49e42b0bfb9b39b2d428df08",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.14666666666666667,
+        "first_quarter_accuracy": 0.06666666666666667,
+        "last_quarter_accuracy": 0.19333333333333333,
+        "mean_query_loss": 2.2864476951956747,
+        "mean_query_update_norm": 0.23586771379481472,
+        "mean_gate_loss": 0.15911523588874318,
+        "mean_gate_update_norm": 0.003584192194062577,
+        "mean_query_state_l2": 1.8856224682927132,
+        "controller_gate_accuracy": 0.9974774774774775,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.023333333333333334,
+        "controller_cue_mean": 0.937881337205569,
+        "controller_distractor_mean": 0.10780716463622421,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 1.0,
+        "controller_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "effective_mean_by_timescale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.28,
+          "4": 0.14,
+          "8": 0.10666666666666667,
+          "16": 0.06
+        },
+        "milliseconds_per_sequence": 15.279279988341537,
+        "milliseconds_per_frame": 1.6518140527936798
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.21666666666666667,
+        "first_quarter_accuracy": 0.3,
+        "last_quarter_accuracy": 0.15,
+        "mean_query_loss": 2.200124086191257,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024839273175677738,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.9337672491868336,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952879548072815,
+        "controller_distractor_mean": 0.04231187328696251,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 1.0,
+        "controller_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "effective_mean_by_timescale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.4,
+          "4": 0.25,
+          "8": 0.18333333333333332,
+          "16": 0.03333333333333333
+        },
+        "milliseconds_per_sequence": 12.641637149984794,
+        "milliseconds_per_frame": 1.3666634756740317
+      },
+      "training_parameter_max_drift": 3.718581199645996,
+      "training_gate_max_drift": 3.718581199645996,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "multiscale_oracle_gate",
+      "seed": 7,
+      "gate_policy": "oracle",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "7dd00ce11ed3f396cd15d0079a4446b77db8900d49e42b0bfb9b39b2d428df08",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.6483333333333333,
+        "first_quarter_accuracy": 0.5066666666666667,
+        "last_quarter_accuracy": 0.72,
+        "mean_query_loss": 1.5638157253339886,
+        "mean_query_update_norm": 0.10438006006333506,
+        "mean_gate_loss": 0.15911523588874318,
+        "mean_gate_update_norm": 0.003584192194062577,
+        "mean_query_state_l2": 0.8801922275622686,
+        "controller_gate_accuracy": 0.9974774774774775,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.023333333333333334,
+        "controller_cue_mean": 0.937881337205569,
+        "controller_distractor_mean": 0.10780716463622421,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "effective_mean_by_timescale": [
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6533333333333333,
+          "4": 0.64,
+          "8": 0.64,
+          "16": 0.66
+        },
+        "milliseconds_per_sequence": 15.125490680002258,
+        "milliseconds_per_frame": 1.6351881816218659
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.7458333333333333,
+        "first_quarter_accuracy": 0.75,
+        "last_quarter_accuracy": 0.8,
+        "mean_query_loss": 1.1574207690854867,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024839273175677738,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.885560696820418,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952879548072815,
+        "controller_distractor_mean": 0.04231187328696251,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "effective_mean_by_timescale": [
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.8,
+          "4": 0.7333333333333333,
+          "8": 0.75,
+          "16": 0.7
+        },
+        "milliseconds_per_sequence": 12.62353230000978,
+        "milliseconds_per_frame": 1.364706194595652
+      },
+      "training_parameter_max_drift": 3.718581199645996,
+      "training_gate_max_drift": 3.718581199645996,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "multiscale_learned_gate",
+      "seed": 7,
+      "gate_policy": "learned",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "7dd00ce11ed3f396cd15d0079a4446b77db8900d49e42b0bfb9b39b2d428df08",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.5583333333333333,
+        "first_quarter_accuracy": 0.28,
+        "last_quarter_accuracy": 0.7066666666666667,
+        "mean_query_loss": 1.6597488846381505,
+        "mean_query_update_norm": 0.11224078178691757,
+        "mean_gate_loss": 0.15911523588874318,
+        "mean_gate_update_norm": 0.003584192194062577,
+        "mean_query_state_l2": 0.914217437406381,
+        "controller_gate_accuracy": 0.9974774774774775,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.023333333333333334,
+        "controller_cue_mean": 0.937881337205569,
+        "controller_distractor_mean": 0.10780716463622421,
+        "effective_gate_accuracy": 0.9983783783783784,
+        "effective_false_open_rate": 0.0006060606060606061,
+        "effective_false_close_rate": 0.01,
+        "effective_cue_mean": 0.937881337205569,
+        "effective_distractor_mean": 0.10780716463622421,
+        "controller_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "effective_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6066666666666667,
+          "4": 0.58,
+          "8": 0.54,
+          "16": 0.5066666666666667
+        },
+        "milliseconds_per_sequence": 14.91293797499869,
+        "milliseconds_per_frame": 1.612209510810669
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.7375,
+        "first_quarter_accuracy": 0.7833333333333333,
+        "last_quarter_accuracy": 0.7666666666666667,
+        "mean_query_loss": 1.1942629335137704,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024839273175677738,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.8907381893446048,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952879548072815,
+        "controller_distractor_mean": 0.04231187328696251,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.9952879548072815,
+        "effective_distractor_mean": 0.04231187328696251,
+        "controller_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "effective_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.8,
+          "4": 0.7333333333333333,
+          "8": 0.7333333333333333,
+          "16": 0.6833333333333333
+        },
+        "milliseconds_per_sequence": 12.38051046251106,
+        "milliseconds_per_frame": 1.338433563514709
+      },
+      "training_parameter_max_drift": 3.718581199645996,
+      "training_gate_max_drift": 3.718581199645996,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "multiscale_learned_no_gate_updates",
+      "seed": 7,
+      "gate_policy": "learned",
+      "gate_learning_enabled": false,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 480,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.185,
+        "first_quarter_accuracy": 0.07333333333333333,
+        "last_quarter_accuracy": 0.24,
+        "mean_query_loss": 2.233704984585444,
+        "mean_query_update_norm": 0.1716848449065169,
+        "mean_gate_loss": 1.2367962357160207,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.2227724710603556,
+        "controller_gate_accuracy": 0.8918918918918919,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 1.0,
+        "controller_cue_mean": 0.5000000596046448,
+        "controller_distractor_mean": 0.5000000596046448,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.5000000596046448,
+        "effective_distractor_mean": 0.5000000596046448,
+        "controller_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "effective_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.3333333333333333,
+          "4": 0.19333333333333333,
+          "8": 0.12666666666666668,
+          "16": 0.08666666666666667
+        },
+        "milliseconds_per_sequence": 12.640505811674908,
+        "milliseconds_per_frame": 1.3665411688297198
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.225,
+        "first_quarter_accuracy": 0.35,
+        "last_quarter_accuracy": 0.11666666666666667,
+        "mean_query_loss": 2.139524271339178,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 1.2367962357160207,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.2546005931993325,
+        "controller_gate_accuracy": 0.8918918918918919,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 1.0,
+        "controller_cue_mean": 0.5000000596046448,
+        "controller_distractor_mean": 0.5000000596046448,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.5000000596046448,
+        "effective_distractor_mean": 0.5000000596046448,
+        "controller_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "effective_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.4166666666666667,
+          "4": 0.25,
+          "8": 0.15,
+          "16": 0.08333333333333333
+        },
+        "milliseconds_per_sequence": 12.369958737508568,
+        "milliseconds_per_frame": 1.3372928364874128
+      },
+      "training_parameter_max_drift": 0.680117130279541,
+      "training_gate_max_drift": 0.0,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 600,
+      "online_gate_updates": 0,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_open_10",
+      "seed": 7,
+      "gate_policy": "false_open_10",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "7dd00ce11ed3f396cd15d0079a4446b77db8900d49e42b0bfb9b39b2d428df08",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.45666666666666667,
+        "first_quarter_accuracy": 0.30666666666666664,
+        "last_quarter_accuracy": 0.47333333333333333,
+        "mean_query_loss": 1.838415064563354,
+        "mean_query_update_norm": 0.14164990863919555,
+        "mean_gate_loss": 0.15911523588874318,
+        "mean_gate_update_norm": 0.003584192194062577,
+        "mean_query_state_l2": 1.0954131798446178,
+        "controller_gate_accuracy": 0.9974774774774775,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.023333333333333334,
+        "controller_cue_mean": 0.937881337205569,
+        "controller_distractor_mean": 0.10780716463622421,
+        "effective_gate_accuracy": 0.9118918918918919,
+        "effective_false_open_rate": 0.09878787878787879,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.09878787878787879,
+        "controller_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "effective_mean_by_timescale": [
+          0.19621621072292328,
+          0.19621621072292328,
+          0.19621621072292328,
+          0.19621621072292328
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6466666666666666,
+          "4": 0.49333333333333335,
+          "8": 0.4,
+          "16": 0.2866666666666667
+        },
+        "milliseconds_per_sequence": 15.232666105002863,
+        "milliseconds_per_frame": 1.6467747140543636
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.5583333333333333,
+        "first_quarter_accuracy": 0.55,
+        "last_quarter_accuracy": 0.5833333333333334,
+        "mean_query_loss": 1.6075764395607015,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024839273175677738,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.0959944871564706,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952879548072815,
+        "controller_distractor_mean": 0.04231187328696251,
+        "effective_gate_accuracy": 0.918918918918919,
+        "effective_false_open_rate": 0.09090909090909091,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.09090909090909091,
+        "controller_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "effective_mean_by_timescale": [
+          0.18918919563293457,
+          0.18918919563293457,
+          0.18918919563293457,
+          0.18918919563293457
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7333333333333333,
+          "4": 0.6666666666666666,
+          "8": 0.48333333333333334,
+          "16": 0.35
+        },
+        "milliseconds_per_sequence": 12.623074254164143,
+        "milliseconds_per_frame": 1.3646566761258532
+      },
+      "training_parameter_max_drift": 3.718581199645996,
+      "training_gate_max_drift": 3.718581199645996,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_open_25",
+      "seed": 7,
+      "gate_policy": "false_open_25",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "7dd00ce11ed3f396cd15d0079a4446b77db8900d49e42b0bfb9b39b2d428df08",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.36666666666666664,
+        "first_quarter_accuracy": 0.22666666666666666,
+        "last_quarter_accuracy": 0.3933333333333333,
+        "mean_query_loss": 1.9964584550758202,
+        "mean_query_update_norm": 0.17397768301080044,
+        "mean_gate_loss": 0.15911523588874318,
+        "mean_gate_update_norm": 0.003584192194062577,
+        "mean_query_state_l2": 1.314823988378048,
+        "controller_gate_accuracy": 0.9974774774774775,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.023333333333333334,
+        "controller_cue_mean": 0.937881337205569,
+        "controller_distractor_mean": 0.10780716463622421,
+        "effective_gate_accuracy": 0.7827027027027027,
+        "effective_false_open_rate": 0.24363636363636362,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.24363636363636362,
+        "controller_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "effective_mean_by_timescale": [
+          0.32540541887283325,
+          0.32540541887283325,
+          0.32540541887283325,
+          0.32540541887283325
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.5866666666666667,
+          "4": 0.4066666666666667,
+          "8": 0.25333333333333335,
+          "16": 0.22
+        },
+        "milliseconds_per_sequence": 15.154705583336181,
+        "milliseconds_per_frame": 1.6383465495498575
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.44583333333333336,
+        "first_quarter_accuracy": 0.4166666666666667,
+        "last_quarter_accuracy": 0.5,
+        "mean_query_loss": 1.8232480941961209,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024839273175677738,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.322943336268266,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952879548072815,
+        "controller_distractor_mean": 0.04231187328696251,
+        "effective_gate_accuracy": 0.7941441441441441,
+        "effective_false_open_rate": 0.2308080808080808,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.2308080808080808,
+        "controller_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "effective_mean_by_timescale": [
+          0.31396394968032837,
+          0.31396394968032837,
+          0.31396394968032837,
+          0.31396394968032837
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7333333333333333,
+          "4": 0.48333333333333334,
+          "8": 0.4166666666666667,
+          "16": 0.15
+        },
+        "milliseconds_per_sequence": 12.669624558293435,
+        "milliseconds_per_frame": 1.3696891414371282
+      },
+      "training_parameter_max_drift": 3.718581199645996,
+      "training_gate_max_drift": 3.718581199645996,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_close_10",
+      "seed": 7,
+      "gate_policy": "false_close_10",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "f906fb2e1c5a8c818f706a9129d5fb12c30b2ef978e4a0c683d1680053415cdb",
+      "initial_controller_sha256": "58c400c9ed621c6993a2384b2f5e6632d3ea5d189a1f368f6eb20e2d0ea3f170",
+      "final_controller_sha256": "7dd00ce11ed3f396cd15d0079a4446b77db8900d49e42b0bfb9b39b2d428df08",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.5816666666666667,
+        "first_quarter_accuracy": 0.4266666666666667,
+        "last_quarter_accuracy": 0.64,
+        "mean_query_loss": 1.6825514987111092,
+        "mean_query_update_norm": 0.0955358546821568,
+        "mean_gate_loss": 0.15911523588874318,
+        "mean_gate_update_norm": 0.003584192194062577,
+        "mean_query_state_l2": 0.7919932023684184,
+        "controller_gate_accuracy": 0.9974774774774775,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.023333333333333334,
+        "controller_cue_mean": 0.937881337205569,
+        "controller_distractor_mean": 0.10780716463622421,
+        "effective_gate_accuracy": 0.9888288288288288,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.10333333333333333,
+        "effective_cue_mean": 0.8966666666666666,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823,
+          0.19754506647586823
+        ],
+        "effective_mean_by_timescale": [
+          0.09693693369626999,
+          0.09693693369626999,
+          0.09693693369626999,
+          0.09693693369626999
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6133333333333333,
+          "4": 0.5733333333333334,
+          "8": 0.5466666666666666,
+          "16": 0.5933333333333334
+        },
+        "milliseconds_per_sequence": 15.144862171679657,
+        "milliseconds_per_frame": 1.6372823969383414
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.6791666666666667,
+        "first_quarter_accuracy": 0.7,
+        "last_quarter_accuracy": 0.7166666666666667,
+        "mean_query_loss": 1.330618777498603,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024839273175677738,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.7714539567629496,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952879548072815,
+        "controller_distractor_mean": 0.04231187328696251,
+        "effective_gate_accuracy": 0.9864864864864865,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.125,
+        "effective_cue_mean": 0.875,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036,
+          0.1453343629837036
+        ],
+        "effective_mean_by_timescale": [
+          0.09459459781646729,
+          0.09459459781646729,
+          0.09459459781646729,
+          0.09459459781646729
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6833333333333333,
+          "4": 0.65,
+          "8": 0.7,
+          "16": 0.6833333333333333
+        },
+        "milliseconds_per_sequence": 12.856990749969555,
+        "milliseconds_per_frame": 1.3899449459426545
+      },
+      "training_parameter_max_drift": 3.718581199645996,
+      "training_gate_max_drift": 3.718581199645996,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.0727068229243741e-06,
+      "max_stochastic_error": 5.960464477539062e-07
+    },
+    {
+      "variant": "single_slow_learned_gate",
+      "seed": 7,
+      "gate_policy": "learned",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "aacba640caaa8037aa04e01c0e1f93c03f454513190bc304de6ed0d2030d8fbb",
+      "initial_controller_sha256": "15d70dc11e5517b475f7f79d1073157b3fae3634821875015439de87b5f835d2",
+      "final_controller_sha256": "62270871a6ebea0f694a6cf7f7f709122347649f81fffef20c2e3dbd9f77a841",
+      "total_parameters": 7817,
+      "readout_parameters": 480,
+      "gate_parameters": 17,
+      "online_parameter_budget": 497,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.02
+      ],
+      "half_lives": [
+        34.30961849152067
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.6333333333333333,
+        "first_quarter_accuracy": 0.38666666666666666,
+        "last_quarter_accuracy": 0.72,
+        "mean_query_loss": 1.552633254279693,
+        "mean_query_update_norm": 0.11252699534116514,
+        "mean_gate_loss": 0.0887005001397149,
+        "mean_gate_update_norm": 0.002519336317376491,
+        "mean_query_state_l2": 0.9613462593654791,
+        "controller_gate_accuracy": 0.994954954954955,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.04666666666666667,
+        "controller_cue_mean": 0.953134843458732,
+        "controller_distractor_mean": 0.05094652197239074,
+        "effective_gate_accuracy": 0.994954954954955,
+        "effective_false_open_rate": 0.00040404040404040404,
+        "effective_false_close_rate": 0.043333333333333335,
+        "effective_cue_mean": 0.953134843458732,
+        "effective_distractor_mean": 0.05094652197239074,
+        "controller_mean_by_timescale": [
+          0.1484803408384323
+        ],
+        "effective_mean_by_timescale": [
+          0.1484803408384323
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.64,
+          "4": 0.6333333333333333,
+          "8": 0.6133333333333333,
+          "16": 0.6466666666666666
+        },
+        "milliseconds_per_sequence": 11.73980649500057,
+        "milliseconds_per_frame": 1.2691682697297912
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.7583333333333333,
+        "first_quarter_accuracy": 0.75,
+        "last_quarter_accuracy": 0.8166666666666667,
+        "mean_query_loss": 1.0917508771643043,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.006259826691569509,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.9790539381404718,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9987040162086487,
+        "controller_distractor_mean": 0.025565791875123978,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.9987040162086487,
+        "effective_distractor_mean": 0.025565791875123978,
+        "controller_mean_by_timescale": [
+          0.13076815009117126
+        ],
+        "effective_mean_by_timescale": [
+          0.13076815009117126
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.8166666666666667,
+          "4": 0.7333333333333333,
+          "8": 0.7666666666666667,
+          "16": 0.7166666666666667
+        },
+        "milliseconds_per_sequence": 9.238753016628229,
+        "milliseconds_per_frame": 0.9987841099057544
+      },
+      "training_parameter_max_drift": 5.124395847320557,
+      "training_gate_max_drift": 5.124395847320557,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 7770,
+      "max_unitary_error": 2.372054041188676e-06,
+      "max_stochastic_error": 8.940696716308594e-07
+    },
+    {
+      "variant": "multiscale_ungated",
+      "seed": 17,
+      "gate_policy": "ungated",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "7b657089957d4f239c87b3519b051edb9bd61c7898aebce9e86a3220b11a1132",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.17,
+        "first_quarter_accuracy": 0.12666666666666668,
+        "last_quarter_accuracy": 0.22,
+        "mean_query_loss": 2.2756955203413964,
+        "mean_query_update_norm": 0.23919175173484636,
+        "mean_gate_loss": 0.16412439944977697,
+        "mean_gate_update_norm": 0.003555897390816672,
+        "mean_query_state_l2": 1.9536893254518508,
+        "controller_gate_accuracy": 0.9953153153153154,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.043333333333333335,
+        "controller_cue_mean": 0.9341075770556927,
+        "controller_distractor_mean": 0.10727508335101484,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 1.0,
+        "controller_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "effective_mean_by_timescale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.3333333333333333,
+          "4": 0.16666666666666666,
+          "8": 0.12,
+          "16": 0.06
+        },
+        "milliseconds_per_sequence": 15.107415658324802,
+        "milliseconds_per_frame": 1.6332341252243028
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.18333333333333332,
+        "first_quarter_accuracy": 0.16666666666666666,
+        "last_quarter_accuracy": 0.18333333333333332,
+        "mean_query_loss": 2.276297839110096,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024652201984379743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.952454083164533,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9954573512077332,
+        "controller_distractor_mean": 0.042277224361896515,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 1.0,
+        "controller_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "effective_mean_by_timescale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.36666666666666664,
+          "4": 0.16666666666666666,
+          "8": 0.16666666666666666,
+          "16": 0.03333333333333333
+        },
+        "milliseconds_per_sequence": 12.57534100417009,
+        "milliseconds_per_frame": 1.3594963247751448
+      },
+      "training_parameter_max_drift": 3.7201714515686035,
+      "training_gate_max_drift": 3.7201714515686035,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "multiscale_oracle_gate",
+      "seed": 17,
+      "gate_policy": "oracle",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "7b657089957d4f239c87b3519b051edb9bd61c7898aebce9e86a3220b11a1132",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.6733333333333333,
+        "first_quarter_accuracy": 0.5133333333333333,
+        "last_quarter_accuracy": 0.78,
+        "mean_query_loss": 1.51410901752611,
+        "mean_query_update_norm": 0.1078749616973175,
+        "mean_gate_loss": 0.16412439944977697,
+        "mean_gate_update_norm": 0.003555897390816672,
+        "mean_query_state_l2": 0.9237429568668206,
+        "controller_gate_accuracy": 0.9953153153153154,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.043333333333333335,
+        "controller_cue_mean": 0.9341075770556927,
+        "controller_distractor_mean": 0.10727508335101484,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "effective_mean_by_timescale": [
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7333333333333333,
+          "4": 0.64,
+          "8": 0.6733333333333333,
+          "16": 0.6466666666666666
+        },
+        "milliseconds_per_sequence": 15.174528361652241,
+        "milliseconds_per_frame": 1.640489552611053
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.7916666666666666,
+        "first_quarter_accuracy": 0.85,
+        "last_quarter_accuracy": 0.8333333333333334,
+        "mean_query_loss": 1.1359595563883582,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024652201984379743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.9121405463665724,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9954573512077332,
+        "controller_distractor_mean": 0.042277224361896515,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "effective_mean_by_timescale": [
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7333333333333333,
+          "4": 0.8333333333333334,
+          "8": 0.85,
+          "16": 0.75
+        },
+        "milliseconds_per_sequence": 12.617297983342723,
+        "milliseconds_per_frame": 1.3640322144154295
+      },
+      "training_parameter_max_drift": 3.7201714515686035,
+      "training_gate_max_drift": 3.7201714515686035,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "multiscale_learned_gate",
+      "seed": 17,
+      "gate_policy": "learned",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "7b657089957d4f239c87b3519b051edb9bd61c7898aebce9e86a3220b11a1132",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.575,
+        "first_quarter_accuracy": 0.32,
+        "last_quarter_accuracy": 0.7533333333333333,
+        "mean_query_loss": 1.622822380165259,
+        "mean_query_update_norm": 0.11659993467045,
+        "mean_gate_loss": 0.16412439944977697,
+        "mean_gate_update_norm": 0.003555897390816672,
+        "mean_query_state_l2": 0.9607535956303278,
+        "controller_gate_accuracy": 0.9953153153153154,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.043333333333333335,
+        "controller_cue_mean": 0.9341075770556927,
+        "controller_distractor_mean": 0.10727508335101484,
+        "effective_gate_accuracy": 0.996936936936937,
+        "effective_false_open_rate": 0.0006060606060606061,
+        "effective_false_close_rate": 0.023333333333333334,
+        "effective_cue_mean": 0.9341075770556927,
+        "effective_distractor_mean": 0.10727508335101484,
+        "controller_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "effective_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.64,
+          "4": 0.5733333333333334,
+          "8": 0.5533333333333333,
+          "16": 0.5333333333333333
+        },
+        "milliseconds_per_sequence": 14.961164478348413,
+        "milliseconds_per_frame": 1.617423186848477
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.7541666666666667,
+        "first_quarter_accuracy": 0.8166666666666667,
+        "last_quarter_accuracy": 0.7666666666666667,
+        "mean_query_loss": 1.189881888963282,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024652201984379743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.9176999926567078,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9954573512077332,
+        "controller_distractor_mean": 0.042277224361896515,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.9954573512077332,
+        "effective_distractor_mean": 0.042277224361896515,
+        "controller_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "effective_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7333333333333333,
+          "4": 0.7833333333333333,
+          "8": 0.8333333333333334,
+          "16": 0.6666666666666666
+        },
+        "milliseconds_per_sequence": 12.394336345823831,
+        "milliseconds_per_frame": 1.3399282536025763
+      },
+      "training_parameter_max_drift": 3.7201714515686035,
+      "training_gate_max_drift": 3.7201714515686035,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "multiscale_learned_no_gate_updates",
+      "seed": 17,
+      "gate_policy": "learned",
+      "gate_learning_enabled": false,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 480,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.18666666666666668,
+        "first_quarter_accuracy": 0.14666666666666667,
+        "last_quarter_accuracy": 0.20666666666666667,
+        "mean_query_loss": 2.224644397497177,
+        "mean_query_update_norm": 0.1785677501664467,
+        "mean_gate_loss": 1.2367962357160207,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.275106781522433,
+        "controller_gate_accuracy": 0.8918918918918919,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 1.0,
+        "controller_cue_mean": 0.5000000596046448,
+        "controller_distractor_mean": 0.5000000596046448,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.5000000596046448,
+        "effective_distractor_mean": 0.5000000596046448,
+        "controller_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "effective_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.35333333333333333,
+          "4": 0.16666666666666666,
+          "8": 0.12,
+          "16": 0.10666666666666667
+        },
+        "milliseconds_per_sequence": 12.684341534986743,
+        "milliseconds_per_frame": 1.3712801659445126
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.20833333333333334,
+        "first_quarter_accuracy": 0.18333333333333332,
+        "last_quarter_accuracy": 0.21666666666666667,
+        "mean_query_loss": 2.186380799363057,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 1.2367962357160207,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.2685927753647168,
+        "controller_gate_accuracy": 0.8918918918918919,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 1.0,
+        "controller_cue_mean": 0.5000000596046448,
+        "controller_distractor_mean": 0.5000000596046448,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.5000000596046448,
+        "effective_distractor_mean": 0.5000000596046448,
+        "controller_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "effective_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.35,
+          "4": 0.2,
+          "8": 0.16666666666666666,
+          "16": 0.11666666666666667
+        },
+        "milliseconds_per_sequence": 12.374712337502084,
+        "milliseconds_per_frame": 1.3378067391894146
+      },
+      "training_parameter_max_drift": 0.8454278111457825,
+      "training_gate_max_drift": 0.0,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 600,
+      "online_gate_updates": 0,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_open_10",
+      "seed": 17,
+      "gate_policy": "false_open_10",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "7b657089957d4f239c87b3519b051edb9bd61c7898aebce9e86a3220b11a1132",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.47333333333333333,
+        "first_quarter_accuracy": 0.36666666666666664,
+        "last_quarter_accuracy": 0.5466666666666666,
+        "mean_query_loss": 1.7980511365334193,
+        "mean_query_update_norm": 0.1465116708981409,
+        "mean_gate_loss": 0.16412439944977697,
+        "mean_gate_update_norm": 0.003555897390816672,
+        "mean_query_state_l2": 1.1475127898653348,
+        "controller_gate_accuracy": 0.9953153153153154,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.043333333333333335,
+        "controller_cue_mean": 0.9341075770556927,
+        "controller_distractor_mean": 0.10727508335101484,
+        "effective_gate_accuracy": 0.9108108108108108,
+        "effective_false_open_rate": 0.1,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.1,
+        "controller_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "effective_mean_by_timescale": [
+          0.19729728996753693,
+          0.19729728996753693,
+          0.19729728996753693,
+          0.19729728996753693
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7066666666666667,
+          "4": 0.5266666666666666,
+          "8": 0.38666666666666666,
+          "16": 0.2733333333333333
+        },
+        "milliseconds_per_sequence": 15.280165816657245,
+        "milliseconds_per_frame": 1.6519098180169995
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.5291666666666667,
+        "first_quarter_accuracy": 0.6,
+        "last_quarter_accuracy": 0.48333333333333334,
+        "mean_query_loss": 1.6112299996117752,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024652201984379743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.157819292942683,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9954573512077332,
+        "controller_distractor_mean": 0.042277224361896515,
+        "effective_gate_accuracy": 0.9067567567567567,
+        "effective_false_open_rate": 0.10454545454545454,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.10454545454545454,
+        "controller_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "effective_mean_by_timescale": [
+          0.2013513445854187,
+          0.2013513445854187,
+          0.2013513445854187,
+          0.2013513445854187
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.75,
+          "4": 0.5833333333333334,
+          "8": 0.5,
+          "16": 0.2833333333333333
+        },
+        "milliseconds_per_sequence": 12.664697570835415,
+        "milliseconds_per_frame": 1.3691564941443692
+      },
+      "training_parameter_max_drift": 3.7201714515686035,
+      "training_gate_max_drift": 3.7201714515686035,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_open_25",
+      "seed": 17,
+      "gate_policy": "false_open_25",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "7b657089957d4f239c87b3519b051edb9bd61c7898aebce9e86a3220b11a1132",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.3383333333333333,
+        "first_quarter_accuracy": 0.26666666666666666,
+        "last_quarter_accuracy": 0.38666666666666666,
+        "mean_query_loss": 2.018455204019944,
+        "mean_query_update_norm": 0.18300477584661215,
+        "mean_gate_loss": 0.16412439944977697,
+        "mean_gate_update_norm": 0.003555897390816672,
+        "mean_query_state_l2": 1.381958554883798,
+        "controller_gate_accuracy": 0.9953153153153154,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.043333333333333335,
+        "controller_cue_mean": 0.9341075770556927,
+        "controller_distractor_mean": 0.10727508335101484,
+        "effective_gate_accuracy": 0.7807207207207207,
+        "effective_false_open_rate": 0.24585858585858586,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.24585858585858586,
+        "controller_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "effective_mean_by_timescale": [
+          0.32738739252090454,
+          0.32738739252090454,
+          0.32738739252090454,
+          0.32738739252090454
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6133333333333333,
+          "4": 0.37333333333333335,
+          "8": 0.21333333333333335,
+          "16": 0.15333333333333332
+        },
+        "milliseconds_per_sequence": 15.191532578343564,
+        "milliseconds_per_frame": 1.6423278463074125
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.37083333333333335,
+        "first_quarter_accuracy": 0.36666666666666664,
+        "last_quarter_accuracy": 0.31666666666666665,
+        "mean_query_loss": 1.869821796193719,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024652201984379743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.3604380937914053,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9954573512077332,
+        "controller_distractor_mean": 0.042277224361896515,
+        "effective_gate_accuracy": 0.7761261261261261,
+        "effective_false_open_rate": 0.251010101010101,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.251010101010101,
+        "controller_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "effective_mean_by_timescale": [
+          0.33198198676109314,
+          0.33198198676109314,
+          0.33198198676109314,
+          0.33198198676109314
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6333333333333333,
+          "4": 0.45,
+          "8": 0.3333333333333333,
+          "16": 0.06666666666666667
+        },
+        "milliseconds_per_sequence": 12.670610116644335,
+        "milliseconds_per_frame": 1.3697956882858742
+      },
+      "training_parameter_max_drift": 3.7201714515686035,
+      "training_gate_max_drift": 3.7201714515686035,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_close_10",
+      "seed": 17,
+      "gate_policy": "false_close_10",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "7b6e4862b16507543c7f93990d25e661bcdb3fc5dd2b008ec7b721874ee9de27",
+      "initial_controller_sha256": "a9ab48a0a528a5f448718c95d8ba32460f5d53862930529253268500a8676fc8",
+      "final_controller_sha256": "7b657089957d4f239c87b3519b051edb9bd61c7898aebce9e86a3220b11a1132",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.595,
+        "first_quarter_accuracy": 0.48,
+        "last_quarter_accuracy": 0.6733333333333333,
+        "mean_query_loss": 1.6660733105490606,
+        "mean_query_update_norm": 0.09752571339943482,
+        "mean_gate_loss": 0.16412439944977697,
+        "mean_gate_update_norm": 0.003555897390816672,
+        "mean_query_state_l2": 0.8125083132088184,
+        "controller_gate_accuracy": 0.9953153153153154,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.043333333333333335,
+        "controller_cue_mean": 0.9341075770556927,
+        "controller_distractor_mean": 0.10727508335101484,
+        "effective_gate_accuracy": 0.9872072072072072,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.11833333333333333,
+        "effective_cue_mean": 0.8816666666666667,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223,
+          0.1966622918844223
+        ],
+        "effective_mean_by_timescale": [
+          0.09531531482934952,
+          0.09531531482934952,
+          0.09531531482934952,
+          0.09531531482934952
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6666666666666666,
+          "4": 0.56,
+          "8": 0.5733333333333334,
+          "16": 0.58
+        },
+        "milliseconds_per_sequence": 15.227647391657229,
+        "milliseconds_per_frame": 1.6462321504494302
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.7208333333333333,
+        "first_quarter_accuracy": 0.7333333333333333,
+        "last_quarter_accuracy": 0.7166666666666667,
+        "mean_query_loss": 1.2814941729108493,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.024652201984379743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.843735163534681,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9954573512077332,
+        "controller_distractor_mean": 0.042277224361896515,
+        "effective_gate_accuracy": 0.9918918918918919,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.075,
+        "effective_cue_mean": 0.925,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948,
+          0.1453227698802948
+        ],
+        "effective_mean_by_timescale": [
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6666666666666666,
+          "4": 0.7166666666666667,
+          "8": 0.8,
+          "16": 0.7
+        },
+        "milliseconds_per_sequence": 12.622535545839733,
+        "milliseconds_per_frame": 1.3645984373880793
+      },
+      "training_parameter_max_drift": 3.7201714515686035,
+      "training_gate_max_drift": 3.7201714515686035,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 7.70814210682147e-07,
+      "max_stochastic_error": 4.76837158203125e-07
+    },
+    {
+      "variant": "single_slow_learned_gate",
+      "seed": 17,
+      "gate_policy": "learned",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "4b667f55185a893023a3490cbecb46033ec2bf3c5b29a603f1cfadaca1f00e37",
+      "initial_controller_sha256": "06e9ebcee9ee218fa005d1feeec17feb1128ae933d46237937ac1796b13f8ba3",
+      "final_controller_sha256": "2f0459e3fde6b12f33dc9dcdd086df7b47fd2dfd741a5ce3a9a752c1714ec653",
+      "total_parameters": 7817,
+      "readout_parameters": 480,
+      "gate_parameters": 17,
+      "online_parameter_budget": 497,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.02
+      ],
+      "half_lives": [
+        34.30961849152067
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.6416666666666667,
+        "first_quarter_accuracy": 0.4266666666666667,
+        "last_quarter_accuracy": 0.8,
+        "mean_query_loss": 1.4719464486092328,
+        "mean_query_update_norm": 0.1169294801840929,
+        "mean_gate_loss": 0.10325056432872205,
+        "mean_gate_update_norm": 0.002568162351900617,
+        "mean_query_state_l2": 1.0456702849765618,
+        "controller_gate_accuracy": 0.9929729729729729,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.065,
+        "controller_cue_mean": 0.9444958996772767,
+        "controller_distractor_mean": 0.051421036142667735,
+        "effective_gate_accuracy": 0.9931531531531531,
+        "effective_false_open_rate": 0.00040404040404040404,
+        "effective_false_close_rate": 0.06,
+        "effective_cue_mean": 0.9444958996772767,
+        "effective_distractor_mean": 0.051421036142667735,
+        "controller_mean_by_timescale": [
+          0.1479697823524475
+        ],
+        "effective_mean_by_timescale": [
+          0.1479697823524475
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6933333333333334,
+          "4": 0.6333333333333333,
+          "8": 0.6066666666666667,
+          "16": 0.6333333333333333
+        },
+        "milliseconds_per_sequence": 11.769116981668049,
+        "milliseconds_per_frame": 1.2723369709911403
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.775,
+        "first_quarter_accuracy": 0.8,
+        "last_quarter_accuracy": 0.8166666666666667,
+        "mean_query_loss": 1.0641431412193925,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.00626749887659743,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.0405508934209744,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9987502694129944,
+        "controller_distractor_mean": 0.025619860738515854,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.9987502694129944,
+        "effective_distractor_mean": 0.025619860738515854,
+        "controller_mean_by_timescale": [
+          0.13082444667816162
+        ],
+        "effective_mean_by_timescale": [
+          0.13082444667816162
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7666666666666667,
+          "4": 0.7833333333333333,
+          "8": 0.8333333333333334,
+          "16": 0.7166666666666667
+        },
+        "milliseconds_per_sequence": 9.238808012499552,
+        "milliseconds_per_frame": 0.9987900554053569
+      },
+      "training_parameter_max_drift": 5.114672660827637,
+      "training_gate_max_drift": 5.114672660827637,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 7770,
+      "max_unitary_error": 3.2950435979728354e-06,
+      "max_stochastic_error": 1.7881393432617188e-06
+    },
+    {
+      "variant": "multiscale_ungated",
+      "seed": 29,
+      "gate_policy": "ungated",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "e1cc35e2f4d4064acab7a97e7435a3c7c9b56f17452be92fa4a244c9bdbe94d6",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.15166666666666667,
+        "first_quarter_accuracy": 0.16,
+        "last_quarter_accuracy": 0.13333333333333333,
+        "mean_query_loss": 2.279967962106069,
+        "mean_query_update_norm": 0.23476460132136195,
+        "mean_gate_loss": 0.1736462450034178,
+        "mean_gate_update_norm": 0.003628651018516767,
+        "mean_query_state_l2": 1.8339303344488145,
+        "controller_gate_accuracy": 0.9936936936936936,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.058333333333333334,
+        "controller_cue_mean": 0.9280633609493574,
+        "controller_distractor_mean": 0.10846269257366657,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 1.0,
+        "controller_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "effective_mean_by_timescale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.26666666666666666,
+          "4": 0.11333333333333333,
+          "8": 0.12666666666666668,
+          "16": 0.1
+        },
+        "milliseconds_per_sequence": 15.184473716678136,
+        "milliseconds_per_frame": 1.641564726127366
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.19583333333333333,
+        "first_quarter_accuracy": 0.18333333333333332,
+        "last_quarter_accuracy": 0.16666666666666666,
+        "mean_query_loss": 2.255684138586124,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.025422946424097627,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.854834675292174,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952285289764404,
+        "controller_distractor_mean": 0.042879875749349594,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 1.0,
+        "controller_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "effective_mean_by_timescale": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.35,
+          "4": 0.18333333333333332,
+          "8": 0.15,
+          "16": 0.1
+        },
+        "milliseconds_per_sequence": 12.616018037503332,
+        "milliseconds_per_frame": 1.3638938418922522
+      },
+      "training_parameter_max_drift": 3.6928491592407227,
+      "training_gate_max_drift": 3.6928491592407227,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "multiscale_oracle_gate",
+      "seed": 29,
+      "gate_policy": "oracle",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "e1cc35e2f4d4064acab7a97e7435a3c7c9b56f17452be92fa4a244c9bdbe94d6",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.625,
+        "first_quarter_accuracy": 0.42,
+        "last_quarter_accuracy": 0.7133333333333334,
+        "mean_query_loss": 1.7276945540805657,
+        "mean_query_update_norm": 0.10428399541225983,
+        "mean_gate_loss": 0.1736462450034178,
+        "mean_gate_update_norm": 0.003628651018516767,
+        "mean_query_state_l2": 0.8314262894292672,
+        "controller_gate_accuracy": 0.9936936936936936,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.058333333333333334,
+        "controller_cue_mean": 0.9280633609493574,
+        "controller_distractor_mean": 0.10846269257366657,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "effective_mean_by_timescale": [
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.62,
+          "4": 0.64,
+          "8": 0.6466666666666666,
+          "16": 0.5933333333333334
+        },
+        "milliseconds_per_sequence": 15.172294146662656,
+        "milliseconds_per_frame": 1.6402480158554222
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.6458333333333334,
+        "first_quarter_accuracy": 0.7,
+        "last_quarter_accuracy": 0.6666666666666666,
+        "mean_query_loss": 1.4217725581799945,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.025422946424097627,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.8398343089967966,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952285289764404,
+        "controller_distractor_mean": 0.042879875749349594,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "effective_mean_by_timescale": [
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967,
+          0.10810811072587967
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6833333333333333,
+          "4": 0.6666666666666666,
+          "8": 0.6333333333333333,
+          "16": 0.6
+        },
+        "milliseconds_per_sequence": 12.626035383315562,
+        "milliseconds_per_frame": 1.364976798196277
+      },
+      "training_parameter_max_drift": 3.6928491592407227,
+      "training_gate_max_drift": 3.6928491592407227,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "multiscale_learned_gate",
+      "seed": 29,
+      "gate_policy": "learned",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "e1cc35e2f4d4064acab7a97e7435a3c7c9b56f17452be92fa4a244c9bdbe94d6",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.5466666666666666,
+        "first_quarter_accuracy": 0.26666666666666666,
+        "last_quarter_accuracy": 0.6733333333333333,
+        "mean_query_loss": 1.7997951822727918,
+        "mean_query_update_norm": 0.10941202578832353,
+        "mean_gate_loss": 0.1736462450034178,
+        "mean_gate_update_norm": 0.003628651018516767,
+        "mean_query_state_l2": 0.8546100897093614,
+        "controller_gate_accuracy": 0.9936936936936936,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.058333333333333334,
+        "controller_cue_mean": 0.9280633609493574,
+        "controller_distractor_mean": 0.10846269257366657,
+        "effective_gate_accuracy": 0.994054054054054,
+        "effective_false_open_rate": 0.0006060606060606061,
+        "effective_false_close_rate": 0.05,
+        "effective_cue_mean": 0.9280633609493574,
+        "effective_distractor_mean": 0.10846269257366657,
+        "controller_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "effective_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.5733333333333334,
+          "4": 0.5466666666666666,
+          "8": 0.58,
+          "16": 0.4866666666666667
+        },
+        "milliseconds_per_sequence": 15.074366824992467,
+        "milliseconds_per_frame": 1.629661278377564
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.6333333333333333,
+        "first_quarter_accuracy": 0.6666666666666666,
+        "last_quarter_accuracy": 0.65,
+        "mean_query_loss": 1.46049621719867,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.025422946424097627,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.8452056277543306,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952285289764404,
+        "controller_distractor_mean": 0.042879875749349594,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.9952285289764404,
+        "effective_distractor_mean": 0.042879875749349594,
+        "controller_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "effective_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6666666666666666,
+          "4": 0.6666666666666666,
+          "8": 0.65,
+          "16": 0.55
+        },
+        "milliseconds_per_sequence": 12.409443445843257,
+        "milliseconds_per_frame": 1.3415614536046763
+      },
+      "training_parameter_max_drift": 3.6928491592407227,
+      "training_gate_max_drift": 3.6928491592407227,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "multiscale_learned_no_gate_updates",
+      "seed": 29,
+      "gate_policy": "learned",
+      "gate_learning_enabled": false,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 480,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.16166666666666665,
+        "first_quarter_accuracy": 0.14666666666666667,
+        "last_quarter_accuracy": 0.16,
+        "mean_query_loss": 2.2366330167651176,
+        "mean_query_update_norm": 0.1642596410192975,
+        "mean_gate_loss": 1.2367962357160207,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.1661897357304891,
+        "controller_gate_accuracy": 0.8918918918918919,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 1.0,
+        "controller_cue_mean": 0.5000000596046448,
+        "controller_distractor_mean": 0.5000000596046448,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.5000000596046448,
+        "effective_distractor_mean": 0.5000000596046448,
+        "controller_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "effective_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.26,
+          "4": 0.15333333333333332,
+          "8": 0.12,
+          "16": 0.11333333333333333
+        },
+        "milliseconds_per_sequence": 12.580350793335432,
+        "milliseconds_per_frame": 1.3600379236038305
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.2125,
+        "first_quarter_accuracy": 0.16666666666666666,
+        "last_quarter_accuracy": 0.23333333333333334,
+        "mean_query_loss": 2.1936070648332437,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 1.2367962357160207,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.1839803849657378,
+        "controller_gate_accuracy": 0.8918918918918919,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 1.0,
+        "controller_cue_mean": 0.5000000596046448,
+        "controller_distractor_mean": 0.5000000596046448,
+        "effective_gate_accuracy": 0.10810810810810811,
+        "effective_false_open_rate": 1.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.5000000596046448,
+        "effective_distractor_mean": 0.5000000596046448,
+        "controller_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "effective_mean_by_timescale": [
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448,
+          0.5000000596046448
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.3333333333333333,
+          "4": 0.16666666666666666,
+          "8": 0.21666666666666667,
+          "16": 0.13333333333333333
+        },
+        "milliseconds_per_sequence": 12.29187568751513,
+        "milliseconds_per_frame": 1.3288514256773114
+      },
+      "training_parameter_max_drift": 0.6810042262077332,
+      "training_gate_max_drift": 0.0,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 600,
+      "online_gate_updates": 0,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_open_10",
+      "seed": 29,
+      "gate_policy": "false_open_10",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "e1cc35e2f4d4064acab7a97e7435a3c7c9b56f17452be92fa4a244c9bdbe94d6",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.43833333333333335,
+        "first_quarter_accuracy": 0.2733333333333333,
+        "last_quarter_accuracy": 0.5333333333333333,
+        "mean_query_loss": 1.8996846350779135,
+        "mean_query_update_norm": 0.14097999751011775,
+        "mean_gate_loss": 0.1736462450034178,
+        "mean_gate_update_norm": 0.003628651018516767,
+        "mean_query_state_l2": 1.0732103558381398,
+        "controller_gate_accuracy": 0.9936936936936936,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.058333333333333334,
+        "controller_cue_mean": 0.9280633609493574,
+        "controller_distractor_mean": 0.10846269257366657,
+        "effective_gate_accuracy": 0.9048648648648648,
+        "effective_false_open_rate": 0.10666666666666667,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.10666666666666667,
+        "controller_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "effective_mean_by_timescale": [
+          0.20324324071407318,
+          0.20324324071407318,
+          0.20324324071407318,
+          0.20324324071407318
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.5866666666666667,
+          "4": 0.38,
+          "8": 0.4533333333333333,
+          "16": 0.3333333333333333
+        },
+        "milliseconds_per_sequence": 15.08615976832516,
+        "milliseconds_per_frame": 1.6309361911702875
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.4875,
+        "first_quarter_accuracy": 0.4666666666666667,
+        "last_quarter_accuracy": 0.55,
+        "mean_query_loss": 1.753782293200493,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.025422946424097627,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.0636490602046251,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952285289764404,
+        "controller_distractor_mean": 0.042879875749349594,
+        "effective_gate_accuracy": 0.9049549549549549,
+        "effective_false_open_rate": 0.10656565656565657,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.10656565656565657,
+        "controller_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "effective_mean_by_timescale": [
+          0.20315314829349518,
+          0.20315314829349518,
+          0.20315314829349518,
+          0.20315314829349518
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6666666666666666,
+          "4": 0.5833333333333334,
+          "8": 0.4166666666666667,
+          "16": 0.2833333333333333
+        },
+        "milliseconds_per_sequence": 12.445644633347305,
+        "milliseconds_per_frame": 1.3454750954970058
+      },
+      "training_parameter_max_drift": 3.6928491592407227,
+      "training_gate_max_drift": 3.6928491592407227,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_open_25",
+      "seed": 29,
+      "gate_policy": "false_open_25",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "e1cc35e2f4d4064acab7a97e7435a3c7c9b56f17452be92fa4a244c9bdbe94d6",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.32666666666666666,
+        "first_quarter_accuracy": 0.19333333333333333,
+        "last_quarter_accuracy": 0.4266666666666667,
+        "mean_query_loss": 2.034863292500377,
+        "mean_query_update_norm": 0.17210299624061445,
+        "mean_gate_loss": 0.1736462450034178,
+        "mean_gate_update_norm": 0.003628651018516767,
+        "mean_query_state_l2": 1.2893527678151926,
+        "controller_gate_accuracy": 0.9936936936936936,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.058333333333333334,
+        "controller_cue_mean": 0.9280633609493574,
+        "controller_distractor_mean": 0.10846269257366657,
+        "effective_gate_accuracy": 0.7682882882882883,
+        "effective_false_open_rate": 0.2597979797979798,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.2597979797979798,
+        "controller_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "effective_mean_by_timescale": [
+          0.3398198187351227,
+          0.3398198187351227,
+          0.3398198187351227,
+          0.3398198187351227
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.5066666666666667,
+          "4": 0.32666666666666666,
+          "8": 0.25333333333333335,
+          "16": 0.22
+        },
+        "milliseconds_per_sequence": 14.98637135499545,
+        "milliseconds_per_frame": 1.6201482545941028
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.3541666666666667,
+        "first_quarter_accuracy": 0.3333333333333333,
+        "last_quarter_accuracy": 0.4,
+        "mean_query_loss": 1.9741931648304065,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.025422946424097627,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 1.3141080578168234,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952285289764404,
+        "controller_distractor_mean": 0.042879875749349594,
+        "effective_gate_accuracy": 0.768918918918919,
+        "effective_false_open_rate": 0.2590909090909091,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 1.0,
+        "effective_distractor_mean": 0.2590909090909091,
+        "controller_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "effective_mean_by_timescale": [
+          0.33918920159339905,
+          0.33918920159339905,
+          0.33918920159339905,
+          0.33918920159339905
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.5166666666666667,
+          "4": 0.5,
+          "8": 0.25,
+          "16": 0.15
+        },
+        "milliseconds_per_sequence": 12.468239300020892,
+        "milliseconds_per_frame": 1.347917762164421
+      },
+      "training_parameter_max_drift": 3.6928491592407227,
+      "training_gate_max_drift": 3.6928491592407227,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "multiscale_oracle_false_close_10",
+      "seed": 29,
+      "gate_policy": "false_close_10",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "fec697d25adfc839e13f67cc33e3cf823b80c88dbe61e800124739ca40d709c2",
+      "initial_controller_sha256": "835975a70dfd3ef1cf9089688b7524e5fc9c705e2cb97bc9d6257c1e7b90628e",
+      "final_controller_sha256": "e1cc35e2f4d4064acab7a97e7435a3c7c9b56f17452be92fa4a244c9bdbe94d6",
+      "total_parameters": 4388,
+      "readout_parameters": 480,
+      "gate_parameters": 44,
+      "online_parameter_budget": 524,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.5,
+        0.1,
+        0.02,
+        0.005
+      ],
+      "half_lives": [
+        1.0,
+        6.578813478960583,
+        34.30961849152067,
+        138.28257298606096
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.5566666666666666,
+        "first_quarter_accuracy": 0.37333333333333335,
+        "last_quarter_accuracy": 0.6066666666666667,
+        "mean_query_loss": 1.8089474683006606,
+        "mean_query_update_norm": 0.09560385623967156,
+        "mean_gate_loss": 0.1736462450034178,
+        "mean_gate_update_norm": 0.003628651018516767,
+        "mean_query_state_l2": 0.755841183612744,
+        "controller_gate_accuracy": 0.9936936936936936,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.058333333333333334,
+        "controller_cue_mean": 0.9280633609493574,
+        "controller_distractor_mean": 0.10846269257366657,
+        "effective_gate_accuracy": 0.9899099099099099,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.09333333333333334,
+        "effective_cue_mean": 0.9066666666666666,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457,
+          0.1970677375793457
+        ],
+        "effective_mean_by_timescale": [
+          0.09801802039146423,
+          0.09801802039146423,
+          0.09801802039146423,
+          0.09801802039146423
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.5533333333333333,
+          "4": 0.54,
+          "8": 0.5866666666666667,
+          "16": 0.5466666666666666
+        },
+        "milliseconds_per_sequence": 14.987757088335153,
+        "milliseconds_per_frame": 1.6202980636038005
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.5625,
+        "first_quarter_accuracy": 0.6,
+        "last_quarter_accuracy": 0.5833333333333334,
+        "mean_query_loss": 1.5441156413406134,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.025422946424097627,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.7503589641302824,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.9952285289764404,
+        "controller_distractor_mean": 0.042879875749349594,
+        "effective_gate_accuracy": 0.9882882882882883,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.10833333333333334,
+        "effective_cue_mean": 0.8916666666666667,
+        "effective_distractor_mean": 0.0,
+        "controller_mean_by_timescale": [
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154,
+          0.1458347737789154
+        ],
+        "effective_mean_by_timescale": [
+          0.09639639407396317,
+          0.09639639407396317,
+          0.09639639407396317,
+          0.09639639407396317
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6166666666666667,
+          "4": 0.5833333333333334,
+          "8": 0.5666666666666667,
+          "16": 0.48333333333333334
+        },
+        "milliseconds_per_sequence": 12.442121266697844,
+        "milliseconds_per_frame": 1.3450941909943614
+      },
+      "training_parameter_max_drift": 3.6928491592407227,
+      "training_gate_max_drift": 3.6928491592407227,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 31080,
+      "max_unitary_error": 1.001558302959893e-06,
+      "max_stochastic_error": 6.556510925292969e-07
+    },
+    {
+      "variant": "single_slow_learned_gate",
+      "seed": 29,
+      "gate_policy": "learned",
+      "gate_learning_enabled": true,
+      "initial_parameter_sha256": "6305fa8705abab2cd425da824bbc56c720bbc90cc8c57c3bc9f361f29bea49ae",
+      "initial_controller_sha256": "95865242e08ecc5a12797f0251c9dbdaa1d90cc660276d7f58a7d707377a2f20",
+      "final_controller_sha256": "b8de3724c48ceaa934d33839290aeb9f085cac31af6f87c475472e8580b7a46b",
+      "total_parameters": 7817,
+      "readout_parameters": 480,
+      "gate_parameters": 17,
+      "online_parameter_budget": 497,
+      "total_state_dim": 48,
+      "leak_rates": [
+        0.02
+      ],
+      "half_lives": [
+        34.30961849152067
+      ],
+      "training": {
+        "count": 600,
+        "frame_count": 5550,
+        "accuracy": 0.5966666666666667,
+        "first_quarter_accuracy": 0.3466666666666667,
+        "last_quarter_accuracy": 0.7133333333333334,
+        "mean_query_loss": 1.6578751963873704,
+        "mean_query_update_norm": 0.11453715906892746,
+        "mean_gate_loss": 0.1293418699021342,
+        "mean_gate_update_norm": 0.0027049012028144193,
+        "mean_query_state_l2": 0.9465309331814448,
+        "controller_gate_accuracy": 0.9917117117117117,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.07666666666666666,
+        "controller_cue_mean": 0.9310254913568496,
+        "controller_distractor_mean": 0.052777047320974595,
+        "effective_gate_accuracy": 0.9915315315315315,
+        "effective_false_open_rate": 0.00040404040404040404,
+        "effective_false_close_rate": 0.075,
+        "effective_cue_mean": 0.9310254913568496,
+        "effective_distractor_mean": 0.052777047320974595,
+        "controller_mean_by_timescale": [
+          0.14772261679172516
+        ],
+        "effective_mean_by_timescale": [
+          0.14772261679172516
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.6266666666666667,
+          "4": 0.5866666666666667,
+          "8": 0.6266666666666667,
+          "16": 0.5466666666666666
+        },
+        "milliseconds_per_sequence": 11.757823240016782,
+        "milliseconds_per_frame": 1.27111602594776
+      },
+      "evaluation": {
+        "count": 240,
+        "frame_count": 2220,
+        "accuracy": 0.675,
+        "first_quarter_accuracy": 0.6333333333333333,
+        "last_quarter_accuracy": 0.75,
+        "mean_query_loss": 1.2749418599531055,
+        "mean_query_update_norm": 0.0,
+        "mean_gate_loss": 0.006389262708457741,
+        "mean_gate_update_norm": 0.0,
+        "mean_query_state_l2": 0.9804717733214299,
+        "controller_gate_accuracy": 1.0,
+        "controller_false_open_rate": 0.0,
+        "controller_false_close_rate": 0.0,
+        "controller_cue_mean": 0.99875807762146,
+        "controller_distractor_mean": 0.025760767981410027,
+        "effective_gate_accuracy": 1.0,
+        "effective_false_open_rate": 0.0,
+        "effective_false_close_rate": 0.0,
+        "effective_cue_mean": 0.99875807762146,
+        "effective_distractor_mean": 0.025760767981410027,
+        "controller_mean_by_timescale": [
+          0.13094845414161682
+        ],
+        "effective_mean_by_timescale": [
+          0.13094845414161682
+        ],
+        "accuracy_by_distractor_count": {
+          "1": 0.7166666666666667,
+          "4": 0.6666666666666666,
+          "8": 0.6833333333333333,
+          "16": 0.6333333333333333
+        },
+        "milliseconds_per_sequence": 9.306991133356254,
+        "milliseconds_per_frame": 1.0061612036060814
+      },
+      "training_parameter_max_drift": 5.08976411819458,
+      "training_gate_max_drift": 5.08976411819458,
+      "evaluation_parameter_max_drift": 0.0,
+      "online_observations": 7770,
+      "online_updates": 5550,
+      "online_gate_updates": 5550,
+      "online_gate_labels": 7770,
+      "max_unitary_error": 2.8621111596294213e-06,
+      "max_stochastic_error": 9.5367431640625e-07
+    }
+  ]
+}

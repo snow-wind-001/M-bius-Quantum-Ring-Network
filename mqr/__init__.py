@@ -6,15 +6,145 @@ This package implements the algorithm described in `Möbius Quantum Ring.html`:
 - Headless ring dynamics: fixed-point relaxation with dissipation/injection coefficient alpha
 - Hamiltonian (LoRA-style) low-rank injection: J(x) = W_up W_down x
 - Local projective sampling readout: y = W_readout * h*_S
+- One-step temporal rings with causal learned/external writes, keyed state, and delayed feedback
+- Future-utility write learning with paired shadow trajectories and deferred promotion
 """
 
-from .unitary import CayleyUnistochasticParam
-from .ring import MoebiusQuantumRing, MoebiusQuantumRingImageClassifier, create_mobius_model
+from .unitary import CayleyUnistochasticParam, CyclicGivensUnistochasticParam
+from .baselines import SinkhornDoublyStochasticParam
+from .ring import MoebiusQuantumRing, MoebiusQuantumRingImageClassifier, RingState, create_mobius_model
+from .online import OnlineMultiRingClassifier, OrthogonalGradientMemory
+from .temporal import (
+    MultiTimescaleMQR,
+    OnlineTemporalMQRClassifier,
+    TemporalMQRSidecar,
+    TemporalMQRState,
+    TemporalWriteGate,
+)
+from .routing import (
+    AddressRoutingCost,
+    BalancedAdvantageReplay,
+    BudgetedMultiTimescaleUtilityGate,
+    ContextualAddressRouterBank,
+    ResidualAddressRouter,
+    RoutedMemoryState,
+    RoutedSlotMemory,
+    WriteBudgetState,
+    utility_calibration_metrics,
+)
+from .safety import (
+    SidecarSafetyLimits,
+    categorical_policy_kl,
+    residual_output_diagnostics,
+    tensor_linf_drift,
+)
+from .utility import (
+    CAUSAL_UTILITY_FEATURES,
+    CONTEXTUAL_UTILITY_FEATURES,
+    ContextualFutureUtilityGate,
+    FutureUtilityGate,
+    UtilityDrivenMQR,
+)
+from .go import GoBoard, HeuristicGoTeacher
+from .go_agent import (
+    GoAgentExample,
+    GoAgentTrajectory,
+    GoVectorEncoder,
+    MiniCPMGoBoardEncoder,
+    example_targets,
+    generate_go_agent_trajectories,
+    generate_ko_history_pairs,
+    legality_target,
+    twin_write_returns,
+)
+from .minicpm import LoRALinear, MiniCPMLoRAEncoder, load_minicpm_awq_encoder
+from .sayuri import SayuriGTPClient, SayuriTeacher
+from .agent import (
+    GoLossWeights,
+    GoMultiHeadOutput,
+    GoSpatialSkipHeads,
+    SlowLoRAConsolidator,
+    SlowLoRAConsolidationSchedule,
+    TemporalUtilityMQRAgent,
+    generalized_advantage_estimate,
+)
+from .agent_baselines import (
+    AgentResourceAudit,
+    FrozenResidualCoreWrapper,
+    MultiTimescaleFastWeightCore,
+    MultiTimescaleGRUCore,
+    MultiTimescaleLoRAResidualCore,
+    MultiTimescaleLSTMCore,
+    MultiTimescaleSinkhornCore,
+    audit_agent_resources,
+    matched_competitive_resource_gate,
+    matched_resource_gate,
+)
 
 __all__ = [
     "CayleyUnistochasticParam",
+    "CyclicGivensUnistochasticParam",
+    "SinkhornDoublyStochasticParam",
     "MoebiusQuantumRing",
     "MoebiusQuantumRingImageClassifier",
+    "RingState",
+    "OnlineMultiRingClassifier",
+    "OrthogonalGradientMemory",
+    "MultiTimescaleMQR",
+    "OnlineTemporalMQRClassifier",
+    "TemporalMQRSidecar",
+    "TemporalMQRState",
+    "TemporalWriteGate",
+    "AddressRoutingCost",
+    "BalancedAdvantageReplay",
+    "BudgetedMultiTimescaleUtilityGate",
+    "ContextualAddressRouterBank",
+    "ResidualAddressRouter",
+    "RoutedMemoryState",
+    "RoutedSlotMemory",
+    "WriteBudgetState",
+    "utility_calibration_metrics",
+    "SidecarSafetyLimits",
+    "categorical_policy_kl",
+    "residual_output_diagnostics",
+    "tensor_linf_drift",
+    "CAUSAL_UTILITY_FEATURES",
+    "CONTEXTUAL_UTILITY_FEATURES",
+    "ContextualFutureUtilityGate",
+    "FutureUtilityGate",
+    "UtilityDrivenMQR",
+    "GoBoard",
+    "HeuristicGoTeacher",
+    "GoAgentExample",
+    "GoAgentTrajectory",
+    "GoVectorEncoder",
+    "MiniCPMGoBoardEncoder",
+    "example_targets",
+    "generate_go_agent_trajectories",
+    "generate_ko_history_pairs",
+    "legality_target",
+    "twin_write_returns",
+    "LoRALinear",
+    "MiniCPMLoRAEncoder",
+    "load_minicpm_awq_encoder",
+    "SayuriGTPClient",
+    "SayuriTeacher",
+    "GoLossWeights",
+    "GoMultiHeadOutput",
+    "GoSpatialSkipHeads",
+    "SlowLoRAConsolidator",
+    "SlowLoRAConsolidationSchedule",
+    "TemporalUtilityMQRAgent",
+    "generalized_advantage_estimate",
+    "AgentResourceAudit",
+    "FrozenResidualCoreWrapper",
+    "MultiTimescaleFastWeightCore",
+    "MultiTimescaleGRUCore",
+    "MultiTimescaleLoRAResidualCore",
+    "MultiTimescaleLSTMCore",
+    "MultiTimescaleSinkhornCore",
+    "audit_agent_resources",
+    "matched_competitive_resource_gate",
+    "matched_resource_gate",
     "create_mobius_model",
 ]
-

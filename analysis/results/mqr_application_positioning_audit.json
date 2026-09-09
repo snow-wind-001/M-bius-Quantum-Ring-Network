@@ -1,0 +1,160 @@
+{
+  "application_mechanism": {
+    "application_mechanism_qualified": true,
+    "context_accuracy_mean": 1.0,
+    "final_b_nll_mean": 0.2779871019947949,
+    "first_b_nll_mean": 0.9037618064431229,
+    "no_memory_accuracy_mean": 0.5,
+    "protected_policy_kl_max": 2.8582053577382406e-16,
+    "seeds": 10
+  },
+  "formal_competitiveness": {
+    "artifact_kind": "formal_10x10_and_13x13_replication",
+    "formal_experiment_complete": true,
+    "independent_competitiveness_established": false,
+    "missing_same_protocol_baselines": [],
+    "mqr_effective": false,
+    "online_learning_supported": true,
+    "present_same_protocol_baselines": [
+      "GRU",
+      "LSTM",
+      "LoRA",
+      "OGD-LoRA",
+      "Sinkhorn",
+      "equal-byte replay",
+      "fast-weight",
+      "identity"
+    ],
+    "requirements": {
+      "10_to_20_seeds": true,
+      "13x13_scaling_replication": true,
+      "all_required_baselines": true,
+      "mqr_joint_performance_gate": false,
+      "primary_board_at_least_10x10": true,
+      "same_feedback_budget": true,
+      "same_parameter_state_byte_flop_budget": true
+    },
+    "same_protocol_except_board_resources": true,
+    "scales": {
+      "10": {
+        "board_size": 10,
+        "formal_protocol_pass": true,
+        "missing_same_protocol_baselines": [],
+        "mqr_effective_on_this_scale": false,
+        "online_learning_supported": true,
+        "present_same_protocol_baselines": [
+          "GRU",
+          "LSTM",
+          "LoRA",
+          "OGD-LoRA",
+          "Sinkhorn",
+          "equal-byte replay",
+          "fast-weight",
+          "identity"
+        ],
+        "probe_exposures_per_task": 64,
+        "seed_count": 10,
+        "strict_resource_gate": {
+          "agent_forward_mac_ratio": 1.030432299889154,
+          "agent_forward_macs_matched": true,
+          "all_resources_matched": true,
+          "allocated_update_mac_ratio": 1.013005967049636,
+          "allocated_update_macs_matched": true,
+          "continual_capacity_exact": true,
+          "continual_capacity_ratio": 1.0,
+          "frozen_parameter_ratio": 1.0,
+          "frozen_parameters_exact": true,
+          "ratio_limit": 1.05,
+          "recurrent_state_byte_ratio": 1.0,
+          "recurrent_state_bytes_exact": true,
+          "trainable_parameter_ratio": 1.0430572005852434,
+          "trainable_parameters_matched": true
+        },
+        "train_exposures_per_task": 128,
+        "unmasked_games_per_stage": 8
+      },
+      "13": {
+        "board_size": 13,
+        "formal_protocol_pass": true,
+        "missing_same_protocol_baselines": [],
+        "mqr_effective_on_this_scale": false,
+        "online_learning_supported": true,
+        "present_same_protocol_baselines": [
+          "GRU",
+          "LSTM",
+          "LoRA",
+          "OGD-LoRA",
+          "Sinkhorn",
+          "equal-byte replay",
+          "fast-weight",
+          "identity"
+        ],
+        "probe_exposures_per_task": 64,
+        "seed_count": 10,
+        "strict_resource_gate": {
+          "agent_forward_mac_ratio": 1.0253099690030998,
+          "agent_forward_macs_matched": true,
+          "all_resources_matched": true,
+          "allocated_update_mac_ratio": 1.0126826722338205,
+          "allocated_update_macs_matched": true,
+          "continual_capacity_exact": true,
+          "continual_capacity_ratio": 1.0,
+          "frozen_parameter_ratio": 1.0,
+          "frozen_parameters_exact": true,
+          "ratio_limit": 1.05,
+          "recurrent_state_byte_ratio": 1.0,
+          "recurrent_state_bytes_exact": true,
+          "trainable_parameter_ratio": 1.0397509911664464,
+          "trainable_parameters_matched": true
+        },
+        "train_exposures_per_task": 128,
+        "unmasked_games_per_stage": 8
+      }
+    }
+  },
+  "interpretation": "The positioning is a justified engineering/research target, not a demonstrated deployment benefit. Synthetic application contracts pass and a real MiniCPM backbone remains frozen in smoke testing. Formal 10x10/13x13 experiments now pass protocol and allocation gates and demonstrate online loss reduction, but the joint MQR performance gate remains negative.",
+  "purpose": "audit_current_mqr_application_positioning_and_competitive_evidence",
+  "real_frozen_backbone_connectivity": {
+    "checkpoint_path": "/home/spikebai/checkpoints/MiniCPM5-1B-AWQ-INT4",
+    "connectivity_smoke_passed": true,
+    "frozen_parameter_probe_max_abs_drift": 0.0,
+    "mqr_effective": false,
+    "prediction_before_update": true,
+    "task_efficacy_proven": false
+  },
+  "schema_version": 2,
+  "source_artifacts": {
+    "application_qualification": {
+      "path": "analysis/results/frozen_sidecar_application_qualification.json",
+      "sha256": "b2584d566d3eb52ac73830c8398bbfdae1bd0f770342fbeae8cd831539b1b27b"
+    },
+    "formal_go_joint_verification": {
+      "path": "analysis/results/unified_temporal_mqr_go_competitive_joint_verify.json",
+      "sha256": "3c68e879dfc09ce8ea7b8fde5935fbe46666d2eefdc0594442a371c8caef170e"
+    },
+    "formal_go_results": [
+      {
+        "path": "analysis/results/unified_temporal_mqr_go_competitive_10x10_formal_10seed.json",
+        "sha256": "4a0b5da17ceba3d0197e668833112b4753d079e4dfa8c560c52960c4fc8b6af2"
+      },
+      {
+        "path": "analysis/results/unified_temporal_mqr_go_competitive_13x13_formal_10seed.json",
+        "sha256": "1e2fd0fe36014301a72fadccc38ba18c8be46ed1c23b9ab0e127d6251d2ab338"
+      }
+    ],
+    "minicpm_connectivity_smoke": {
+      "path": "analysis/results/unified_temporal_mqr_minicpm_go_smoke.json",
+      "sha256": "cff28f78fccc9a0cdd2564ef831c7f32b502111782d5c5d9c88221ccc644882f"
+    }
+  },
+  "verdict": {
+    "animal_like_learning_established": false,
+    "best_current_scope": "bounded frozen-model online personalization, session memory, and feedback-driven correction sidecar",
+    "formal_competitive_experiment_complete": true,
+    "general_capability_enhancement_established": false,
+    "generic_sidecar_transaction_is_caller_owned": true,
+    "independent_mqr_algorithm_advantage_established": false,
+    "positioning_is_consistent_with_available_evidence": true,
+    "real_model_application_gain_established": false
+  }
+}

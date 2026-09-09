@@ -333,7 +333,7 @@ def train_epoch(
         data, target = data.to(device), target.to(device)
         
         if use_eqprop:
-            # Strict HTML mode: no BPTT/autograd through relaxation.
+            # BPTT-free implicit-gradient mode: no autograd through relaxation.
             pass
         else:
             # 清零梯度
@@ -408,7 +408,7 @@ def train_epoch(
         else:
             # 前向传播
             output = model(data)
-            
+
             # 计算分类损失
             if apply_mixup or apply_cutmix or (label_smoothing and label_smoothing > 0.0):
                 num_classes = 100
@@ -430,7 +430,7 @@ def train_epoch(
         if not use_eqprop:
             # 总损失
             total_loss = cls_loss + ortho_loss_weight * ortho_loss
-            
+
             # 反向传播
             if use_hamiltonian:
                 # 哈密顿优化器会自动处理backward
@@ -604,7 +604,7 @@ def train_mobius_quantum_ring(args):
     encoder_optimizer = None
     if args.use_eqprop:
         optimizer = None
-        logging.info('Using strict EQPROP (Holomorphic Equilibrium Propagation) mode: no BPTT/autograd through relaxation')
+        logging.info('Using BPTT-free fixed-point implicit-gradient mode (legacy flag: --use-eqprop)')
         # Optional: train the image encoder with a standard optimizer (the ring still uses EQProp).
         if args.eqprop_encoder_optim != "none" and args.image_encoder in ("patch", "vit"):
             enc_params = []
@@ -952,7 +952,7 @@ def main():
     parser.add_argument('--use-hamiltonian', action='store_true',
                        help='Use Hamiltonian optimizer instead of AdamW')
     parser.add_argument('--use-eqprop', action='store_true',
-                       help='Strict HTML mode: Holomorphic Equilibrium Propagation (no BPTT/autograd through relaxation)')
+                       help='BPTT-free fixed-point implicit-gradient mode (legacy option name)')
     parser.add_argument('--eqprop-adjoint-steps', type=int, default=20,
                        help='Adjoint fixed-point solver iterations (h^dagger) for eqprop mode')
     parser.add_argument('--eqprop-unitary-lr-ratio', type=float, default=0.5,

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Optional, Sequence, Tuple
+from typing import TYPE_CHECKING, Optional, Sequence, Tuple, Union
 
 import torch
 import torch.nn as nn
@@ -10,12 +10,26 @@ import torch.nn.functional as F
 
 from .unitary import CayleyUnistochasticParam
 
+if TYPE_CHECKING:
+    from .online import OrthogonalGradientMemory
+
 
 @dataclass(frozen=True)
 class RingState:
-    """Container for the ring hidden state."""
+    """Container for a ring state and optional fixed-point certification.
+
+    ``converged=None`` denotes the backward-compatible fixed-iteration mode in
+    which no tolerance was requested.  When a tolerance is configured, the
+    residual is measured at the returned state and ``error_bound`` is the
+    contraction certificate ``residual / alpha``.
+    """
 
     h: torch.Tensor  # [B, N]
+    residual: Optional[float] = None
+    relative_residual: Optional[float] = None
+    error_bound: Optional[float] = None
+    iterations: int = 0
+    converged: Optional[bool] = None
 
 
 class HamiltonianInjectionLoRA(nn.Module):
@@ -126,6 +140,8 @@ class MoebiusQuantumRing(nn.Module):
         *,
         alpha: float = 0.1,
         relaxation_steps: int = 20,
+        relaxation_tol: Optional[float] = None,
+        relaxation_min_steps: int = 1,
         lora_rank: int = 16,
         inj_activation: str = "none",
         state_activation: str = "none",
@@ -133,6 +149,7 @@ class MoebiusQuantumRing(nn.Module):
         learnable_h_mix_beta: bool = False,
         dynamics_mode: str = "unistochastic",
         measurement: str = "identity",
+        cayley_coordinate_mode: str = "projected",
         readout_dim: int = 16,
         sample_indices: Optional[Sequence[int]] = None,
         readout_mode: str = "linear",
@@ -142,12 +159,19 @@ class MoebiusQuantumRing(nn.Module):
         base_unitary_scale: float = 0.01,
         base_unitary_seed: Optional[int] = None,
         learnable_state_targets: bool = False,
+        zero_init_readout: bool = False,
     ):
         super().__init__()
         if not (0.0 < alpha <= 1.0):
             raise ValueError(f"alpha must be in (0, 1], got {alpha}")
         if relaxation_steps <= 0:
             raise ValueError("relaxation_steps must be positive")
+        if relaxation_tol is not None and relaxation_tol <= 0:
+            raise ValueError("relaxation_tol must be positive or None")
+        if relaxation_min_steps <= 0 or relaxation_min_steps > relaxation_steps:
+            raise ValueError(
+                "relaxation_min_steps must be in [1, relaxation_steps]"
+            )
         if readout_dim <= 0:
             raise ValueError("readout_dim must be positive")
         if sample_indices is None:
@@ -163,6 +187,10 @@ class MoebiusQuantumRing(nn.Module):
         self.output_dim = output_dim
         self.alpha = float(alpha)
         self.relaxation_steps = int(relaxation_steps)
+        self.relaxation_tol = (
+            None if relaxation_tol is None else float(relaxation_tol)
+        )
+        self.relaxation_min_steps = int(relaxation_min_steps)
 
         readout_mode = str(readout_mode)
         if readout_mode not in ("linear", "proto"):
@@ -248,9 +276,14 @@ class MoebiusQuantumRing(nn.Module):
             U_base = torch.linalg.solve(I + A, I - A)  # unitary by Cayley
             self.U_base.copy_(U_base)
 
-        self.unitary_param = CayleyUnistochasticParam(hidden_dim)
+        self.unitary_param = CayleyUnistochasticParam(
+            hidden_dim, coordinate_mode=cayley_coordinate_mode
+        )
         self.injection = HamiltonianInjectionLoRA(input_dim, hidden_dim, lora_rank, activation=inj_activation)
         self.readout = LocalProjectiveReadout(hidden_dim, output_dim, sample_indices)
+        self.zero_init_readout = bool(zero_init_readout)
+        if self.zero_init_readout:
+            nn.init.zeros_(self.readout.readout.weight)
 
         # Optional: learnable GT equilibrium targets (e.g. class prototypes) in hidden-state space.
         if learnable_state_targets:
@@ -383,6 +416,40 @@ class MoebiusQuantumRing(nn.Module):
             return self._proto_logits_from_state(h_meas)
         raise RuntimeError(f"Unknown readout_mode: {self.readout_mode}")
 
+    def _certified_ring_state(
+        self,
+        h: torch.Tensor,
+        next_h: torch.Tensor,
+        *,
+        iterations: int,
+        tolerance: Optional[float],
+    ) -> RingState:
+        """Attach a scale-aware fixed-point residual to ``h``.
+
+        The stopping residual is ``||T(h)-h||_inf`` over the whole batch.  The
+        relative value divides by ``max(1, ||T(h)||_inf)``.  Since every
+        supported ring map is a contraction with modulus at most
+        ``1-alpha``, ``residual / alpha`` bounds the absolute state error.
+        """
+
+        residual_tensor = (next_h - h).abs().amax()
+        scale_tensor = next_h.abs().amax().clamp_min(1.0)
+        residual = float(residual_tensor.detach().cpu().item())
+        relative_residual = float(
+            (residual_tensor / scale_tensor).detach().cpu().item()
+        )
+        converged = (
+            None if tolerance is None else relative_residual <= float(tolerance)
+        )
+        return RingState(
+            h=h,
+            residual=residual,
+            relative_residual=relative_residual,
+            error_bound=residual / self.alpha,
+            iterations=int(iterations),
+            converged=converged,
+        )
+
     def forward(
         self,
         x: torch.Tensor,
@@ -418,8 +485,18 @@ class MoebiusQuantumRing(nn.Module):
                     raise ValueError(f"state.h must be [B, {self.hidden_dim}], got {tuple(state.h.shape)}")
                 h = state.h.to(device=x.device, dtype=J.dtype)
 
-            for _ in range(self.relaxation_steps):
+            iterations = 0
+            for iterations in range(1, self.relaxation_steps + 1):
                 h = self._state_act((1.0 - a) * (h @ Ht) + a * J)
+                if (
+                    self.relaxation_tol is not None
+                    and iterations >= self.relaxation_min_steps
+                ):
+                    probe = self._state_act((1.0 - a) * (h @ Ht) + a * J)
+                    relative = (probe - h).abs().amax() / probe.abs().amax().clamp_min(1.0)
+                    if float(relative.detach().cpu().item()) <= self.relaxation_tol:
+                        break
+            next_h = self._state_act((1.0 - a) * (h @ Ht) + a * J)
         else:
             # 2) Complex unitary dynamics: propagate with U (phase participates in inference).
             U_total = self._unitary_total().to(device=x.device)
@@ -433,19 +510,36 @@ class MoebiusQuantumRing(nn.Module):
                     raise ValueError(f"state.h must be [B, {self.hidden_dim}], got {tuple(state.h.shape)}")
                 h = state.h.to(device=x.device, dtype=U_total.dtype)
 
-            for _ in range(self.relaxation_steps):
+            iterations = 0
+            for iterations in range(1, self.relaxation_steps + 1):
                 h = (1.0 - a) * (h @ U_H) + a * Jc
+                if (
+                    self.relaxation_tol is not None
+                    and iterations >= self.relaxation_min_steps
+                ):
+                    probe = (1.0 - a) * (h @ U_H) + a * Jc
+                    relative = (probe - h).abs().amax() / probe.abs().amax().clamp_min(1.0)
+                    if float(relative.detach().cpu().item()) <= self.relaxation_tol:
+                        break
+            next_h = (1.0 - a) * (h @ U_H) + a * Jc
+
+        ring_state = self._certified_ring_state(
+            h,
+            next_h,
+            iterations=iterations,
+            tolerance=self.relaxation_tol,
+        )
 
         # 4) Readout (linear local sampling OR prototype-distance logits)
         y = self._logits_from_state(h)
 
         if return_state and return_H:
             if self.dynamics_mode == "unistochastic":
-                return y, RingState(h=h), H
+                return y, ring_state, H
             # For unitary dynamics, return the induced |U|^2 (unistochastic) for diagnostics.
-            return y, RingState(h=h), self._current_H_base(device=x.device, dtype=J.dtype)
+            return y, ring_state, self._current_H_base(device=x.device, dtype=J.dtype)
         if return_state:
-            return y, RingState(h=h)
+            return y, ring_state
         if return_H:
             if self.dynamics_mode == "unistochastic":
                 return y, H
@@ -459,17 +553,24 @@ class MoebiusQuantumRing(nn.Module):
         grad_y: torch.Tensor,
         *,
         steps: int = 20,
-    ) -> torch.Tensor:
+        tol: Optional[float] = None,
+        min_steps: int = 1,
+        return_info: bool = False,
+    ):
         """
         Compute the adjoint state h^† by the fixed-point iteration described in the HTML.
 
-        This is a diagnostic/educational utility mirroring the "Holomorphic Equilibrium Propagation"
-        section. The training scripts in this repo still rely on PyTorch autograd by default.
+        This is a diagnostic/educational utility for the reverse fixed-point
+        implicit-gradient calculation. The training scripts still rely on
+        PyTorch autograd by default.
 
         Args:
             h_star: fixed point state h* of shape [B, N]
             grad_y: gradient at the output y, shape [B, output_dim]
-            steps: number of iterations for the adjoint fixed-point solver
+            steps: maximum iterations for the adjoint fixed-point solver
+            tol: optional scale-aware residual tolerance
+            min_steps: minimum iterations before tolerance-based early stopping
+            return_info: return ``(state, diagnostics)`` when True
         """
         if h_star.dim() != 2 or h_star.size(1) != self.hidden_dim:
             raise ValueError(f"h_star must be [B, {self.hidden_dim}]")
@@ -494,7 +595,14 @@ class MoebiusQuantumRing(nn.Module):
         grad_h_meas.index_copy_(1, self.readout.sample_indices, grad_hs)
         grad_h = self._pullback_measured_grad(h_star, grad_h_meas)
 
-        return self.compute_adjoint_state_from_grad_h(h_star, grad_h, steps=steps)
+        return self.compute_adjoint_state_from_grad_h(
+            h_star,
+            grad_h,
+            steps=steps,
+            tol=tol,
+            min_steps=min_steps,
+            return_info=return_info,
+        )
 
     @torch.no_grad()
     def compute_adjoint_state_from_grad_h(
@@ -503,12 +611,20 @@ class MoebiusQuantumRing(nn.Module):
         grad_h: torch.Tensor,
         *,
         steps: int = 20,
-    ) -> torch.Tensor:
+        tol: Optional[float] = None,
+        min_steps: int = 1,
+        return_info: bool = False,
+    ):
         """
         Compute adjoint state h^† given an explicit gradient source ∇_{h*} L.
 
         This is the core "reverse ring" iteration:
-            h^† = (1-α) h^† H + α ∇_{h*} L
+            p = (1-α) (p ⊙ σ'(h*)) H + α ∇_{h*} L.
+
+        Thus ``p = α λ`` where ``λ`` is the conventional implicit-function
+        adjoint. Keeping this scaling makes the injection gradient simply
+        ``(p ⊙ σ')^T z``; the corresponding H gradient needs the factor
+        ``(1-α)/α`` (see :meth:`approx_grad_H`).
         """
         if h_star.shape != grad_h.shape:
             raise ValueError("h_star and grad_h must have the same shape")
@@ -516,24 +632,123 @@ class MoebiusQuantumRing(nn.Module):
             raise ValueError(f"h_star must be [B, {self.hidden_dim}]")
         if steps <= 0:
             raise ValueError("steps must be positive")
+        if tol is not None and tol <= 0:
+            raise ValueError("tol must be positive or None")
+        if min_steps <= 0 or min_steps > steps:
+            raise ValueError("min_steps must be in [1, steps]")
 
         a = self.alpha
         if self.dynamics_mode == "unistochastic":
             H = self._current_H(device=h_star.device, dtype=h_star.dtype)  # [N, N]
             act_prime = self._state_act_prime_from_h(h_star)  # [B, N]
             h_dag = torch.zeros_like(h_star)
-            for _ in range(steps):
+            iterations = 0
+            for iterations in range(1, steps + 1):
                 # Row-vector form (with optional nonlinearity σ):
                 #   h^† = (1-α) (h^† ⊙ σ'(h^*)) H + α ∇_{h*} L
                 h_dag = (1.0 - a) * ((h_dag * act_prime) @ H) + a * grad_h
-            return h_dag
+                if tol is not None and iterations >= min_steps:
+                    probe = (1.0 - a) * ((h_dag * act_prime) @ H) + a * grad_h
+                    relative = (probe - h_dag).abs().amax() / probe.abs().amax().clamp_min(1.0)
+                    if float(relative.detach().cpu().item()) <= tol:
+                        break
+            next_h_dag = (1.0 - a) * ((h_dag * act_prime) @ H) + a * grad_h
 
-        # Complex unitary dynamics: forward uses U^H, so adjoint uses U.
-        U_total = self._unitary_total().to(device=h_star.device, dtype=h_star.dtype)
-        h_dag = torch.zeros_like(h_star, dtype=U_total.dtype)
-        grad_hc = grad_h.to(dtype=U_total.dtype)
-        for _ in range(steps):
-            h_dag = (1.0 - a) * (h_dag @ U_total) + a * grad_hc
+        else:
+            # Complex unitary dynamics: forward uses U^H, so adjoint uses U.
+            U_total = self._unitary_total().to(device=h_star.device, dtype=h_star.dtype)
+            h_dag = torch.zeros_like(h_star, dtype=U_total.dtype)
+            grad_hc = grad_h.to(dtype=U_total.dtype)
+            iterations = 0
+            for iterations in range(1, steps + 1):
+                h_dag = (1.0 - a) * (h_dag @ U_total) + a * grad_hc
+                if tol is not None and iterations >= min_steps:
+                    probe = (1.0 - a) * (h_dag @ U_total) + a * grad_hc
+                    relative = (probe - h_dag).abs().amax() / probe.abs().amax().clamp_min(1.0)
+                    if float(relative.detach().cpu().item()) <= tol:
+                        break
+            next_h_dag = (1.0 - a) * (h_dag @ U_total) + a * grad_hc
+
+        residual_tensor = (next_h_dag - h_dag).abs().amax()
+        scale_tensor = next_h_dag.abs().amax().clamp_min(1.0)
+        residual = float(residual_tensor.detach().cpu().item())
+        relative_residual = float(
+            (residual_tensor / scale_tensor).detach().cpu().item()
+        )
+        info = {
+            "residual": residual,
+            "relative_residual": relative_residual,
+            "error_bound": residual / self.alpha,
+            "iterations": int(iterations),
+            "converged": None if tol is None else relative_residual <= float(tol),
+            "certification_requested": tol is not None,
+            "solver": "fixed_point_iteration",
+        }
+        if return_info:
+            return h_dag, info
+        return h_dag
+
+    @torch.no_grad()
+    def solve_adjoint_state_from_grad_h(
+        self,
+        h_star: torch.Tensor,
+        grad_h: torch.Tensor,
+        *,
+        return_info: bool = False,
+    ):
+        """Direct nonlinear-adjoint oracle for small unistochastic rings.
+
+        With ``D=diag(sigma'(h_star))`` fixed, each batch item solves
+        ``(I - (1-alpha) H^T D) p^T = alpha grad_h^T``.  The dense batched
+        solve costs ``O(B N^3)`` and is intended for proof tests, not online
+        token-by-token training.
+        """
+
+        if self.dynamics_mode != "unistochastic":
+            raise ValueError(
+                "direct nonlinear adjoint oracle currently supports only "
+                'dynamics_mode="unistochastic"'
+            )
+        if h_star.shape != grad_h.shape:
+            raise ValueError("h_star and grad_h must have the same shape")
+        if h_star.dim() != 2 or h_star.size(1) != self.hidden_dim:
+            raise ValueError(f"h_star must be [B, {self.hidden_dim}]")
+
+        H = self._current_H(device=h_star.device, dtype=h_star.dtype)
+        act_prime = self._state_act_prime_from_h(h_star)
+        identity = torch.eye(
+            self.hidden_dim, device=h_star.device, dtype=h_star.dtype
+        ).expand(h_star.size(0), -1, -1)
+        # H^T D multiplies column j of H^T by D_j.
+        system = identity - (1.0 - self.alpha) * (
+            H.transpose(0, 1).unsqueeze(0) * act_prime.unsqueeze(1)
+        )
+        rhs = self.alpha * grad_h.unsqueeze(-1)
+        h_dag = torch.linalg.solve(system, rhs).squeeze(-1)
+        next_h_dag = (
+            (1.0 - self.alpha) * ((h_dag * act_prime) @ H)
+            + self.alpha * grad_h
+        )
+        residual_tensor = (next_h_dag - h_dag).abs().amax()
+        scale_tensor = next_h_dag.abs().amax().clamp_min(1.0)
+        residual = float(residual_tensor.detach().cpu().item())
+        relative_residual = float(
+            (residual_tensor / scale_tensor).detach().cpu().item()
+        )
+        eps = torch.finfo(h_star.dtype).eps
+        numerical_tol = float(100.0 * self.hidden_dim * eps)
+        info = {
+            "residual": residual,
+            "relative_residual": relative_residual,
+            "error_bound": residual / self.alpha,
+            "iterations": 1,
+            "converged": relative_residual <= numerical_tol,
+            "certification_requested": True,
+            "solver": "direct_linear_solve",
+            "numerical_tolerance": numerical_tol,
+        }
+        if return_info:
+            return h_dag, info
         return h_dag
 
     @torch.no_grad()
@@ -545,7 +760,18 @@ class MoebiusQuantumRing(nn.Module):
         normalize: bool = True,
     ) -> torch.Tensor:
         """
-        Approximate ∂L/∂H ≈ h^† ⊗ h* (outer product), aggregated over batch.
+        Return the implicit equilibrium gradient with respect to H.
+
+        For ``q = 1-α`` and the scaled adjoint ``p=αλ`` used above,
+
+            ∂L/∂H = (q/α) (p ⊙ σ'(h*))^T h*.
+
+        This is exact for converged forward and adjoint fixed points (apart
+        from nondifferentiable activation points). Finite solver iterations
+        make it an approximation to the infinite-equilibrium gradient.
+
+        ``normalize=True`` divides by batch size and is appropriate only when
+        the supplied state-gradient source was not already mean-reduced.
 
         Returns:
             grad_H: [N, N]
@@ -556,7 +782,9 @@ class MoebiusQuantumRing(nn.Module):
             raise ValueError(f"h_star must be [B, {self.hidden_dim}]")
 
         act_prime = self._state_act_prime_from_h(h_star)  # [B, N]
-        grad_H = (h_dag * act_prime).transpose(0, 1) @ h_star  # [N, N]
+        grad_H = ((1.0 - self.alpha) / self.alpha) * (
+            (h_dag * act_prime).transpose(0, 1) @ h_star
+        )  # [N, N]
         if normalize:
             grad_H = grad_H / max(1, h_star.size(0))
         return grad_H
@@ -572,6 +800,9 @@ class MoebiusQuantumRing(nn.Module):
         injection_lr_ratio: float = 1.0,
         readout_lr_ratio: float = 1.0,
         adjoint_steps: int = 20,
+        adjoint_tol: Optional[float] = None,
+        adjoint_min_steps: int = 1,
+        allow_inexact_update: bool = False,
         normalize_grad_H: bool = True,
         state: Optional[RingState] = None,
         # Optional state-target learning (GT equilibrium targets, e.g. class prototypes)
@@ -581,28 +812,58 @@ class MoebiusQuantumRing(nn.Module):
         h_mix_beta_lr_ratio: float = 1.0,
         # Optional: return gradient w.r.t input x for training an external encoder (e.g., patch embedding)
         return_grad_x: bool = False,
+        # Optional continual-learning projection over the complete ring update.
+        orthogonal_memory: Optional["OrthogonalGradientMemory"] = None,
+        remember_gradient: bool = False,
+        project_with_memory: bool = True,
+        # Optional trust region on the complete atomic parameter displacement.
+        max_update_norm: Optional[float] = None,
+        # Optional upstream gradient for non-CE objectives (policy/value/etc.).
+        grad_logits: Optional[torch.Tensor] = None,
+        loss_value: Optional[Union[float, torch.Tensor]] = None,
     ) -> dict:
         """
-        Strict training step following the HTML "Holomorphic Equilibrium Propagation" section.
+        BPTT-free implicit-equilibrium training step (legacy API name: EQProp).
 
         Key properties:
           - No BPTT / no autograd through the relaxation loop.
           - Inference: relaxation to a fixed point h* (real ring).
-          - Update: adjoint fixed point h^†, then ∂L/∂H ≈ h^† ⊗ h*.
-          - Manifold update: ΔA ∝ skew( U^† · ( (∂L/∂H) ⊙ U ⊙ \bar U ) ).
+          - Update: a scaled adjoint fixed point followed by the exact implicit
+            gradient, up to finite forward/adjoint solver error.
+          - Unitary update: exact chain rule through H=|U|² and the Cayley map.
+          - Optional OGD: collect the complete parameter gradient, project it
+            in learning-rate-whitened coordinates, then commit one atomic update.
+
+        The historical term "holomorphic" is mathematically inaccurate for
+        the unistochastic path because ``|U|²`` depends on U and its conjugate.
 
         Args:
             x: [B, input_dim]
             target:
               - hard labels [B] (int64), or
               - soft labels [B, output_dim] (float), e.g. Mixup.
+              Mutually exclusive with ``grad_logits``.
+            grad_logits: optional already-reduced ``dL/dlogits`` with shape
+              ``[B, output_dim]``.  This is the generic entry point for
+              policy-gradient, value, ranking, or composed multi-head losses.
+              The caller owns all reduction and importance weights.
+            loss_value: optional finite scalar used only for diagnostics when
+              ``grad_logits`` is supplied; it does not participate in updates.
             lr: base learning rate
             unitary_lr_ratio: multiplier for unitary manifold parameters
             injection_lr_ratio: multiplier for LoRA injection parameters
             readout_lr_ratio: multiplier for readout parameters
-            adjoint_steps: iterations for adjoint fixed-point solver
+            adjoint_steps: maximum iterations for adjoint fixed-point solver
+            adjoint_tol: optional residual tolerance; when omitted it inherits
+              ``relaxation_tol`` if forward certification is enabled
+            adjoint_min_steps: minimum iterations before adjoint early stopping
+            allow_inexact_update: explicitly commit an update even when a
+              requested forward/adjoint certificate fails
             normalize_grad_H: average outer product over batch if True
             state: optional previous state h (HTML mentions using previous frame state)
+            orthogonal_memory: historical-gradient basis used for first-order protection
+            remember_gradient: add this step's unprojected gradient to that basis in the same transaction
+            project_with_memory: if False, stage gradients without protecting the current task
 
         Returns:
             dict with keys: loss, logits, h_star, h_dag, unitary_error
@@ -611,19 +872,47 @@ class MoebiusQuantumRing(nn.Module):
             raise ValueError(f"lr must be positive, got {lr}")
         if unitary_lr_ratio < 0 or injection_lr_ratio < 0 or readout_lr_ratio < 0:
             raise ValueError("lr ratios must be non-negative")
+        if state_target_lr_ratio < 0 or h_mix_beta_lr_ratio < 0:
+            raise ValueError("state-target and beta lr ratios must be non-negative")
         if adjoint_steps <= 0:
             raise ValueError("adjoint_steps must be positive")
+        if adjoint_tol is not None and adjoint_tol <= 0:
+            raise ValueError("adjoint_tol must be positive or None")
+        if adjoint_min_steps <= 0 or adjoint_min_steps > adjoint_steps:
+            raise ValueError("adjoint_min_steps must be in [1, adjoint_steps]")
+        if remember_gradient and orthogonal_memory is None:
+            raise ValueError("remember_gradient=True requires orthogonal_memory")
+        if max_update_norm is not None and max_update_norm <= 0:
+            raise ValueError("max_update_norm must be positive or None")
+        if target is not None and grad_logits is not None:
+            raise ValueError("target and grad_logits are mutually exclusive")
+        if loss_value is not None:
+            diagnostic_loss = torch.as_tensor(loss_value)
+            if diagnostic_loss.numel() != 1 or not bool(
+                torch.isfinite(diagnostic_loss).all()
+            ):
+                raise ValueError("loss_value must be a finite scalar or None")
 
         # ----------------------------
         # 1) Inference (Real Ring): relaxation to fixed point h*
         # ----------------------------
         logits, ring_state, _H = self.forward(x, state=state, return_state=True, return_H=True)
         h_star = ring_state.h  # [B, N]
+        forward_solver_fields = {
+            "forward_residual": ring_state.residual,
+            "forward_relative_residual": ring_state.relative_residual,
+            "forward_error_bound": ring_state.error_bound,
+            "forward_iterations": int(ring_state.iterations),
+            "forward_converged": ring_state.converged,
+            "forward_certification_requested": self.relaxation_tol is not None,
+        }
 
-        # If no GT is provided, we only do the forward ring (online inference).
-        if target is None:
+        # If neither labels nor an upstream output gradient are provided, this
+        # is an inference-only transaction.
+        if target is None and grad_logits is None:
             unitary_error = self.unitary_param.unitary_error_fro().real.to(dtype=torch.float32).item()
             beta_val = float(self._h_mix_beta_value(device=h_star.device, dtype=torch.float32).detach().cpu().item())
+            ogd_rank = int(orthogonal_memory.rank) if orthogonal_memory is not None else 0
             return {
                 "loss": 0.0,
                 "loss_cls": 0.0,
@@ -634,19 +923,50 @@ class MoebiusQuantumRing(nn.Module):
                 "unitary_error": unitary_error,
                 "h_mix_beta": beta_val,
                 "did_update": False,
+                "ogd_rank": ogd_rank,
+                "ogd_retained_norm": 1.0,
+                "ogd_memory_added": False,
+                "ogd_projection_applied": False,
+                "adjoint_residual": None,
+                "adjoint_relative_residual": None,
+                "adjoint_error_bound": None,
+                "adjoint_iterations": 0,
+                "adjoint_converged": None,
+                "adjoint_certification_requested": False,
+                "solver_certification_requested": self.relaxation_tol is not None,
+                "solver_converged": ring_state.converged,
+                "allow_inexact_update": bool(allow_inexact_update),
+                "update_skip_reason": "inference_only",
+                **forward_solver_fields,
             }
 
         # ----------------------------
         # 2) Loss + dL/dy (no autograd through relaxation)
         # ----------------------------
-        if target.dim() == 1:
+        if grad_logits is not None:
+            if not isinstance(grad_logits, torch.Tensor):
+                raise TypeError("grad_logits must be a tensor or None")
+            if grad_logits.shape != logits.shape:
+                raise ValueError(
+                    f"grad_logits must have shape {tuple(logits.shape)}, got "
+                    f"{tuple(grad_logits.shape)}"
+                )
+            if torch.is_complex(grad_logits) or not grad_logits.is_floating_point():
+                raise TypeError("grad_logits must be a real floating-point tensor")
+            if not bool(torch.isfinite(grad_logits).all()):
+                raise ValueError("grad_logits must contain only finite values")
+            grad_y = grad_logits.detach().to(device=logits.device, dtype=logits.dtype)
+            loss_cls = logits.new_tensor(
+                0.0 if loss_value is None else float(torch.as_tensor(loss_value).item())
+            )
+        elif target is not None and target.dim() == 1:
             # Hard labels: standard cross-entropy
             loss_cls = F.cross_entropy(logits, target, reduction="mean")
             probs = torch.softmax(logits, dim=1)
             grad_y = probs
             grad_y[torch.arange(target.size(0), device=target.device), target] -= 1.0
             grad_y = grad_y / max(1, target.size(0))
-        elif target.dim() == 2:
+        elif target is not None and target.dim() == 2:
             # Soft labels: -sum(target * log_softmax)
             if target.size(1) != self.output_dim:
                 raise ValueError(f"Soft target must be [B, {self.output_dim}]")
@@ -687,6 +1007,10 @@ class MoebiusQuantumRing(nn.Module):
         loss_state = torch.tensor(0.0, device=h_meas.device, dtype=h_meas.dtype)
         grad_state_targets = None
         if state_target_weight > 0:
+            if target is None:
+                raise ValueError(
+                    "state_target_weight requires a hard or soft target, not grad_logits"
+                )
             if self.state_targets is None:
                 raise ValueError("state_target_weight > 0 requires learnable_state_targets=True at init")
 
@@ -719,31 +1043,106 @@ class MoebiusQuantumRing(nn.Module):
         # ----------------------------
         # 3) Adjoint fixed point (+ optional dL/dH for unistochastic mode)
         # ----------------------------
-        h_dag = self.compute_adjoint_state_from_grad_h(h_star, grad_h, steps=adjoint_steps)
+        effective_adjoint_tol = (
+            self.relaxation_tol if adjoint_tol is None else float(adjoint_tol)
+        )
+        h_dag, adjoint_info = self.compute_adjoint_state_from_grad_h(
+            h_star,
+            grad_h,
+            steps=adjoint_steps,
+            tol=effective_adjoint_tol,
+            min_steps=adjoint_min_steps,
+            return_info=True,
+        )
         beta = self._h_mix_beta_value(device=h_meas.device, dtype=h_meas.dtype)
+        adjoint_solver_fields = {
+            "adjoint_residual": float(adjoint_info["residual"]),
+            "adjoint_relative_residual": float(adjoint_info["relative_residual"]),
+            "adjoint_error_bound": float(adjoint_info["error_bound"]),
+            "adjoint_iterations": int(adjoint_info["iterations"]),
+            "adjoint_converged": adjoint_info["converged"],
+            "adjoint_certification_requested": effective_adjoint_tol is not None,
+        }
+        certification_requested = bool(
+            self.relaxation_tol is not None or effective_adjoint_tol is not None
+        )
+        solver_converged = (
+            bool(ring_state.converged is True and adjoint_info["converged"] is True)
+            if certification_requested
+            else None
+        )
+        update_allowed = bool(
+            not certification_requested or solver_converged or allow_inexact_update
+        )
+
+        if not update_allowed:
+            unitary_error = self.unitary_param.unitary_error_fro().real.to(dtype=torch.float32).item()
+            ogd_rank = int(orthogonal_memory.rank) if orthogonal_memory is not None else 0
+            return {
+                "loss": float((loss_cls + state_target_weight * loss_state).item()),
+                "loss_cls": float(loss_cls.item()),
+                "loss_state": float(loss_state.item()),
+                "logits": logits,
+                "h_star": h_star,
+                "h_dag": h_dag,
+                "unitary_error": unitary_error,
+                "h_mix_beta": float(beta.detach().cpu().item()),
+                "did_update": False,
+                "grad_x": None,
+                "ogd_rank": ogd_rank,
+                "ogd_retained_norm": 0.0,
+                "ogd_raw_norm": 0.0,
+                "ogd_projected_norm": 0.0,
+                "ogd_max_abs_overlap": 0.0,
+                "ogd_first_order_decrease": 0.0,
+                "ogd_memory_added": False,
+                "ogd_projection_applied": False,
+                "update_norm": 0.0,
+                "unclipped_update_norm": 0.0,
+                "update_clip_scale": 1.0,
+                "solver_certification_requested": True,
+                "solver_converged": False,
+                "allow_inexact_update": False,
+                "update_skip_reason": "solver_not_converged",
+                **forward_solver_fields,
+                **adjoint_solver_fields,
+            }
 
         grad_H = None
         grad_H_base = None
         if self.dynamics_mode == "unistochastic":
             act_prime = self._state_act_prime_from_h(h_star)
             h_eff = h_dag * act_prime
-            grad_H = self.approx_grad_H(h_star, h_dag, normalize=normalize_grad_H)  # [N, N]
+            # grad_y above already differentiates a mean-reduced loss, so the
+            # adjoint already contains 1/B. Dividing by B here a second time
+            # would make the unitary update spuriously batch-size dependent.
+            grad_H = self.approx_grad_H(h_star, h_dag, normalize=False)  # [N, N]
+            if not normalize_grad_H:
+                # Preserve the legacy option's intended sum reduction.
+                grad_H = grad_H * max(1, h_star.size(0))
             beta_H = self._h_mix_beta_value(device=h_star.device, dtype=grad_H.dtype)
             grad_H_base = grad_H * beta_H  # dL/dH = beta * dL/dH_eff
         else:
             h_eff = h_dag  # complex adjoint (used for unitary updates/injection as needed)
 
         # ----------------------------
-        # 4) Parameter updates (Readout / Injection / Unitary manifold)
+        # 4) Collect the complete gradient before mutating any parameter.
         # ----------------------------
-        # 4.1 Readout update: y = W_readout · h*_S
+        # Entries are (stable name, parameter, raw gradient, absolute step size).
+        # Keeping the whole vector intact is essential for an OGD guarantee: a
+        # sequence of immediate per-block mutations would mix different theta_t.
+        parameter_updates = []
+
+        # 4.1 Readout: y = W_readout · h*_S
         lr_readout = lr * readout_lr_ratio
         if lr_readout > 0 and self.readout_mode == "linear":
             hs = h_meas.index_select(1, self.readout.sample_indices)  # [B, |S|]
             grad_W_readout = grad_y.transpose(0, 1) @ hs  # [C, |S|]
-            self.readout.readout.weight.data.add_(grad_W_readout, alpha=-lr_readout)
+            parameter_updates.append(
+                ("readout.weight", self.readout.readout.weight, grad_W_readout, lr_readout)
+            )
 
-        # 4.2 Injection update: J(x) = W_up W_down x
+        # 4.2 Injection: J(x) = W_up phi(W_down x)
         lr_inj = lr * injection_lr_ratio
         grad_x = None
         if lr_inj > 0 or return_grad_x:
@@ -757,16 +1156,23 @@ class MoebiusQuantumRing(nn.Module):
             if return_grad_x:
                 # pre = x @ W_down^T  => dL/dx = dz @ W_down
                 grad_x = dz @ self.injection.down.weight  # [B, d]
-
             if lr_inj > 0:
-                self.injection.up.weight.data.add_(grad_W_up, alpha=-lr_inj)
-                self.injection.down.weight.data.add_(grad_W_down, alpha=-lr_inj)
+                parameter_updates.extend(
+                    [
+                        ("injection.up.weight", self.injection.up.weight, grad_W_up, lr_inj),
+                        ("injection.down.weight", self.injection.down.weight, grad_W_down, lr_inj),
+                    ]
+                )
 
-        # 4.3 Unitary manifold update (core "phase / Lie algebra" step)
+        # 4.3 Cayley coordinates and optional beta.
         lr_u = lr * unitary_lr_ratio
-        if lr_u > 0:
-            # We update the learnable "policy" unitary parameters. If a frozen U_base is used,
-            # we must pull gradients back through U_total = U_policy U_base, treating U_base constant.
+        lr_beta = lr * float(h_mix_beta_lr_ratio)
+        need_unitary = lr_u > 0 or (
+            self.dynamics_mode == "unistochastic"
+            and lr_beta > 0
+            and self.h_mix_beta_param is not None
+        )
+        if need_unitary:
             U_policy = self.unitary_param.unitary()  # [N, N] complex
             if self._use_base_unitary:
                 U_base = self.U_base.to(device=U_policy.device, dtype=U_policy.dtype)
@@ -776,46 +1182,66 @@ class MoebiusQuantumRing(nn.Module):
                 U_total = U_policy
 
             if self.dynamics_mode == "unistochastic":
-                H_u = U_total.abs().pow(2)  # [N, N] real
-
-                # HTML: ΔA ∝ skew( U^† · ( (∂L/∂H) ⊙ U ⊙ \bar U ) )
                 if grad_H_base is None or grad_H is None:
-                    raise RuntimeError("grad_H is required for unistochastic EQProp update")
-                inner_total = (grad_H_base * H_u).to(dtype=U_policy.dtype)  # cast real -> complex
-                # Pullback through right-multiplication by constant U_base: dU_total = dU_policy U_base
-                inner_policy = inner_total if U_base is None else (inner_total @ U_base.conj().transpose(-2, -1))
-                M = U_policy.conj().transpose(-2, -1) @ inner_policy
-                delta_A = 0.5 * (M - M.conj().transpose(-2, -1))  # skew-Hermitian
+                    raise RuntimeError("grad_H is required for unistochastic implicit update")
+                H_u = U_total.abs().pow(2)  # [N, N] real
+                if lr_u > 0:
+                    # Real-loss chain rule: grad_U L = 2 grad_H L ⊙ U.
+                    grad_U_total = 2.0 * grad_H_base.to(dtype=U_total.dtype) * U_total
+                    grad_U_policy = (
+                        grad_U_total
+                        if U_base is None
+                        else grad_U_total @ U_base.conj().transpose(-2, -1)
+                    )
+                    grad_A = self.unitary_param.cayley_pullback(grad_U_policy)
+                    coordinate_gradients = self.unitary_param.coordinate_gradients(
+                        grad_A
+                    )
+                    parameter_updates.extend(
+                        (
+                            f"unitary.{name}",
+                            getattr(self.unitary_param, name),
+                            gradient,
+                            lr_u,
+                        )
+                        for name, gradient in coordinate_gradients.items()
+                    )
 
-                # Map ΔA back to the stored parameters:
-                # A = 0.5[(R - R^T) + i(I + I^T)], so updating R by ΔRe(A) (skew),
-                # and I by ΔIm(A) (sym) yields an exact ΔA at the A-level.
-                self.unitary_param.A_real.data.add_(delta_A.real, alpha=-lr_u)
-                self.unitary_param.A_imag.data.add_(delta_A.imag, alpha=-lr_u)
-
-                # Optional: learnable self-retention beta update
-                lr_beta = lr * float(h_mix_beta_lr_ratio)
                 if lr_beta > 0 and self.h_mix_beta_param is not None:
-                    I = torch.eye(self.hidden_dim, device=H_u.device, dtype=H_u.dtype)
-                    # Scale by N (not N^2): the diagonal term dominates the dot-product and otherwise
-                    # beta updates become numerically negligible for typical N (e.g. 384).
-                    grad_beta = (grad_H * (H_u - I)).sum() / float(self.hidden_dim)
+                    identity = torch.eye(self.hidden_dim, device=H_u.device, dtype=H_u.dtype)
+                    grad_beta = (grad_H * (H_u - identity)).sum()
                     beta_f32 = torch.sigmoid(self.h_mix_beta_param)
-                    grad_beta_param = grad_beta.to(dtype=beta_f32.dtype) * beta_f32 * (1.0 - beta_f32)
-                    self.h_mix_beta_param.data.add_(grad_beta_param, alpha=-lr_beta)
-            else:
-                # Complex unitary dynamics: update U_policy directly (phase participates in inference).
-                B = max(1, h_star.size(0))
-                grad_U_total = (h_eff.conj().transpose(0, 1) @ h_star) / float(B)  # [N, N] complex
-                grad_U_policy = grad_U_total if U_base is None else (grad_U_total @ U_base.conj().transpose(-2, -1))
+                    grad_beta_param = (
+                        grad_beta.to(dtype=beta_f32.dtype) * beta_f32 * (1.0 - beta_f32)
+                    )
+                    parameter_updates.append(
+                        ("h_mix_beta_param", self.h_mix_beta_param, grad_beta_param, lr_beta)
+                    )
+            elif lr_u > 0:
+                # For h = q h U^H + αJ and p=αλ, grad_U=(q/α)p^H h.
+                grad_U_total = ((1.0 - self.alpha) / self.alpha) * (
+                    h_eff.conj().transpose(0, 1) @ h_star
+                )
+                grad_U_policy = (
+                    grad_U_total
+                    if U_base is None
+                    else grad_U_total @ U_base.conj().transpose(-2, -1)
+                )
+                grad_A = self.unitary_param.cayley_pullback(grad_U_policy)
+                coordinate_gradients = self.unitary_param.coordinate_gradients(
+                    grad_A
+                )
+                parameter_updates.extend(
+                    (
+                        f"unitary.{name}",
+                        getattr(self.unitary_param, name),
+                        gradient,
+                        lr_u,
+                    )
+                    for name, gradient in coordinate_gradients.items()
+                )
 
-                # Tangent projection on U(N): ΔA ∝ skew(U^H ∇_U L)
-                M = U_policy.conj().transpose(-2, -1) @ grad_U_policy
-                delta_A = 0.5 * (M - M.conj().transpose(-2, -1))
-                self.unitary_param.A_real.data.add_(delta_A.real, alpha=-lr_u)
-                self.unitary_param.A_imag.data.add_(delta_A.imag, alpha=-lr_u)
-
-        # Optional: update learnable GT equilibrium targets (e.g. class prototypes).
+        # 4.4 Learnable equilibrium targets/prototypes.
         lr_state = lr * state_target_lr_ratio
         if lr_state > 0 and self.state_targets is not None:
             grad_total = None
@@ -826,7 +1252,67 @@ class MoebiusQuantumRing(nn.Module):
                     grad_total = torch.zeros_like(self.state_targets)
                 grad_total = grad_total + (state_target_weight * grad_state_targets)
             if grad_total is not None:
-                self.state_targets.data.add_(grad_total, alpha=-lr_state)
+                parameter_updates.append(
+                    ("state_targets", self.state_targets, grad_total, lr_state)
+                )
+
+        # ----------------------------
+        # 5) Project once, then atomically commit all parameter blocks.
+        # ----------------------------
+        gradient_entries = [
+            (name, gradient, step_size)
+            for name, _parameter, gradient, step_size in parameter_updates
+        ]
+        projection_applied = bool(
+            orthogonal_memory is not None and gradient_entries and project_with_memory
+        )
+        if projection_applied:
+            projected_gradients, ogd_stats = orthogonal_memory.project_preconditioned(
+                gradient_entries
+            )
+        else:
+            projected_gradients = {
+                name: gradient for name, _parameter, gradient, _step_size in parameter_updates
+            }
+            raw_norm_sq = sum(
+                step_size * float(gradient.square().sum().item())
+                for _name, _parameter, gradient, step_size in parameter_updates
+            )
+            raw_norm = math.sqrt(raw_norm_sq)
+            ogd_stats = {
+                "rank": float(orthogonal_memory.rank) if orthogonal_memory is not None else 0.0,
+                "raw_norm": raw_norm,
+                "projected_norm": raw_norm,
+                "retained_norm": 1.0 if parameter_updates else 0.0,
+                "max_abs_overlap": 0.0,
+            }
+
+        memory_added = False
+        if remember_gradient:
+            if not gradient_entries:
+                raise ValueError("No active parameter gradient is available to remember")
+            assert orthogonal_memory is not None
+            # Observe before parameter mutation so layout/preconditioner validation
+            # cannot raise after a partially committed model update. Projection was
+            # already computed against the previous basis, so the current direction
+            # does not suppress its own update.
+            memory_added = bool(orthogonal_memory.observe(gradient_entries))
+
+        unclipped_update_norm_sq = sum(
+            (step_size**2) * float(projected_gradients[name].square().sum().item())
+            for name, _parameter, _gradient, step_size in parameter_updates
+        )
+        unclipped_update_norm = math.sqrt(unclipped_update_norm_sq)
+        update_clip_scale = 1.0
+        if max_update_norm is not None and unclipped_update_norm > max_update_norm:
+            update_clip_scale = float(max_update_norm) / (unclipped_update_norm + 1e-12)
+
+        update_norm_sq = 0.0
+        for name, parameter, _gradient, step_size in parameter_updates:
+            projected = projected_gradients[name]
+            effective_step = step_size * update_clip_scale
+            parameter.data.add_(projected, alpha=-effective_step)
+            update_norm_sq += (effective_step**2) * float(projected.square().sum().item())
 
         unitary_error = self.unitary_param.unitary_error_fro().real.to(dtype=torch.float32).item()
 
@@ -839,9 +1325,57 @@ class MoebiusQuantumRing(nn.Module):
             "h_dag": h_dag,
             "unitary_error": unitary_error,
             "h_mix_beta": float(beta.detach().cpu().item()),
-            "did_update": True,
+            "did_update": bool(parameter_updates),
             "grad_x": grad_x,
+            "ogd_rank": int(orthogonal_memory.rank) if orthogonal_memory is not None else 0,
+            "ogd_retained_norm": float(ogd_stats["retained_norm"]),
+            "ogd_raw_norm": float(ogd_stats["raw_norm"]),
+            "ogd_projected_norm": float(ogd_stats["projected_norm"]),
+            "ogd_max_abs_overlap": float(ogd_stats["max_abs_overlap"]),
+            "ogd_first_order_decrease": (
+                -update_clip_scale * float(ogd_stats["projected_norm"]) ** 2
+            ),
+            "ogd_memory_added": memory_added,
+            "ogd_projection_applied": projection_applied,
+            "update_norm": math.sqrt(update_norm_sq),
+            "unclipped_update_norm": unclipped_update_norm,
+            "update_clip_scale": update_clip_scale,
+            "solver_certification_requested": certification_requested,
+            "solver_converged": solver_converged,
+            "allow_inexact_update": bool(allow_inexact_update),
+            "update_skip_reason": (
+                None if parameter_updates else "no_active_parameter_block"
+            ),
+            **forward_solver_fields,
+            **adjoint_solver_fields,
         }
+
+    @torch.no_grad()
+    def implicit_update_from_output_gradient(
+        self,
+        x: torch.Tensor,
+        grad_logits: torch.Tensor,
+        *,
+        lr: float,
+        loss_value: Optional[Union[float, torch.Tensor]] = None,
+        **update_kwargs,
+    ) -> dict:
+        """Update from an arbitrary output gradient without unrolling the ring.
+
+        ``grad_logits`` must be the fully reduced ``dL/dlogits`` tensor with
+        shape ``[batch, output_dim]``.  The method delegates to the exact same
+        implicit adjoint, Cayley pullback, OGD projection, and atomic commit as
+        :meth:`eqprop_update_step`; it only replaces the built-in CE source.
+        """
+
+        return self.eqprop_update_step(
+            x,
+            None,
+            lr=lr,
+            grad_logits=grad_logits,
+            loss_value=loss_value,
+            **update_kwargs,
+        )
 
     @torch.no_grad()
     def get_orthogonal_loss(self) -> torch.Tensor:
@@ -990,6 +1524,8 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
         hidden_dim: int = 384,
         alpha: float = 0.1,
         relaxation_steps: int = 20,
+        relaxation_tol: Optional[float] = None,
+        relaxation_min_steps: int = 1,
         lora_rank: int = 16,
         inj_activation: str = "none",
         state_activation: str = "none",
@@ -997,6 +1533,7 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
         learnable_h_mix_beta: bool = False,
         dynamics_mode: str = "unistochastic",
         measurement: str = "identity",
+        cayley_coordinate_mode: str = "projected",
         readout_dim: int = 16,
         readout_mode: str = "linear",
         proto_tau: float = 1.0,
@@ -1004,6 +1541,7 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
         base_unitary_scale: float = 0.01,
         base_unitary_seed: Optional[int] = None,
         learnable_state_targets: bool = False,
+        zero_init_readout: bool = False,
     ):
         super().__init__()
         self.img_size = img_size
@@ -1089,6 +1627,8 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
             output_dim=num_classes,
             alpha=alpha,
             relaxation_steps=relaxation_steps,
+            relaxation_tol=relaxation_tol,
+            relaxation_min_steps=relaxation_min_steps,
             lora_rank=lora_rank,
             inj_activation=inj_activation,
             state_activation=state_activation,
@@ -1096,6 +1636,7 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
             learnable_h_mix_beta=learnable_h_mix_beta,
             dynamics_mode=dynamics_mode,
             measurement=measurement,
+            cayley_coordinate_mode=cayley_coordinate_mode,
             readout_dim=readout_dim,
             readout_mode=readout_mode,
             proto_tau=proto_tau,
@@ -1103,6 +1644,7 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
             base_unitary_scale=base_unitary_scale,
             base_unitary_seed=base_unitary_seed,
             learnable_state_targets=learnable_state_targets,
+            zero_init_readout=zero_init_readout,
         )
 
     def _encode(self, x: torch.Tensor) -> torch.Tensor:
@@ -1148,14 +1690,24 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
         injection_lr_ratio: float = 1.0,
         readout_lr_ratio: float = 1.0,
         adjoint_steps: int = 20,
+        adjoint_tol: Optional[float] = None,
+        adjoint_min_steps: int = 1,
+        allow_inexact_update: bool = False,
         normalize_grad_H: bool = True,
         state_target_weight: float = 0.0,
         state_target_lr_ratio: float = 1.0,
         h_mix_beta_lr_ratio: float = 1.0,
         encoder_lr_ratio: float = 1.0,
         encoder_optimizer: Optional[object] = None,
+        orthogonal_memory: Optional["OrthogonalGradientMemory"] = None,
+        remember_gradient: bool = False,
+        project_with_memory: bool = True,
     ) -> dict:
-        """Image wrapper for `MoebiusQuantumRing.eqprop_update_step`."""
+        """Image wrapper for ``MoebiusQuantumRing.eqprop_update_step``.
+
+        The optional orthogonal memory protects ring parameters only. Encoder
+        optimizer updates remain outside that projected coordinate vector.
+        """
         enc_lr = float(encoder_lr_ratio)
         if self.image_encoder in ("patch", "vit") and enc_lr > 0:
             # Build an autograd graph for the encoder only.
@@ -1192,11 +1744,17 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
                 injection_lr_ratio=injection_lr_ratio,
                 readout_lr_ratio=readout_lr_ratio,
                 adjoint_steps=adjoint_steps,
+                adjoint_tol=adjoint_tol,
+                adjoint_min_steps=adjoint_min_steps,
+                allow_inexact_update=allow_inexact_update,
                 normalize_grad_H=normalize_grad_H,
                 state_target_weight=state_target_weight,
                 state_target_lr_ratio=state_target_lr_ratio,
                 h_mix_beta_lr_ratio=h_mix_beta_lr_ratio,
                 return_grad_x=True,
+                orthogonal_memory=orthogonal_memory,
+                remember_gradient=remember_gradient,
+                project_with_memory=project_with_memory,
             )
 
             grad_x = info.get("grad_x", None)
@@ -1225,10 +1783,16 @@ class MoebiusQuantumRingImageClassifier(nn.Module):
             injection_lr_ratio=injection_lr_ratio,
             readout_lr_ratio=readout_lr_ratio,
             adjoint_steps=adjoint_steps,
+            adjoint_tol=adjoint_tol,
+            adjoint_min_steps=adjoint_min_steps,
+            allow_inexact_update=allow_inexact_update,
             normalize_grad_H=normalize_grad_H,
             state_target_weight=state_target_weight,
             state_target_lr_ratio=state_target_lr_ratio,
             h_mix_beta_lr_ratio=h_mix_beta_lr_ratio,
+            orthogonal_memory=orthogonal_memory,
+            remember_gradient=remember_gradient,
+            project_with_memory=project_with_memory,
         )
         info.pop("grad_x", None)
         return info
@@ -1307,4 +1871,3 @@ def create_mobius_model(
         base_unitary_seed=base_unitary_seed,
         learnable_state_targets=learnable_state_targets,
     )
-

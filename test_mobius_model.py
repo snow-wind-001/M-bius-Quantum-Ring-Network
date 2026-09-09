@@ -4,9 +4,11 @@
 用于验证模型实现和基本功能
 """
 
-import torch
-import sys
 import logging
+import math
+import sys
+
+import torch
 
 # 配置日志
 logging.basicConfig(
@@ -73,6 +75,38 @@ def test_unistochastic_weight():
     logging.info(f"✓ UnistochasticWeightGenerator test passed")
     logging.info(f"  Row sums range: [{row_sums.min().item():.6f}, {row_sums.max().item():.6f}]")
     logging.info(f"  Col sums range: [{col_sums.min().item():.6f}, {col_sums.max().item():.6f}]")
+    return True
+
+
+def test_cayley_phase_recovers_every_unistochastic_representative():
+    """A global phase removes Cayley's -1 obstruction without changing H."""
+    logging.info("Testing Cayley-to-unistochastic coverage despite eigenvalue -1...")
+
+    from mobius_quantum_ring import CayleyUnistochasticParam
+
+    torch.manual_seed(3)
+    n = 5
+    raw = torch.randn(n, n, dtype=torch.complex128)
+    basis, _ = torch.linalg.qr(raw)
+    phases = torch.tensor(
+        [math.pi, -1.1, -0.2, 0.7, 1.8], dtype=torch.float64
+    )
+    original = basis @ torch.diag(torch.exp(1j * phases)) @ basis.conj().T
+    identity = torch.eye(n, dtype=torch.complex128)
+    assert torch.linalg.svdvals(identity + original).min().item() < 1e-12
+
+    parameter = CayleyUnistochasticParam(n, coordinate_mode="minimal").double()
+    diagnostics = parameter.set_from_unitary_representative_(original)
+    assert diagnostics["phase_candidate_count"] > n
+    assert diagnostics["selected_margin_sigma_min"] > 1e-3
+    assert diagnostics["transition_reconstruction_error_fro"] < 1e-12
+    torch.testing.assert_close(
+        parameter.unistochastic(),
+        original.abs().square(),
+        rtol=1e-12,
+        atol=1e-12,
+    )
+    logging.info("✓ Cayley phase choice preserves the complete unistochastic image")
     return True
 
 
@@ -563,6 +597,531 @@ def test_eqprop_proto_readout():
     return True
 
 
+def test_cayley_pullback_matches_autograd():
+    """The analytic Cayley pullback must match PyTorch's complex autograd."""
+    logging.info("Testing exact Cayley gradient pullback...")
+
+    from mobius_quantum_ring import CayleyUnistochasticParam
+
+    torch.manual_seed(7)
+    param = CayleyUnistochasticParam(5).double()
+    with torch.no_grad():
+        param.A_real.mul_(12.0)
+        param.A_imag.mul_(12.0)
+
+    U = param.unitary()
+    grad_H = torch.randn(5, 5, dtype=torch.float64)
+    loss = (grad_H * U.abs().square()).sum()
+    loss.backward()
+
+    with torch.no_grad():
+        grad_U = 2.0 * grad_H.to(U.dtype) * U
+        grad_A = param.cayley_pullback(grad_U)
+
+    torch.testing.assert_close(grad_A.real, param.A_real.grad, rtol=1e-10, atol=1e-10)
+    torch.testing.assert_close(grad_A.imag, param.A_imag.grad, rtol=1e-10, atol=1e-10)
+    logging.info("✓ Exact Cayley pullback matches autograd")
+    return True
+
+
+def test_eqprop_implicit_gradients_match_autograd():
+    """Converged real-ring adjoints should reproduce exact equilibrium gradients."""
+    logging.info("Testing implicit real-ring gradients against autograd...")
+
+    import torch.nn.functional as F
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(11)
+    model = MoebiusQuantumRing(
+        input_dim=5,
+        hidden_dim=6,
+        output_dim=3,
+        alpha=0.3,
+        relaxation_steps=160,
+        lora_rank=4,
+        readout_dim=6,
+        h_mix_beta=0.7,
+        base_unitary_init="random",
+        base_unitary_scale=0.05,
+        base_unitary_seed=5,
+    ).double()
+    with torch.no_grad():
+        model.unitary_param.A_real.mul_(12.0)
+        model.unitary_param.A_imag.mul_(12.0)
+
+    x = torch.randn(4, 5, dtype=torch.float64)
+    target = torch.tensor([0, 1, 2, 1])
+    logits, state = model(x, return_state=True)
+    F.cross_entropy(logits, target).backward()
+
+    with torch.no_grad():
+        grad_y = logits.detach().softmax(dim=1)
+        grad_y[torch.arange(target.numel()), target] -= 1.0
+        grad_y /= target.numel()
+        grad_h = grad_y @ model.readout.readout.weight
+        h_star = state.h.detach()
+        p = model.compute_adjoint_state_from_grad_h(h_star, grad_h, steps=240)
+
+        grad_H_eff = model.approx_grad_H(h_star, p, normalize=False)
+        beta = model._h_mix_beta_value(device=x.device, dtype=x.dtype)
+        U = model._unitary_total()
+        grad_U_total = 2.0 * (beta * grad_H_eff).to(U.dtype) * U
+        grad_U_policy = grad_U_total @ model.U_base.to(U.dtype).conj().transpose(-2, -1)
+        grad_A = model.unitary_param.cayley_pullback(grad_U_policy)
+
+        pre = model.injection.down(x)
+        z = model.injection._act(pre)
+        p_eff = p * model._state_act_prime_from_h(h_star)
+        grad_up = p_eff.transpose(0, 1) @ z
+        dz = (p_eff @ model.injection.up.weight) * model.injection._act_prime(pre=pre, act=z)
+        grad_down = dz.transpose(0, 1) @ x
+
+    torch.testing.assert_close(grad_A.real, model.unitary_param.A_real.grad, rtol=1e-8, atol=1e-10)
+    torch.testing.assert_close(grad_A.imag, model.unitary_param.A_imag.grad, rtol=1e-8, atol=1e-10)
+    torch.testing.assert_close(grad_up, model.injection.up.weight.grad, rtol=1e-8, atol=1e-10)
+    torch.testing.assert_close(grad_down, model.injection.down.weight.grad, rtol=1e-8, atol=1e-10)
+    logging.info("✓ Real-ring implicit gradients match autograd")
+    return True
+
+
+def test_complex_implicit_gradient_matches_autograd():
+    """The complex unitary path must use the same exact Cayley pullback."""
+    logging.info("Testing implicit complex-ring gradient against autograd...")
+
+    import torch.nn.functional as F
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(17)
+    model = MoebiusQuantumRing(
+        input_dim=5,
+        hidden_dim=6,
+        output_dim=3,
+        alpha=0.3,
+        relaxation_steps=160,
+        lora_rank=4,
+        readout_dim=6,
+        dynamics_mode="unitary",
+        measurement="abs",
+    ).double()
+    with torch.no_grad():
+        model.unitary_param.A_real.mul_(12.0)
+        model.unitary_param.A_imag.mul_(12.0)
+
+    x = torch.randn(4, 5, dtype=torch.float64)
+    target = torch.tensor([0, 1, 2, 1])
+    logits, state = model(x, return_state=True)
+    F.cross_entropy(logits, target).backward()
+
+    with torch.no_grad():
+        grad_y = logits.detach().softmax(dim=1)
+        grad_y[torch.arange(target.numel()), target] -= 1.0
+        grad_y /= target.numel()
+        grad_measured = grad_y @ model.readout.readout.weight
+        grad_h = model._pullback_measured_grad(state.h.detach(), grad_measured)
+        p = model.compute_adjoint_state_from_grad_h(state.h.detach(), grad_h, steps=240)
+        grad_U = ((1.0 - model.alpha) / model.alpha) * (p.conj().transpose(0, 1) @ state.h.detach())
+        grad_A = model.unitary_param.cayley_pullback(grad_U)
+
+    torch.testing.assert_close(grad_A.real, model.unitary_param.A_real.grad, rtol=1e-8, atol=1e-10)
+    torch.testing.assert_close(grad_A.imag, model.unitary_param.A_imag.grad, rtol=1e-8, atol=1e-10)
+    logging.info("✓ Complex-ring implicit gradient matches autograd")
+    return True
+
+
+def test_eqprop_unitary_update_is_descent_and_batch_invariant():
+    """A small unitary-only step should descend and not change when a batch is duplicated."""
+    logging.info("Testing unitary descent direction and batch-size invariance...")
+
+    import copy
+    import torch.nn.functional as F
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(23)
+    model = MoebiusQuantumRing(
+        input_dim=5,
+        hidden_dim=7,
+        output_dim=3,
+        alpha=0.3,
+        relaxation_steps=120,
+        lora_rank=4,
+        readout_dim=7,
+    ).double()
+    with torch.no_grad():
+        model.unitary_param.A_real.mul_(12.0)
+        model.unitary_param.A_imag.mul_(12.0)
+    duplicate_model = copy.deepcopy(model)
+
+    x = torch.randn(5, 5, dtype=torch.float64)
+    target = torch.tensor([0, 1, 2, 1, 0])
+    before = F.cross_entropy(model(x), target).item()
+
+    kwargs = dict(
+        lr=0.1,
+        unitary_lr_ratio=1.0,
+        injection_lr_ratio=0.0,
+        readout_lr_ratio=0.0,
+        adjoint_steps=180,
+    )
+    model.eqprop_update_step(x, target, **kwargs)
+    duplicate_model.eqprop_update_step(torch.cat([x, x]), torch.cat([target, target]), **kwargs)
+    after = F.cross_entropy(model(x), target).item()
+
+    assert after < before, f"Expected a descent step, got {before:.12f} -> {after:.12f}"
+    torch.testing.assert_close(
+        model.unitary_param.A_real,
+        duplicate_model.unitary_param.A_real,
+        rtol=1e-9,
+        atol=1e-11,
+    )
+    torch.testing.assert_close(
+        model.unitary_param.A_imag,
+        duplicate_model.unitary_param.A_imag,
+        rtol=1e-9,
+        atol=1e-11,
+    )
+    assert model.unitary_param.unitary_error_fro().item() < 1e-10
+    logging.info("✓ Unitary update descends and is batch-size invariant")
+    return True
+
+
+def test_implicit_output_gradient_matches_cross_entropy_update():
+    """The generic dL/dlogits API must reuse the exact CE update path."""
+    logging.info("Testing generic implicit output-gradient update...")
+
+    import copy
+    import torch.nn.functional as F
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(31)
+    reference = MoebiusQuantumRing(
+        input_dim=6,
+        hidden_dim=8,
+        output_dim=4,
+        alpha=0.25,
+        relaxation_steps=80,
+        lora_rank=3,
+        readout_dim=8,
+        state_activation="tanh",
+    ).double()
+    generic = copy.deepcopy(reference)
+    x = torch.randn(4, 6, dtype=torch.float64)
+    target = torch.tensor([0, 2, 1, 3])
+    logits = generic(x).detach()
+    loss = F.cross_entropy(logits, target)
+    grad_logits = torch.softmax(logits, dim=1)
+    grad_logits[torch.arange(target.numel()), target] -= 1.0
+    grad_logits /= target.numel()
+
+    kwargs = dict(
+        lr=0.02,
+        unitary_lr_ratio=0.4,
+        injection_lr_ratio=0.8,
+        readout_lr_ratio=1.0,
+        adjoint_steps=100,
+    )
+    expected = reference.eqprop_update_step(x, target, **kwargs)
+    actual = generic.implicit_update_from_output_gradient(
+        x,
+        grad_logits,
+        loss_value=loss,
+        **kwargs,
+    )
+
+    for (name_a, parameter_a), (name_b, parameter_b) in zip(
+        reference.named_parameters(), generic.named_parameters()
+    ):
+        assert name_a == name_b
+        torch.testing.assert_close(parameter_a, parameter_b, rtol=0.0, atol=0.0)
+    torch.testing.assert_close(expected["h_dag"], actual["h_dag"], rtol=0.0, atol=0.0)
+    assert abs(actual["loss"] - float(loss.item())) < 1e-12
+    assert actual["unitary_error"] < 1e-10
+    logging.info("✓ Generic output-gradient update matches the CE transaction")
+    return True
+
+
+def test_minimal_cayley_coordinates_and_mixing_rank():
+    """Minimal coordinates must span u(N) without changing A, U, or H."""
+    logging.info("Testing minimal Cayley coordinates and local mixing rank...")
+
+    from mobius_quantum_ring import CayleyUnistochasticParam
+
+    torch.manual_seed(37)
+    n = 4
+    raw = torch.randn(n, n, dtype=torch.complex128)
+    A = 0.5 * (raw - raw.conj().transpose(0, 1))
+    projected = CayleyUnistochasticParam(n, coordinate_mode="projected").double()
+    minimal = CayleyUnistochasticParam(n, coordinate_mode="minimal").double()
+    projected.set_from_skew_hermitian_(A)
+    minimal.set_from_skew_hermitian_(A)
+
+    torch.testing.assert_close(
+        projected.skew_hermitian_A(), minimal.skew_hermitian_A(), rtol=0.0, atol=0.0
+    )
+    torch.testing.assert_close(projected.unitary(), minimal.unitary(), rtol=0.0, atol=0.0)
+    torch.testing.assert_close(
+        projected.unistochastic(), minimal.unistochastic(), rtol=0.0, atol=0.0
+    )
+    assert projected.raw_parameter_count == 2 * n * n
+    assert minimal.raw_parameter_count == minimal.effective_dof == n * n
+
+    grad_H = torch.randn(n, n, dtype=torch.float64)
+    loss = (grad_H * minimal.unistochastic()).sum()
+    loss.backward()
+    with torch.no_grad():
+        U = minimal.unitary()
+        grad_A = minimal.cayley_pullback(2.0 * grad_H.to(U.dtype) * U)
+        coordinate_gradients = minimal.coordinate_gradients(grad_A)
+    torch.testing.assert_close(
+        coordinate_gradients["A_real"], minimal.A_real.grad, rtol=1e-10, atol=1e-11
+    )
+    torch.testing.assert_close(
+        coordinate_gradients["A_imag"], minimal.A_imag.grad, rtol=1e-10, atol=1e-11
+    )
+
+    assert minimal.modulus_square_jacobian_rank() == (n - 1) ** 2
+    identity = CayleyUnistochasticParam(n, coordinate_mode="minimal").double()
+    with torch.no_grad():
+        identity.A_real.zero_()
+        identity.A_imag.zero_()
+    assert identity.modulus_square_jacobian_rank() == 0
+    logging.info("✓ Minimal coordinates span u(N); |U|² degeneracy is diagnosed")
+    return True
+
+
+def test_nonlinear_certified_adjoint_matches_direct_and_autograd():
+    """Certified tanh fixed points must yield the exact nonlinear adjoint."""
+    logging.info("Testing certified nonlinear implicit gradient...")
+
+    import torch.nn.functional as F
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(41)
+    model = MoebiusQuantumRing(
+        input_dim=5,
+        hidden_dim=6,
+        output_dim=3,
+        alpha=0.15,
+        relaxation_steps=600,
+        relaxation_tol=1e-13,
+        relaxation_min_steps=2,
+        lora_rank=4,
+        readout_dim=6,
+        state_activation="tanh",
+        h_mix_beta=0.65,
+    ).double()
+    with torch.no_grad():
+        model.unitary_param.A_real.mul_(15.0)
+        model.unitary_param.A_imag.mul_(15.0)
+
+    x = torch.randn(4, 5, dtype=torch.float64)
+    target = torch.tensor([0, 2, 1, 2])
+    logits, state = model(x, return_state=True)
+    assert state.converged is True
+    F.cross_entropy(logits, target).backward()
+
+    with torch.no_grad():
+        grad_y = logits.detach().softmax(dim=1)
+        grad_y[torch.arange(target.numel()), target] -= 1.0
+        grad_y /= target.numel()
+        grad_h = grad_y @ model.readout.readout.weight
+        p_direct, direct_info = model.solve_adjoint_state_from_grad_h(
+            state.h.detach(), grad_h, return_info=True
+        )
+        p_iter, iter_info = model.compute_adjoint_state_from_grad_h(
+            state.h.detach(),
+            grad_h,
+            steps=800,
+            tol=1e-13,
+            min_steps=2,
+            return_info=True,
+        )
+        torch.testing.assert_close(p_iter, p_direct, rtol=1e-9, atol=2e-11)
+        assert direct_info["converged"] and iter_info["converged"]
+
+        grad_H_eff = model.approx_grad_H(state.h.detach(), p_direct, normalize=False)
+        beta = model._h_mix_beta_value(device=x.device, dtype=x.dtype)
+        U = model._unitary_total()
+        grad_U = 2.0 * (beta * grad_H_eff).to(U.dtype) * U
+        grad_A = model.unitary_param.cayley_pullback(grad_U)
+        coordinate_gradients = model.unitary_param.coordinate_gradients(grad_A)
+
+        pre = model.injection.down(x)
+        z = model.injection._act(pre)
+        p_eff = p_direct * model._state_act_prime_from_h(state.h.detach())
+        grad_up = p_eff.transpose(0, 1) @ z
+        dz = (p_eff @ model.injection.up.weight) * model.injection._act_prime(
+            pre=pre, act=z
+        )
+        grad_down = dz.transpose(0, 1) @ x
+
+    torch.testing.assert_close(
+        coordinate_gradients["A_real"],
+        model.unitary_param.A_real.grad,
+        rtol=2e-8,
+        atol=2e-10,
+    )
+    torch.testing.assert_close(
+        coordinate_gradients["A_imag"],
+        model.unitary_param.A_imag.grad,
+        rtol=2e-8,
+        atol=2e-10,
+    )
+    torch.testing.assert_close(
+        grad_up, model.injection.up.weight.grad, rtol=2e-8, atol=2e-10
+    )
+    torch.testing.assert_close(
+        grad_down, model.injection.down.weight.grad, rtol=2e-8, atol=2e-10
+    )
+    logging.info("✓ Certified nonlinear adjoint matches direct solve and autograd")
+    return True
+
+
+def test_inexact_solver_update_is_rejected_atomically():
+    """A requested but failed certificate must mutate neither parameters nor OGD."""
+    logging.info("Testing atomic rejection of an inexact implicit update...")
+
+    import copy
+    from mqr.online import OrthogonalGradientMemory
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(43)
+    model = MoebiusQuantumRing(
+        input_dim=4,
+        hidden_dim=5,
+        output_dim=2,
+        alpha=0.01,
+        relaxation_steps=2,
+        relaxation_tol=1e-14,
+        lora_rank=2,
+        readout_dim=5,
+    ).double()
+    override = copy.deepcopy(model)
+    x = torch.randn(3, 4, dtype=torch.float64)
+    target = torch.tensor([0, 1, 0])
+    before = {name: parameter.detach().clone() for name, parameter in model.named_parameters()}
+    memory = OrthogonalGradientMemory(max_rank=2)
+
+    rejected = model.eqprop_update_step(
+        x,
+        target,
+        lr=0.1,
+        adjoint_steps=2,
+        orthogonal_memory=memory,
+        remember_gradient=True,
+    )
+    assert rejected["did_update"] is False
+    assert rejected["solver_converged"] is False
+    assert rejected["update_skip_reason"] == "solver_not_converged"
+    assert rejected["grad_x"] is None
+    assert memory.rank == 0
+    for name, parameter in model.named_parameters():
+        torch.testing.assert_close(parameter, before[name], rtol=0.0, atol=0.0)
+
+    accepted = override.eqprop_update_step(
+        x,
+        target,
+        lr=0.1,
+        adjoint_steps=2,
+        allow_inexact_update=True,
+    )
+    assert accepted["did_update"] is True
+    assert accepted["solver_converged"] is False
+    assert accepted["allow_inexact_update"] is True
+    logging.info("✓ Failed certificates are atomic; override is explicit and reported")
+    return True
+
+
+def test_time_varying_rings_contract_uniformly():
+    """A sequence of different H_t matrices still contracts at rate 1-alpha."""
+    logging.info("Testing uniform contraction for time-varying rings...")
+
+    from mobius_quantum_ring import CayleyUnistochasticParam
+
+    torch.manual_seed(47)
+    alpha = 0.2
+    q = 1.0 - alpha
+    steps = 9
+    n = 6
+    first = torch.randn(3, n, dtype=torch.float64)
+    second = torch.randn(3, n, dtype=torch.float64)
+    initial_distance = (first - second).abs().amax()
+    for _ in range(steps):
+        H = CayleyUnistochasticParam(n, coordinate_mode="minimal").double().unistochastic()
+        forcing = torch.randn(3, n, dtype=torch.float64)
+        first = torch.tanh(q * (first @ H.transpose(0, 1)) + alpha * forcing)
+        second = torch.tanh(q * (second @ H.transpose(0, 1)) + alpha * forcing)
+    final_distance = (first - second).abs().amax()
+    assert float(final_distance.item()) <= float((q**steps * initial_distance).item()) + 1e-12
+    logging.info("✓ Time-varying unistochastic rings obey the uniform contraction bound")
+    return True
+
+
+def test_zero_initialized_readout_is_sidecar_noop():
+    """A residual sidecar can start at exact zero while retaining a learning path."""
+    logging.info("Testing zero-initialized sidecar readout...")
+
+    from mobius_quantum_ring import MoebiusQuantumRing
+
+    torch.manual_seed(53)
+    model = MoebiusQuantumRing(
+        input_dim=5,
+        hidden_dim=7,
+        output_dim=5,
+        alpha=0.3,
+        relaxation_steps=40,
+        lora_rank=3,
+        readout_dim=7,
+        zero_init_readout=True,
+    ).double()
+    x = torch.randn(4, 5, dtype=torch.float64)
+    target = torch.tensor([0, 1, 2, 3])
+    logits = model(x)
+    torch.testing.assert_close(logits, torch.zeros_like(logits), rtol=0.0, atol=0.0)
+    injection_before = {
+        name: parameter.detach().clone()
+        for name, parameter in model.injection.named_parameters()
+    }
+    unitary_before = {
+        name: parameter.detach().clone()
+        for name, parameter in model.unitary_param.named_parameters()
+    }
+    info = model.eqprop_update_step(x, target, lr=0.05, adjoint_steps=60)
+    assert info["did_update"] is True
+    assert model.readout.readout.weight.abs().amax().item() > 0.0
+    for name, parameter in model.injection.named_parameters():
+        torch.testing.assert_close(parameter, injection_before[name], rtol=0.0, atol=0.0)
+    for name, parameter in model.unitary_param.named_parameters():
+        torch.testing.assert_close(parameter, unitary_before[name], rtol=0.0, atol=0.0)
+    logging.info("✓ Residual readout is initially no-op and learns without backbone drift")
+    return True
+
+
+def test_sinkhorn_implicit_pullback_matches_autograd():
+    """The fair Sinkhorn baseline must not rely on a straight-through gradient."""
+    logging.info("Testing converged Sinkhorn implicit pullback...")
+
+    from mqr import SinkhornDoublyStochasticParam
+
+    torch.manual_seed(59)
+    n = 6
+    parameter = SinkhornDoublyStochasticParam(
+        n, iterations=240, temperature=0.8, init_scale=0.5
+    ).double()
+    H = parameter()
+    grad_H = torch.randn_like(H)
+    (grad_H * H).sum().backward()
+    implicit = parameter.implicit_logit_pullback(grad_H, H=H.detach())
+    torch.testing.assert_close(
+        implicit, parameter.logits.grad, rtol=1e-10, atol=1e-11
+    )
+    row_error, column_error = parameter.doubly_stochastic_errors(H=H.detach())
+    assert max(row_error.item(), column_error.item()) < 1e-12
+    assert parameter.logits.numel() == n * n
+    assert parameter.effective_dof == (n - 1) ** 2
+    logging.info("✓ Sinkhorn implicit pullback matches converged unrolled autograd")
+    return True
+
+
 def run_all_tests():
     """运行所有测试"""
     logging.info("="*60)
@@ -572,6 +1131,7 @@ def run_all_tests():
     tests = [
         test_unitary_matrix_param,
         test_unistochastic_weight,
+        test_cayley_phase_recovers_every_unistochastic_representative,
         test_mobius_ring_cell,
         test_mobius_quantum_ring,
         test_patch_encoder_forward_and_eqprop,
@@ -582,6 +1142,17 @@ def run_all_tests():
         test_eqprop_update_step,
         test_eqprop_dual_unitary_and_state_targets,
         test_eqprop_proto_readout,
+        test_cayley_pullback_matches_autograd,
+        test_eqprop_implicit_gradients_match_autograd,
+        test_complex_implicit_gradient_matches_autograd,
+        test_eqprop_unitary_update_is_descent_and_batch_invariant,
+        test_implicit_output_gradient_matches_cross_entropy_update,
+        test_minimal_cayley_coordinates_and_mixing_rank,
+        test_nonlinear_certified_adjoint_matches_direct_and_autograd,
+        test_inexact_solver_update_is_rejected_atomically,
+        test_time_varying_rings_contract_uniformly,
+        test_zero_initialized_readout_is_sidecar_noop,
+        test_sinkhorn_implicit_pullback_matches_autograd,
     ]
     
     passed = 0

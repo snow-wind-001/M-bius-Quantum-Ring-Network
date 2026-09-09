@@ -1,0 +1,35 @@
+{
+  "scales": [
+    {
+      "board_size": 10,
+      "seeds": 10,
+      "formal_protocol_pass": true,
+      "resource_gate_pass": true,
+      "mechanism_occupancy_valid": true,
+      "trainable_parameter_ratio": 1.0430572005852434,
+      "recurrent_state_byte_ratio": 1.0,
+      "agent_forward_mac_ratio": 1.030432299889154,
+      "allocated_update_mac_ratio": 1.013005967049636,
+      "online_learning_supported": true,
+      "all_comparator_metric_cis_above_zero": false,
+      "mqr_effective_on_this_scale": false
+    },
+    {
+      "board_size": 13,
+      "seeds": 10,
+      "formal_protocol_pass": true,
+      "resource_gate_pass": true,
+      "mechanism_occupancy_valid": true,
+      "trainable_parameter_ratio": 1.0397509911664464,
+      "recurrent_state_byte_ratio": 1.0,
+      "agent_forward_mac_ratio": 1.0253099690030998,
+      "allocated_update_mac_ratio": 1.0126826722338205,
+      "online_learning_supported": true,
+      "all_comparator_metric_cis_above_zero": false,
+      "mqr_effective_on_this_scale": false
+    }
+  ],
+  "same_protocol_except_board_resources": true,
+  "mqr_effective": false,
+  "decision": "MQR independent advantage not established"
+}

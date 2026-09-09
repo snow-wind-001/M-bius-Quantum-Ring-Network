@@ -1,0 +1,530 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-24T01:03:57+0800",
+  "protocol": {
+    "dataset": "sklearn.datasets.load_digits (1797 samples, no download)",
+    "split": "70% train / 30% test, stratified per seed",
+    "stream": "single pass A then B; shuffled prequential minibatches",
+    "context_a": "standardized 64-pixel features",
+    "context_b": "fixed orthogonal signed permutation of context A features",
+    "feedback_order": "predict with theta_t, score, then update to theta_(t+1)",
+    "state_policy": "disabled for independent Digits minibatch lanes",
+    "ogd_consolidation": "remember final 64 A minibatch gradients; do not project within A; project all B updates",
+    "limitations": [
+      "microbatch-online rather than one-sample updates",
+      "explicit task IDs for exact two-ring isolation",
+      "two-ring model has more parameters than the shared-ring controls",
+      "OGD protects a low-rank local gradient subspace, not all old examples",
+      "this is not evidence about language modeling or animal-level learning"
+    ]
+  },
+  "configuration": {
+    "seeds": [
+      7,
+      17,
+      29
+    ],
+    "batch_size": 16,
+    "hidden_dim": 48,
+    "lora_rank": 16,
+    "learning_rate": 0.08,
+    "ogd_max_rank": 64,
+    "consolidation_batches": 64
+  },
+  "environment": {
+    "python": "3.11.11",
+    "torch": "2.8.0+cu128",
+    "sklearn": "1.7.0",
+    "device": "cpu"
+  },
+  "summary": {
+    "shared_ring": {
+      "prequential_accuracy_a": {
+        "mean": 0.6504905860514452,
+        "population_std": 0.015403379190090268
+      },
+      "prequential_accuracy_b": {
+        "mean": 0.7605409705648368,
+        "population_std": 0.012392809806998573
+      },
+      "accuracy_a_after_a": {
+        "mean": 0.8333333333333334,
+        "population_std": 0.012001371663718268
+      },
+      "accuracy_a_after_b": {
+        "mean": 0.6537037037037038,
+        "population_std": 0.036383116119237974
+      },
+      "accuracy_b_after_b": {
+        "mean": 0.8938271604938272,
+        "population_std": 0.0053100773253349515
+      },
+      "context_a_forgetting": {
+        "mean": 0.17962962962962958,
+        "population_std": 0.02916299212596967
+      },
+      "context_a_parameter_drift": {
+        "mean": 0.31507935126622516,
+        "population_std": 0.01884328712147112
+      },
+      "milliseconds_per_minibatch_b": {
+        "mean": 2.586543211058413,
+        "population_std": 0.07265878828563038
+      },
+      "mean_ogd_retained_norm_b": {
+        "mean": 1.0,
+        "population_std": 0.0
+      },
+      "max_projected_overlap_b": {
+        "mean": 0.0,
+        "population_std": 0.0
+      },
+      "max_unitary_error": {
+        "mean": 2.7700573355105007e-06,
+        "population_std": 6.334068984159053e-08
+      },
+      "ogd_memory_bytes": {
+        "mean": 0.0,
+        "population_std": 0.0
+      },
+      "total_parameters": 6880
+    },
+    "shared_ring_ogd": {
+      "prequential_accuracy_a": {
+        "mean": 0.6504905860514452,
+        "population_std": 0.015403379190090268
+      },
+      "prequential_accuracy_b": {
+        "mean": 0.749138159639353,
+        "population_std": 0.010520728944511979
+      },
+      "accuracy_a_after_a": {
+        "mean": 0.8333333333333334,
+        "population_std": 0.012001371663718268
+      },
+      "accuracy_a_after_b": {
+        "mean": 0.687037037037037,
+        "population_std": 0.02516520630943148
+      },
+      "accuracy_b_after_b": {
+        "mean": 0.8820987654320988,
+        "population_std": 0.008859691416300827
+      },
+      "context_a_forgetting": {
+        "mean": 0.14629629629629626,
+        "population_std": 0.03316142226805751
+      },
+      "context_a_parameter_drift": {
+        "mean": 0.31735945741335553,
+        "population_std": 0.005191736637401194
+      },
+      "milliseconds_per_minibatch_b": {
+        "mean": 3.3460785061335154,
+        "population_std": 0.05877280612991334
+      },
+      "mean_ogd_retained_norm_b": {
+        "mean": 0.8853420828918545,
+        "population_std": 0.007473635042316263
+      },
+      "max_projected_overlap_b": {
+        "mean": 1.893689235051473e-08,
+        "population_std": 3.4289313533614268e-09
+      },
+      "max_unitary_error": {
+        "mean": 3.1391744717742163e-06,
+        "population_std": 3.349128824597168e-07
+      },
+      "ogd_memory_bytes": {
+        "mean": 1761280.0,
+        "population_std": 0.0
+      },
+      "total_parameters": 6880
+    },
+    "isolated_two_rings": {
+      "prequential_accuracy_a": {
+        "mean": 0.6504905860514452,
+        "population_std": 0.015403379190090268
+      },
+      "prequential_accuracy_b": {
+        "mean": 0.6457173163617077,
+        "population_std": 0.014309984156172927
+      },
+      "accuracy_a_after_a": {
+        "mean": 0.8333333333333334,
+        "population_std": 0.012001371663718268
+      },
+      "accuracy_a_after_b": {
+        "mean": 0.8333333333333334,
+        "population_std": 0.012001371663718268
+      },
+      "accuracy_b_after_b": {
+        "mean": 0.8524691358024691,
+        "population_std": 0.0053100773253349515
+      },
+      "context_a_forgetting": {
+        "mean": 0.0,
+        "population_std": 0.0
+      },
+      "context_a_parameter_drift": {
+        "mean": 0.0,
+        "population_std": 0.0
+      },
+      "milliseconds_per_minibatch_b": {
+        "mean": 2.5444555144896044,
+        "population_std": 0.0284419797805964
+      },
+      "mean_ogd_retained_norm_b": {
+        "mean": 1.0,
+        "population_std": 0.0
+      },
+      "max_projected_overlap_b": {
+        "mean": 0.0,
+        "population_std": 0.0
+      },
+      "max_unitary_error": {
+        "mean": 2.839548642441514e-06,
+        "population_std": 1.26220599231084e-07
+      },
+      "ogd_memory_bytes": {
+        "mean": 0.0,
+        "population_std": 0.0
+      },
+      "total_parameters": 13760
+    }
+  },
+  "runs": [
+    {
+      "variant": "shared_ring",
+      "seed": 7,
+      "num_rings": 1,
+      "total_parameters": 6880,
+      "stream_a": {
+        "prequential_accuracy": 0.6348448687350835,
+        "prequential_loss": 1.4578579365970032,
+        "milliseconds_per_minibatch": 2.776800949919285,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.7446300715990454,
+        "prequential_loss": 0.8611124296840829,
+        "milliseconds_per_minibatch": 2.689283860801672,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.8222222222222222,
+          "context_b": 0.07962962962962963
+        },
+        "after_b": {
+          "context_a": 0.6574074074074074,
+          "context_b": 0.8944444444444445
+        }
+      },
+      "context_a_forgetting": 0.16481481481481475,
+      "context_a_parameter_max_drift_during_b": 0.2925581932067871,
+      "context_a_logit_max_drift_during_b": 4.665881156921387,
+      "ogd_rank_after_stream": 0,
+      "ogd_memory_bytes": 0,
+      "ogd_basis_orthogonality_error": 0.0,
+      "max_unitary_error": 2.794150987028843e-06
+    },
+    {
+      "variant": "shared_ring_ogd",
+      "seed": 7,
+      "num_rings": 1,
+      "total_parameters": 6880,
+      "stream_a": {
+        "prequential_accuracy": 0.6348448687350835,
+        "prequential_loss": 1.4578579365970032,
+        "milliseconds_per_minibatch": 3.1265722913925442,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.7342879872712809,
+        "prequential_loss": 0.9433824369949108,
+        "milliseconds_per_minibatch": 3.355696619616503,
+        "mean_retained_gradient_norm": 0.8811604473883745,
+        "max_projected_overlap": 2.3283064365386963e-08
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.8222222222222222,
+          "context_b": 0.07962962962962963
+        },
+        "after_b": {
+          "context_a": 0.7222222222222222,
+          "context_b": 0.8777777777777778
+        }
+      },
+      "context_a_forgetting": 0.09999999999999998,
+      "context_a_parameter_max_drift_during_b": 0.3203684985637665,
+      "context_a_logit_max_drift_during_b": 3.6174581050872803,
+      "ogd_rank_after_stream": 64,
+      "ogd_memory_bytes": 1761280,
+      "ogd_basis_orthogonality_error": 1.6126085029100068e-05,
+      "max_unitary_error": 3.5389709864830365e-06
+    },
+    {
+      "variant": "isolated_two_rings",
+      "seed": 7,
+      "num_rings": 2,
+      "total_parameters": 13760,
+      "stream_a": {
+        "prequential_accuracy": 0.6348448687350835,
+        "prequential_loss": 1.4578579365970032,
+        "milliseconds_per_minibatch": 2.6657676200464935,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.665871121718377,
+        "prequential_loss": 1.474892908984361,
+        "milliseconds_per_minibatch": 2.519897607455761,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.8222222222222222,
+          "context_b": 0.06296296296296296
+        },
+        "after_b": {
+          "context_a": 0.8222222222222222,
+          "context_b": 0.8462962962962963
+        }
+      },
+      "context_a_forgetting": 0.0,
+      "context_a_parameter_max_drift_during_b": 0.0,
+      "context_a_logit_max_drift_during_b": 0.0,
+      "ogd_rank_after_stream": 0,
+      "ogd_memory_bytes": 0,
+      "ogd_basis_orthogonality_error": 0.0,
+      "max_unitary_error": 2.6863065158977406e-06
+    },
+    {
+      "variant": "shared_ring",
+      "seed": 17,
+      "num_rings": 1,
+      "total_parameters": 6880,
+      "stream_a": {
+        "prequential_accuracy": 0.645186953062848,
+        "prequential_loss": 1.4621537799103068,
+        "milliseconds_per_minibatch": 2.5253961267262177,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.7748607796340493,
+        "prequential_loss": 0.7870644589407442,
+        "milliseconds_per_minibatch": 2.536662329187988,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.8277777777777777,
+          "context_b": 0.11481481481481481
+        },
+        "after_b": {
+          "context_a": 0.6074074074074074,
+          "context_b": 0.8870370370370371
+        }
+      },
+      "context_a_forgetting": 0.22037037037037033,
+      "context_a_parameter_max_drift_during_b": 0.33867695927619934,
+      "context_a_logit_max_drift_during_b": 4.9351091384887695,
+      "ogd_rank_after_stream": 0,
+      "ogd_memory_bytes": 0,
+      "ogd_basis_orthogonality_error": 0.0,
+      "max_unitary_error": 2.6832931325770915e-06
+    },
+    {
+      "variant": "shared_ring_ogd",
+      "seed": 17,
+      "num_rings": 1,
+      "total_parameters": 6880,
+      "stream_a": {
+        "prequential_accuracy": 0.645186953062848,
+        "prequential_loss": 1.4621537799103068,
+        "milliseconds_per_minibatch": 3.133320088901327,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.7573587907716786,
+        "prequential_loss": 0.8904330344928477,
+        "milliseconds_per_minibatch": 3.2697713163370397,
+        "mean_retained_gradient_norm": 0.8790264582030829,
+        "max_projected_overlap": 1.4901161193847656e-08
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.8277777777777777,
+          "context_b": 0.11481481481481481
+        },
+        "after_b": {
+          "context_a": 0.6648148148148149,
+          "context_b": 0.8740740740740741
+        }
+      },
+      "context_a_forgetting": 0.16296296296296287,
+      "context_a_parameter_max_drift_during_b": 0.3216549754142761,
+      "context_a_logit_max_drift_during_b": 4.269414901733398,
+      "ogd_rank_after_stream": 64,
+      "ogd_memory_bytes": 1761280,
+      "ogd_basis_orthogonality_error": 1.6060324924183078e-05,
+      "max_unitary_error": 2.7193398182134843e-06
+    },
+    {
+      "variant": "isolated_two_rings",
+      "seed": 17,
+      "num_rings": 2,
+      "total_parameters": 13760,
+      "stream_a": {
+        "prequential_accuracy": 0.645186953062848,
+        "prequential_loss": 1.4621537799103068,
+        "milliseconds_per_minibatch": 2.5148723926358336,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.6372315035799523,
+        "prequential_loss": 1.4592904771901163,
+        "milliseconds_per_minibatch": 2.529146404965645,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.8277777777777777,
+          "context_b": 0.07592592592592592
+        },
+        "after_b": {
+          "context_a": 0.8277777777777777,
+          "context_b": 0.8518518518518519
+        }
+      },
+      "context_a_forgetting": 0.0,
+      "context_a_parameter_max_drift_during_b": 0.0,
+      "context_a_logit_max_drift_during_b": 0.0,
+      "ogd_rank_after_stream": 0,
+      "ogd_memory_bytes": 0,
+      "ogd_basis_orthogonality_error": 0.0,
+      "max_unitary_error": 2.8368910989229335e-06
+    },
+    {
+      "variant": "shared_ring",
+      "seed": 29,
+      "num_rings": 1,
+      "total_parameters": 6880,
+      "stream_a": {
+        "prequential_accuracy": 0.6714399363564041,
+        "prequential_loss": 1.437784846353455,
+        "milliseconds_per_minibatch": 2.6031746704034107,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.762132060461416,
+        "prequential_loss": 0.815972133083958,
+        "milliseconds_per_minibatch": 2.533683443185579,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.85,
+          "context_b": 0.09814814814814815
+        },
+        "after_b": {
+          "context_a": 0.6962962962962963,
+          "context_b": 0.9
+        }
+      },
+      "context_a_forgetting": 0.15370370370370368,
+      "context_a_parameter_max_drift_during_b": 0.3140029013156891,
+      "context_a_logit_max_drift_during_b": 5.44918966293335,
+      "ogd_rank_after_stream": 0,
+      "ogd_memory_bytes": 0,
+      "ogd_basis_orthogonality_error": 0.0,
+      "max_unitary_error": 2.832727886925568e-06
+    },
+    {
+      "variant": "shared_ring_ogd",
+      "seed": 29,
+      "num_rings": 1,
+      "total_parameters": 6880,
+      "stream_a": {
+        "prequential_accuracy": 0.6714399363564041,
+        "prequential_loss": 1.437784846353455,
+        "milliseconds_per_minibatch": 3.043332076473073,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.7557677008750995,
+        "prequential_loss": 0.9032319243123063,
+        "milliseconds_per_minibatch": 3.4127675824470027,
+        "mean_retained_gradient_norm": 0.895839343084106,
+        "max_projected_overlap": 1.862645149230957e-08
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.85,
+          "context_b": 0.09814814814814815
+        },
+        "after_b": {
+          "context_a": 0.674074074074074,
+          "context_b": 0.8944444444444445
+        }
+      },
+      "context_a_forgetting": 0.17592592592592593,
+      "context_a_parameter_max_drift_during_b": 0.3100548982620239,
+      "context_a_logit_max_drift_during_b": 4.675511360168457,
+      "ogd_rank_after_stream": 64,
+      "ogd_memory_bytes": 1761280,
+      "ogd_basis_orthogonality_error": 1.5747662473586388e-05,
+      "max_unitary_error": 3.1592126106261276e-06
+    },
+    {
+      "variant": "isolated_two_rings",
+      "seed": 29,
+      "num_rings": 2,
+      "total_parameters": 13760,
+      "stream_a": {
+        "prequential_accuracy": 0.6714399363564041,
+        "prequential_loss": 1.437784846353455,
+        "milliseconds_per_minibatch": 2.5525543042252288,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "stream_b": {
+        "prequential_accuracy": 0.6340493237867939,
+        "prequential_loss": 1.4968138335238588,
+        "milliseconds_per_minibatch": 2.5843225310474067,
+        "mean_retained_gradient_norm": 1.0,
+        "max_projected_overlap": 0.0
+      },
+      "accuracy_matrix": {
+        "after_a": {
+          "context_a": 0.85,
+          "context_b": 0.0962962962962963
+        },
+        "after_b": {
+          "context_a": 0.85,
+          "context_b": 0.8592592592592593
+        }
+      },
+      "context_a_forgetting": 0.0,
+      "context_a_parameter_max_drift_during_b": 0.0,
+      "context_a_logit_max_drift_during_b": 0.0,
+      "ogd_rank_after_stream": 0,
+      "ogd_memory_bytes": 0,
+      "ogd_basis_orthogonality_error": 0.0,
+      "max_unitary_error": 2.9954483125038678e-06
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "agent_atomic_rollback": {
+    "candidate_update_norm": 0.24999999999902253,
+    "committed_update_norm": 0.0,
+    "external_gradient_authorized": false,
+    "ogd_rank_after_rollback": 0,
+    "parameter_linf_drift_after_rollback": 0.0,
+    "parameter_version_change": 0,
+    "passed": true,
+    "violations": [
+      "output_linf_drift"
+    ]
+  },
+  "all_passed": true,
+  "cayley_finite_drift": {
+    "cases": 40,
+    "certified_cases": 40,
+    "max_transition_bound_ratio": 0.2530028494465838,
+    "max_unitary_bound_ratio": 0.999637189180987,
+    "passed": true
+  },
+  "constrained_ogd": {
+    "forbidden_slow_gradient_norm": 0.0,
+    "old_gradient_first_order_overlap": 0.0,
+    "passed": true,
+    "retained_norm": 1.0
+  },
+  "environment": {
+    "dtype": "float64 for mathematical scans; float32 for tiny LoRA transaction",
+    "network_used": false,
+    "python": "3.11.11",
+    "torch": "2.8.0+cu128"
+  },
+  "evidence_scope": "deterministic mechanism certification; not task-performance evidence",
+  "lora_atomic_rollback": {
+    "candidate_update_norm": 0.04999999999975,
+    "committed_update_norm": 0.0,
+    "constancy_output_linf_drift": 0.036330223083496094,
+    "ogd_rank_after_rollback": 0,
+    "parameter_linf_drift_after_rollback": 0.0,
+    "passed": true,
+    "violations": [
+      "output_linf_drift"
+    ]
+  },
+  "purpose": "phase_ii_sidecar_numerical_and_transaction_certification",
+  "schema_version": 1,
+  "signed_state": {
+    "cases": 20,
+    "certified_cases": 20,
+    "max_bound_violation": 0.0,
+    "max_numerical_tolerance": 5.071097113446579e-13,
+    "max_transition_linf_gain": 1.0000000000000009,
+    "passed": true
+  },
+  "temporal_residual_sidecar": {
+    "clipped_raw_residual_l2_max": 16.738446604369482,
+    "clipped_residual_l2_max": 0.1,
+    "initial_noop_linf_error": 0.0,
+    "initial_residual_l2_max": 0.0,
+    "passed": true,
+    "state_bound_certified": true
+  }
+}

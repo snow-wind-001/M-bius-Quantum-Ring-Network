@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "purpose": "matched transition-gradient correctness and local CPU cost; not task superiority",
+  "dtype": "float64",
+  "gradient_checks": {
+    "dimension": 6,
+    "batch": 4,
+    "fixed_point_steps": 240,
+    "alpha": 0.2,
+    "cayley": {
+      "stored_parameters": 36,
+      "transition_effective_dof_max": 25,
+      "gradient_relative_error": 1.17393234560831e-15,
+      "adjoint_residual": 1.3877787807814457e-17,
+      "row_error": 6.661338147750939e-16,
+      "column_error": 2.220446049250313e-16
+    },
+    "sinkhorn": {
+      "stored_parameters": 36,
+      "transition_effective_dof": 25,
+      "normalization_iterations": 240,
+      "gradient_relative_error": 1.9740718304034186e-15,
+      "adjoint_residual": 2.7755575615628914e-17,
+      "row_error": 2.220446049250313e-16,
+      "column_error": 2.220446049250313e-16
+    }
+  },
+  "timings": [
+    {
+      "dimension": 8,
+      "repeats": 15,
+      "cayley_forward_median_ms": 0.2122029836755246,
+      "sinkhorn_20_forward_median_ms": 0.7481119828298688,
+      "cayley_pullback_median_ms": 0.27923198649659753,
+      "sinkhorn_implicit_pullback_median_ms": 0.21712700254283845,
+      "cayley_constraint_error": 8.881784197001252e-16,
+      "sinkhorn_constraint_error": 4.440892098500626e-16
+    },
+    {
+      "dimension": 16,
+      "repeats": 15,
+      "cayley_forward_median_ms": 0.241905014263466,
+      "sinkhorn_20_forward_median_ms": 0.7955080072861165,
+      "cayley_pullback_median_ms": 0.3039879957213998,
+      "sinkhorn_implicit_pullback_median_ms": 0.19099999917671084,
+      "cayley_constraint_error": 8.881784197001252e-16,
+      "sinkhorn_constraint_error": 4.440892098500626e-16
+    },
+    {
+      "dimension": 32,
+      "repeats": 15,
+      "cayley_forward_median_ms": 0.2928589819930494,
+      "sinkhorn_20_forward_median_ms": 0.8604759932495654,
+      "cayley_pullback_median_ms": 0.40670399903319776,
+      "sinkhorn_implicit_pullback_median_ms": 0.33397998777218163,
+      "cayley_constraint_error": 2.4424906541753444e-15,
+      "sinkhorn_constraint_error": 4.440892098500626e-16
+    },
+    {
+      "dimension": 64,
+      "repeats": 8,
+      "cayley_forward_median_ms": 0.6108954985393211,
+      "sinkhorn_20_forward_median_ms": 1.530704990727827,
+      "cayley_pullback_median_ms": 0.6238570058485493,
+      "sinkhorn_implicit_pullback_median_ms": 0.44930649164598435,
+      "cayley_constraint_error": 1.5543122344752192e-15,
+      "sinkhorn_constraint_error": 4.440892098500626e-16
+    }
+  ],
+  "timing_warning": "runtime-specific medians without accelerator synchronization"
+}

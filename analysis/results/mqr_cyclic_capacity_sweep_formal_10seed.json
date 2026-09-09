@@ -1,0 +1,3798 @@
+{
+  "schema_version": 2,
+  "experiment": "mqr_cyclic_capacity_sweep",
+  "status": "formal_capacity_sweep",
+  "protocol": {
+    "predict_before_update": true,
+    "explicit_event_marker": false,
+    "future_label_in_gate_features": false,
+    "ci_method": "two_sided_student_t_95",
+    "methods": [
+      "cyclic_trace",
+      "identity_trace"
+    ],
+    "state_bytes": [
+      48,
+      192,
+      768
+    ],
+    "seeds": 10,
+    "seed_start": 41,
+    "sequence_length": 12,
+    "train_episodes": 160,
+    "oracle_warmup_episodes": 100,
+    "critic_calibration_episodes": 40,
+    "paired_episodes": 40,
+    "transition_update_interval": 32
+  },
+  "runs": [
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 41,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.44748313575983045,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0004790864884853363
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.4918007582426072,
+          "mean_last_quarter_loss": 0.8619614973664284,
+          "mean_future_injection_gradient": 0.16511805609945143,
+          "mean_future_transition_gradient": 0.018554343334126217,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.111134673992638,
+          "max_unitary_error": 1.489392928988309e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.525,
+            "target_probability": 0.4513959728181362,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004058243334293365
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.488874688744545,
+          "mean_last_quarter_loss": 0.8503718912601471,
+          "mean_future_injection_gradient": 0.19177329617142042,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.341698520001955,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 42,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.6875,
+            "target_probability": 0.4546720091253519,
+            "effective_write_rate": 0.6041666666666666,
+            "learned_write_rate": 0.6041666666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.78125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.021050029993057252
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.6875,
+            "identity_accuracy": 0.6625,
+            "accuracy_drop": 0.025000000000000022
+          },
+          "mean_first_quarter_loss": 1.276550218462944,
+          "mean_last_quarter_loss": 0.8241409584879875,
+          "mean_future_injection_gradient": 0.15415380780776253,
+          "mean_future_transition_gradient": 0.008887613471730806,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.977567701018415,
+          "max_unitary_error": 1.4868535913592495e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.7,
+            "target_probability": 0.4528775192797184,
+            "effective_write_rate": 0.5145833333333333,
+            "learned_write_rate": 0.5145833333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.646875,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.015258710086345672
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.2844999015331269,
+          "mean_last_quarter_loss": 0.8318526178598404,
+          "mean_future_injection_gradient": 0.1590568513052837,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.179065083008027,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 43,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.461649452149868,
+            "effective_write_rate": 0.9510416666666667,
+            "learned_write_rate": 0.9510416666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9265625,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.002038847655057907
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.1977687060832978,
+          "mean_last_quarter_loss": 0.8125705614686012,
+          "mean_future_injection_gradient": 0.16450407042560494,
+          "mean_future_transition_gradient": 0.009953211564714712,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.720848426019074,
+          "max_unitary_error": 1.410688383884917e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.46246698051691054,
+            "effective_write_rate": 0.9541666666666667,
+            "learned_write_rate": 0.9541666666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.93125,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.002276577055454254
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1989295393228532,
+          "mean_last_quarter_loss": 0.8115180641412735,
+          "mean_future_injection_gradient": 0.16479248381463707,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 16.995886207005242,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 44,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4659379072487354,
+            "effective_write_rate": 0.9927083333333333,
+            "learned_write_rate": 0.9927083333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9890625,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.00160130113363266
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.3946904420852662,
+          "mean_last_quarter_loss": 0.8048899844288826,
+          "mean_future_injection_gradient": 0.1740070588766263,
+          "mean_future_transition_gradient": 0.025681175875203455,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.69141773498268,
+          "max_unitary_error": 2.669200398486282e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5625,
+            "target_probability": 0.46875676326453686,
+            "effective_write_rate": 0.725,
+            "learned_write_rate": 0.725,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9484375,
+            "query_write_rate": 0.0375,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.011946708709001542
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.3932236403226852,
+          "mean_last_quarter_loss": 0.7854579269886017,
+          "mean_future_injection_gradient": 0.1925833034947647,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.14645300997654,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 45,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5125,
+            "target_probability": 0.4541044048964977,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0046812698245048525
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5125,
+            "identity_accuracy": 0.525,
+            "accuracy_drop": -0.012500000000000067
+          },
+          "mean_first_quarter_loss": 1.2987632766366004,
+          "mean_last_quarter_loss": 0.8272017866373063,
+          "mean_future_injection_gradient": 0.14427881069682302,
+          "mean_future_transition_gradient": 0.013196006620718787,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.514491459995043,
+          "max_unitary_error": 2.068111655262328e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.525,
+            "target_probability": 0.4562130216509104,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.006975015997886658
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.2993278816342353,
+          "mean_last_quarter_loss": 0.8229086354374886,
+          "mean_future_injection_gradient": 0.15636601102885267,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.063809232000494,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 46,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4520978845655918,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004977188259363175
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.1742887884378432,
+          "mean_last_quarter_loss": 0.8293586552143097,
+          "mean_future_injection_gradient": 0.1422054882956682,
+          "mean_future_transition_gradient": 0.025358659121181328,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.772327012004098,
+          "max_unitary_error": 1.502232436223494e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4528955779969692,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.005457601696252823
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.176851010322571,
+          "mean_last_quarter_loss": 0.8282529875636101,
+          "mean_future_injection_gradient": 0.15704786765187898,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.354356486990582,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 47,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4506347794085741,
+            "effective_write_rate": 0.24791666666666667,
+            "learned_write_rate": 0.24791666666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.246875,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.003989706933498383
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.3856278359889984,
+          "mean_last_quarter_loss": 0.8348874896764755,
+          "mean_future_injection_gradient": 0.08062591334509206,
+          "mean_future_transition_gradient": 0.01384833104006728,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.7030455180211,
+          "max_unitary_error": 2.0164627301255678e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.55,
+            "target_probability": 0.45036333464086054,
+            "effective_write_rate": 0.225,
+            "learned_write_rate": 0.225,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.2125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004163947701454162
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.3899315774440766,
+          "mean_last_quarter_loss": 0.8355035573244095,
+          "mean_future_injection_gradient": 0.0866729938771407,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.323290400992846,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 48,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4628562480211258,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0005219712853431702
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5125,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.133568713068962,
+          "mean_last_quarter_loss": 0.805563884973526,
+          "mean_future_injection_gradient": 0.10378118349865095,
+          "mean_future_transition_gradient": 0.009365744940719876,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.5958363940008,
+          "max_unitary_error": 1.3898092277031537e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.4672019798308611,
+            "effective_write_rate": 0.9979166666666667,
+            "learned_write_rate": 0.9979166666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.996875,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.009089856594800948
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1309012442827224,
+          "mean_last_quarter_loss": 0.7908125057816505,
+          "mean_future_injection_gradient": 0.15349040836591935,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.34377429401502,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 49,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4592686742544174,
+            "effective_write_rate": 0.0,
+            "learned_write_rate": 0.0,
+            "event_write_rate": 0.0,
+            "distractor_write_rate": 0.0,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.2058506444096566,
+          "mean_last_quarter_loss": 0.8159409552812577,
+          "mean_future_injection_gradient": 0.09594879014709798,
+          "mean_future_transition_gradient": 0.008852082117400234,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.43638899899088,
+          "max_unitary_error": 1.5522113017141237e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.45924748480319977,
+            "effective_write_rate": 0.0,
+            "learned_write_rate": 0.0,
+            "event_write_rate": 0.0,
+            "distractor_write_rate": 0.0,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.2115823581814766,
+          "mean_last_quarter_loss": 0.816120271384716,
+          "mean_future_injection_gradient": 0.098854943716168,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.009412537998287,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 48,
+      "ring_dim": 6,
+      "seed": 50,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.45361088514328,
+            "effective_write_rate": 0.921875,
+            "learned_write_rate": 0.921875,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8828125,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0011399932205677032
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.380812931060791,
+          "mean_last_quarter_loss": 0.8383834674954415,
+          "mean_future_injection_gradient": 0.15311741757964664,
+          "mean_future_transition_gradient": 0.020691669817655422,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.16330513099092,
+          "max_unitary_error": 1.0974550690434626e-07,
+          "max_stochastic_error": 5.960464477539063e-08
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4578954990953207,
+            "effective_write_rate": 0.9479166666666666,
+            "learned_write_rate": 0.9479166666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.921875,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0032439924776554107
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.376850426197052,
+          "mean_last_quarter_loss": 0.8301380112767219,
+          "mean_future_injection_gradient": 0.1767998414896777,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.272159529995406,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 365,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 280,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1308,
+            "estimated_transition_refresh_macs": 180,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1308,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1133.625
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 359,
+            "persistent_state_scalars": 12,
+            "estimated_forward_macs": 212,
+            "utility_parameters": 85,
+            "task_parameters": 274,
+            "persistent_state_bytes": 48,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 376,
+            "estimated_task_update_macs": 1128,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 1128,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 1128.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0167130919220055,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0049867021276595,
+          "peak_update_mac_ratio": 1.1595744680851063
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 41,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5875,
+            "target_probability": 0.45669656321406366,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0030576422810554504
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5875,
+            "identity_accuracy": 0.5125,
+            "accuracy_drop": 0.07500000000000007
+          },
+          "mean_first_quarter_loss": 1.2390658587217331,
+          "mean_last_quarter_loss": 0.8316967785358429,
+          "mean_future_injection_gradient": 0.15098761502981106,
+          "mean_future_transition_gradient": 0.021601895749120227,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.978652207995765,
+          "max_unitary_error": 3.8768678223277675e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5125,
+            "target_probability": 0.4629590827971697,
+            "effective_write_rate": 0.9645833333333333,
+            "learned_write_rate": 0.9645833333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.946875,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004484544694423676
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.234747862815857,
+          "mean_last_quarter_loss": 0.8164171501994133,
+          "mean_future_injection_gradient": 0.16841239892695145,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.11444841499906,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 42,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5375,
+            "target_probability": 0.47116253450512885,
+            "effective_write_rate": 0.8229166666666666,
+            "learned_write_rate": 0.8229166666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.940625,
+            "query_write_rate": 0.45,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.017611300200223924
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5375,
+            "identity_accuracy": 0.55,
+            "accuracy_drop": -0.012500000000000067
+          },
+          "mean_first_quarter_loss": 1.197505208849907,
+          "mean_last_quarter_loss": 0.7945383682847023,
+          "mean_future_injection_gradient": 0.23023696574122146,
+          "mean_future_transition_gradient": 0.03199322951634649,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.782362833997468,
+          "max_unitary_error": 3.4756661193569016e-07,
+          "max_stochastic_error": 2.384185791015625e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.6875,
+            "target_probability": 0.48798898011446,
+            "effective_write_rate": 0.6510416666666666,
+            "learned_write_rate": 0.6510416666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.846875,
+            "query_write_rate": 0.0125,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.07349132820963859
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.192722451686859,
+          "mean_last_quarter_loss": 0.7213573329150677,
+          "mean_future_injection_gradient": 0.26940499048441374,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.17502487200545,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 43,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4733620181679726,
+            "effective_write_rate": 0.6625,
+            "learned_write_rate": 0.6625,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.85,
+            "query_write_rate": 0.05,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004501071572303772
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.1844211727380753,
+          "mean_last_quarter_loss": 0.786374868452549,
+          "mean_future_injection_gradient": 0.15984247194969617,
+          "mean_future_transition_gradient": 0.01924217059819338,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.80528393300483,
+          "max_unitary_error": 3.7034698152638157e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.525,
+            "target_probability": 0.4771467804908752,
+            "effective_write_rate": 0.6385416666666667,
+            "learned_write_rate": 0.6385416666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8328125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.012284927070140839
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1789708346128465,
+          "mean_last_quarter_loss": 0.7734816506505012,
+          "mean_future_injection_gradient": 0.18828000872834286,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.15411459398456,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 44,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.6125,
+            "target_probability": 0.45797218978404997,
+            "effective_write_rate": 0.7479166666666667,
+            "learned_write_rate": 0.7479166666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9546875,
+            "query_write_rate": 0.1125,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.028668335080146788
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.6125,
+            "identity_accuracy": 0.6125,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.1919185906648635,
+          "mean_last_quarter_loss": 0.809268818795681,
+          "mean_future_injection_gradient": 0.23017909050702992,
+          "mean_future_transition_gradient": 0.03061142474815941,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.940635126986308,
+          "max_unitary_error": 2.7101665978079836e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.477087190747261,
+            "effective_write_rate": 0.75,
+            "learned_write_rate": 0.75,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9609375,
+            "query_write_rate": 0.10416666666666667,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.06662998571991921
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1899504259228706,
+          "mean_last_quarter_loss": 0.7587054893374443,
+          "mean_future_injection_gradient": 0.28384810841211133,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.25539065999328,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 45,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.65,
+            "target_probability": 0.47338561750948427,
+            "effective_write_rate": 0.7104166666666667,
+            "learned_write_rate": 0.7104166666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.934375,
+            "query_write_rate": 0.016666666666666666,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.04385499283671379
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.65,
+            "identity_accuracy": 0.6875,
+            "accuracy_drop": -0.03749999999999998
+          },
+          "mean_first_quarter_loss": 1.2116782456636428,
+          "mean_last_quarter_loss": 0.7692231267690659,
+          "mean_future_injection_gradient": 0.2768758305599579,
+          "mean_future_transition_gradient": 0.04319571460842472,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.026067377009895,
+          "max_unitary_error": 3.068287526275526e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.675,
+            "target_probability": 0.5101244254037738,
+            "effective_write_rate": 0.6416666666666667,
+            "learned_write_rate": 0.6416666666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8375,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.12085710279643536
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.2094820439815521,
+          "mean_last_quarter_loss": 0.6476577371358871,
+          "mean_future_injection_gradient": 0.36828014516606694,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.435111988015706,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 46,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4503028247505426,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0034733518958091738
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.2297356992959976,
+          "mean_last_quarter_loss": 0.8407177537679672,
+          "mean_future_injection_gradient": 0.11904005136307994,
+          "mean_future_transition_gradient": 0.013855297237847902,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.8023803489923,
+          "max_unitary_error": 3.2308901154465275e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.45194669216871264,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0047109581530094145
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.229543563723564,
+          "mean_last_quarter_loss": 0.838212139904499,
+          "mean_future_injection_gradient": 0.12810171814563862,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.099522825010354,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 47,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4662860106676817,
+            "effective_write_rate": 0.22708333333333333,
+            "learned_write_rate": 0.22708333333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.215625,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.003275693207979202
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.1517105296254158,
+          "mean_last_quarter_loss": 0.793777559697628,
+          "mean_future_injection_gradient": 0.11958207018680886,
+          "mean_future_transition_gradient": 0.009654726783020425,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.00682810298167,
+          "max_unitary_error": 4.06634143246265e-07,
+          "max_stochastic_error": 2.384185791015625e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5375,
+            "target_probability": 0.46774810962378977,
+            "effective_write_rate": 0.4510416666666667,
+            "learned_write_rate": 0.4510416666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.5515625,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0059917688369750975
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1494695946574212,
+          "mean_last_quarter_loss": 0.7858578935265541,
+          "mean_future_injection_gradient": 0.1290423968478673,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.406824473000597,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 48,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.525,
+            "target_probability": 0.47599017806351185,
+            "effective_write_rate": 0.9989583333333333,
+            "learned_write_rate": 0.9989583333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9984375,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.005109214037656784
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.525,
+            "identity_accuracy": 0.5375,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.1662817239761352,
+          "mean_last_quarter_loss": 0.7781825169920922,
+          "mean_future_injection_gradient": 0.2194668668631206,
+          "mean_future_transition_gradient": 0.029618625739050237,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.214691617002245,
+          "max_unitary_error": 2.92194442863547e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5875,
+            "target_probability": 0.47823160886764526,
+            "effective_write_rate": 0.9927083333333333,
+            "learned_write_rate": 0.9927083333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9890625,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.009799592196941376
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1646003514528274,
+          "mean_last_quarter_loss": 0.7725756391882896,
+          "mean_future_injection_gradient": 0.23541289789160666,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.39534369899775,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 49,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4780076894909143,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004213350266218186
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.2369745433330537,
+          "mean_last_quarter_loss": 0.7761895135045052,
+          "mean_future_injection_gradient": 0.14599044388962193,
+          "mean_future_transition_gradient": 0.014473756058898241,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.17134951899061,
+          "max_unitary_error": 3.8406403746193973e-07,
+          "max_stochastic_error": 2.384185791015625e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4781604532152414,
+            "effective_write_rate": 1.0,
+            "learned_write_rate": 1.0,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 1.0,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.004533369094133377
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.2392387837171555,
+          "mean_last_quarter_loss": 0.7752055719494819,
+          "mean_future_injection_gradient": 0.1458627610049812,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.0798979139945,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 192,
+      "ring_dim": 24,
+      "seed": 50,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.525,
+            "target_probability": 0.4557763323187828,
+            "effective_write_rate": 0.996875,
+            "learned_write_rate": 0.996875,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9953125,
+            "query_write_rate": 1.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0017555750906467437
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.525,
+            "identity_accuracy": 0.5375,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.2026736438274384,
+          "mean_last_quarter_loss": 0.8330820187926292,
+          "mean_future_injection_gradient": 0.17690283199070383,
+          "mean_future_transition_gradient": 0.022503152181321043,
+          "transition_refreshes": 5,
+          "runtime_seconds": 24.932489384984365,
+          "max_unitary_error": 2.9515797450585524e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.6125,
+            "target_probability": 0.46286459267139435,
+            "effective_write_rate": 0.98125,
+            "learned_write_rate": 0.98125,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.990625,
+            "query_write_rate": 0.95,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.011168614774942399
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.195027506351471,
+          "mean_last_quarter_loss": 0.8153611958026886,
+          "mean_future_injection_gradient": 0.21620425268443771,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.213925743009895,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 815,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 730,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 6924,
+            "estimated_transition_refresh_macs": 2880,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 6924,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4134.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 791,
+            "persistent_state_scalars": 48,
+            "estimated_forward_macs": 1184,
+            "utility_parameters": 85,
+            "task_parameters": 706,
+            "persistent_state_bytes": 192,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 1348,
+            "estimated_task_update_macs": 4044,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 4044,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 4044.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.0303413400758534,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0222551928783383,
+          "peak_update_mac_ratio": 1.7121661721068249
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 41,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.48525437116622927,
+            "effective_write_rate": 0.703125,
+            "learned_write_rate": 0.703125,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9,
+            "query_write_rate": 0.07916666666666666,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.011596407741308212
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5125,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.0452715814113618,
+          "mean_last_quarter_loss": 0.7662912726402282,
+          "mean_future_injection_gradient": 0.19075343330907546,
+          "mean_future_transition_gradient": 0.020229128760601393,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.246138129004976,
+          "max_unitary_error": 6.030095960340986e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.6875,
+            "target_probability": 0.514986951649189,
+            "effective_write_rate": 0.6708333333333333,
+            "learned_write_rate": 0.6708333333333333,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.88125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.07645817250013351
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.0378779649734498,
+          "mean_last_quarter_loss": 0.7085514657199383,
+          "mean_future_injection_gradient": 0.29299681794419974,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.361922790005337,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 42,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.575,
+            "target_probability": 0.4986106283962727,
+            "effective_write_rate": 0.42916666666666664,
+            "learned_write_rate": 0.42916666666666664,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.51875,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.04452707655727863
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.575,
+            "identity_accuracy": 0.5875,
+            "accuracy_drop": -0.012500000000000067
+          },
+          "mean_first_quarter_loss": 1.1664502203464509,
+          "mean_last_quarter_loss": 0.6402871742844581,
+          "mean_future_injection_gradient": 0.2645865404479198,
+          "mean_future_transition_gradient": 0.026623561342280517,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.0854922059807,
+          "max_unitary_error": 6.933568670319801e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5125,
+            "target_probability": 0.47779976613819597,
+            "effective_write_rate": 0.0010416666666666667,
+            "learned_write_rate": 0.0010416666666666667,
+            "event_write_rate": 0.0,
+            "distractor_write_rate": 0.0015625,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0025363445281982424
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1524012878537178,
+          "mean_last_quarter_loss": 0.6241381607949734,
+          "mean_future_injection_gradient": 0.30444189416859735,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.39346329399268,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 43,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5375,
+            "target_probability": 0.4928734786808491,
+            "effective_write_rate": 0.7291666666666666,
+            "learned_write_rate": 0.7291666666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.959375,
+            "query_write_rate": 0.025,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.022678451240062715
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5375,
+            "identity_accuracy": 0.55,
+            "accuracy_drop": -0.012500000000000067
+          },
+          "mean_first_quarter_loss": 1.1988256469368934,
+          "mean_last_quarter_loss": 0.7418622151017189,
+          "mean_future_injection_gradient": 0.23307714983249359,
+          "mean_future_transition_gradient": 0.02023730337547364,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.277647931012325,
+          "max_unitary_error": 6.439683488679293e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.6625,
+            "target_probability": 0.5222285503521562,
+            "effective_write_rate": 0.7197916666666667,
+            "learned_write_rate": 0.7197916666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9515625,
+            "query_write_rate": 0.008333333333333333,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0875439889729023
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1878460124135017,
+          "mean_last_quarter_loss": 0.6574087962508202,
+          "mean_future_injection_gradient": 0.31088814741942833,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.62358795700129,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 44,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.65,
+            "target_probability": 0.5002936568111181,
+            "effective_write_rate": 0.6697916666666667,
+            "learned_write_rate": 0.6697916666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8796875,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.0681546226143837
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.65,
+            "identity_accuracy": 0.6375,
+            "accuracy_drop": 0.012500000000000067
+          },
+          "mean_first_quarter_loss": 1.224186497926712,
+          "mean_last_quarter_loss": 0.7349845416843891,
+          "mean_future_injection_gradient": 0.27433359085213865,
+          "mean_future_transition_gradient": 0.02887155029143481,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.085494636005023,
+          "max_unitary_error": 6.324202104224241e-07,
+          "max_stochastic_error": 2.384185791015625e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.675,
+            "target_probability": 0.5295878536999226,
+            "effective_write_rate": 0.6166666666666667,
+            "learned_write_rate": 0.6166666666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.13338712863624097
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.2154022052884101,
+          "mean_last_quarter_loss": 0.6335198119282722,
+          "mean_future_injection_gradient": 0.39632550414059026,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.283476846001577,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 45,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5875,
+            "target_probability": 0.5205267082899809,
+            "effective_write_rate": 0.5729166666666666,
+            "learned_write_rate": 0.5729166666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.734375,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.09617836326360703
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5875,
+            "identity_accuracy": 0.625,
+            "accuracy_drop": -0.03749999999999998
+          },
+          "mean_first_quarter_loss": 1.12700966745615,
+          "mean_last_quarter_loss": 0.625102099776268,
+          "mean_future_injection_gradient": 0.28662938816564953,
+          "mean_future_transition_gradient": 0.04174461983366675,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.16090761500527,
+          "max_unitary_error": 6.284545293055999e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.7625,
+            "target_probability": 0.5862692339345813,
+            "effective_write_rate": 0.29375,
+            "learned_write_rate": 0.29375,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.315625,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.22512918543070554
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1121869027614593,
+          "mean_last_quarter_loss": 0.5366813372820616,
+          "mean_future_injection_gradient": 0.3301745719784984,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.42099484600476,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 46,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.65,
+            "target_probability": 0.48815879262983797,
+            "effective_write_rate": 0.659375,
+            "learned_write_rate": 0.659375,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8640625,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.033096229285001756
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.65,
+            "identity_accuracy": 0.6625,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.2662613600492478,
+          "mean_last_quarter_loss": 0.7524968102574349,
+          "mean_future_injection_gradient": 0.27410536681124703,
+          "mean_future_transition_gradient": 0.029460633031924522,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.98611880899989,
+          "max_unitary_error": 6.78877313475823e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.5239602365531028,
+            "effective_write_rate": 0.6822916666666666,
+            "learned_write_rate": 0.6822916666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8984375,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.10524099804461003
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.26215860247612,
+          "mean_last_quarter_loss": 0.6388588927686214,
+          "mean_future_injection_gradient": 0.3928844036840012,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.221658008988015,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 47,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.543010955862701,
+            "effective_write_rate": 0.9260416666666667,
+            "learned_write_rate": 0.9260416666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9859375,
+            "query_write_rate": 0.7416666666666667,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.1664413295686245
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.625,
+            "identity_accuracy": 0.6375,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.2199717551469802,
+          "mean_last_quarter_loss": 0.5865336935967207,
+          "mean_future_injection_gradient": 0.6253186443969656,
+          "mean_future_transition_gradient": 0.06261694155173583,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.580811394000193,
+          "max_unitary_error": 7.398014645332296e-07,
+          "max_stochastic_error": 2.384185791015625e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.5796204237965867,
+            "effective_write_rate": 0.9854166666666667,
+            "learned_write_rate": 0.9854166666666667,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9953125,
+            "query_write_rate": 0.9541666666666667,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.23984677609987556
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.199089489877224,
+          "mean_last_quarter_loss": 0.49953595660626887,
+          "mean_future_injection_gradient": 0.8201147804473784,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.619305147003615,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 48,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.5,
+            "target_probability": 0.4793000414967537,
+            "effective_write_rate": 0.6979166666666666,
+            "learned_write_rate": 0.6979166666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.91875,
+            "query_write_rate": 0.008333333333333333,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.010206356644630432
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.5,
+            "identity_accuracy": 0.5,
+            "accuracy_drop": 0.0
+          },
+          "mean_first_quarter_loss": 1.0972382321953773,
+          "mean_last_quarter_loss": 0.7728786274790764,
+          "mean_future_injection_gradient": 0.17918988555908086,
+          "mean_future_transition_gradient": 0.019229296377853408,
+          "transition_refreshes": 5,
+          "runtime_seconds": 26.352604393992806,
+          "max_unitary_error": 6.502414180431515e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.5875,
+            "target_probability": 0.5095100082457066,
+            "effective_write_rate": 0.6354166666666666,
+            "learned_write_rate": 0.6354166666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.828125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.07618991881608964
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.090044343471527,
+          "mean_last_quarter_loss": 0.7020363926887512,
+          "mean_future_injection_gradient": 0.2905446874073045,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.435975241998676,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 49,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.5219822289422155,
+            "effective_write_rate": 0.61875,
+            "learned_write_rate": 0.61875,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.803125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.1073431383818388
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.625,
+            "identity_accuracy": 0.65,
+            "accuracy_drop": -0.025000000000000022
+          },
+          "mean_first_quarter_loss": 1.0988607376813888,
+          "mean_last_quarter_loss": 0.6451472386717796,
+          "mean_future_injection_gradient": 0.28867553738451457,
+          "mean_future_transition_gradient": 0.03663036829952953,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.626061440998456,
+          "max_unitary_error": 5.852198228240013e-07,
+          "max_stochastic_error": 1.1920928955078125e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.725,
+            "target_probability": 0.5636320456862449,
+            "effective_write_rate": 0.5052083333333334,
+            "learned_write_rate": 0.5052083333333334,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.6328125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.18613222250714898
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.0898476541042328,
+          "mean_last_quarter_loss": 0.4846364114433527,
+          "mean_future_injection_gradient": 0.38348393333955466,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 17.090053899999475,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    },
+    {
+      "state_bytes": 768,
+      "ring_dim": 96,
+      "seed": 50,
+      "methods": {
+        "cyclic_trace": {
+          "history": {
+            "accuracy": 0.525,
+            "target_probability": 0.4794078152626753,
+            "effective_write_rate": 0.7135416666666666,
+            "learned_write_rate": 0.7135416666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.9453125,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.020667537301778793
+          },
+          "identity_replacement": {
+            "native_accuracy": 0.525,
+            "identity_accuracy": 0.5375,
+            "accuracy_drop": -0.012499999999999956
+          },
+          "mean_first_quarter_loss": 1.1051276937127112,
+          "mean_last_quarter_loss": 0.7611940339207649,
+          "mean_future_injection_gradient": 0.2523067918163413,
+          "mean_future_transition_gradient": 0.027840141911077275,
+          "transition_refreshes": 5,
+          "runtime_seconds": 25.182711931003723,
+          "max_unitary_error": 6.503688609882374e-07,
+          "max_stochastic_error": 1.7881393432617188e-07
+        },
+        "identity_trace": {
+          "history": {
+            "accuracy": 0.625,
+            "target_probability": 0.5035723380744457,
+            "effective_write_rate": 0.6510416666666666,
+            "learned_write_rate": 0.6510416666666666,
+            "event_write_rate": 1.0,
+            "distractor_write_rate": 0.8515625,
+            "query_write_rate": 0.0,
+            "event_observations": 80,
+            "distractor_observations": 640,
+            "query_observations": 240,
+            "probability_separation": 0.07379359938204288
+          },
+          "identity_replacement": {
+            "native_accuracy": null,
+            "identity_accuracy": null,
+            "accuracy_drop": null
+          },
+          "mean_first_quarter_loss": 1.1005155444145203,
+          "mean_last_quarter_loss": 0.6716107077896595,
+          "mean_future_injection_gradient": 0.3342218939675015,
+          "mean_future_transition_gradient": 0.0,
+          "transition_refreshes": 0,
+          "runtime_seconds": 16.846631016000174,
+          "max_unitary_error": 0.0,
+          "max_stochastic_error": 0.0
+        }
+      },
+      "resources": {
+        "audits": [
+          {
+            "method": "cyclic_trace",
+            "trainable_parameters": 2615,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2530,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 81228,
+            "estimated_transition_refresh_macs": 46080,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 81228,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 36588.0
+          },
+          {
+            "method": "identity_trace",
+            "trainable_parameters": 2519,
+            "persistent_state_scalars": 192,
+            "estimated_forward_macs": 11552,
+            "utility_parameters": 85,
+            "task_parameters": 2434,
+            "persistent_state_bytes": 768,
+            "frozen_parameters": 0,
+            "estimated_agent_forward_macs": 11716,
+            "estimated_task_update_macs": 35148,
+            "estimated_transition_refresh_macs": 0,
+            "allocated_continual_memory_bytes": 0,
+            "allocated_update_budget_macs": 35148,
+            "transition_update_interval": 32,
+            "estimated_amortized_update_macs": 35148.0
+          }
+        ],
+        "ratios": {
+          "trainable_parameter_ratio": 1.038110361254466,
+          "recurrent_state_byte_ratio": 1.0,
+          "agent_forward_mac_ratio": 1.0,
+          "amortized_update_mac_ratio": 1.0409696142027995,
+          "peak_update_mac_ratio": 2.3110276544895867
+        },
+        "average_resource_gate": true,
+        "peak_update_resource_gate": false,
+        "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+      }
+    }
+  ],
+  "aggregate": {
+    "budgets": {
+      "48": {
+        "methods": {
+          "cyclic_trace": {
+            "history_accuracy": {
+              "mean": 0.52,
+              "ci95_low": 0.47780506135031364,
+              "ci95_high": 0.5621949386496864,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "history_probability_separation": {
+              "mean": 0.004047939479351044,
+              "ci95_low": -0.00041546884462341765,
+              "ci95_high": 0.008511347803325506,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "event_write_rate": {
+              "mean": 0.9,
+              "ci95_low": 0.6737843,
+              "ci95_high": 1.1262157,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "query_write_rate": {
+              "mean": 0.7,
+              "ci95_low": 0.35444981045419266,
+              "ci95_high": 1.0455501895458073,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "runtime_seconds": {
+              "mean": 25.168636305001563,
+              "ci95_low": 24.704605008329793,
+              "ci95_high": 25.632667601673333,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            }
+          },
+          "identity_trace": {
+            "history_accuracy": {
+              "mean": 0.54875,
+              "ci95_low": 0.5013491733287677,
+              "ci95_high": 0.5961508266712322,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "history_probability_separation": {
+              "mean": 0.006247065365314482,
+              "ci95_low": 0.0029098434490063946,
+              "ci95_high": 0.00958428728162257,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "event_write_rate": {
+              "mean": 0.9,
+              "ci95_low": 0.6737843,
+              "ci95_high": 1.1262157,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "query_write_rate": {
+              "mean": 0.60375,
+              "ci95_low": 0.2377225873848755,
+              "ci95_high": 0.9697774126151245,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "runtime_seconds": {
+              "mean": 17.20299053019844,
+              "ci95_low": 17.10050235434218,
+              "ci95_high": 17.305478706054704,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            }
+          }
+        },
+        "paired_cyclic_minus_identity_accuracy": {
+          "mean": -0.028750000000000008,
+          "ci95_low": -0.05766387591415138,
+          "ci95_high": 0.00016387591415136307,
+          "n": 10,
+          "ci_method": "two_sided_student_t_95"
+        },
+        "resources": {
+          "audits": [
+            {
+              "method": "cyclic_trace",
+              "trainable_parameters": 365,
+              "persistent_state_scalars": 12,
+              "estimated_forward_macs": 212,
+              "utility_parameters": 85,
+              "task_parameters": 280,
+              "persistent_state_bytes": 48,
+              "frozen_parameters": 0,
+              "estimated_agent_forward_macs": 376,
+              "estimated_task_update_macs": 1308,
+              "estimated_transition_refresh_macs": 180,
+              "allocated_continual_memory_bytes": 0,
+              "allocated_update_budget_macs": 1308,
+              "transition_update_interval": 32,
+              "estimated_amortized_update_macs": 1133.625
+            },
+            {
+              "method": "identity_trace",
+              "trainable_parameters": 359,
+              "persistent_state_scalars": 12,
+              "estimated_forward_macs": 212,
+              "utility_parameters": 85,
+              "task_parameters": 274,
+              "persistent_state_bytes": 48,
+              "frozen_parameters": 0,
+              "estimated_agent_forward_macs": 376,
+              "estimated_task_update_macs": 1128,
+              "estimated_transition_refresh_macs": 0,
+              "allocated_continual_memory_bytes": 0,
+              "allocated_update_budget_macs": 1128,
+              "transition_update_interval": 32,
+              "estimated_amortized_update_macs": 1128.0
+            }
+          ],
+          "ratios": {
+            "trainable_parameter_ratio": 1.0167130919220055,
+            "recurrent_state_byte_ratio": 1.0,
+            "agent_forward_mac_ratio": 1.0,
+            "amortized_update_mac_ratio": 1.0049867021276595,
+            "peak_update_mac_ratio": 1.1595744680851063
+          },
+          "average_resource_gate": true,
+          "peak_update_resource_gate": false,
+          "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+        },
+        "decision_gates": {
+          "ten_seeds": true,
+          "average_resources_within_1_05": true,
+          "peak_update_resources_within_1_05": false,
+          "cyclic_above_chance": false,
+          "cyclic_separation_positive": false,
+          "cyclic_beats_identity": false
+        },
+        "average_budget_advantage_at_budget": false,
+        "peak_qualified_advantage_at_budget": false
+      },
+      "192": {
+        "methods": {
+          "cyclic_trace": {
+            "history_accuracy": {
+              "mean": 0.54375,
+              "ci95_low": 0.5050588664354122,
+              "ci95_high": 0.5824411335645877,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "history_probability_separation": {
+              "mean": 0.011552052646875383,
+              "ci95_low": 0.001378955696841622,
+              "ci95_high": 0.021725149596909146,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "event_write_rate": {
+              "mean": 1.0,
+              "ci95_low": 1.0,
+              "ci95_high": 1.0,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "query_write_rate": {
+              "mean": 0.5629166666666666,
+              "ci95_low": 0.22157305033912533,
+              "ci95_high": 0.9042602829942079,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "runtime_seconds": {
+              "mean": 24.966074045194546,
+              "ci95_low": 24.860092537283855,
+              "ci95_high": 25.072055553105237,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            }
+          },
+          "identity_trace": {
+            "history_accuracy": {
+              "mean": 0.57625,
+              "ci95_low": 0.525238136722968,
+              "ci95_high": 0.627261863277032,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "history_probability_separation": {
+              "mean": 0.031395219154655936,
+              "ci95_low": 0.002131752659923637,
+              "ci95_high": 0.060658685649388235,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "event_write_rate": {
+              "mean": 1.0,
+              "ci95_low": 1.0,
+              "ci95_high": 1.0,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "query_write_rate": {
+              "mean": 0.5066666666666667,
+              "ci95_low": 0.1414066559290787,
+              "ci95_high": 0.8719266774042547,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "runtime_seconds": {
+              "mean": 17.232960518301116,
+              "ci95_low": 17.136636496930894,
+              "ci95_high": 17.329284539671338,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            }
+          }
+        },
+        "paired_cyclic_minus_identity_accuracy": {
+          "mean": -0.032499999999999994,
+          "ci95_low": -0.0751139652020161,
+          "ci95_high": 0.010113965202016115,
+          "n": 10,
+          "ci_method": "two_sided_student_t_95"
+        },
+        "resources": {
+          "audits": [
+            {
+              "method": "cyclic_trace",
+              "trainable_parameters": 815,
+              "persistent_state_scalars": 48,
+              "estimated_forward_macs": 1184,
+              "utility_parameters": 85,
+              "task_parameters": 730,
+              "persistent_state_bytes": 192,
+              "frozen_parameters": 0,
+              "estimated_agent_forward_macs": 1348,
+              "estimated_task_update_macs": 6924,
+              "estimated_transition_refresh_macs": 2880,
+              "allocated_continual_memory_bytes": 0,
+              "allocated_update_budget_macs": 6924,
+              "transition_update_interval": 32,
+              "estimated_amortized_update_macs": 4134.0
+            },
+            {
+              "method": "identity_trace",
+              "trainable_parameters": 791,
+              "persistent_state_scalars": 48,
+              "estimated_forward_macs": 1184,
+              "utility_parameters": 85,
+              "task_parameters": 706,
+              "persistent_state_bytes": 192,
+              "frozen_parameters": 0,
+              "estimated_agent_forward_macs": 1348,
+              "estimated_task_update_macs": 4044,
+              "estimated_transition_refresh_macs": 0,
+              "allocated_continual_memory_bytes": 0,
+              "allocated_update_budget_macs": 4044,
+              "transition_update_interval": 32,
+              "estimated_amortized_update_macs": 4044.0
+            }
+          ],
+          "ratios": {
+            "trainable_parameter_ratio": 1.0303413400758534,
+            "recurrent_state_byte_ratio": 1.0,
+            "agent_forward_mac_ratio": 1.0,
+            "amortized_update_mac_ratio": 1.0222551928783383,
+            "peak_update_mac_ratio": 1.7121661721068249
+          },
+          "average_resource_gate": true,
+          "peak_update_resource_gate": false,
+          "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+        },
+        "decision_gates": {
+          "ten_seeds": true,
+          "average_resources_within_1_05": true,
+          "peak_update_resources_within_1_05": false,
+          "cyclic_above_chance": true,
+          "cyclic_separation_positive": true,
+          "cyclic_beats_identity": false
+        },
+        "average_budget_advantage_at_budget": false,
+        "peak_qualified_advantage_at_budget": false
+      },
+      "768": {
+        "methods": {
+          "cyclic_trace": {
+            "history_accuracy": {
+              "mean": 0.5775,
+              "ci95_low": 0.5351789177545381,
+              "ci95_high": 0.619821082245462,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "history_probability_separation": {
+              "mean": 0.05808895125985146,
+              "ci95_low": 0.02142970639533831,
+              "ci95_high": 0.09474819612436461,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "event_write_rate": {
+              "mean": 1.0,
+              "ci95_low": 1.0,
+              "ci95_high": 1.0,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "query_write_rate": {
+              "mean": 0.08541666666666667,
+              "ci95_low": -0.08048704482365135,
+              "ci95_high": 0.2513203781569847,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "runtime_seconds": {
+              "mean": 26.058398848600337,
+              "ci95_low": 25.774877992683994,
+              "ci95_high": 26.34191970451668,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            }
+          },
+          "identity_trace": {
+            "history_accuracy": {
+              "mean": 0.6487499999999999,
+              "ci95_low": 0.5980876568602796,
+              "ci95_high": 0.6994123431397202,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "history_probability_separation": {
+              "mean": 0.12062583349179476,
+              "ci95_low": 0.06678452133053538,
+              "ci95_high": 0.17446714565305416,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "event_write_rate": {
+              "mean": 0.9,
+              "ci95_low": 0.6737843,
+              "ci95_high": 1.1262157,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "query_write_rate": {
+              "mean": 0.09625,
+              "ci95_low": -0.11939615956161903,
+              "ci95_high": 0.31189615956161904,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            },
+            "runtime_seconds": {
+              "mean": 17.32970690469956,
+              "ci95_low": 17.1611681850501,
+              "ci95_high": 17.498245624349018,
+              "n": 10,
+              "ci_method": "two_sided_student_t_95"
+            }
+          }
+        },
+        "paired_cyclic_minus_identity_accuracy": {
+          "mean": -0.07125,
+          "ci95_low": -0.13131590099407886,
+          "ci95_high": -0.011184099005921128,
+          "n": 10,
+          "ci_method": "two_sided_student_t_95"
+        },
+        "resources": {
+          "audits": [
+            {
+              "method": "cyclic_trace",
+              "trainable_parameters": 2615,
+              "persistent_state_scalars": 192,
+              "estimated_forward_macs": 11552,
+              "utility_parameters": 85,
+              "task_parameters": 2530,
+              "persistent_state_bytes": 768,
+              "frozen_parameters": 0,
+              "estimated_agent_forward_macs": 11716,
+              "estimated_task_update_macs": 81228,
+              "estimated_transition_refresh_macs": 46080,
+              "allocated_continual_memory_bytes": 0,
+              "allocated_update_budget_macs": 81228,
+              "transition_update_interval": 32,
+              "estimated_amortized_update_macs": 36588.0
+            },
+            {
+              "method": "identity_trace",
+              "trainable_parameters": 2519,
+              "persistent_state_scalars": 192,
+              "estimated_forward_macs": 11552,
+              "utility_parameters": 85,
+              "task_parameters": 2434,
+              "persistent_state_bytes": 768,
+              "frozen_parameters": 0,
+              "estimated_agent_forward_macs": 11716,
+              "estimated_task_update_macs": 35148,
+              "estimated_transition_refresh_macs": 0,
+              "allocated_continual_memory_bytes": 0,
+              "allocated_update_budget_macs": 35148,
+              "transition_update_interval": 32,
+              "estimated_amortized_update_macs": 35148.0
+            }
+          ],
+          "ratios": {
+            "trainable_parameter_ratio": 1.038110361254466,
+            "recurrent_state_byte_ratio": 1.0,
+            "agent_forward_mac_ratio": 1.0,
+            "amortized_update_mac_ratio": 1.0409696142027995,
+            "peak_update_mac_ratio": 2.3110276544895867
+          },
+          "average_resource_gate": true,
+          "peak_update_resource_gate": false,
+          "accounting_note": "amortized cost divides a real structured-transition refresh by the declared update interval; peak cost remains separately fail-closed"
+        },
+        "decision_gates": {
+          "ten_seeds": true,
+          "average_resources_within_1_05": true,
+          "peak_update_resources_within_1_05": false,
+          "cyclic_above_chance": true,
+          "cyclic_separation_positive": true,
+          "cyclic_beats_identity": false
+        },
+        "average_budget_advantage_at_budget": false,
+        "peak_qualified_advantage_at_budget": false
+      }
+    },
+    "all_average_resource_gates_pass": true,
+    "cyclic_beats_identity_at_every_budget": false,
+    "mqr_capacity_advantage": false,
+    "mqr_peak_qualified_capacity_advantage": false
+  },
+  "claim_scope": "Capacity and topology ablation only; peak refresh cost and Go-scale competitive evidence are reported separately."
+}
