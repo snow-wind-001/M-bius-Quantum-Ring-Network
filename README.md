@@ -9,6 +9,8 @@
 > 详见 [完整分析、实测表与复现命令](analysis/orthogonal_online_go_report.md)。本轮测试对象是微型围棋网络，
 > 不代表 MiniCPM 通用能力提升。使用 [CodeRecoder 入口](scripts/code_protect.mjs) 创建并独立校验外部保护快照。
 
+最新 [技术根因分析与解决队列](analysis/current_technical_root_causes.md) 补充了 40 个 checkpoint 的只读诊断：空间版本的空棋盘位置别名、记忆视角逐手翻转、较弱的环转移梯度及 OGD 锚点漂移。区分已证实缺陷与待验证改进，保留正交、环形网络和在线更新的核心约束。
+
 > **历史证据（2026-09-01）**：结构约束、非线性隐式梯度、有限求解证书和
 > 原子在线事务均有自动化检查。正式 10×10/13×13 实验各用 10 seeds，已实现
 > 48 B 循环状态接口和小于 1.05 的参数/前向/更新资源比。MQR 的 held-out

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "retrospective_diagnostic": true,
+  "training_updates": 0,
+  "probe_traces_per_phase_per_seed": 4,
+  "empty_board_unavoidable_nll_lower_bound": 3.2188758248682006,
+  "bound_applies_to": "raw policy of the current spatially shared single-convolution feature class",
+  "bound_is_not_game_strength": true,
+  "runs": [
+    {
+      "seed": 17,
+      "empty_board_teacher_action": 12,
+      "empty_board_raw_model_action": 0,
+      "empty_board_target_probability": 0.039958249777555466,
+      "empty_board_point_logit_range": 0.0,
+      "phase_diagnostics": {
+        "a": {
+          "positions": 96,
+          "non_pass_positions": 95,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.042105263157894736,
+          "mean_target_alias_group_size": 2.0105263157894737,
+          "unavoidable_raw_joint_nll_lower_bound": 0.13411982603617503,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.042105263157894736
+        },
+        "b": {
+          "positions": 93,
+          "non_pass_positions": 90,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.0,
+          "mean_target_alias_group_size": 1.0,
+          "unavoidable_raw_joint_nll_lower_bound": 0.0,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.0
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "empty_board_teacher_action": 12,
+      "empty_board_raw_model_action": 0,
+      "empty_board_target_probability": 0.03992020711302757,
+      "empty_board_point_logit_range": 0.0,
+      "phase_diagnostics": {
+        "a": {
+          "positions": 96,
+          "non_pass_positions": 92,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.05434782608695652,
+          "mean_target_alias_group_size": 2.239130434782609,
+          "unavoidable_raw_joint_nll_lower_bound": 0.1647910654024921,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.05434782608695652
+        },
+        "b": {
+          "positions": 87,
+          "non_pass_positions": 79,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.02531645569620253,
+          "mean_target_alias_group_size": 1.0253164556962024,
+          "unavoidable_raw_joint_nll_lower_bound": 0.01593441794390679,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.02531645569620253
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "empty_board_teacher_action": 12,
+      "empty_board_raw_model_action": 0,
+      "empty_board_target_probability": 0.039915040135383606,
+      "empty_board_point_logit_range": 0.0,
+      "phase_diagnostics": {
+        "a": {
+          "positions": 96,
+          "non_pass_positions": 96,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.052083333333333336,
+          "mean_target_alias_group_size": 2.2083333333333335,
+          "unavoidable_raw_joint_nll_lower_bound": 0.16583360142912734,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.052083333333333336
+        },
+        "b": {
+          "positions": 81,
+          "non_pass_positions": 73,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.0136986301369863,
+          "mean_target_alias_group_size": 1.0136986301369864,
+          "unavoidable_raw_joint_nll_lower_bound": 0.008557372599505498,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.0
+        }
+      }
+    },
+    {
+      "seed": 71,
+      "empty_board_teacher_action": 12,
+      "empty_board_raw_model_action": 0,
+      "empty_board_target_probability": 0.039927251636981964,
+      "empty_board_point_logit_range": 0.0,
+      "phase_diagnostics": {
+        "a": {
+          "positions": 96,
+          "non_pass_positions": 96,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.052083333333333336,
+          "mean_target_alias_group_size": 2.1875,
+          "unavoidable_raw_joint_nll_lower_bound": 0.1647910654024921,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.052083333333333336
+        },
+        "b": {
+          "positions": 87,
+          "non_pass_positions": 79,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.0,
+          "mean_target_alias_group_size": 1.0,
+          "unavoidable_raw_joint_nll_lower_bound": 0.0,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.0
+        }
+      }
+    },
+    {
+      "seed": 101,
+      "empty_board_teacher_action": 12,
+      "empty_board_raw_model_action": 0,
+      "empty_board_target_probability": 0.039965249598026276,
+      "empty_board_point_logit_range": 0.0,
+      "phase_diagnostics": {
+        "a": {
+          "positions": 96,
+          "non_pass_positions": 96,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.052083333333333336,
+          "mean_target_alias_group_size": 2.1875,
+          "unavoidable_raw_joint_nll_lower_bound": 0.1647910654024921,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.052083333333333336
+        },
+        "b": {
+          "positions": 84,
+          "non_pass_positions": 79,
+          "fraction_non_pass_targets_with_spatial_aliases": 0.0,
+          "mean_target_alias_group_size": 1.0,
+          "unavoidable_raw_joint_nll_lower_bound": 0.0,
+          "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.0
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "analysis/go_spatial_alias_diagnostics.py": "9e8843bb7c99cd9eb55410afd9b717881b6652cfd37d463139c0c13711776f8b",
+    "mqr/go_online.py": "27c252e324da2bcefe11bd7151d73df9042dbf90eff3fea1579299e9cc4e9279",
+    "mqr/agent.py": "62c7e57f02840d8884cd742c65f72eaf657d0a98a00e20fb0cd58a872755bfc5"
+  }
+}

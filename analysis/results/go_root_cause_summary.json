@@ -1,0 +1,450 @@
+{
+  "valid": true,
+  "diagnostic_only": true,
+  "averaging": "state and phase summaries average five seed means; gradient and anchor summaries pool fixed probes",
+  "probe_position_records": 912,
+  "teacher_labels_changed_by_superko_history_erasure": 9,
+  "sampling_note": "records are reused across methods; board positions can recur and are not independent statistical samples",
+  "teacher_label_change_fraction": 0.009868421052631578,
+  "methods": {
+    "global/orthogonal": {
+      "latent_tanh_derivative_mean": 0.973214066028595,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.934074866771698,
+      "centered_state_covariance_participation_rank": 5.591680840183912,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.0032661909935995936,
+        0.003256491315551102
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.9704722655260489,
+        "modulation": 0.0,
+        "injection": 0.013789589066780338,
+        "core_readout": 0.014877457604128784,
+        "transition": 0.0008606878030419677
+      },
+      "objective_joint_nll_gradient_cosine": 0.9926802976945436,
+      "projected_joint_nll_gradient_cosine": 0.9926802956569153,
+      "raw_direction_joint_nll_first_order": -0.3301972520762476,
+      "projected_direction_joint_nll_first_order": -0.3301972520762476,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.3301972520762476,
+      "retained_norm": 1.0,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.8403811266645789,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.0036213070913314973,
+          "conditional_point_component_nll_gain": 0.044704658800280114,
+          "raw_action_change_fraction_from_initial": 0.10208333333333333,
+          "training_objective": 1.9504623365278042,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.153555858070483,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.01831934638870839,
+          "conditional_point_component_nll_gain": 0.006880301966219829,
+          "raw_action_change_fraction_from_initial": 0.1173442763172092,
+          "training_objective": 2.3248358862212584,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      }
+    },
+    "global/orthogonal_ogd": {
+      "latent_tanh_derivative_mean": 0.9725794315338134,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.9344291925430298,
+      "centered_state_covariance_participation_rank": 5.621848154897368,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.0034310704795643687,
+        0.003270647395402193
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.9741450655198927,
+        "modulation": 0.0,
+        "injection": 0.012251757397073754,
+        "core_readout": 0.01304022210426814,
+        "transition": 0.0005629549787654726
+      },
+      "objective_joint_nll_gradient_cosine": 0.9926796332679676,
+      "projected_joint_nll_gradient_cosine": 0.6766403473580255,
+      "raw_direction_joint_nll_first_order": -0.33261518694203474,
+      "projected_direction_joint_nll_first_order": -0.20501282836856513,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.25511898432008406,
+      "retained_norm": 0.689928303706756,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.8418468620007236,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.005235092799072543,
+          "conditional_point_component_nll_gain": 0.044852709171876386,
+          "raw_action_change_fraction_from_initial": 0.08541666666666667,
+          "training_objective": 1.9518754093597335,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.156185480485057,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.013370498734120695,
+          "conditional_point_component_nll_gain": 0.009199527206234123,
+          "raw_action_change_fraction_from_initial": 0.11176880837614986,
+          "training_objective": 2.3278874295652354,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      },
+      "anchors": {
+        "start_ply_in_recorded_trace": 6.175,
+        "current_truncated_gradient_coverage_by_old_basis": 0.9738324880599976,
+        "current_contextual_gradient_coverage_by_old_basis": 0.9606688775122165,
+        "truncated_contextual_gradient_cosine": 0.9959809927602528,
+        "contextual_minus_truncated_log_probability": 4.650652408599854e-06,
+        "count": 80
+      }
+    },
+    "global/identity_ogd": {
+      "latent_tanh_derivative_mean": 0.9358051896095276,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.9267521977424622,
+      "centered_state_covariance_participation_rank": 3.044375726061991,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.0,
+        0.0
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.9500121324352662,
+        "modulation": 0.0,
+        "injection": 0.022696045739541933,
+        "core_readout": 0.027291821825191926,
+        "transition": 0.0
+      },
+      "objective_joint_nll_gradient_cosine": 0.9925433997282557,
+      "projected_joint_nll_gradient_cosine": 0.7193344743531151,
+      "raw_direction_joint_nll_first_order": -0.5534780662635277,
+      "projected_direction_joint_nll_first_order": -0.3873521364454565,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.4565486641151104,
+      "retained_norm": 0.7316338425263439,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.845259589329362,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.009404216685409968,
+          "conditional_point_component_nll_gain": 0.045609105729575584,
+          "raw_action_change_fraction_from_initial": 0.09791666666666667,
+          "training_objective": 1.9553967767084637,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.14572543885119,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.021969562328703337,
+          "conditional_point_component_nll_gain": 0.011060505245517912,
+          "raw_action_change_fraction_from_initial": 0.12362560399267852,
+          "training_objective": 2.3169357663539096,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      },
+      "anchors": {
+        "start_ply_in_recorded_trace": 6.175,
+        "current_truncated_gradient_coverage_by_old_basis": 0.9462360732257367,
+        "current_contextual_gradient_coverage_by_old_basis": 0.9170419976115227,
+        "truncated_contextual_gradient_cosine": 0.9942408166868759,
+        "contextual_minus_truncated_log_probability": -0.00027357153594493867,
+        "count": 80
+      }
+    },
+    "global/stateless": {
+      "latent_tanh_derivative_mean": 0.9796351432800293,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.9328972339630127,
+      "centered_state_covariance_participation_rank": 5.330534239664938,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.0,
+        0.0
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.9723931156595891,
+        "modulation": 0.0,
+        "injection": 0.01699419480424935,
+        "core_readout": 0.010612689536161481,
+        "transition": 0.0
+      },
+      "objective_joint_nll_gradient_cosine": 0.9927310425459317,
+      "projected_joint_nll_gradient_cosine": 0.9927310347281373,
+      "raw_direction_joint_nll_first_order": -0.2873537102393035,
+      "projected_direction_joint_nll_first_order": -0.2873537066424715,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.2873537102393035,
+      "retained_norm": 1.0,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.8399933842321237,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.003230200617933102,
+          "conditional_point_component_nll_gain": 0.04470129475933694,
+          "raw_action_change_fraction_from_initial": 0.09583333333333334,
+          "training_objective": 1.9500239281604688,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.1539867630728673,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.01832798476217206,
+          "conditional_point_component_nll_gain": 0.006440758590372275,
+          "raw_action_change_fraction_from_initial": 0.1173442763172092,
+          "training_objective": 2.3253561972147887,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      }
+    },
+    "spatial/orthogonal": {
+      "latent_tanh_derivative_mean": 0.9248477220535278,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.9088265180587769,
+      "centered_state_covariance_participation_rank": 2.6414661813120177,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.014709634147584439,
+        0.013884375430643558
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.0,
+        "modulation": 0.6795396844305881,
+        "injection": 0.19787381767422632,
+        "core_readout": 0.11309652079875025,
+        "transition": 0.009489977096435294
+      },
+      "objective_joint_nll_gradient_cosine": 0.912960848247,
+      "projected_joint_nll_gradient_cosine": 0.9129608537128501,
+      "raw_direction_joint_nll_first_order": -0.5728251734780597,
+      "projected_direction_joint_nll_first_order": -0.5728251734780597,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.5728251734780597,
+      "retained_norm": 1.0,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.891585537294547,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.006117608600713235,
+          "conditional_point_component_nll_gain": -0.004003450320306001,
+          "raw_action_change_fraction_from_initial": 0.041666666666666664,
+          "training_objective": 1.992003041009108,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.128965067912447,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.03109038093236635,
+          "conditional_point_component_nll_gain": 0.01870005758059764,
+          "raw_action_change_fraction_from_initial": 0.06838756760892467,
+          "training_objective": 2.2619639626497268,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      }
+    },
+    "spatial/orthogonal_ogd": {
+      "latent_tanh_derivative_mean": 0.9532654881477356,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.9238693714141846,
+      "centered_state_covariance_participation_rank": 3.758659136950307,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.013290628790855408,
+        0.01131471823900938
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.0,
+        "modulation": 0.6373714514877615,
+        "injection": 0.2249256209812354,
+        "core_readout": 0.12770466073001727,
+        "transition": 0.009998266800985738
+      },
+      "objective_joint_nll_gradient_cosine": 0.8891120097963944,
+      "projected_joint_nll_gradient_cosine": 0.7098104613697618,
+      "raw_direction_joint_nll_first_order": -0.4569432258019866,
+      "projected_direction_joint_nll_first_order": -0.3717516713990461,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.4113920347704816,
+      "retained_norm": 0.8269002387723688,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.885506486768524,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.005376121294345163,
+          "conditional_point_component_nll_gain": 0.0013341128993488382,
+          "raw_action_change_fraction_from_initial": 0.022916666666666665,
+          "training_objective": 1.984787299235662,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.1633517049090463,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.019368793303366483,
+          "conditional_point_component_nll_gain": -0.003964991787001325,
+          "raw_action_change_fraction_from_initial": 0.04065334204377585,
+          "training_objective": 2.3051370763907526,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      },
+      "anchors": {
+        "start_ply_in_recorded_trace": 6.175,
+        "current_truncated_gradient_coverage_by_old_basis": 0.6521602381020785,
+        "current_contextual_gradient_coverage_by_old_basis": 0.629951323568821,
+        "truncated_contextual_gradient_cosine": 0.9915051499275688,
+        "contextual_minus_truncated_log_probability": -0.0013988900929689408,
+        "count": 80
+      }
+    },
+    "spatial/identity_ogd": {
+      "latent_tanh_derivative_mean": 0.9340118527412414,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.9282055735588074,
+      "centered_state_covariance_participation_rank": 2.412200981265947,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.0,
+        0.0
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.0,
+        "modulation": 0.6843515171341349,
+        "injection": 0.18683295380313522,
+        "core_readout": 0.12881552906272994,
+        "transition": 0.0
+      },
+      "objective_joint_nll_gradient_cosine": 0.8886732607515336,
+      "projected_joint_nll_gradient_cosine": 0.6770932688455522,
+      "raw_direction_joint_nll_first_order": -0.6300696464745199,
+      "projected_direction_joint_nll_first_order": -0.45199008695460086,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.5323271706475531,
+      "retained_norm": 0.784066495767907,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.88429510059456,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.004630148636836869,
+          "conditional_point_component_nll_gain": 0.0017995264158040905,
+          "raw_action_change_fraction_from_initial": 0.024999999999999998,
+          "training_objective": 1.9822606593370438,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.1385389173912914,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.03711961748386102,
+          "conditional_point_component_nll_gain": 0.003096971550259144,
+          "raw_action_change_fraction_from_initial": 0.04539935613350519,
+          "training_objective": 2.2766930411177015,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      },
+      "anchors": {
+        "start_ply_in_recorded_trace": 6.175,
+        "current_truncated_gradient_coverage_by_old_basis": 0.6405945230275393,
+        "current_contextual_gradient_coverage_by_old_basis": 0.6350092574954033,
+        "truncated_contextual_gradient_cosine": 0.9926912421239127,
+        "contextual_minus_truncated_log_probability": 0.0004908449947834015,
+        "count": 80
+      }
+    },
+    "spatial/stateless": {
+      "latent_tanh_derivative_mean": 0.9408806324005127,
+      "latent_tanh_derivative_below_0_1_fraction": 0.0,
+      "injection_tanh_derivative_mean": 0.885469627380371,
+      "centered_state_covariance_participation_rank": 4.681365659740234,
+      "current_player_board_cosine_lag1": 0.0,
+      "canonical_black_white_board_cosine_lag1": 0.917094980598862,
+      "transition_normalized_drift": [
+        0.0,
+        0.0
+      ],
+      "raw_gradient_energy_fraction": {
+        "heads": 0.0,
+        "modulation": 0.7170916963961741,
+        "injection": 0.17117125117281293,
+        "core_readout": 0.1117370524310131,
+        "transition": 0.0
+      },
+      "objective_joint_nll_gradient_cosine": 0.9112878231776832,
+      "projected_joint_nll_gradient_cosine": 0.9112878216438376,
+      "raw_direction_joint_nll_first_order": -0.45026959282956247,
+      "projected_direction_joint_nll_first_order": -0.450269593086479,
+      "norm_matched_raw_direction_joint_nll_first_order": -0.45026959282956247,
+      "retained_norm": 1.0,
+      "gradient_windows": 29,
+      "phase_probe_means": {
+        "a": {
+          "positions": 96.0,
+          "joint_nll": 1.8965996737281483,
+          "initial_joint_nll": 1.8814644783735275,
+          "pass_component_nll_gain": -0.005965179788230064,
+          "conditional_point_component_nll_gain": -0.009170015566390551,
+          "raw_action_change_fraction_from_initial": 0.04166666666666667,
+          "training_objective": 2.001928238756954,
+          "teacher_pass_fraction": 0.010416666666666666
+        },
+        "b": {
+          "positions": 86.4,
+          "joint_nll": 2.1446013358819456,
+          "initial_joint_nll": 2.1787555064254116,
+          "pass_component_nll_gain": 0.030227555432262777,
+          "conditional_point_component_nll_gain": 0.003926615111203098,
+          "raw_action_change_fraction_from_initial": 0.06621505768706362,
+          "training_objective": 2.2811509578886286,
+          "teacher_pass_fraction": 0.0748910704231431
+        }
+      }
+    }
+  },
+  "spatial_aliases": {
+    "a": {
+      "positions": 96.0,
+      "non_pass_positions": 95.0,
+      "fraction_non_pass_targets_with_spatial_aliases": 0.05054061784897025,
+      "mean_target_alias_group_size": 2.166598016781083,
+      "unavoidable_raw_joint_nll_lower_bound": 0.15886532473455575,
+      "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.05054061784897025
+    },
+    "b": {
+      "positions": 86.4,
+      "non_pass_positions": 80.0,
+      "fraction_non_pass_targets_with_spatial_aliases": 0.007803017166637766,
+      "mean_target_alias_group_size": 1.0078030171666377,
+      "unavoidable_raw_joint_nll_lower_bound": 0.004898358108682457,
+      "fraction_non_pass_alias_groups_with_different_teacher_scores": 0.005063291139240506
+    }
+  },
+  "inputs_sha256": {
+    "analysis/results/go_root_cause_diagnostics.json": "2b5e7bf6b6f620bacda57bba01c1f743f2771f400bd1c4fa848d21b3ec6b7284",
+    "analysis/results/go_spatial_alias_diagnostics.json": "0f58dca89c53872b5580334e093f9ec0e7ee221d01e10bdeebaae56864e5209e"
+  },
+  "source_files_match_workspace": true
+}

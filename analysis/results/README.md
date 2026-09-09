@@ -233,6 +233,21 @@ diagnostics, not headline evidence. Interpret all multi-game metrics with
 `analysis/minicpm_go_real_games_report.md`; externally masked played-move
 legality is never evidence of internal rule learning.
 
+The subsequent root-cause analysis adds retrospective diagnostics only:
+
+- `go_root_cause_diagnostics.json`: 40 unchanged checkpoints, five seeds, four
+  test trajectories per phase, state/gradient probes, and reconstructed original
+  training anchors. These 912 positions are a subset of the earlier test data.
+- `go_spatial_alias_diagnostics.json`: exact equal-patch ambiguity and the
+  uniform 25-point empty-board limitation of the current spatial readout.
+- `go_root_cause_summary.json`: reproducible aggregation and consistency checks
+  from `analysis/summarize_go_root_causes.py`. Gradient summaries pool 29 windows
+  per method; state and phase summaries average five seed means.
+
+No model was retrained in these diagnostics. Interpret them with
+`analysis/current_technical_root_causes.md`, and use fresh confirmation data for
+any design choices informed by these retrospective probes.
+
 The 2026-09-09 signed-ring online Go study has the following canonical artifacts:
 
 - `orthogonal_go_online_5seed.json`: global readout, nine controls, five paired
