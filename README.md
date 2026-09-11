@@ -2,6 +2,15 @@
 
 本 PyTorch 研究实现源自 HTML 中的 **MQR / UHR-Net (Möbius Quantum Ring / Unistochastic Hamiltonian Ring)** 设想，保留固定点推理路径：**Cayley 酉矩阵参数化 → 幺模随机连接 \(H=|U|^2\) → 固定点松弛推理 → LoRA 式注入 → 局部采样读出**；另提供跨观察的时间环记忆。当前探索新增直接保留符号的正交 Givens 环、轨迹反馈与 OGD 在线更新。历史公式中的数学错误已在当前代码中修正。
 
+> **10×10 完整对局与在线搜索学习（2026-09-12）**：已完成五种子、每主要方案 **120 局**，
+> 加上贪心对照共 **840 局冻结评估**；连同训练和基础数据，独立重放核验 **1280 份完整棋谱**。
+> 新增冻结卷积特征的头部适应、搜索分布监督、真实终局回放和动作 margin 保护，保留正交多环与在线更新。
+> 完整新方案胜率 **32.50%**，冻结初始模型 **35.83%**，旧在线方案 **34.17%**；
+> **尚未证明棋力提升**。移除保护消融为 41.67%，提示需要重新对齐保护与任务目标。
+> 166 项测试通过。协议、逐种子结果、价值角色别名与历史判断诊断见
+> [本轮完整报告](analysis/go10_report.md)、[数学合同](analysis/go10_math.md) 和 [核验结果](analysis/results/go10_summary.json)。
+> 下方 5×5、MiniCPM 及其他任务是历史证据，不能与本轮数字合并。
+
 > **围棋读出与真实终局学习（2026-09-11）**：新增有符号位置查询、参与联合 OGD 的空间更新、
 > 真实终局价值回放、可靠锚点筛选和只读策略/价值搜索。保留正交多环及预测先于反馈的在线协议。
 > 新方法通过独立接口提供；旧模型和默认行为继续保留。机制修复与棋力收益分别检验，
@@ -46,6 +55,29 @@
 > `1.000`，故独立优势仍为 false。当时据此暂停了 Go/MiniCPM/策略 RL；本轮重新开放围棋研究，保留历史负面结论。
 
 ## 🌟 核心机制与研究假设
+
+### 10×10 在线实验与完整对局恢复
+
+本轮实现固定于 `e0504d6`。`SignedQueryGoAgent(spatial_head_only=True)` 只开放空间输出头；
+`SearchOutcomeGoSession.feedback(..., policy_target=...)` 可学习反馈前的搜索分布，终局后学习实际胜负。
+`PolicyBehaviorMemory(margin_fraction=0.5, reliable_only=True)` 增加可信动作 margin 检查。
+有限步检查与联合 OGD 配合使用，未实现不等式投影 QP。
+
+以下命令在新目录运行一个正式种子。完整比较使用种子 `601 607 613 617 619` 和方法
+`frozen legacy optimized identity unprotected`；每方法合计 120 局主要冻结评估。
+其中 `legacy` 与 `optimized` 各自动追加 120 局贪心对照。
+
+~~~bash
+python3 test_go10_continual.py
+python3 experiments/go10_continual.py --seed 601 --method optimized --confirmation \
+  --directory checkpoints/go10_reproduced \
+  --output analysis/reproduced/go10_optimized_seed601.json
+~~~
+
+对局以真实连续两次停着结束。加入 `--max-plies 64` 只暂停本次调用并保存未完棋局；再次执行同样配置继续，
+去掉该参数可运行到结束。不能把暂停局计为胜负，已完成运行也不能通过改变训练局数静默延长。
+检查点包含棋盘、环、待处理反馈及终局缓存；已验证中途恢复与连续运行状态逐位一致。
+检查点保存在本地，不随 Git 提交。完整核验命令及路径要求见 [报告](analysis/go10_report.md)。
 
 ### 新增围棋研究接口与复现
 

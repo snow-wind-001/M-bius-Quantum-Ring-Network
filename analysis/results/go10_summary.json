@@ -1,0 +1,1784 @@
+{
+  "verified": true,
+  "implementation_commit": "e0504d6",
+  "seeds": [
+    601,
+    607,
+    613,
+    617,
+    619
+  ],
+  "tables": {
+    "frozen": {
+      "phases": {
+        "a": {
+          "games": 20,
+          "wins": 10,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            0,
+            2,
+            2,
+            2,
+            4
+          ],
+          "margin": -7.4,
+          "value_mse": 0.634924026482915,
+          "plies_min_mean_max": [
+            88,
+            106.0,
+            195
+          ],
+          "observations": 2120,
+          "raw_legal": 0.9906015037593985,
+          "pass_fraction": 0.018796992481203006,
+          "noncapture_self_atari_fraction": 0.02490421455938697,
+          "captures": 4,
+          "nll": 1.290275029594751,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 107.76590459409636,
+          "ms_per_observation": 50.83297386513979,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 10
+            }
+          }
+        },
+        "b": {
+          "games": 20,
+          "wins": 9,
+          "win_rate": 0.45,
+          "wins_per_seed": [
+            3,
+            2,
+            1,
+            2,
+            1
+          ],
+          "margin": -38.8,
+          "value_mse": 1.3209052837370314,
+          "plies_min_mean_max": [
+            89,
+            126.6,
+            181
+          ],
+          "observations": 2292,
+          "raw_legal": 0.9197207678883071,
+          "pass_fraction": 0.017452006980802792,
+          "noncapture_self_atari_fraction": 0.07015985790408526,
+          "captures": 43,
+          "nll": 2.2393506006016697,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 126.47375903595821,
+          "ms_per_observation": 55.180523139597824,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "12": {
+              "games": 20,
+              "wins": 9
+            }
+          }
+        },
+        "return_a": {
+          "games": 20,
+          "wins": 10,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            0,
+            2,
+            2,
+            2,
+            4
+          ],
+          "margin": -7.4,
+          "value_mse": 0.634924026482915,
+          "plies_min_mean_max": [
+            88,
+            106.0,
+            195
+          ],
+          "observations": 2120,
+          "raw_legal": 0.9906015037593985,
+          "pass_fraction": 0.018796992481203006,
+          "noncapture_self_atari_fraction": 0.02490421455938697,
+          "captures": 4,
+          "nll": 1.290275029594751,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 110.27157586312387,
+          "ms_per_observation": 52.01489427505843,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 10
+            }
+          }
+        },
+        "search_eval": {
+          "games": 120,
+          "wins": 43,
+          "win_rate": 0.35833333333333334,
+          "wins_per_seed": [
+            8,
+            9,
+            9,
+            10,
+            7
+          ],
+          "margin": -34.733333333333334,
+          "value_mse": 1.100490999339729,
+          "plies_min_mean_max": [
+            86,
+            128.75833333333333,
+            203
+          ],
+          "observations": 11931,
+          "raw_legal": 0.9375209380234506,
+          "pass_fraction": 0.020100502512562814,
+          "noncapture_self_atari_fraction": 0.07726495726495726,
+          "captures": 294,
+          "nll": 2.126565005516979,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 695.7030406470294,
+          "ms_per_observation": 58.31053898642439,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 18
+            },
+            "24": {
+              "games": 40,
+              "wins": 16
+            },
+            "60": {
+              "games": 40,
+              "wins": 9
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 25,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.4166666666666667,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.648850826919079,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3399324501554175,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.648850826919079,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3399324501554175,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.648850826919079,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3399324501554175,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.648850826919079,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3399324501554175,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.6491578893115122,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3405648795887832,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        }
+      },
+      "total_parameters": [
+        19919,
+        19919,
+        19919,
+        19919,
+        19919
+      ],
+      "trainable_parameters": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor_counts": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "legacy": {
+      "phases": {
+        "a": {
+          "games": 20,
+          "wins": 10,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            2,
+            2,
+            2,
+            3,
+            1
+          ],
+          "margin": -15.4,
+          "value_mse": 0.6488489105410855,
+          "plies_min_mean_max": [
+            88,
+            112.45,
+            189
+          ],
+          "observations": 2249,
+          "raw_legal": 0.9813829787234043,
+          "pass_fraction": 0.01773049645390071,
+          "noncapture_self_atari_fraction": 0.0315884476534296,
+          "captures": 6,
+          "nll": 1.3150362022355668,
+          "accepted_updates": 152,
+          "update_attempts": 152,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 164.25692156032892,
+          "ms_per_observation": 73.03553648747395,
+          "observation_peak_tensor_bytes": 413228,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 10
+            }
+          }
+        },
+        "b": {
+          "games": 20,
+          "wins": 8,
+          "win_rate": 0.4,
+          "wins_per_seed": [
+            2,
+            2,
+            1,
+            2,
+            1
+          ],
+          "margin": -23.6,
+          "value_mse": 0.6089656764518624,
+          "plies_min_mean_max": [
+            90,
+            117.05,
+            199
+          ],
+          "observations": 2101,
+          "raw_legal": 0.9695817490494296,
+          "pass_fraction": 0.019011406844106463,
+          "noncapture_self_atari_fraction": 0.044573643410852716,
+          "captures": 41,
+          "nll": 2.046225735409311,
+          "accepted_updates": 139,
+          "update_attempts": 140,
+          "guard_backtrack_fraction": 0.29285714285714287,
+          "guard_step_scale": 0.7589634486607143,
+          "seconds": 251.4619874099444,
+          "ms_per_observation": 119.68680980958801,
+          "observation_peak_tensor_bytes": 629380,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "12": {
+              "games": 20,
+              "wins": 8
+            }
+          }
+        },
+        "return_a": {
+          "games": 20,
+          "wins": 8,
+          "win_rate": 0.4,
+          "wins_per_seed": [
+            1,
+            2,
+            2,
+            2,
+            1
+          ],
+          "margin": -26.5,
+          "value_mse": 0.6353537544939012,
+          "plies_min_mean_max": [
+            88,
+            122.1,
+            193
+          ],
+          "observations": 2442,
+          "raw_legal": 0.982011447260834,
+          "pass_fraction": 0.016353229762878167,
+          "noncapture_self_atari_fraction": 0.043225270157938485,
+          "captures": 6,
+          "nll": 1.3497507933274793,
+          "accepted_updates": 163,
+          "update_attempts": 163,
+          "guard_backtrack_fraction": 0.2822085889570552,
+          "guard_step_scale": 0.7836524635736196,
+          "seconds": 277.97518556172145,
+          "ms_per_observation": 113.83095231847724,
+          "observation_peak_tensor_bytes": 655284,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 8
+            }
+          }
+        },
+        "search_eval": {
+          "games": 120,
+          "wins": 41,
+          "win_rate": 0.3416666666666667,
+          "wins_per_seed": [
+            10,
+            6,
+            4,
+            13,
+            8
+          ],
+          "margin": -37.825,
+          "value_mse": 1.0755295300837813,
+          "plies_min_mean_max": [
+            87,
+            131.225,
+            205
+          ],
+          "observations": 12227,
+          "raw_legal": 0.9426001635322976,
+          "pass_fraction": 0.019623875715453803,
+          "noncapture_self_atari_fraction": 0.08323603002502085,
+          "captures": 256,
+          "nll": 1.9999468672810425,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 654.1750593448232,
+          "ms_per_observation": 53.502499333018996,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 17
+            },
+            "24": {
+              "games": 40,
+              "wins": 16
+            },
+            "60": {
+              "games": 40,
+              "wins": 8
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 29,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.48333333333333334,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        },
+        "greedy_eval": {
+          "games": 120,
+          "wins": 36,
+          "win_rate": 0.3,
+          "wins_per_seed": [
+            11,
+            3,
+            3,
+            10,
+            9
+          ],
+          "margin": -43.50833333333333,
+          "value_mse": 1.1141353570592598,
+          "plies_min_mean_max": [
+            85,
+            130.69166666666666,
+            198
+          ],
+          "observations": 12163,
+          "raw_legal": 0.9596973186379338,
+          "pass_fraction": 0.019904589570653067,
+          "noncapture_self_atari_fraction": 0.06327626720375965,
+          "captures": 255,
+          "nll": 2.0124765482549924,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 209.0033843641868,
+          "ms_per_observation": 17.183538959482593,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 15
+            },
+            "24": {
+              "games": 40,
+              "wins": 13
+            },
+            "60": {
+              "games": 40,
+              "wins": 8
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 34,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.5666666666666667,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.649182927235961,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.340635780803859,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.624522359420856,
+            "agreement": 0.4333333333333333,
+            "value_mse": 0.9717957935558188,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.287018294880787,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6549741150851704,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.5872837228079637,
+            "agreement": 0.3833333333333333,
+            "value_mse": 0.9750042922206887,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.0861159063875676,
+            "agreement": 0.4166666666666667,
+            "value_mse": 0.6561191882590427,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.613575975348552,
+            "agreement": 0.41666666666666663,
+            "value_mse": 0.9731761432977436,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.1571817880496384,
+            "agreement": 0.4166666666666667,
+            "value_mse": 0.6552463885957791,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.6133654971917468,
+            "agreement": 0.4,
+            "value_mse": 0.9742776326075122,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.259148319065571,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6552882207477815,
+            "prior_mse": 0.6929630796625496
+          }
+        }
+      },
+      "total_parameters": [
+        19887,
+        19887,
+        19887,
+        19887,
+        19887
+      ],
+      "trainable_parameters": [
+        14218,
+        14218,
+        14218,
+        14218,
+        14218
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "optimized": {
+      "phases": {
+        "a": {
+          "games": 20,
+          "wins": 10,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            0,
+            2,
+            2,
+            2,
+            4
+          ],
+          "margin": -7.45,
+          "value_mse": 0.6319111208530035,
+          "plies_min_mean_max": [
+            88,
+            105.85,
+            195
+          ],
+          "observations": 2117,
+          "raw_legal": 0.9896421845574388,
+          "pass_fraction": 0.018832391713747645,
+          "noncapture_self_atari_fraction": 0.02495201535508637,
+          "captures": 4,
+          "nll": 1.281496041664843,
+          "accepted_updates": 284,
+          "update_attempts": 284,
+          "guard_backtrack_fraction": 0.0,
+          "guard_step_scale": 1.0,
+          "seconds": 423.3685588291846,
+          "ms_per_observation": 199.98514824241124,
+          "observation_peak_tensor_bytes": 698028,
+          "terminal_labels": 2117,
+          "replayed_positions": 2117,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 10
+            }
+          }
+        },
+        "b": {
+          "games": 20,
+          "wins": 7,
+          "win_rate": 0.35,
+          "wins_per_seed": [
+            3,
+            0,
+            2,
+            2,
+            0
+          ],
+          "margin": -37.15,
+          "value_mse": 1.2947739665609435,
+          "plies_min_mean_max": [
+            89,
+            126.2,
+            185
+          ],
+          "observations": 2284,
+          "raw_legal": 0.9413309982486865,
+          "pass_fraction": 0.017513134851138354,
+          "noncapture_self_atari_fraction": 0.07932263814616755,
+          "captures": 31,
+          "nll": 2.0616965710663364,
+          "accepted_updates": 302,
+          "update_attempts": 302,
+          "guard_backtrack_fraction": 0.0,
+          "guard_step_scale": 1.0,
+          "seconds": 475.8122326412704,
+          "ms_per_observation": 208.32409485169455,
+          "observation_peak_tensor_bytes": 654924,
+          "terminal_labels": 2284,
+          "replayed_positions": 2284,
+          "by_opening_length": {
+            "12": {
+              "games": 20,
+              "wins": 7
+            }
+          }
+        },
+        "return_a": {
+          "games": 20,
+          "wins": 8,
+          "win_rate": 0.4,
+          "wins_per_seed": [
+            2,
+            4,
+            0,
+            2,
+            0
+          ],
+          "margin": -35.55,
+          "value_mse": 1.4226612779016512,
+          "plies_min_mean_max": [
+            87,
+            129.2,
+            189
+          ],
+          "observations": 2584,
+          "raw_legal": 0.9791183294663574,
+          "pass_fraction": 0.015467904098994586,
+          "noncapture_self_atari_fraction": 0.046347211311861744,
+          "captures": 6,
+          "nll": 1.3776785520316668,
+          "accepted_updates": 327,
+          "update_attempts": 340,
+          "guard_backtrack_fraction": 0.07647058823529412,
+          "guard_step_scale": 0.9292322495404411,
+          "seconds": 558.6470567000797,
+          "ms_per_observation": 216.19468138547975,
+          "observation_peak_tensor_bytes": 684268,
+          "terminal_labels": 2584,
+          "replayed_positions": 2584,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 8
+            }
+          }
+        },
+        "search_eval": {
+          "games": 120,
+          "wins": 39,
+          "win_rate": 0.325,
+          "wins_per_seed": [
+            6,
+            9,
+            8,
+            10,
+            6
+          ],
+          "margin": -36.583333333333336,
+          "value_mse": 1.035380594727122,
+          "plies_min_mean_max": [
+            88,
+            129.4,
+            210
+          ],
+          "observations": 12008,
+          "raw_legal": 0.9557256990679095,
+          "pass_fraction": 0.019973368841544607,
+          "noncapture_self_atari_fraction": 0.07116168478260869,
+          "captures": 250,
+          "nll": 2.0085602981735486,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 669.7924146897858,
+          "ms_per_observation": 55.77884865837657,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 16
+            },
+            "24": {
+              "games": 40,
+              "wins": 14
+            },
+            "60": {
+              "games": 40,
+              "wins": 9
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 21,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.35,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        },
+        "greedy_eval": {
+          "games": 120,
+          "wins": 35,
+          "win_rate": 0.29166666666666663,
+          "wins_per_seed": [
+            5,
+            8,
+            7,
+            8,
+            7
+          ],
+          "margin": -35.05,
+          "value_mse": 0.9932356771374277,
+          "plies_min_mean_max": [
+            88,
+            126.3,
+            198
+          ],
+          "observations": 11636,
+          "raw_legal": 0.9730194191441829,
+          "pass_fraction": 0.020793950850661626,
+          "noncapture_self_atari_fraction": 0.056686556686556686,
+          "captures": 259,
+          "nll": 1.9758053847140782,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 195.8879197134811,
+          "ms_per_observation": 16.834644183008002,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 19
+            },
+            "24": {
+              "games": 40,
+              "wins": 13
+            },
+            "60": {
+              "games": 40,
+              "wins": 3
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 31,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.5166666666666667,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.648850826919079,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3399324501554175,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.6503413546830417,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.969611157397078,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3250974368304016,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6465729542840318,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.6505359246085085,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9512427344663801,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.291934741102159,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6245915007433849,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.6541937038302421,
+            "agreement": 0.4,
+            "value_mse": 0.922179242717976,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.2730834510177376,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6029795005426177,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.6570251010358334,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9341129960658027,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.2970227158938843,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6016104244192552,
+            "prior_mse": 0.6929630796625496
+          }
+        }
+      },
+      "total_parameters": [
+        19919,
+        19919,
+        19919,
+        19919,
+        19919
+      ],
+      "trainable_parameters": [
+        14314,
+        14314,
+        14314,
+        14314,
+        14314
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "identity": {
+      "phases": {
+        "a": {
+          "games": 20,
+          "wins": 9,
+          "win_rate": 0.45,
+          "wins_per_seed": [
+            0,
+            2,
+            1,
+            2,
+            4
+          ],
+          "margin": -12.5,
+          "value_mse": 0.7754966790467341,
+          "plies_min_mean_max": [
+            88,
+            110.4,
+            195
+          ],
+          "observations": 2208,
+          "raw_legal": 0.985546522131888,
+          "pass_fraction": 0.018066847335140017,
+          "noncapture_self_atari_fraction": 0.034958601655933765,
+          "captures": 6,
+          "nll": 1.3452028472307993,
+          "accepted_updates": 294,
+          "update_attempts": 294,
+          "guard_backtrack_fraction": 0.0,
+          "guard_step_scale": 1.0,
+          "seconds": 285.9730590766994,
+          "ms_per_observation": 129.51678400212836,
+          "observation_peak_tensor_bytes": 540844,
+          "terminal_labels": 2208,
+          "replayed_positions": 2208,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 9
+            }
+          }
+        },
+        "b": {
+          "games": 20,
+          "wins": 7,
+          "win_rate": 0.35,
+          "wins_per_seed": [
+            3,
+            1,
+            1,
+            2,
+            0
+          ],
+          "margin": -31.9,
+          "value_mse": 1.2788583268092801,
+          "plies_min_mean_max": [
+            88,
+            123.0,
+            183
+          ],
+          "observations": 2220,
+          "raw_legal": 0.9486948694869487,
+          "pass_fraction": 0.018001800180018002,
+          "noncapture_self_atari_fraction": 0.06324472960586618,
+          "captures": 26,
+          "nll": 2.032073995186281,
+          "accepted_updates": 294,
+          "update_attempts": 294,
+          "guard_backtrack_fraction": 0.013605442176870748,
+          "guard_step_scale": 0.9866802189625851,
+          "seconds": 299.41989476047456,
+          "ms_per_observation": 134.87382646868224,
+          "observation_peak_tensor_bytes": 483980,
+          "terminal_labels": 2220,
+          "replayed_positions": 2220,
+          "by_opening_length": {
+            "12": {
+              "games": 20,
+              "wins": 7
+            }
+          }
+        },
+        "return_a": {
+          "games": 20,
+          "wins": 8,
+          "win_rate": 0.4,
+          "wins_per_seed": [
+            2,
+            3,
+            0,
+            2,
+            1
+          ],
+          "margin": -34.55,
+          "value_mse": 1.117094983254773,
+          "plies_min_mean_max": [
+            87,
+            129.45,
+            195
+          ],
+          "observations": 2589,
+          "raw_legal": 0.983011583011583,
+          "pass_fraction": 0.015444015444015444,
+          "noncapture_self_atari_fraction": 0.04,
+          "captures": 9,
+          "nll": 1.35115241986703,
+          "accepted_updates": 309,
+          "update_attempts": 340,
+          "guard_backtrack_fraction": 0.17941176470588235,
+          "guard_step_scale": 0.8318976907169118,
+          "seconds": 420.2883753354545,
+          "ms_per_observation": 162.33618205309173,
+          "observation_peak_tensor_bytes": 540844,
+          "terminal_labels": 2589,
+          "replayed_positions": 2589,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 8
+            }
+          }
+        },
+        "search_eval": {
+          "games": 120,
+          "wins": 35,
+          "win_rate": 0.29166666666666663,
+          "wins_per_seed": [
+            4,
+            8,
+            5,
+            10,
+            8
+          ],
+          "margin": -37.71666666666667,
+          "value_mse": 1.0094337840612497,
+          "plies_min_mean_max": [
+            88,
+            131.51666666666668,
+            209
+          ],
+          "observations": 12262,
+          "raw_legal": 0.952885555917835,
+          "pass_fraction": 0.019563090968373,
+          "noncapture_self_atari_fraction": 0.07731958762886598,
+          "captures": 303,
+          "nll": 2.0136212147979937,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 545.5281935063831,
+          "ms_per_observation": 44.489332368812846,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 16
+            },
+            "24": {
+              "games": 40,
+              "wins": 14
+            },
+            "60": {
+              "games": 40,
+              "wins": 5
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 31,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.5166666666666667,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.648688496525089,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.34114537773033,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.650849534322818,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.963165971219385,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3282580064609646,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6468875497746492,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.665079701443513,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9227367003346275,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.2929922519872585,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6263816982855358,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.67809218292435,
+            "agreement": 0.3833333333333333,
+            "value_mse": 0.861952170140355,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.28639165100952,
+            "agreement": 0.3666666666666667,
+            "value_mse": 0.6201349725292928,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.6575439689060054,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9047941989489106,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3119285494710007,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.6084337398547139,
+            "prior_mse": 0.6929630796625496
+          }
+        }
+      },
+      "total_parameters": [
+        10095,
+        10095,
+        10095,
+        10095,
+        10095
+      ],
+      "trainable_parameters": [
+        4490,
+        4490,
+        4490,
+        4490,
+        4490
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "unprotected": {
+      "phases": {
+        "a": {
+          "games": 20,
+          "wins": 10,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            0,
+            2,
+            1,
+            3,
+            4
+          ],
+          "margin": -12.55,
+          "value_mse": 0.9356934629419286,
+          "plies_min_mean_max": [
+            88,
+            110.5,
+            195
+          ],
+          "observations": 2210,
+          "raw_legal": 0.9873646209386282,
+          "pass_fraction": 0.018050541516245487,
+          "noncapture_self_atari_fraction": 0.03400735294117647,
+          "captures": 6,
+          "nll": 1.3473523061097152,
+          "accepted_updates": 294,
+          "update_attempts": 294,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 244.46830875711748,
+          "ms_per_observation": 110.61914423398981,
+          "observation_peak_tensor_bytes": 428220,
+          "terminal_labels": 2210,
+          "replayed_positions": 2210,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 10
+            }
+          }
+        },
+        "b": {
+          "games": 20,
+          "wins": 10,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            4,
+            1,
+            2,
+            2,
+            1
+          ],
+          "margin": -16.5,
+          "value_mse": 0.8947355271917475,
+          "plies_min_mean_max": [
+            89,
+            111.35,
+            179
+          ],
+          "observations": 1987,
+          "raw_legal": 0.9567839195979899,
+          "pass_fraction": 0.020100502512562814,
+          "noncapture_self_atari_fraction": 0.046153846153846156,
+          "captures": 41,
+          "nll": 2.026258631048247,
+          "accepted_updates": 268,
+          "update_attempts": 268,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 223.2350354459777,
+          "ms_per_observation": 112.34777828182068,
+          "observation_peak_tensor_bytes": 369532,
+          "terminal_labels": 1987,
+          "replayed_positions": 1987,
+          "by_opening_length": {
+            "12": {
+              "games": 20,
+              "wins": 10
+            }
+          }
+        },
+        "return_a": {
+          "games": 20,
+          "wins": 9,
+          "win_rate": 0.45,
+          "wins_per_seed": [
+            1,
+            2,
+            0,
+            2,
+            4
+          ],
+          "margin": -17.7,
+          "value_mse": 1.03243148813517,
+          "plies_min_mean_max": [
+            88,
+            114.05,
+            191
+          ],
+          "observations": 2281,
+          "raw_legal": 0.9851268591426072,
+          "pass_fraction": 0.017497812773403325,
+          "noncapture_self_atari_fraction": 0.04007123775601069,
+          "captures": 10,
+          "nll": 1.3925142124252865,
+          "accepted_updates": 300,
+          "update_attempts": 300,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 260.66885340807494,
+          "ms_per_observation": 114.27832240599516,
+          "observation_peak_tensor_bytes": 428220,
+          "terminal_labels": 2281,
+          "replayed_positions": 2281,
+          "by_opening_length": {
+            "0": {
+              "games": 20,
+              "wins": 9
+            }
+          }
+        },
+        "search_eval": {
+          "games": 120,
+          "wins": 50,
+          "win_rate": 0.4166666666666667,
+          "wins_per_seed": [
+            12,
+            9,
+            10,
+            13,
+            6
+          ],
+          "margin": -27.45,
+          "value_mse": 1.2347618476837923,
+          "plies_min_mean_max": [
+            86,
+            123.725,
+            203
+          ],
+          "observations": 11327,
+          "raw_legal": 0.9605077574047954,
+          "pass_fraction": 0.021156558533145273,
+          "noncapture_self_atari_fraction": 0.06394092219020173,
+          "captures": 348,
+          "nll": 1.9461610597868733,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 627.5177283696248,
+          "ms_per_observation": 55.40017024539815,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "by_opening_length": {
+            "4": {
+              "games": 40,
+              "wins": 25
+            },
+            "24": {
+              "games": 40,
+              "wins": 17
+            },
+            "60": {
+              "games": 40,
+              "wins": 8
+            }
+          },
+          "role_alias_diagnostic": {
+            "paired_openings": 60,
+            "opposite_winner_pairs": 24,
+            "empirical_root_value_mse_lower_bound_without_student_role": 0.4,
+            "scope": "post-hoc deterministic paired-root behavior-return labels; not a bound on minimax Go value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.648850826919079,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.9750227787865233,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.3399324501554175,
+            "agreement": 0.38333333333333336,
+            "value_mse": 0.655894683804393,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.646345065285762,
+            "agreement": 0.3833333333333333,
+            "value_mse": 0.9661040357701879,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.304028149942557,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.6472198151419972,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.6438761527339618,
+            "agreement": 0.41666666666666663,
+            "value_mse": 0.9563552678796796,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.24201960110416,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.6411003748526699,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.6470477846761546,
+            "agreement": 0.4166666666666667,
+            "value_mse": 0.9370190143261381,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.215110075597962,
+            "agreement": 0.3833333333333333,
+            "value_mse": 0.623208556215916,
+            "prior_mse": 0.6929630796625496
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.646843951692184,
+            "agreement": 0.3833333333333333,
+            "value_mse": 0.9394396911768226,
+            "prior_mse": 0.9990494478915899
+          },
+          "b": {
+            "nll": 2.2461274310946466,
+            "agreement": 0.36666666666666664,
+            "value_mse": 0.6238514270791543,
+            "prior_mse": 0.6929630796625496
+          }
+        }
+      },
+      "total_parameters": [
+        19919,
+        19919,
+        19919,
+        19919,
+        19919
+      ],
+      "trainable_parameters": [
+        14314,
+        14314,
+        14314,
+        14314,
+        14314
+      ],
+      "anchor_counts": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "contrasts": {
+    "optimized_minus_frozen": {
+      "mean": -0.03333333333333333,
+      "interval95": [
+        -0.058333333333333334,
+        -0.008333333333333333
+      ],
+      "per_seed": [
+        -0.08333333333333333,
+        0.0,
+        -0.041666666666666664,
+        0.0,
+        -0.041666666666666664
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "optimized_minus_legacy": {
+      "mean": -0.016666666666666666,
+      "interval95": [
+        -0.13333333333333333,
+        0.1
+      ],
+      "per_seed": [
+        -0.16666666666666666,
+        0.125,
+        0.16666666666666666,
+        -0.125,
+        -0.08333333333333333
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "optimized_minus_identity": {
+      "mean": 0.03333333333333334,
+      "interval95": [
+        -0.03333333333333333,
+        0.09166666666666666
+      ],
+      "per_seed": [
+        0.08333333333333333,
+        0.041666666666666664,
+        0.125,
+        0.0,
+        -0.08333333333333333
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "optimized_minus_unprotected": {
+      "mean": -0.09166666666666666,
+      "interval95": [
+        -0.175,
+        -0.016666666666666666
+      ],
+      "per_seed": [
+        -0.25,
+        0.0,
+        -0.08333333333333333,
+        -0.125,
+        0.0
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "legacy_search_minus_greedy": {
+      "mean": 0.04166666666666667,
+      "interval95": [
+        -0.025,
+        0.10833333333333332
+      ],
+      "per_seed": [
+        -0.041666666666666664,
+        0.125,
+        0.041666666666666664,
+        0.125,
+        -0.041666666666666664
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "optimized_search_minus_greedy": {
+      "mean": 0.03333333333333333,
+      "interval95": [
+        -0.008333333333333333,
+        0.06666666666666667
+      ],
+      "per_seed": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664,
+        0.08333333333333333,
+        -0.041666666666666664
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    }
+  },
+  "audits": [
+    {
+      "method": "frozen",
+      "seed": 601,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 93
+    },
+    {
+      "method": "frozen",
+      "seed": 607,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 93
+    },
+    {
+      "method": "frozen",
+      "seed": 613,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 95
+    },
+    {
+      "method": "frozen",
+      "seed": 617,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 92
+    },
+    {
+      "method": "frozen",
+      "seed": 619,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 137
+    },
+    {
+      "method": "legacy",
+      "seed": 601,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 135
+    },
+    {
+      "method": "legacy",
+      "seed": 607,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 95
+    },
+    {
+      "method": "legacy",
+      "seed": 613,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 132
+    },
+    {
+      "method": "legacy",
+      "seed": 617,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 91
+    },
+    {
+      "method": "legacy",
+      "seed": 619,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 93
+    },
+    {
+      "method": "optimized",
+      "seed": 601,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 91
+    },
+    {
+      "method": "optimized",
+      "seed": 607,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 94
+    },
+    {
+      "method": "optimized",
+      "seed": 613,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 111
+    },
+    {
+      "method": "optimized",
+      "seed": 617,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 92
+    },
+    {
+      "method": "optimized",
+      "seed": 619,
+      "games": 60,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 94
+    },
+    {
+      "method": "identity",
+      "seed": 601,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 134
+    },
+    {
+      "method": "identity",
+      "seed": 607,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 97
+    },
+    {
+      "method": "identity",
+      "seed": 613,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 132
+    },
+    {
+      "method": "identity",
+      "seed": 617,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 95
+    },
+    {
+      "method": "identity",
+      "seed": 619,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 93
+    },
+    {
+      "method": "unprotected",
+      "seed": 601,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 91
+    },
+    {
+      "method": "unprotected",
+      "seed": 607,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 93
+    },
+    {
+      "method": "unprotected",
+      "seed": 613,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 91
+    },
+    {
+      "method": "unprotected",
+      "seed": 617,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 90
+    },
+    {
+      "method": "unprotected",
+      "seed": 619,
+      "games": 36,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 92
+    }
+  ],
+  "total_replayed_games": 1140,
+  "additional_base_games_replayed": 140,
+  "restored_checkpoints": 25,
+  "reproduced_matches": 50,
+  "reproduced_decisions": 2546,
+  "source": {
+    "experiments/go10_continual.py": "1621945f5869f7c0165f9f6b4e5a61c6b522bfe312df12fc24f5186d66d7aadb",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "c6cdcd6aa3d95308962957c8ae1a7b7a28bcf40cf5e374909de4d1ea09677493",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "4432897a894234c8ad5c04b919255d98826c77160dd7904f2702d70c2e92a239",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "708d0b1fe22c85e95e47689100ce3ab754412337a757ce332ded9eef03a6d3b8",
+    "mqr/go_policy.py": "7709733ce09ca53f4bc47a28029fe49e796d5298f1c8b74895f40ea3d0c76ed5",
+    "mqr/go_protection.py": "c2ecb7e066d39010b70706cfd6ae27cf18ac9a1a4e167649c9d55bdbfa36be2a",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "verifier_sha256": "ad748d552f6206e521e6ebfd484fa3104cfaaa674f0101ddc85c943e46b401e8"
+}

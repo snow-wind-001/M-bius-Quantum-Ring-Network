@@ -1,0 +1,195 @@
+{
+  "completed": true,
+  "source": {
+    "experiments/go10_continual.py": "1621945f5869f7c0165f9f6b4e5a61c6b522bfe312df12fc24f5186d66d7aadb",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "c6cdcd6aa3d95308962957c8ae1a7b7a28bcf40cf5e374909de4d1ea09677493",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "4432897a894234c8ad5c04b919255d98826c77160dd7904f2702d70c2e92a239",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "708d0b1fe22c85e95e47689100ce3ab754412337a757ce332ded9eef03a6d3b8",
+    "mqr/go_policy.py": "7709733ce09ca53f4bc47a28029fe49e796d5298f1c8b74895f40ea3d0c76ed5",
+    "mqr/go_protection.py": "c2ecb7e066d39010b70706cfd6ae27cf18ac9a1a4e167649c9d55bdbfa36be2a",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "diagnostic_source_sha256": "38fd365072a8473c0b70dbc742994db4a7b4080bf2be4dbbd98e00dd88a90245",
+  "results": [
+    {
+      "task": "ko",
+      "method": "orthogonal",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 2,
+      "full": {
+        "accuracy": 0.546875,
+        "loss": 2.6911691427230835
+      },
+      "reset": {
+        "accuracy": 0.5,
+        "loss": 3.903331935405731
+      },
+      "swap": {
+        "accuracy": 0.453125,
+        "loss": 3.534398674964905
+      },
+      "seconds": 10.631106357002864,
+      "split_sha256": "ca3f23242058f0df2e21611aeea4eaacae567d1da2508cf703088ecac119088e"
+    },
+    {
+      "task": "ko",
+      "method": "identity",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 2,
+      "full": {
+        "accuracy": 0.5546875,
+        "loss": 2.1645851135253906
+      },
+      "reset": {
+        "accuracy": 0.5,
+        "loss": 2.3070088028907776
+      },
+      "swap": {
+        "accuracy": 0.4453125,
+        "loss": 2.6909490823745728
+      },
+      "seconds": 7.66843630297808,
+      "split_sha256": "ca3f23242058f0df2e21611aeea4eaacae567d1da2508cf703088ecac119088e"
+    },
+    {
+      "task": "ko",
+      "method": "stateless",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 1,
+      "full": {
+        "accuracy": 0.5,
+        "loss": 0.7009024620056152
+      },
+      "reset": {
+        "accuracy": 0.5,
+        "loss": 0.7009024620056152
+      },
+      "swap": {
+        "accuracy": 0.5,
+        "loss": 0.7009024620056152
+      },
+      "seconds": 9.430140136013506,
+      "split_sha256": "ca3f23242058f0df2e21611aeea4eaacae567d1da2508cf703088ecac119088e"
+    },
+    {
+      "task": "recall24",
+      "method": "orthogonal",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 25,
+      "full": {
+        "accuracy": 0.515625,
+        "loss": 0.7492264211177826
+      },
+      "reset": {
+        "accuracy": 0.5,
+        "loss": 1.416087955236435
+      },
+      "swap": {
+        "accuracy": 0.484375,
+        "loss": 0.8716651648283005
+      },
+      "seconds": 89.41362097300589,
+      "split_sha256": "7675c9b6bf6c8a53956796a0620864ec5ffe9a7a77d82b15c672104246b84655"
+    },
+    {
+      "task": "recall24",
+      "method": "identity",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 25,
+      "full": {
+        "accuracy": 0.515625,
+        "loss": 0.6983460187911987
+      },
+      "reset": {
+        "accuracy": 0.4921875,
+        "loss": 1.3835347890853882
+      },
+      "swap": {
+        "accuracy": 0.484375,
+        "loss": 0.7122235894203186
+      },
+      "seconds": 64.21603615299682,
+      "split_sha256": "7675c9b6bf6c8a53956796a0620864ec5ffe9a7a77d82b15c672104246b84655"
+    },
+    {
+      "task": "recall24",
+      "method": "stateless",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 1,
+      "full": {
+        "accuracy": 0.5,
+        "loss": 0.7059520483016968
+      },
+      "reset": {
+        "accuracy": 0.5,
+        "loss": 0.7059520483016968
+      },
+      "swap": {
+        "accuracy": 0.5,
+        "loss": 0.7059520483016968
+      },
+      "seconds": 73.3357661489863,
+      "split_sha256": "7675c9b6bf6c8a53956796a0620864ec5ffe9a7a77d82b15c672104246b84655"
+    },
+    {
+      "task": "recall24",
+      "method": "short_credit",
+      "seed": 617,
+      "epochs": 48,
+      "training_pairs": 96,
+      "test_pairs": 64,
+      "credit_steps": 1,
+      "full": {
+        "accuracy": 0.5,
+        "loss": 0.806150034070015
+      },
+      "reset": {
+        "accuracy": 0.5,
+        "loss": 1.1855074763298035
+      },
+      "swap": {
+        "accuracy": 0.5,
+        "loss": 0.8066506534814835
+      },
+      "seconds": 74.6377256620035,
+      "split_sha256": "7675c9b6bf6c8a53956796a0620864ec5ffe9a7a77d82b15c672104246b84655"
+    }
+  ],
+  "scope": "separate 48-epoch supervised diagnostic; not online game training or Go strength"
+}
