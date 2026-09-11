@@ -2,6 +2,13 @@
 
 本 PyTorch 研究实现源自 HTML 中的 **MQR / UHR-Net (Möbius Quantum Ring / Unistochastic Hamiltonian Ring)** 设想，保留固定点推理路径：**Cayley 酉矩阵参数化 → 幺模随机连接 \(H=|U|^2\) → 固定点松弛推理 → LoRA 式注入 → 局部采样读出**；另提供跨观察的时间环记忆。当前探索新增直接保留符号的正交 Givens 环、轨迹反馈与 OGD 在线更新。历史公式中的数学错误已在当前代码中修正。
 
+> **围棋读出与真实终局学习（2026-09-11）**：新增有符号位置查询、参与联合 OGD 的空间更新、
+> 真实终局价值回放、可靠锚点筛选和只读策略/价值搜索。保留正交多环及预测先于反馈的在线协议。
+> 新方法通过独立接口提供；旧模型和默认行为继续保留。机制修复与棋力收益分别检验，
+> 参见 [完整对照、最终结果与限制](analysis/go_policy_report.md) 和 [数学推导](analysis/go_policy_math.md)。
+> 五种子中，旧模型/完整方案贪心为 24/80、21/80 胜；同预算搜索为 31/80、32/80。
+> 价值 MSE 从 1.000 降至 0.871，但完整改造的额外棋力优势尚未建立。159 项测试及 1120 份棋谱核验通过。
+
 > **显式约束传播（2026-09-11）**：新增真实行为约束的有限历史伴随后端。
 > 约束沿各环的实际有符号旋转反向传递，注入、条件角度和共享参数的贡献完整累加；
 > 继续使用联合 OGD 和固定参考策略 KL 检查。可选择完整自动微分作为同函数参照，
@@ -39,6 +46,41 @@
 > `1.000`，故独立优势仍为 false。当时据此暂停了 Go/MiniCPM/策略 RL；本轮重新开放围棋研究，保留历史负面结论。
 
 ## 🌟 核心机制与研究假设
+
+### 新增围棋研究接口与复现
+
+- **SignedQueryGoAgent**：几何查询与有符号环内容读出，支持已有原始外部观察槽。
+- **OutcomeGoSession**：终局回放模式为 none、policy 或 outcome；截断棋局不生成胜负标签。
+  其中 policy 是额外回放次数的对照，outcome 增加真实胜负监督。回合原始观察有容量上限。
+- **PolicyBehaviorMemory**：可只保护参考动作与训练教师一致的锚点；空可靠集合显式使用零秩。
+- **policy_value_search**：有限预算 PUCT，分支不提交线上状态、参数或反馈；当前要求外部观察槽为零。
+
+完整配置记录在提交 **647950f**；五种子结果与检查点来源由核验脚本检查。重新运行时使用新路径，
+避免覆盖已有证据或生成重复的正式结果条目：
+
+~~~bash
+python3 test_go_policy.py
+python3 experiments/go_policy_research.py --confirmation --seeds 503,509,521,523,541 \
+  --checkpoint-dir checkpoints/go_policy_reproduced \
+  --output analysis/reproduced/go_policy_seed_all.json
+python3 analysis/go_policy_verify.py \
+  --pattern 'analysis/reproduced/go_policy_seed*.json' \
+  --output analysis/reproduced/go_policy_summary.json
+python3 analysis/go_policy_gradient_verify.py \
+  checkpoints/go_policy_reproduced/query-503.pt checkpoints/go_policy_reproduced/spatial-503.pt \
+  --output analysis/reproduced/go_policy_gradient_verify.json
+~~~
+
+本地训练检查点可继续在线对局，例如：
+
+~~~bash
+python3 experiments/play_policy_go.py checkpoints/go_policy_v1/reliable-503.pt \
+  --games 4 --phase b --save checkpoints/go_policy_continued.pt \
+  --output analysis/results/go_policy_continued.json
+~~~
+
+加上 **--simulations 16** 可在提交预测后、教师反馈前搜索。检查点不随 Git 提交，须先运行实验；
+恢复要求实现哈希一致。历史报告的严格来源核验须在各自记录的实现提交执行。
 
 ### 网络架构 (Architecture)
 

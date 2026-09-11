@@ -1,0 +1,72 @@
+{
+  "verified": true,
+  "post_hoc_identity_check": true,
+  "source_sha256": {
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "6173ad9c883811dbda6c92c08a590de967d1815c638c473a53a79012c08dae16",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "dece9b394e9e48da711a03f9d96ab6a9939aec43398e448f6fa8df1f38ba5b9e",
+    "mqr/go_policy.py": "52507843d9e0fed9755b40a67410c6ad7af03f724875db97cc5f7361660774a0",
+    "mqr/go_protection.py": "f5edc8801d3a1e9187451fe9bc1a8b77b3af5628a40edff6497f6490d8687476",
+    "mqr/go_search.py": "9625684e93ef0b771f572d4ac50726d39e531df5fc456baf5c786ebfee5e35a2",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb",
+    "experiments/go_memory_research.py": "eca0030d89fca8b53e82a9fb34879dd63a5d0c9f90e361137523c6795949657f",
+    "experiments/go_policy_research.py": "1a61957f4780220e60a44842e530a129c2e39e0621922931ae82e843bd174bf1"
+  },
+  "runs": [
+    {
+      "method": "query",
+      "checkpoint_sha256": "fb6b3ca881e1244d75e1d96920c3f3a3a0cff8e8d89c11fbd8bdacd70513d60a",
+      "observations": 13,
+      "dtype": "float64",
+      "gradient_max_abs_error": 3.3306690738754696e-16,
+      "gradient_relative_error": 1.1668351334958765e-16,
+      "transport_diagnostics": {
+        "backend": "transport",
+        "history_steps": 13,
+        "credit_steps": 13,
+        "objectives": 2,
+        "batch_size": 1,
+        "state_trace_bytes": 4992,
+        "local_parameter_vjp_steps": 13,
+        "max_adjoint_norm_error": 1.1102230246251565e-16,
+        "parameter_version": 77
+      }
+    },
+    {
+      "method": "spatial",
+      "checkpoint_sha256": "c666fe0885dfddb4d06613c3102cb4cfa7f6cd5aeeb937840988cae3fcf462e8",
+      "observations": 13,
+      "dtype": "float64",
+      "gradient_max_abs_error": 1.3877787807814457e-17,
+      "gradient_relative_error": 2.67187188970603e-18,
+      "transport_diagnostics": {
+        "backend": "transport",
+        "history_steps": 13,
+        "credit_steps": 13,
+        "objectives": 2,
+        "batch_size": 1,
+        "state_trace_bytes": 4992,
+        "local_parameter_vjp_steps": 13,
+        "max_adjoint_norm_error": 1.3877787807814457e-17,
+        "parameter_version": 73
+      }
+    }
+  ]
+}

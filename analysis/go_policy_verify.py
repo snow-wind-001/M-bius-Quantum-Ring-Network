@@ -8,12 +8,13 @@ import subprocess
 import sys
 
 import numpy as np
+import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from experiments.go_policy_research import CONFIRMATION_SEEDS, METHODS, sources
-from mqr import GoBoard
+from experiments.go_policy_research import CONFIRMATION_SEEDS, METHODS, build, session_for, sources, zero_state
+from mqr import GoBoard, HeuristicGoTeacher
 
 
 def describe(values):
@@ -29,11 +30,52 @@ def paired(left, right):
             "descriptive_seed_bootstrap_95": np.quantile(resampled, (0.025, 0.975)).tolist()}
 
 
+@torch.no_grad()
+def inspect_checkpoint(row, config):
+    """Restore every checkpoint; reproduce one paired opening and all anchor scores."""
+    checkpoint = torch.load(ROOT / row["checkpoint"], map_location="cpu", weights_only=True)
+    args = argparse.Namespace(**config)
+    agent, encoder = build(args, row["method"], row["seed"])
+    session = session_for(args, agent, encoder, row["method"])
+    session.load_state_dict(checkpoint["session"])
+    memory = session.behavior_memory
+    drift = memory.drift(agent)
+    for key, value in drift.items():
+        assert abs(value - row["anchor_drift"][key]) < 2e-6, (row["seed"], row["method"], key)
+    correct = sum(int(memory._output(agent, record).argmax()) == record["action"]
+                  for record in memory.anchors)
+    teacher, decisions, max_value_error = HeuristicGoTeacher(), 0, 0.0
+    for game in row["matches"]["games"][:2]:
+        board, state, values = GoBoard(5, komi=2.5), zero_state(agent), []
+        for ply, action in enumerate(game["moves"]):
+            output, state = agent._transition(encoder.encode_board(board), state, slow_write=True)
+            values.append((board.to_play, float(output.value[0])))
+            if ply >= 4:
+                if board.to_play == game["student_color"]:
+                    legal = torch.tensor(board.legal_moves())
+                    expected = int(legal[output.policy_logits[0, legal].argmax()])
+                    decisions += 1
+                else:
+                    expected = teacher.select_move(board.copy())
+                assert expected == action, (row["seed"], row["method"], ply, expected, action)
+            board.play(action)
+        if board.game_over:
+            mse = np.mean([(value - color * board.winner()) ** 2 for color, value in values])
+            error = abs(float(mse) - game["prequential_value_mse"])
+            max_value_error = max(max_value_error, error)
+            assert error < 2e-6, "frozen value metric did not reproduce"
+    return {"seed": row["seed"], "method": row["method"], "restored": True,
+            "protected_anchors": len(memory.anchors), "correct_anchors_after_b": correct,
+            "reproduced_greedy_games": 2, "reproduced_student_decisions": decisions,
+            "max_value_mse_error": max_value_error}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pattern", default="analysis/results/go_policy_seed*.json")
     parser.add_argument("--output", default="analysis/results/go_policy_summary.json")
     args = parser.parse_args()
+    torch.set_num_threads(1)
     paths = sorted(ROOT.glob(args.pattern))
     assert paths, "no confirmation artifacts"
     rows, config, hashes, revisions = [], None, {}, set()
@@ -66,11 +108,11 @@ def main():
         ("warmup_games", 24), ("pretrain_epochs", 24), ("train_games", 8), ("test_games", 8),
         ("match_games", 16), ("window", 8), ("credit", 8), ("rank", 8), ("anchors", 8),
         ("refresh", 1), ("max_game_moves", 100), ("simulations", 16), ("search_depth", 8),
-        ("search_methods", "legacy,reliable"),
+        ("search_methods", "legacy,reliable"), ("lr", 0.08), ("anchor_kl", 0.01),
     ):
         assert config[key] == expected, key
     indexed = {(row["seed"], row["method"]): row for row in rows}
-    reconstructed = 0
+    reconstructed, checkpoint_audits = 0, []
     for seed in CONFIRMATION_SEEDS:
         reference = indexed[seed, "query"]
         for method in METHODS:
@@ -128,17 +170,21 @@ def main():
                     assert not part["updates"]
                 for update in part["updates"]:
                     assert update["prediction_before_update"]
-                    assert all(age == 0 for age in update.get("parameter_staleness", [0]))
+                    ages = update.get("parameter_staleness", 0)
+                    assert all(age == 0 for age in (ages if isinstance(ages, list) else [ages]))
                     assert update["max_unitary_error"] < 5e-5
                 if phase == "search_matches":
                     assert part["search_simulations"] == 16
                     assert part["search_network_evaluations"] <= 16 * part["student_decisions"]
             path = ROOT / row["checkpoint"]
             assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == row["checkpoint_sha256"]
+            checkpoint_audits.append(inspect_checkpoint(row, config))
     summary = {
         "verified": True, "source_commit": next(iter(revisions)), "seeds": list(CONFIRMATION_SEEDS),
         "configuration": config, "artifacts_sha256": hashes, "reconstructed_legal_games": reconstructed,
         "methods": {}, "paired_differences": {},
+        "checkpoint_audits": checkpoint_audits,
+        "verifier_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
     }
     for method in METHODS:
         group = [indexed[seed, method] for seed in CONFIRMATION_SEEDS]
@@ -152,12 +198,23 @@ def main():
             "b_reset_history_agreement": [row["after_b"]["b"]["reset_history"]["teacher_agreement"] for row in group],
             "a_after_a_nll": [row["after_a"]["a"]["full"]["joint_nll"] for row in group],
             "a_after_b_nll": [row["after_b"]["a"]["full"]["joint_nll"] for row in group],
+            "a_nll_change_during_a": [row["after_a"]["a"]["full"]["joint_nll"]
+                                      - row["before"]["a"]["full"]["joint_nll"] for row in group],
+            "a_nll_forgetting_during_b": [row["after_b"]["a"]["full"]["joint_nll"]
+                                          - row["after_a"]["a"]["full"]["joint_nll"] for row in group],
+            "b_nll_change_during_b": [row["after_b"]["b"]["full"]["joint_nll"]
+                                      - row["after_a"]["b"]["full"]["joint_nll"] for row in group],
+            "b_backtrack_rate": [np.mean([u.get("anchor_backtracks", 0) > 0
+                                           for u in row["train_b"]["updates"]]) for row in group],
+            "b_mean_step_scale": [np.mean([u.get("anchor_step_scale", 1.0)
+                                            for u in row["train_b"]["updates"]]) for row in group],
             "wins": [part["wins"] for part in matches],
             "terminal_student_margin": [part["mean_terminal_student_margin"] for part in matches],
             "value_mse": [part["game_mean_value_mse"] for part in matches],
             "anchor_kl": [row["anchor_drift"]["max_policy_kl"] for row in group],
             "anchor_count": [row["anchor_selection"]["protected"] for row in group],
             "online_ms": [row["train_b"]["mean_observe_feedback_ms"] for row in group],
+            "amortized_online_ms": [row["train_b"]["amortized_ms_per_observation"] for row in group],
             "inference_ms": [part["mean_observe_feedback_ms"] for part in matches],
             "online_tensor_bytes": [max(row[p]["peak_persistent_online_tensor_bytes"] for p in ("train_a", "train_b")) for row in group],
             "train_feedback_positions": [sum(row[p]["feedback_positions"] for p in ("train_a", "train_b")) for row in group],
@@ -201,6 +258,15 @@ def main():
         metric: paired(summary["methods"]["reliable"][metric]["per_seed"],
                        summary["methods"]["legacy"][metric]["per_seed"])
         for metric in ("wins", "b_nll", "b_teacher_agreement", "value_mse")
+    }
+    for method in ("legacy", "reliable"):
+        summary["paired_differences"][f"{method}_search_minus_greedy"] = {
+            "wins": paired(summary["methods"][method]["search"]["wins"]["per_seed"],
+                           summary["methods"][method]["wins"]["per_seed"]),
+        }
+    summary["paired_differences"]["reliable_search_minus_legacy_search"] = {
+        "wins": paired(summary["methods"]["reliable"]["search"]["wins"]["per_seed"],
+                       summary["methods"]["legacy"]["search"]["wins"]["per_seed"]),
     }
     destination = ROOT / args.output
     destination.parent.mkdir(parents=True, exist_ok=True)

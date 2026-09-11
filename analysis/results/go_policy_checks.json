@@ -1,0 +1,211 @@
+{
+  "commands": [
+    {
+      "command": "python3 test_competitive_go.py",
+      "returncode": 0,
+      "seconds": 3.0185695679974742,
+      "test_count": 4,
+      "log_sha256": "f187a880d82665e308bcd93165355877de684369fc9c51d74fcb73c9fa333231",
+      "tail": "2026-09-11 15:51:07,940 - INFO - Running implicit Sinkhorn gradient check...\n2026-09-11 15:51:08,054 - INFO - ✓ implicit Sinkhorn pullback matches converged autograd\n2026-09-11 15:51:08,055 - INFO - Running all-core online feedback contract...\n2026-09-11 15:51:08,257 - INFO - ✓ all nine methods execute the same prequential feedback API\n2026-09-11 15:51:08,258 - INFO - Running 10x10/13x13 resource and initialization gate...\n2026-09-11 15:51:08,425 - INFO - ✓ exact 48-byte state and <=1.05 parameter/MAC gates\n2026-09-11 15:51:08,425 - INFO - Running byte-capped replay check...\n2026-09-11 15:51:08,426 - INFO - ✓ replay reports occupied tensor bytes and never pads capacity\n2026-09-11 15:51:08,426 - INFO - Competitive Go tests: 4 passed, 0 failed\n"
+    },
+    {
+      "command": "python3 test_constraint_transport.py",
+      "returncode": 0,
+      "seconds": 5.897776415979024,
+      "test_count": 8,
+      "log_sha256": "134d3589327a6ec533e2bb8a9b77a669688f96c50795eae94c3ec13614965380",
+      "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 3.048s\n\nOK\n"
+    },
+    {
+      "command": "python3 test_go_memory.py",
+      "returncode": 0,
+      "seconds": 5.882109930011211,
+      "test_count": 8,
+      "log_sha256": "372d38d99daa70b18b06ec180e26c90dcfb5fc3063149bcbdb9fa69f4cadb30d",
+      "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 2.785s\n\nOK\n"
+    },
+    {
+      "command": "python3 test_go_minicpm.py",
+      "returncode": 0,
+      "seconds": 6.004583486006595,
+      "test_count": 22,
+      "log_sha256": "591d08a05442aecd41d9ecee14e6069f01dbe7415ef4a2325c65ce3455cbf50b",
+      "tail": "ss_gated_sayuri_policy_teacher\n2026-09-11 15:51:23,519 - INFO - Running test_real_game_probe_split_is_exact_and_deterministic...\n2026-09-11 15:51:23,572 - INFO - ✓ test_real_game_probe_split_is_exact_and_deterministic\n2026-09-11 15:51:23,572 - INFO - Running test_probe_metrics_separate_placement_pass_and_raw_legality...\n2026-09-11 15:51:23,574 - INFO - ✓ test_probe_metrics_separate_placement_pass_and_raw_legality\n2026-09-11 15:51:23,574 - INFO - Running test_probe_curve_trend_arithmetic...\n2026-09-11 15:51:23,575 - INFO - ✓ test_probe_curve_trend_arithmetic\n2026-09-11 15:51:23,575 - INFO - Running test_lora_only_game_path_has_exact_zero_mqr_parameter_drift...\n2026-09-11 15:51:23,586 - INFO - ✓ test_lora_only_game_path_has_exact_zero_mqr_parameter_drift\n2026-09-11 15:51:23,586 - INFO - Running test_sayuri_gtp_rules_policy_and_search...\n2026-09-11 15:51:25,832 - INFO - ✓ test_sayuri_gtp_rules_policy_and_search\n2026-09-11 15:51:25,833 - INFO - Go/MiniCPM test results: 22 passed, 0 failed\n"
+    },
+    {
+      "command": "python3 test_go_online_session.py",
+      "returncode": 0,
+      "seconds": 3.1621142479998525,
+      "test_count": 5,
+      "log_sha256": "1b101ce57c04626172c3f5923a5391e07faf388124d788e08edbd2c7ad83a1df",
+      "tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.380s\n\nOK\n"
+    },
+    {
+      "command": "python3 test_mobius_model.py",
+      "returncode": 0,
+      "seconds": 4.787694270024076,
+      "test_count": 24,
+      "log_sha256": "63748157234d410b1a95877312872abee30858b70e8318040255f51078e02525",
+      "tail": "ection of an inexact implicit update...\n2026-09-11 15:51:38,968 - INFO - ✓ Failed certificates are atomic; override is explicit and reported\n2026-09-11 15:51:38,968 - INFO - Testing uniform contraction for time-varying rings...\n2026-09-11 15:51:38,975 - INFO - ✓ Time-varying unistochastic rings obey the uniform contraction bound\n2026-09-11 15:51:38,975 - INFO - Testing zero-initialized sidecar readout...\n2026-09-11 15:51:38,983 - INFO - ✓ Residual readout is initially no-op and learns without backbone drift\n2026-09-11 15:51:38,983 - INFO - Testing converged Sinkhorn implicit pullback...\n2026-09-11 15:51:39,019 - INFO - ✓ Sinkhorn implicit pullback matches converged unrolled autograd\n2026-09-11 15:51:39,020 - INFO - ============================================================\n2026-09-11 15:51:39,020 - INFO - Test Results: 24 passed, 0 failed\n2026-09-11 15:51:39,020 - INFO - ============================================================\n2026-09-11 15:51:39,020 - INFO - 🎉 All tests passed!\n"
+    },
+    {
+      "command": "python3 test_online_learning.py",
+      "returncode": 0,
+      "seconds": 2.8544425300206058,
+      "test_count": 7,
+      "log_sha256": "b64d96fda4e55e176b99fd6cc6043713920ec29bb8beb6d5c78bbbda387e51a7",
+      "tail": "rojection_preserves_slow_parameter_mask\n2026-09-11 15:51:42,124 - INFO - Running test_prequential_prediction_has_no_label_leakage...\n2026-09-11 15:51:42,152 - INFO - ✓ test_prequential_prediction_has_no_label_leakage\n2026-09-11 15:51:42,152 - INFO - Running test_explicit_multiring_isolation_and_capacity...\n2026-09-11 15:51:42,178 - INFO - ✓ test_explicit_multiring_isolation_and_capacity\n2026-09-11 15:51:42,179 - INFO - Running test_state_is_carried_between_inference_and_learning_steps...\n2026-09-11 15:51:42,182 - INFO - ✓ test_state_is_carried_between_inference_and_learning_steps\n2026-09-11 15:51:42,182 - INFO - Running test_ring_update_uses_one_complete_ogd_vector...\n2026-09-11 15:51:42,196 - INFO - ✓ test_ring_update_uses_one_complete_ogd_vector\n2026-09-11 15:51:42,196 - INFO - Running test_novelty_router_and_checkpoint_roundtrip...\n2026-09-11 15:51:42,214 - INFO - ✓ test_novelty_router_and_checkpoint_roundtrip\n2026-09-11 15:51:42,214 - INFO - Online test results: 7 passed, 0 failed\n"
+    },
+    {
+      "command": "python3 test_orthogonal_ring.py",
+      "returncode": 0,
+      "seconds": 2.838685870025074,
+      "test_count": 4,
+      "log_sha256": "f31ee10d3d44a16e047abd851932721623a5ffc535a71afcd62611e86cd3b70a",
+      "tail": "..$PROJECT_ROOT/test_orthogonal_ring.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\nConsider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)\n  self.assertGreater(float((x.norm(dim=1) - (x @ parameter.unistochastic().T).norm(dim=1)).abs().max()), 0.01)\n..\n----------------------------------------------------------------------\nRan 4 tests in 0.126s\n\nOK\n"
+    },
+    {
+      "command": "python3 test_routed_memory.py",
+      "returncode": 0,
+      "seconds": 4.865013770002406,
+      "test_count": 11,
+      "log_sha256": "f5b94668fa52bcb707b25573df86e905efc51f4168468c4ebd273b91b357a154",
+      "tail": " variants report lower refresh and peak costs\n2026-09-11 15:51:48,257 - INFO - Running Givens/direct sparse-route equivalence test...\n2026-09-11 15:51:48,260 - INFO - ✓ local route families match exactly after p=sin(theta)^2\n2026-09-11 15:51:48,260 - INFO - Running contextual route-bank isolation test...\n2026-09-11 15:51:49,551 - INFO - ✓ active context updates; inactive route is bitwise unchanged\n2026-09-11 15:51:49,551 - INFO - Running matched-marginal contextual-topology generator test...\n2026-09-11 15:51:49,560 - INFO - ✓ identical marginals, relational utility, and nontrivial contexts\n2026-09-11 15:51:49,560 - INFO - Running hard write-budget test...\n2026-09-11 15:51:49,568 - INFO - ✓ every prefix respects the explicit cumulative write budget\n2026-09-11 15:51:49,568 - INFO - Running utility balance/calibration test...\n2026-09-11 15:51:49,574 - INFO - ✓ balanced replay, multi-horizon loss, AUPRC/Brier/ECE/write gap\n2026-09-11 15:51:49,575 - INFO - All 11 routed-memory tests passed\n"
+    },
+    {
+      "command": "python3 test_temporal_mqr.py",
+      "returncode": 0,
+      "seconds": 6.363402529997984,
+      "test_count": 31,
+      "log_sha256": "06dd5932f9e272113fff8a55e56300aa4465d86e17b0f80b9d821840c375b326",
+      "tail": "e_crosstalk...\n2026-09-11 15:51:55,712 - INFO - ✓ test_keyed_stream_bank_has_zero_state_crosstalk\n2026-09-11 15:51:55,712 - INFO - Running test_stream_capacity_is_explicit_and_lru_is_auditable...\n2026-09-11 15:51:55,720 - INFO - ✓ test_stream_capacity_is_explicit_and_lru_is_auditable\n2026-09-11 15:51:55,720 - INFO - Running test_delayed_feedback_reconstructs_exact_issue_time_readout_gradient...\n2026-09-11 15:51:55,728 - INFO - ✓ test_delayed_feedback_reconstructs_exact_issue_time_readout_gradient\n2026-09-11 15:51:55,728 - INFO - Running test_feedback_queue_capacity_expiry_and_unknown_ids_fail_closed...\n2026-09-11 15:51:55,736 - INFO - ✓ test_feedback_queue_capacity_expiry_and_unknown_ids_fail_closed\n2026-09-11 15:51:55,736 - INFO - Running test_runtime_checkpoint_preserves_stream_lru_and_pending_feedback...\n2026-09-11 15:51:55,755 - INFO - ✓ test_runtime_checkpoint_preserves_stream_lru_and_pending_feedback\n2026-09-11 15:51:55,755 - INFO - Temporal MQR test results: 31 passed, 0 failed\n"
+    },
+    {
+      "command": "python3 test_unified_mqr_agent.py",
+      "returncode": 0,
+      "seconds": 3.533218919998035,
+      "test_count": 12,
+      "log_sha256": "75f56f46a2cf7b2e332dc4e3d964f62189e83fd2606b25725c7349785edec9ad",
+      "tail": "se, content gate, and pending trace resume exactly\n2026-09-11 15:51:59,507 - INFO - Running test_awr_ppo_and_gae_objectives...\n2026-09-11 15:51:59,521 - INFO - ✓ AWR/PPO gradients and exact GAE return\n2026-09-11 15:51:59,522 - INFO - Running test_slow_lora_schedule...\n2026-09-11 15:51:59,523 - INFO - ✓ slow LoRA schedule and external-gradient transaction\n2026-09-11 15:51:59,524 - INFO - Running test_shared_agent_contract_for_non_mqr_cores...\n2026-09-11 15:51:59,547 - INFO - ✓ GRU/fast-weight share routing, heads, losses, and resource audit\n2026-09-11 15:51:59,547 - INFO - Running test_go_simulator_twin_rollout_contract...\n2026-09-11 15:51:59,579 - INFO - ✓ real-rule trajectories and isolated twin-rollout utility target\n2026-09-11 15:51:59,580 - INFO - Running repeated-query accounting and CI regression test...\n2026-09-11 15:51:59,773 - INFO - ✓ every repeated query is classified and seed CI uses Student-t\n2026-09-11 15:51:59,773 - INFO - Unified-agent test results: 12 passed, 0 failed\n"
+    },
+    {
+      "command": "python3 test_utility_mqr.py",
+      "returncode": 0,
+      "seconds": 2.9731436650035903,
+      "test_count": 11,
+      "log_sha256": "f4806fc5d3e347ea4885db40a302df4b007497cbafbdfe93bf26b9b2763f8f4a",
+      "tail": "ve_missed_candidate_is_promoted_on_next_transition...\n2026-09-11 15:52:02,692 - INFO - ✓ test_positive_missed_candidate_is_promoted_on_next_transition\n2026-09-11 15:52:02,693 - INFO - Running test_harmful_false_positive_is_reported_and_not_retroactively_erased...\n2026-09-11 15:52:02,701 - INFO - ✓ test_harmful_false_positive_is_reported_and_not_retroactively_erased\n2026-09-11 15:52:02,701 - INFO - Running test_utility_ogd_uses_complete_vector_and_atomic_clip...\n2026-09-11 15:52:02,724 - INFO - ✓ test_utility_ogd_uses_complete_vector_and_atomic_clip\n2026-09-11 15:52:02,725 - INFO - Running test_readout_feedback_is_prequential_and_clipped...\n2026-09-11 15:52:02,732 - INFO - ✓ test_readout_feedback_is_prequential_and_clipped\n2026-09-11 15:52:02,732 - INFO - Running test_runtime_checkpoint_restores_shadow_ticket_and_ogd...\n2026-09-11 15:52:02,772 - INFO - ✓ test_runtime_checkpoint_restores_shadow_ticket_and_ogd\n2026-09-11 15:52:02,772 - INFO - Utility MQR test results: 11 passed, 0 failed\n"
+    },
+    {
+      "command": "python3 -m py_compile mqr/sayuri.py mqr/go_policy.py mqr/constraint_transport.py mqr/safety.py mqr/unitary.py mqr/routing.py mqr/baselines.py mqr/go_constraints.py mqr/go_outcome.py mqr/go_protection.py mqr/minicpm.py mqr/agent.py mqr/go_memory.py mqr/go_online.py mqr/go.py mqr/go_agent.py mqr/utility.py mqr/ring.py mqr/go_search.py mqr/__init__.py mqr/temporal.py mqr/online.py mqr/agent_baselines.py mqr/go_history_tasks.py experiments/go_policy_research.py experiments/play_policy_go.py analysis/go_policy_verify.py",
+      "returncode": 0,
+      "seconds": 0.2639006739773322,
+      "test_count": null,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": ""
+    },
+    {
+      "command": "python3 test_go_policy.py",
+      "returncode": 0,
+      "seconds": null,
+      "test_count": 12,
+      "log_sha256": "30a4aeddbc1bf0bf0a4254ca3740923bcd97c1d5acd31927bf7815532736e0d0",
+      "tail": "............\n----------------------------------------------------------------------\nRan 12 tests in 2.448s\n\nOK\n",
+      "timing_note": "The final incremental 12-test run was not separately timed by the command recorder."
+    },
+    {
+      "command": "python3 analysis/mqr_proof_verify.py",
+      "returncode": 0,
+      "seconds": 3.5041151430050377,
+      "test_count": null,
+      "log_sha256": "ff3436460b7dcecfd7a5b371a6a5b14cc4d6cac58c7d83706504440dc0165d59",
+      "tail": "{'old_loss_first_order_term': 3.469446951953614e-18, 'new_descent_identity_error': 0.0, 'retained_norm': 0.9978331502165055}\n[blockwise-OGD+trust] {'old_loss_first_order_term': 4.336808689942018e-19, 'new_descent_identity_error': 2.7755575615628914e-17}\n[temporal-gate-bound] {'actual_final_difference': 0.4454331135118087, 'recursive_upper_bound': 1.6590275216232258, 'slack': 1.2135944081114172}\n[promotion-contraction] {'actual_difference': 0.09483571599719265, 'theoretical_bound': 0.772043522992366}\n[utility-conditional-mean] {'conditional_means': [-2.0, 2.0], 'gradient_max_error': 0.0, 'optimal_risk': 1.0, 'perturbed_risk': 1.325}\n[learned-gate-causality] {'weighted_bce_derivative_max_error': 2.7755575615628914e-17, 'current_gate_max_difference': 0.0, 'current_state_max_difference': 0.0, 'current_logit_max_difference': 0.0, 'future_gate_parameter_difference': 0.01}\n[delayed-readout-ticket] {'weight_update_max_error': 0.0, 'parameter_staleness': 0}\nall rigorous numerical checks passed\n"
+    },
+    {
+      "command": "python3 experiments/online_digits_principle.py --output analysis/results/go_policy_digits_regression.json",
+      "returncode": 0,
+      "seconds": 14.119700199982617,
+      "test_count": null,
+      "log_sha256": "a680d0994edef1dd41bcefa7d68d585ffdf410da18f7cb46efab62fd13ba1d8b",
+      "tail": "shared_ring          seed=  7 A: 0.822->0.657 B: 0.894 forget=+0.165\nshared_ring_ogd      seed=  7 A: 0.822->0.722 B: 0.878 forget=+0.100\nisolated_two_rings   seed=  7 A: 0.822->0.822 B: 0.846 forget=+0.000\nshared_ring          seed= 17 A: 0.828->0.607 B: 0.887 forget=+0.220\nshared_ring_ogd      seed= 17 A: 0.828->0.665 B: 0.874 forget=+0.163\nisolated_two_rings   seed= 17 A: 0.828->0.828 B: 0.852 forget=+0.000\nshared_ring          seed= 29 A: 0.850->0.696 B: 0.900 forget=+0.154\nshared_ring_ogd      seed= 29 A: 0.850->0.674 B: 0.894 forget=+0.176\nisolated_two_rings   seed= 29 A: 0.850->0.850 B: 0.859 forget=+0.000\nwrote analysis/results/go_policy_digits_regression.json\n"
+    },
+    {
+      "command": "python3 quick_start.py",
+      "returncode": 0,
+      "seconds": 4.645237396005541,
+      "test_count": null,
+      "log_sha256": "e69446418681b1266f75396b86ea7fbf13b75ff76f77dd50d28393aec3ac8814",
+      "tail": "-04],\n        [1.4015e-06, 9.9970e-01, 2.8274e-05, 2.6925e-04],\n        [1.0229e-03, 2.4833e-05, 9.9841e-01, 5.3797e-04],\n        [4.4552e-04, 2.7218e-04, 5.0544e-04, 9.9878e-01]],\n       grad_fn=<PowBackward0>)\n\n   验证双随机性质:\n   行和: tensor([1.0000, 1.0000, 1.0000, 1.0000], grad_fn=<SumBackward1>)\n   列和: tensor([1.0000, 1.0000, 1.0000, 1.0000], grad_fn=<SumBackward1>)\n   所有元素非负: True\n\n3. Möbius Quantum Ring (vector) demo\n----------------------------------------\n   Input shape: torch.Size([2, 64])\n   Output shape: torch.Size([2, 10])\n   State shape: torch.Size([2, 32])\n\n4. 完整模型架构 (MöbiusQuantumRing)\n----------------------------------------\n   模型组件:\n   - Headless ring dynamics (fixed-point relaxation)\n   - Unistochastic manifold: H = |U|^2 with U from Cayley transform\n   - LoRA injection: J(x)=W_up W_down x\n   - Local sampling readout: first k nodes -> classifier\n\n   总参数量: 59,968\n\n   Parameter count (total): 59,968\n\n============================================================\n\n✓ 所有示例运行完成!\n"
+    }
+  ],
+  "complete": true,
+  "total_tests": 159,
+  "initial_suite_source_sha256": {
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "6173ad9c883811dbda6c92c08a590de967d1815c638c473a53a79012c08dae16",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "509c006c5130e6b9c925c222ea534625e31576cf383757faca6c04e37ddbec8d",
+    "mqr/go_policy.py": "52507843d9e0fed9755b40a67410c6ad7af03f724875db97cc5f7361660774a0",
+    "mqr/go_protection.py": "f5edc8801d3a1e9187451fe9bc1a8b77b3af5628a40edff6497f6490d8687476",
+    "mqr/go_search.py": "9625684e93ef0b771f572d4ac50726d39e531df5fc456baf5c786ebfee5e35a2",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "source_sha256": {
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "6173ad9c883811dbda6c92c08a590de967d1815c638c473a53a79012c08dae16",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "dece9b394e9e48da711a03f9d96ab6a9939aec43398e448f6fa8df1f38ba5b9e",
+    "mqr/go_policy.py": "52507843d9e0fed9755b40a67410c6ad7af03f724875db97cc5f7361660774a0",
+    "mqr/go_protection.py": "f5edc8801d3a1e9187451fe9bc1a8b77b3af5628a40edff6497f6490d8687476",
+    "mqr/go_search.py": "9625684e93ef0b771f572d4ac50726d39e531df5fc456baf5c786ebfee5e35a2",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "incremental_validation": "After the complete suite, added pre-commit search argument validation only in go_outcome.py; reran all 12 Go policy tests, including zero-side-effect rejection.",
+  "experiment_verification": {
+    "analysis/results/go_policy_summary.json": {
+      "verified": true,
+      "sha256": "22528a6f2a65bd38213f664456a9691c3c420039578738c5b47a27fa6c34ab2d"
+    },
+    "analysis/results/go_policy_gradient_verify.json": {
+      "verified": true,
+      "sha256": "904adb63bef8a1fab603789970ce01797da9e54f2138f5c57550f8c0291730da"
+    },
+    "analysis/results/go_policy_resume_verify.json": {
+      "verified": true,
+      "sha256": "4cf5a10fe26cf5b4be3a1989e781be9989bc874c9e8b80ef476918dcdfe7684c"
+    }
+  },
+  "post_experiment_compilation_passed": true
+}
