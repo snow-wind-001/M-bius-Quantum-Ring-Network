@@ -95,6 +95,7 @@ class GoLossWeights:
     entropy: float = 0.0
     reference_kl: float = 0.0
     illegal_mass: float = 0.0
+    policy_distillation: float = 0.0
 
     def __post_init__(self) -> None:
         values = (
@@ -107,6 +108,7 @@ class GoLossWeights:
             self.entropy,
             self.reference_kl,
             self.illegal_mass,
+            self.policy_distillation,
         )
         if any(not math.isfinite(float(value)) or float(value) < 0.0 for value in values):
             raise ValueError("all Go loss weights must be finite and non-negative")
@@ -1231,9 +1233,10 @@ class TemporalUtilityMQRAgent(nn.Module):
         ppo_advantage: Optional[torch.Tensor] = None,
         old_log_prob: Optional[torch.Tensor] = None,
         reference_log_probs: Optional[torch.Tensor] = None,
+        policy_target: Optional[torch.Tensor] = None,
         weights: Optional[GoLossWeights] = None,
     ) -> Dict[str, torch.Tensor]:
-        """Compose placement, legality, pass, value, AWR, and PPO objectives."""
+        """Compose task losses; policy_target is a detached joint [B,A] distribution."""
 
         selected = self.loss_weights if weights is None else weights
         if action.dim() != 1 or action.shape != (output.policy_logits.size(0),):
@@ -1285,6 +1288,15 @@ class TemporalUtilityMQRAgent(nn.Module):
             )
 
         log_probs = F.log_softmax(output.policy_logits, dim=1)
+        policy_distillation = zero
+        if policy_target is not None:
+            target = policy_target.detach().to(log_probs)
+            if (target.shape != log_probs.shape or not bool(torch.isfinite(target).all())
+                    or bool((target < 0).any())
+                    or not torch.allclose(target.sum(dim=1), torch.ones_like(target[:, 0]),
+                                          rtol=1e-5, atol=1e-6)):
+                raise ValueError("policy_target must be a finite normalized nonnegative [batch, actions] distribution")
+            policy_distillation = -(target * log_probs).sum(dim=1).mean()
         chosen_log_prob = log_probs.gather(1, action.unsqueeze(1)).squeeze(1)
         awr = zero
         if awr_advantage is not None:
@@ -1326,6 +1338,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             - selected.entropy * entropy
             + selected.reference_kl * reference_kl
             + selected.illegal_mass * illegal_mass
+            + selected.policy_distillation * policy_distillation
         )
         return {
             "total": total,
@@ -1338,6 +1351,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             "entropy": entropy,
             "reference_kl": reference_kl,
             "illegal_mass": illegal_mass,
+            "policy_distillation": policy_distillation,
             "chosen_log_prob": chosen_log_prob.mean(),
         }
 
@@ -1352,6 +1366,7 @@ class TemporalUtilityMQRAgent(nn.Module):
         ppo_advantage: Optional[torch.Tensor] = None,
         old_log_prob: Optional[torch.Tensor] = None,
         reference_log_probs: Optional[torch.Tensor] = None,
+        policy_target: Optional[torch.Tensor] = None,
         weights: Optional[GoLossWeights] = None,
         learn: bool = True,
         remember_gradient: bool = False,
@@ -1387,6 +1402,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             ppo_advantage=ppo_advantage,
             old_log_prob=old_log_prob,
             reference_log_probs=reference_log_probs,
+            policy_target=policy_target,
             weights=weights,
         )
         active = [
@@ -1736,6 +1752,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             "ppo_advantage",
             "old_log_prob",
             "reference_log_probs",
+            "policy_target",
         }
         normalized_steps: List[Dict[str, Any]] = []
         for index, step in enumerate(steps):
@@ -1776,6 +1793,7 @@ class TemporalUtilityMQRAgent(nn.Module):
                 ppo_advantage=step.get("ppo_advantage"),
                 old_log_prob=step.get("old_log_prob"),
                 reference_log_probs=step.get("reference_log_probs"),
+                policy_target=step.get("policy_target"),
                 weights=weights,
             )
             x_work.append(x_value)

@@ -341,6 +341,30 @@ class HeuristicGoTeacher:
         return best_action
 
 
+class DefensiveGoTeacher(HeuristicGoTeacher):
+    """A second local opponent emphasizing rescue and avoiding own-eye filling.
+
+    This is a deterministic workload shift, not a strength-rated Go engine.
+    """
+
+    def score_move(self, board: GoBoard, action: int) -> float:
+        score = super().score_move(board, action)
+        if action == board.pass_action or score == float("-inf"):
+            return score
+        saved, checked = 0, set()
+        neighbors = tuple(board._neighbors(action))
+        for neighbor in neighbors:
+            if board.board[neighbor] != board.to_play or neighbor in checked:
+                continue
+            group, liberties = board._group_and_liberties(board.board, neighbor)
+            checked.update(group)
+            if liberties == {action}:
+                saved += len(group)
+        own_eye = all(board.board[n] == board.to_play for n in neighbors)
+        _, captures, liberties = board._simulate_stone(action)
+        return score + 18.0 * saved - 25.0 * own_eye - 10.0 * (liberties == 1 and captures == 0)
+
+
 def format_go_prompt(board: GoBoard, *, prompt_mode: str = "rules") -> str:
     """Format a label-free prompt, optionally withholding explicit Go rules.
 

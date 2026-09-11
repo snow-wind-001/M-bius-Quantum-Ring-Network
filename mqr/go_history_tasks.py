@@ -24,6 +24,81 @@ class GoHistoryPair:
     moves: Tuple[Tuple[int, ...], Tuple[int, ...]]
 
 
+@dataclass(frozen=True)
+class GoKoHistoryPair:
+    """Two legal setup-to-capture histories with aliased final observations."""
+
+    histories: Tuple[Tuple[GoBoard, ...], Tuple[GoBoard, ...]]
+    recapture: int
+    legal: Tuple[bool, bool] = (False, True)
+
+
+def generate_ko_history_pairs(count: int, *, seed: int = 0, size: int = 10) -> List[GoKoHistoryPair]:
+    """Predict recapture legality from history, without editing superko records.
+
+    One setup contains the ko victim; the other has that point empty. The same
+    legal placement gives identical final encoded boards. Recapture repeats a
+    recorded situational position only in the first history. These are legal
+    setup positions, not claimed to be full games starting from an empty board.
+    """
+    if count < 1 or size < 5:
+        raise ValueError("ko pairs require positive count and size >= 5")
+    rng, pairs, signatures = random.Random(seed), [], set()
+    encoder = GoVectorEncoder(size, 3 * size * size + 6, projection_mode="identity")
+    for _ in range(count * 100):
+        row, column = rng.randrange(size - 3), rng.randrange(size - 3)
+        rotations, mirror = rng.randrange(4), rng.randrange(2)
+
+        def point(r, c):
+            r, c = row + r, column + c
+            if mirror:
+                c = size - 1 - c
+            for _ in range(rotations):
+                r, c = c, size - 1 - r
+            return r * size + c
+
+        capture, recapture = point(1, 1), point(1, 2)
+        friendly = {point(0, 2), point(2, 2), point(1, 3)}
+        enemy = {point(0, 1), point(2, 1), point(1, 0)}
+        occupied = friendly | enemy | {capture, recapture}
+        board = GoBoard(size, komi=5.5)
+        choices = list(range(size * size))
+        rng.shuffle(choices)
+        for extra in choices:
+            if len(occupied) >= 20:
+                break
+            if extra in occupied or any(n in occupied for n in board._neighbors(extra)):
+                continue
+            (friendly if rng.randrange(2) else enemy).add(extra)
+            occupied.add(extra)
+        color = rng.choice((-1, 1))
+        histories = []
+        for victim in (True, False):
+            enemies = enemy | ({recapture} if victim else set())
+            board = GoBoard.from_stones(size, black=friendly if color == 1 else enemies,
+                                       white=enemies if color == 1 else friendly,
+                                       to_play=color, komi=5.5)
+            previous = board.copy()
+            if not board.is_legal(capture):
+                break
+            board.play(capture)
+            histories.append((previous, board))
+        if len(histories) != 2:
+            continue
+        final = [history[-1] for history in histories]
+        signature = (final[0].position_key(), capture, recapture)
+        if signature in signatures:
+            continue
+        if (not torch.equal(encoder.encode_board(final[0]), encoder.encode_board(final[1]))
+                or tuple(board.is_legal(recapture) for board in final) != (False, True)):
+            raise RuntimeError("constructed ko histories failed the exact alias contract")
+        signatures.add(signature)
+        pairs.append(GoKoHistoryPair(tuple(histories), recapture))
+        if len(pairs) == count:
+            return pairs
+    raise RuntimeError("could not generate the requested unique ko pairs")
+
+
 def generate_reachable_history_pairs(
     count: int, *, seed: int = 0, size: int = 5, moves: int = 12,
 ) -> List[GoHistoryPair]:

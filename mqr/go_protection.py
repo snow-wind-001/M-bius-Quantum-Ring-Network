@@ -221,7 +221,13 @@ class ProtectedGoSession(HistoryGoSession):
                     p.copy_(old + scale * d)
                 drift = memory.drift(self.agent)
                 backtracks = 0
-                while self.max_anchor_kl is not None and drift["max_policy_kl"] > self.max_anchor_kl + 1e-7:
+                guard_reasons = set()
+                while ((self.max_anchor_kl is not None and drift["max_policy_kl"] > self.max_anchor_kl + 1e-7)
+                       or drift.get("max_margin_violation", 0.0) > 1e-7):
+                    if self.max_anchor_kl is not None and drift["max_policy_kl"] > self.max_anchor_kl + 1e-7:
+                        guard_reasons.add("anchor_policy_kl")
+                    if drift.get("max_margin_violation", 0.0) > 1e-7:
+                        guard_reasons.add("anchor_action_margin")
                     backtracks += 1
                     scale = 0.0 if backtracks >= 12 else scale * 0.5
                     for p, old, d in zip(active, before, delta):
@@ -233,7 +239,7 @@ class ProtectedGoSession(HistoryGoSession):
                     self.agent.online_parameter_version.fill_(old_version)
                     self.agent.online_task_updates.fill_(old_updates)
                     result.update(did_update=False, rolled_back=True, parameter_version=old_version,
-                                  safety_passed=False, safety_violations=result["safety_violations"] + ["anchor_policy_kl"])
+                                  safety_passed=False, safety_violations=result["safety_violations"] + sorted(guard_reasons))
             result.update(anchor_drift=drift, anchor_step_scale=scale, anchor_backtracks=backtracks,
                           update_norm=result["update_norm"] * scale)
         return result

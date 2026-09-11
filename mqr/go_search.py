@@ -29,6 +29,7 @@ def policy_value_search(
     agent: PositionQueryGoAgent, encoder: GoHistoryEncoder, board: GoBoard,
     root_state: TemporalMQRState, root_log_probs: torch.Tensor, *,
     simulations: int = 16, max_depth: int = 8, exploration: float = 1.5,
+    value_scale: float = 1.0,
 ) -> Dict[str, Any]:
     """Search from the state AFTER observing board; never commit branch states.
 
@@ -38,7 +39,8 @@ def policy_value_search(
     """
     if (isinstance(simulations, bool) or not isinstance(simulations, int) or simulations < 0
             or isinstance(max_depth, bool) or not isinstance(max_depth, int) or max_depth < 1
-            or not math.isfinite(exploration) or exploration < 0):
+            or not math.isfinite(exploration) or exploration < 0
+            or not math.isfinite(value_scale) or not 0 <= value_scale <= 1):
         raise ValueError("invalid search budget")
     if board.game_over or board.size != agent.board_size or encoder.output_dim != agent.input_dim:
         raise ValueError("search requires a live matching board and encoder")
@@ -75,7 +77,7 @@ def policy_value_search(
                     features = encoder.encode_board(child_board).to(reference)
                     output, state = agent._transition(features, node.state, slow_write=True)
                     child = _Node(child_board, state.detached(), priors(child_board, output.policy_logits),
-                                  float(output.value[0]))
+                                  value_scale * float(output.value[0]))
                     evaluated += 1
                 node.children[action] = child
             node = node.children[action]

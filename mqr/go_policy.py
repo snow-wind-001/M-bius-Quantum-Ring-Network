@@ -23,13 +23,21 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
     transition and constraint transport, not this deliberately nonlinear head.
     """
 
-    def __init__(self, input_dim: int, *, adapt_spatial: bool = False, **kwargs: Any) -> None:
+    def __init__(self, input_dim: int, *, adapt_spatial: bool = False,
+                 spatial_head_only: bool = False, **kwargs: Any) -> None:
+        if spatial_head_only and not adapt_spatial:
+            raise ValueError("spatial_head_only requires adapt_spatial")
         super().__init__(input_dim, **kwargs)
         self.adapt_spatial = bool(adapt_spatial)
+        self.spatial_head_only = bool(spatial_head_only)
         self.geometry_query = nn.Conv2d(4, self.query_dim, 1, bias=False)
         # A zero output matrix blocks all query/key gradients at initialization.
         nn.init.normal_(self.point_correction.weight, std=0.05)
         self.spatial_skip_heads.requires_grad_(self.adapt_spatial)
+        if self.spatial_head_only:
+            self.spatial_skip_heads.local.requires_grad_(False)
+            if self.spatial_skip_heads.local_second is not None:
+                self.spatial_skip_heads.local_second.requires_grad_(False)
 
     def query_components(
         self, latent: torch.Tensor, state: TemporalMQRState, x: torch.Tensor,
@@ -94,9 +102,14 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
     def get_extra_state(self) -> Dict[str, Any]:
         result = super().get_extra_state()
         result["signed_query"] = {"version": 1, "adapt_spatial": self.adapt_spatial}
+        if self.spatial_head_only:
+            result["signed_query"]["spatial_head_only"] = True
         return result
 
     def set_extra_state(self, state: Dict[str, Any]) -> None:
-        if state.get("signed_query") != {"version": 1, "adapt_spatial": self.adapt_spatial}:
+        expected = {"version": 1, "adapt_spatial": self.adapt_spatial}
+        if self.spatial_head_only:
+            expected["spatial_head_only"] = True
+        if state.get("signed_query") != expected:
             raise ValueError("checkpoint signed query or spatial adaptation configuration differs")
         super().set_extra_state(state)

@@ -20,9 +20,13 @@ class PolicyBehaviorMemory(ConstraintGoBehaviorMemory):
     optimal Go behavior. Selection never uses held-out games or win rates.
     """
 
-    def __init__(self, *args: Any, reliable_only: bool = False, **kwargs: Any) -> None:
+    def __init__(self, *args: Any, reliable_only: bool = False,
+                 margin_fraction: Optional[float] = None, **kwargs: Any) -> None:
+        if margin_fraction is not None and (not reliable_only or not 0 < margin_fraction <= 1):
+            raise ValueError("margin protection requires reliable anchors and a fraction in (0, 1]")
         super().__init__(*args, **kwargs)
         self.reliable_only = bool(reliable_only)
+        self.margin_fraction = margin_fraction
         self.candidate_count = 0
         self.agreement_count = 0
 
@@ -38,7 +42,15 @@ class PolicyBehaviorMemory(ConstraintGoBehaviorMemory):
                 correct = int(reference.argmax()) == record["action"]
                 agreements += int(correct)
                 if correct or not self.reliable_only:
-                    selected.append({**record, "reference_log_probs": reference})
+                    saved = {**record, "reference_log_probs": reference}
+                    if self.margin_fraction is not None:
+                        alternatives = reference.clone()
+                        alternatives[record["action"]] = -torch.inf
+                        margin = float(reference[record["action"]] - alternatives.max())
+                        if margin <= 0:
+                            continue
+                        saved["margin_floor"] = self.margin_fraction * margin
+                    selected.append(saved)
             groups.append(selected)
         self.candidate_count, self.agreement_count = len(self.anchors), agreements
         self.records = groups
@@ -64,9 +76,20 @@ class PolicyBehaviorMemory(ConstraintGoBehaviorMemory):
 
     def drift(self, agent) -> Dict[str, float]:
         if self.anchors or not self.frozen:
-            return super().drift(agent)
+            result = super().drift(agent)
+            if self.margin_fraction is not None:
+                violations = []
+                for record in self.anchors:
+                    with torch.no_grad():
+                        scores = self._output(agent, record)
+                        target = scores[record["action"]].clone()
+                        alternatives = scores.clone()
+                        alternatives[record["action"]] = -torch.inf
+                        violations.append(max(0.0, record["margin_floor"] - float(target - alternatives.max())))
+                result["max_margin_violation"] = max(violations, default=0.0)
+            return result
         return {"max_policy_kl": 0.0, "mean_policy_kl": 0.0,
-                "max_target_log_probability_drift": 0.0}
+                "max_target_log_probability_drift": 0.0, "max_margin_violation": 0.0}
 
     def state_dict(self) -> Dict[str, Any]:
         state = super().state_dict()
@@ -74,11 +97,14 @@ class PolicyBehaviorMemory(ConstraintGoBehaviorMemory):
             "version": 1, "reliable_only": self.reliable_only,
             "candidate_count": self.candidate_count, "agreement_count": self.agreement_count,
         }
+        if self.margin_fraction is not None:
+            state["policy_selection"]["margin_fraction"] = self.margin_fraction
         return state
 
     def load_state_dict(self, state: Dict[str, Any]) -> None:
         config = state.get("policy_selection", {})
-        if config.get("version") != 1 or config.get("reliable_only") != self.reliable_only:
+        if (config.get("version") != 1 or config.get("reliable_only") != self.reliable_only
+                or config.get("margin_fraction") != self.margin_fraction):
             raise ValueError("reference selection configuration differs")
         candidates, agreements = config["candidate_count"], config["agreement_count"]
         if (not isinstance(candidates, int) or not isinstance(agreements, int)
@@ -200,7 +226,7 @@ class OutcomeGoSession(ConstraintGoSession):
             raise ValueError("a recorded, truly terminal game is required")
         self._check_successor(board)
         if any(record["feedback"] is None for record in self._episode):
-            raise RuntimeError("all observed positions require teacher feedback before terminal replay")
+            raise RuntimeError("all observed positions require action feedback before terminal replay")
         update = self.flush()
         winner = board.winner()
         targets = [float(winner * record["to_play"]) for record in self._episode]
@@ -312,12 +338,14 @@ class OutcomeGoSession(ConstraintGoSession):
             selection, transport = raw["policy_selection"], raw["constraint_transport"]
             candidate = PolicyBehaviorMemory(
                 raw["capacity"], strata=raw["strata"], reliable_only=selection["reliable_only"],
+                margin_fraction=selection.get("margin_fraction"),
                 backend=transport["backend"], selection_tolerance=transport["selection_tolerance"],
             )
             candidate.load_state_dict(raw)
             if self.behavior_memory is not None and (
                 not isinstance(self.behavior_memory, PolicyBehaviorMemory)
                 or self.behavior_memory.reliable_only != candidate.reliable_only
+                or self.behavior_memory.margin_fraction != candidate.margin_fraction
             ):
                 raise ValueError("restored reference selection differs from configured memory")
         for name in ("finished_games", "aborted_games", "replayed_positions"):
@@ -328,3 +356,45 @@ class OutcomeGoSession(ConstraintGoSession):
         self._episode, self._last_board = copy.deepcopy(episode), copy.deepcopy(outcome["last_board"])
         for name in ("finished_games", "aborted_games", "replayed_positions"):
             setattr(self, name, outcome[name])
+
+
+class SearchOutcomeGoSession(OutcomeGoSession):
+    """Train from pre-feedback search policies and verified terminal outcomes.
+
+    feedback() records an actually selected legal action; no expert action is
+    required. A missing policy_target omits policy distillation for that ply.
+    Raw rules may still supervise legality. Terminal replay uses fresh tickets
+    and the original detached search targets, never a fabricated terminal.
+    """
+
+    def feedback(self, ticket_id: int, target_action: int, *,
+                 policy_target: Optional[torch.Tensor] = None,
+                 value_target: Optional[float] = None) -> None:
+        if policy_target is not None:
+            item = next((item for item in self._pending if item["ticket_id"] == ticket_id), None)
+            if item is None:
+                raise ValueError("ticket does not belong to this pending window")
+            target = policy_target.detach().to(item["legality"])
+            if (target.shape != (1, self.agent.action_size)
+                    or not bool(torch.isfinite(target).all()) or bool((target < 0).any())
+                    or abs(float(target.sum()) - 1.0) > 1e-5
+                    or bool((target[:, :self.agent.points] * (1 - item["legality"]) > 0).any())):
+                raise ValueError("search target must be normalized, finite and supported on legal actions")
+        super().feedback(ticket_id, target_action, value_target=value_target)
+        if policy_target is not None:
+            pending = next(item for item in self._pending if item["ticket_id"] == ticket_id)
+            pending["feedback"]["policy_target"] = target.clone()
+            record = next(item for item in self._episode if item["ticket_id"] == ticket_id)
+            record["feedback"]["policy_target"] = target.cpu().clone()
+
+    @staticmethod
+    def search_target(search: Dict[str, Any], action_size: int) -> torch.Tensor:
+        """Normalize positive root visit counts into a detached [1,A] target."""
+        target = torch.zeros(1, action_size)
+        for action, visits in search["visits"].items():
+            if not 0 <= int(action) < action_size or visits < 0:
+                raise ValueError("invalid search visits")
+            target[0, int(action)] = visits
+        if not bool(torch.isfinite(target).all()) or float(target.sum()) <= 0:
+            raise ValueError("search distillation requires positive finite visits")
+        return target / target.sum()
