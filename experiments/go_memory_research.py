@@ -112,6 +112,7 @@ def build(args, method, seed, *, history_task=False):
             encoder.output_dim, board_size=args.size, core=core, ring_dim=args.ring_dim,
             latent_dim=args.latent_dim, spatial_skip_channels=args.channels, task_lr=args.lr,
             max_update_norm=0.15, max_trace_horizon=32, ogd_max_rank=rank,
+            legality_policy_scale=1.0,
             loss_weights=GoLossWeights(value=0.0, illegal_mass=0.2),
         )
         agent.spatial_skip_heads = GoSpatialSkipHeads(encoder.base_dim, args.size, args.channels,
