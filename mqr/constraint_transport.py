@@ -28,10 +28,12 @@ class TerminalGradient:
 
 
 def _validate_core(agent: PositionQueryGoAgent) -> None:
+    from .go_policy import SignedQueryGoAgent
+
     # Subclasses may change either the state Jacobian or the readout contract.
     # Such extensions need their own derivation instead of a silent fallback.
-    if type(agent) is not PositionQueryGoAgent or type(agent.core) is not GoResearchCore:
-        raise TypeError("constraint transport requires PositionQueryGoAgent with GoResearchCore")
+    if type(agent) not in (PositionQueryGoAgent, SignedQueryGoAgent) or type(agent.core) is not GoResearchCore:
+        raise TypeError("constraint transport requires a supported position-query agent with GoResearchCore")
     if agent.core.state_activation != "none":
         raise ValueError("analytic transport requires state_activation='none'")
     if agent.core.transition_mode not in ("orthogonal", "identity"):

@@ -52,6 +52,9 @@ from .go_memory import (
     PositionQueryGoAgent, fixed_color_features,
 )
 from .go_protection import GoBehaviorMemory, ProtectedGoSession
+from .go_policy import SignedQueryGoAgent
+from .go_outcome import OutcomeGoSession, PolicyBehaviorMemory
+from .go_search import policy_value_search
 from .go_history_tasks import GoHistoryPair, generate_reachable_history_pairs
 from .go_agent import (
     GoAgentExample,
@@ -89,6 +92,10 @@ from .agent_baselines import (
 )
 
 __all__ = [
+    "SignedQueryGoAgent",
+    "OutcomeGoSession",
+    "PolicyBehaviorMemory",
+    "policy_value_search",
     "CayleyUnistochasticParam",
     "CyclicGivensUnistochasticParam",
     "SinkhornDoublyStochasticParam",

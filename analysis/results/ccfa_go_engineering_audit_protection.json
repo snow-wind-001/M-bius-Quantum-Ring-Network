@@ -1,0 +1,29 @@
+{
+  "engine": "CodeRecoder production BackupManager with independent verifyBackup",
+  "scope": "New CCFA diagnosis script, data and report, plus unchanged backup helper. No algorithm changes. This receipt is generated after verification and is not part of its own snapshot.",
+  "source_commit": "907a943fa733be81982af1b242969fa3132b13a9",
+  "snapshot_id": "1610884e-fed8-4ad9-8174-303082cab1b7",
+  "tree_hash": "fc8889112207f7b593dcdfbe585ec7b0709144ef343c5eade253765225009149",
+  "verified_entries": 7,
+  "storage_directory": "$HOME/CodeRecoderBackups/mqr-ccfa-engineering-audit/source-5877ff66e9842461",
+  "files": {
+    "analysis/ccfa_go_engineering_audit.py": {
+      "sha256": "5294384c72b30ebc1901cdba7453d8b55c69a3d8e265c05f8bf9021225d538e4",
+      "bytes": 11824
+    },
+    "analysis/results/ccfa_go_engineering_audit.json": {
+      "sha256": "fd7bde6814938bfff88fcdf83e18e76e57736ffbbc4c960585d92149fb224c43",
+      "bytes": 95651
+    },
+    "analysis/ccfa_go_engineering_audit.md": {
+      "sha256": "580b64d159b140745e813ddf62ce120b6e46ff1ee25b2c6a181c66eae41eb2f8",
+      "bytes": 18842
+    },
+    "scripts/code_protect.mjs": {
+      "sha256": "d2aada8fb733366381383e62c71a733585be12f3027a8a7abbe701e208b82898",
+      "bytes": 2379
+    }
+  },
+  "all_snapshot_hashes_match_original_artifacts": true,
+  "earlier_algorithm_snapshot": "fd7d54bf-2eb2-4db8-bd53-93d840202fd0"
+}

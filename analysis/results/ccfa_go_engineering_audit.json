@@ -1,0 +1,2413 @@
+{
+  "post_hoc": true,
+  "training_updates": 0,
+  "interpretation": "Fixed-checkpoint interventions on the original observations; not retrained baselines or new match-win claims.",
+  "source_sha256": {
+    "mqr/__init__.py": "dde71cf790356fbb4cac8e8446ab58077f2225d00288ab8ae0797a4286dd581d",
+    "mqr/agent.py": "6173ad9c883811dbda6c92c08a590de967d1815c638c473a53a79012c08dae16",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "1374fef89af641472c13d84755e3604bc8aad3909dc7aeb55018b567ffa7aacb",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_protection.py": "f5edc8801d3a1e9187451fe9bc1a8b77b3af5628a40edff6497f6490d8687476",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "diagnostic_sha256": "5294384c72b30ebc1901cdba7453d8b55c69a3d8e265c05f8bf9021225d538e4",
+  "source_commit": "907a943fa733be81982af1b242969fa3132b13a9",
+  "completed": true,
+  "runs": [
+    {
+      "seed": 401,
+      "method": "transport1",
+      "checkpoint_sha256": "3f3808fd20a22e0e05f212c8c93f41fe64e5e2d646054530143f1c5cd8e5d777",
+      "formal_sha256": "98f3917c68bcbcdc4d72e715ad15c9475a24f1945a57be93624b5630718786fe",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.739139065258011,
+            "teacher_agreement": 0.453125,
+            "raw_legal": 0.9947916666666666,
+            "pass_chosen": 0.03125,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9944415160765251,
+            "max_attention_weight": 0.03162657382199541,
+            "position_query_centered_logit_rms": 2.3908909038657573e-05,
+            "channel_gain_centered_logit_rms": 0.47461157088400796,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.8404709836904658,
+            "teacher_agreement": 0.46875,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.06770833333333333,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.9837761485687224,
+            "teacher_agreement": 0.4583333333333333,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.125,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.7237046567364207,
+            "teacher_agreement": 0.4479166666666667,
+            "raw_legal": 0.9947916666666666,
+            "pass_chosen": 0.036458333333333336,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.010416666666666666,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.7391386042969923,
+            "teacher_agreement": 0.453125,
+            "raw_legal": 0.9947916666666666,
+            "pass_chosen": 0.03125,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 2.2135834813117983,
+            "teacher_agreement": 0.33157894736842103,
+            "raw_legal": 0.9789473684210527,
+            "pass_chosen": 0.20526315789473684,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9947527041560725,
+            "max_attention_weight": 0.03106162282393167,
+            "position_query_centered_logit_rms": 3.622722661020816e-05,
+            "channel_gain_centered_logit_rms": 0.8356864803715756,
+            "positions": 190
+          },
+          "reset_history": {
+            "joint_nll": 2.248295706559561,
+            "teacher_agreement": 0.35789473684210527,
+            "raw_legal": 0.9526315789473684,
+            "pass_chosen": 0.042105263157894736,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.30526315789473685,
+            "positions": 190
+          },
+          "spatial_base": {
+            "joint_nll": 2.421520642803884,
+            "teacher_agreement": 0.3526315789473684,
+            "raw_legal": 0.9473684210526315,
+            "pass_chosen": 0.02631578947368421,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.37894736842105264,
+            "positions": 190
+          },
+          "no_learned_legality": {
+            "joint_nll": 2.1158015752211212,
+            "teacher_agreement": 0.33157894736842103,
+            "raw_legal": 0.9789473684210527,
+            "pass_chosen": 0.20526315789473684,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 190
+          },
+          "no_position_query": {
+            "joint_nll": 2.2135848146029993,
+            "teacher_agreement": 0.33157894736842103,
+            "raw_legal": 0.9789473684210527,
+            "pass_chosen": 0.20526315789473684,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 190
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 1.8360356143078742,
+          "teacher_agreement": 0.4230769230769231,
+          "raw_legal": 0.9743589743589743,
+          "pass_chosen": 0.10256410256410256,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9946374709789569,
+          "max_attention_weight": 0.031391616289814316,
+          "position_query_centered_logit_rms": 2.326241313382455e-05,
+          "channel_gain_centered_logit_rms": 0.47768230592975247,
+          "positions": 78,
+          "tactics": {
+            "capture_opportunity": 0.10256410256410256,
+            "missed_available_capture": 0.038461538461538464,
+            "noncapturing_self_atari": 0.01282051282051282,
+            "pass_while_teacher_places": 0.0641025641025641,
+            "place_while_teacher_passes": 0.0,
+            "score_below_teacher": 0.5,
+            "plies_at_least_24": 0.02564102564102564,
+            "positions": 78
+          }
+        },
+        "reset_history": {
+          "joint_nll": 1.8228468523145869,
+          "teacher_agreement": 0.47435897435897434,
+          "raw_legal": 0.8974358974358975,
+          "pass_chosen": 0.05128205128205128,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.10256410256410256,
+          "positions": 78,
+          "tactics": {
+            "capture_opportunity": 0.10256410256410256,
+            "missed_available_capture": 0.02564102564102564,
+            "noncapturing_self_atari": 0.01282051282051282,
+            "pass_while_teacher_places": 0.02564102564102564,
+            "place_while_teacher_passes": 0.01282051282051282,
+            "score_below_teacher": 0.44871794871794873,
+            "plies_at_least_24": 0.02564102564102564,
+            "positions": 78
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 1.8731176650796373,
+          "teacher_agreement": 0.47435897435897434,
+          "raw_legal": 0.8846153846153846,
+          "pass_chosen": 0.038461538461538464,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.14102564102564102,
+          "positions": 78,
+          "tactics": {
+            "capture_opportunity": 0.10256410256410256,
+            "missed_available_capture": 0.02564102564102564,
+            "noncapturing_self_atari": 0.01282051282051282,
+            "pass_while_teacher_places": 0.01282051282051282,
+            "place_while_teacher_passes": 0.01282051282051282,
+            "score_below_teacher": 0.46153846153846156,
+            "plies_at_least_24": 0.02564102564102564,
+            "positions": 78
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.7658135583385444,
+          "teacher_agreement": 0.4230769230769231,
+          "raw_legal": 0.9615384615384616,
+          "pass_chosen": 0.11538461538461539,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.01282051282051282,
+          "positions": 78,
+          "tactics": {
+            "capture_opportunity": 0.10256410256410256,
+            "missed_available_capture": 0.038461538461538464,
+            "noncapturing_self_atari": 0.01282051282051282,
+            "pass_while_teacher_places": 0.07692307692307693,
+            "place_while_teacher_passes": 0.0,
+            "score_below_teacher": 0.5,
+            "plies_at_least_24": 0.02564102564102564,
+            "positions": 78
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 1.836033197119832,
+          "teacher_agreement": 0.4230769230769231,
+          "raw_legal": 0.9743589743589743,
+          "pass_chosen": 0.10256410256410256,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 78,
+          "tactics": {
+            "capture_opportunity": 0.10256410256410256,
+            "missed_available_capture": 0.038461538461538464,
+            "noncapturing_self_atari": 0.01282051282051282,
+            "pass_while_teacher_places": 0.0641025641025641,
+            "place_while_teacher_passes": 0.0,
+            "score_below_teacher": 0.5,
+            "plies_at_least_24": 0.02564102564102564,
+            "positions": 78
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 191,
+        "legal_set_changes_without_history": 1,
+        "teacher_changes_without_history": 1
+      },
+      "actual_tactics": {
+        "student_moves": 78,
+        "teacher_non_capturing_self_atari": 0,
+        "student_placements": 70,
+        "placed_stone_captured_by_next_reply": 1
+      },
+      "exact_reproduced_student_moves": 78,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.4899018763098866,
+        "reference_raw_argmax_matches_teacher": 0.5,
+        "prefix_steps": 13.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 401,
+      "method": "transport1_guard",
+      "checkpoint_sha256": "0d75ce3e169031bbead96c049030fc44027da5ec120e593c18d140662290eb3f",
+      "formal_sha256": "98f3917c68bcbcdc4d72e715ad15c9475a24f1945a57be93624b5630718786fe",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.6619918997215184,
+            "teacher_agreement": 0.4479166666666667,
+            "raw_legal": 1.0,
+            "pass_chosen": 0.010416666666666666,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9948586449027061,
+            "max_attention_weight": 0.031165269562431302,
+            "position_query_centered_logit_rms": 1.9562716810028746e-05,
+            "channel_gain_centered_logit_rms": 0.6084517983642096,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.8347736745442187,
+            "teacher_agreement": 0.46875,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0625,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.9837761485687224,
+            "teacher_agreement": 0.4583333333333333,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.109375,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.6488211695444381,
+            "teacher_agreement": 0.4479166666666667,
+            "raw_legal": 1.0,
+            "pass_chosen": 0.010416666666666666,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.6619940189654396,
+            "teacher_agreement": 0.4479166666666667,
+            "raw_legal": 1.0,
+            "pass_chosen": 0.010416666666666666,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 2.065746189271541,
+            "teacher_agreement": 0.3473684210526316,
+            "raw_legal": 0.968421052631579,
+            "pass_chosen": 0.07894736842105263,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9955779474032552,
+            "max_attention_weight": 0.030015593757362742,
+            "position_query_centered_logit_rms": 2.6892907091056066e-05,
+            "channel_gain_centered_logit_rms": 1.0075676181598714,
+            "positions": 190
+          },
+          "reset_history": {
+            "joint_nll": 2.242308327006666,
+            "teacher_agreement": 0.3526315789473684,
+            "raw_legal": 0.9526315789473684,
+            "pass_chosen": 0.02631578947368421,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.23684210526315788,
+            "positions": 190
+          },
+          "spatial_base": {
+            "joint_nll": 2.421520642803884,
+            "teacher_agreement": 0.3526315789473684,
+            "raw_legal": 0.9473684210526315,
+            "pass_chosen": 0.02631578947368421,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.29473684210526313,
+            "positions": 190
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.9878371026857118,
+            "teacher_agreement": 0.3473684210526316,
+            "raw_legal": 0.968421052631579,
+            "pass_chosen": 0.07894736842105263,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.005263157894736842,
+            "positions": 190
+          },
+          "no_position_query": {
+            "joint_nll": 2.065768006953754,
+            "teacher_agreement": 0.3473684210526316,
+            "raw_legal": 0.968421052631579,
+            "pass_chosen": 0.07894736842105263,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 190
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 2.0568841489014824,
+          "teacher_agreement": 0.3761467889908257,
+          "raw_legal": 0.8990825688073395,
+          "pass_chosen": 0.07339449541284404,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9951762622649517,
+          "max_attention_weight": 0.030654254890636567,
+          "position_query_centered_logit_rms": 2.257113101431385e-05,
+          "channel_gain_centered_logit_rms": 0.6810313284123709,
+          "positions": 109,
+          "tactics": {
+            "capture_opportunity": 0.12844036697247707,
+            "missed_available_capture": 0.07339449541284404,
+            "noncapturing_self_atari": 0.11009174311926606,
+            "pass_while_teacher_places": 0.027522935779816515,
+            "place_while_teacher_passes": 0.027522935779816515,
+            "score_below_teacher": 0.5229357798165137,
+            "plies_at_least_24": 0.27522935779816515,
+            "positions": 109
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.2281318623401702,
+          "teacher_agreement": 0.3853211009174312,
+          "raw_legal": 0.8440366972477065,
+          "pass_chosen": 0.06422018348623854,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.14678899082568808,
+          "positions": 109,
+          "tactics": {
+            "capture_opportunity": 0.12844036697247707,
+            "missed_available_capture": 0.06422018348623854,
+            "noncapturing_self_atari": 0.14678899082568808,
+            "pass_while_teacher_places": 0.027522935779816515,
+            "place_while_teacher_passes": 0.03669724770642202,
+            "score_below_teacher": 0.5229357798165137,
+            "plies_at_least_24": 0.27522935779816515,
+            "positions": 109
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.335942430105573,
+          "teacher_agreement": 0.3853211009174312,
+          "raw_legal": 0.8440366972477065,
+          "pass_chosen": 0.06422018348623854,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.1834862385321101,
+          "positions": 109,
+          "tactics": {
+            "capture_opportunity": 0.12844036697247707,
+            "missed_available_capture": 0.06422018348623854,
+            "noncapturing_self_atari": 0.1651376146788991,
+            "pass_while_teacher_places": 0.027522935779816515,
+            "place_while_teacher_passes": 0.03669724770642202,
+            "score_below_teacher": 0.5321100917431193,
+            "plies_at_least_24": 0.27522935779816515,
+            "positions": 109
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.9493559891477636,
+          "teacher_agreement": 0.41284403669724773,
+          "raw_legal": 0.8990825688073395,
+          "pass_chosen": 0.08256880733944955,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.05504587155963303,
+          "positions": 109,
+          "tactics": {
+            "capture_opportunity": 0.12844036697247707,
+            "missed_available_capture": 0.07339449541284404,
+            "noncapturing_self_atari": 0.11009174311926606,
+            "pass_while_teacher_places": 0.027522935779816515,
+            "place_while_teacher_passes": 0.01834862385321101,
+            "score_below_teacher": 0.5137614678899083,
+            "plies_at_least_24": 0.27522935779816515,
+            "positions": 109
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 2.0569004846753876,
+          "teacher_agreement": 0.3761467889908257,
+          "raw_legal": 0.8990825688073395,
+          "pass_chosen": 0.07339449541284404,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 109,
+          "tactics": {
+            "capture_opportunity": 0.12844036697247707,
+            "missed_available_capture": 0.07339449541284404,
+            "noncapturing_self_atari": 0.11009174311926606,
+            "pass_while_teacher_places": 0.027522935779816515,
+            "place_while_teacher_passes": 0.027522935779816515,
+            "score_below_teacher": 0.5229357798165137,
+            "plies_at_least_24": 0.27522935779816515,
+            "positions": 109
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 253,
+        "legal_set_changes_without_history": 2,
+        "teacher_changes_without_history": 2
+      },
+      "actual_tactics": {
+        "student_moves": 109,
+        "teacher_non_capturing_self_atari": 3,
+        "student_placements": 101,
+        "placed_stone_captured_by_next_reply": 11
+      },
+      "exact_reproduced_student_moves": 109,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.4899018763098866,
+        "reference_raw_argmax_matches_teacher": 0.5,
+        "prefix_steps": 13.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 409,
+      "method": "transport1",
+      "checkpoint_sha256": "bbcb47ab3b2ec2023219d05ffe36e58698b3f3ae31de0e947025af69b1d65167",
+      "formal_sha256": "6878c84f2980ebcba1da1aafeaf2dd52ab02a836e83c1505d3a2309a8c48a1e4",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.4555050335766282,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.996742881834507,
+            "max_attention_weight": 0.028830808752294008,
+            "position_query_centered_logit_rms": 1.2636319479971311e-05,
+            "channel_gain_centered_logit_rms": 1.3746596820807706,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.5404772124020383,
+            "teacher_agreement": 0.4947916666666667,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0625,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.720805086704786,
+            "teacher_agreement": 0.5,
+            "raw_legal": 1.0,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.08333333333333333,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.4400484261180584,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.4555040314541354,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 2.256462790312306,
+            "teacher_agreement": 0.3279569892473118,
+            "raw_legal": 0.8817204301075269,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9979929106850778,
+            "max_attention_weight": 0.02728293017954916,
+            "position_query_centered_logit_rms": 1.6932789226449395e-05,
+            "channel_gain_centered_logit_rms": 1.865410202613441,
+            "positions": 186
+          },
+          "reset_history": {
+            "joint_nll": 2.4281599346588374,
+            "teacher_agreement": 0.3225806451612903,
+            "raw_legal": 0.8978494623655914,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.06989247311827956,
+            "positions": 186
+          },
+          "spatial_base": {
+            "joint_nll": 2.7645721467191815,
+            "teacher_agreement": 0.3225806451612903,
+            "raw_legal": 0.9086021505376344,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.11290322580645161,
+            "positions": 186
+          },
+          "no_learned_legality": {
+            "joint_nll": 2.188182707515455,
+            "teacher_agreement": 0.3225806451612903,
+            "raw_legal": 0.8817204301075269,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.03763440860215054,
+            "positions": 186
+          },
+          "no_position_query": {
+            "joint_nll": 2.256459218119421,
+            "teacher_agreement": 0.3279569892473118,
+            "raw_legal": 0.8817204301075269,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 186
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 1.9877795107832008,
+          "teacher_agreement": 0.38181818181818183,
+          "raw_legal": 0.8363636363636363,
+          "pass_chosen": 0.07272727272727272,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9976073330098932,
+          "max_attention_weight": 0.027714705433357845,
+          "position_query_centered_logit_rms": 1.3809186332929874e-05,
+          "channel_gain_centered_logit_rms": 1.4522776121442968,
+          "positions": 110,
+          "tactics": {
+            "capture_opportunity": 0.01818181818181818,
+            "missed_available_capture": 0.00909090909090909,
+            "noncapturing_self_atari": 0.16363636363636364,
+            "pass_while_teacher_places": 0.01818181818181818,
+            "place_while_teacher_passes": 0.01818181818181818,
+            "score_below_teacher": 0.5636363636363636,
+            "plies_at_least_24": 0.2727272727272727,
+            "positions": 110
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.0979222197762946,
+          "teacher_agreement": 0.4,
+          "raw_legal": 0.8181818181818182,
+          "pass_chosen": 0.05454545454545454,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.09090909090909091,
+          "positions": 110,
+          "tactics": {
+            "capture_opportunity": 0.01818181818181818,
+            "missed_available_capture": 0.00909090909090909,
+            "noncapturing_self_atari": 0.18181818181818182,
+            "pass_while_teacher_places": 0.01818181818181818,
+            "place_while_teacher_passes": 0.03636363636363636,
+            "score_below_teacher": 0.5363636363636364,
+            "plies_at_least_24": 0.2727272727272727,
+            "positions": 110
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.3358740741810338,
+          "teacher_agreement": 0.4,
+          "raw_legal": 0.8181818181818182,
+          "pass_chosen": 0.045454545454545456,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.18181818181818182,
+          "positions": 110,
+          "tactics": {
+            "capture_opportunity": 0.01818181818181818,
+            "missed_available_capture": 0.00909090909090909,
+            "noncapturing_self_atari": 0.18181818181818182,
+            "pass_while_teacher_places": 0.01818181818181818,
+            "place_while_teacher_passes": 0.045454545454545456,
+            "score_below_teacher": 0.5181818181818182,
+            "plies_at_least_24": 0.2727272727272727,
+            "positions": 110
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.931035432168706,
+          "teacher_agreement": 0.37272727272727274,
+          "raw_legal": 0.8181818181818182,
+          "pass_chosen": 0.07272727272727272,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.02727272727272727,
+          "positions": 110,
+          "tactics": {
+            "capture_opportunity": 0.01818181818181818,
+            "missed_available_capture": 0.00909090909090909,
+            "noncapturing_self_atari": 0.18181818181818182,
+            "pass_while_teacher_places": 0.01818181818181818,
+            "place_while_teacher_passes": 0.01818181818181818,
+            "score_below_teacher": 0.5727272727272728,
+            "plies_at_least_24": 0.2727272727272727,
+            "positions": 110
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 1.9877794900570402,
+          "teacher_agreement": 0.38181818181818183,
+          "raw_legal": 0.8363636363636363,
+          "pass_chosen": 0.07272727272727272,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 110,
+          "tactics": {
+            "capture_opportunity": 0.01818181818181818,
+            "missed_available_capture": 0.00909090909090909,
+            "noncapturing_self_atari": 0.16363636363636364,
+            "pass_while_teacher_places": 0.01818181818181818,
+            "place_while_teacher_passes": 0.01818181818181818,
+            "score_below_teacher": 0.5636363636363636,
+            "plies_at_least_24": 0.2727272727272727,
+            "positions": 110
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 253,
+        "legal_set_changes_without_history": 1,
+        "teacher_changes_without_history": 1
+      },
+      "actual_tactics": {
+        "student_moves": 110,
+        "teacher_non_capturing_self_atari": 2,
+        "student_placements": 102,
+        "placed_stone_captured_by_next_reply": 16
+      },
+      "exact_reproduced_student_moves": 110,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.40772671112790704,
+        "reference_raw_argmax_matches_teacher": 0.375,
+        "prefix_steps": 15.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 409,
+      "method": "transport1_guard",
+      "checkpoint_sha256": "5787be76a1c5c5812274f5cc77885828b2064e2b4214e73cf7b3749153d34a88",
+      "formal_sha256": "6878c84f2980ebcba1da1aafeaf2dd52ab02a836e83c1505d3a2309a8c48a1e4",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.4783996582458105,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9965865832443038,
+            "max_attention_weight": 0.0290677008839945,
+            "position_query_centered_logit_rms": 1.4080253599502157e-05,
+            "channel_gain_centered_logit_rms": 1.2328893040151645,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.561645303280481,
+            "teacher_agreement": 0.5,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.036458333333333336,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.720805086704786,
+            "teacher_agreement": 0.5,
+            "raw_legal": 1.0,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0625,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.460958916140953,
+            "teacher_agreement": 0.5,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.015625,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.4784009606422235,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 2.3114084712760423,
+            "teacher_agreement": 0.3279569892473118,
+            "raw_legal": 0.8763440860215054,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9977874832768594,
+            "max_attention_weight": 0.02765055487473165,
+            "position_query_centered_logit_rms": 1.9016939539005273e-05,
+            "channel_gain_centered_logit_rms": 1.5816774823332345,
+            "positions": 186
+          },
+          "reset_history": {
+            "joint_nll": 2.478370197397727,
+            "teacher_agreement": 0.3279569892473118,
+            "raw_legal": 0.9032258064516129,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.053763440860215055,
+            "positions": 186
+          },
+          "spatial_base": {
+            "joint_nll": 2.7645721467191815,
+            "teacher_agreement": 0.3225806451612903,
+            "raw_legal": 0.9086021505376344,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.07526881720430108,
+            "positions": 186
+          },
+          "no_learned_legality": {
+            "joint_nll": 2.238414592720488,
+            "teacher_agreement": 0.3225806451612903,
+            "raw_legal": 0.8817204301075269,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.016129032258064516,
+            "positions": 186
+          },
+          "no_position_query": {
+            "joint_nll": 2.3114110207365406,
+            "teacher_agreement": 0.3279569892473118,
+            "raw_legal": 0.8763440860215054,
+            "pass_chosen": 0.021505376344086023,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 186
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 2.0597945766395513,
+          "teacher_agreement": 0.3816793893129771,
+          "raw_legal": 0.7633587786259542,
+          "pass_chosen": 0.061068702290076333,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9975373185317935,
+          "max_attention_weight": 0.027746236492090553,
+          "position_query_centered_logit_rms": 1.62582545817019e-05,
+          "channel_gain_centered_logit_rms": 1.3434899058050782,
+          "positions": 131,
+          "tactics": {
+            "capture_opportunity": 0.022900763358778626,
+            "missed_available_capture": 0.007633587786259542,
+            "noncapturing_self_atari": 0.26717557251908397,
+            "pass_while_teacher_places": 0.022900763358778626,
+            "place_while_teacher_passes": 0.03816793893129771,
+            "score_below_teacher": 0.5419847328244275,
+            "plies_at_least_24": 0.3893129770992366,
+            "positions": 131
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.1706824743878523,
+          "teacher_agreement": 0.3969465648854962,
+          "raw_legal": 0.7633587786259542,
+          "pass_chosen": 0.06870229007633588,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.1297709923664122,
+          "positions": 131,
+          "tactics": {
+            "capture_opportunity": 0.022900763358778626,
+            "missed_available_capture": 0.007633587786259542,
+            "noncapturing_self_atari": 0.24427480916030533,
+            "pass_while_teacher_places": 0.03816793893129771,
+            "place_while_teacher_passes": 0.04580152671755725,
+            "score_below_teacher": 0.5114503816793893,
+            "plies_at_least_24": 0.3893129770992366,
+            "positions": 131
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.396094721116353,
+          "teacher_agreement": 0.3969465648854962,
+          "raw_legal": 0.7633587786259542,
+          "pass_chosen": 0.06870229007633588,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.22137404580152673,
+          "positions": 131,
+          "tactics": {
+            "capture_opportunity": 0.022900763358778626,
+            "missed_available_capture": 0.007633587786259542,
+            "noncapturing_self_atari": 0.24427480916030533,
+            "pass_while_teacher_places": 0.03816793893129771,
+            "place_while_teacher_passes": 0.04580152671755725,
+            "score_below_teacher": 0.5038167938931297,
+            "plies_at_least_24": 0.3893129770992366,
+            "positions": 131
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.9642201764011429,
+          "teacher_agreement": 0.3893129770992366,
+          "raw_legal": 0.7633587786259542,
+          "pass_chosen": 0.07633587786259542,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.030534351145038167,
+          "positions": 131,
+          "tactics": {
+            "capture_opportunity": 0.022900763358778626,
+            "missed_available_capture": 0.007633587786259542,
+            "noncapturing_self_atari": 0.2595419847328244,
+            "pass_while_teacher_places": 0.030534351145038167,
+            "place_while_teacher_passes": 0.030534351145038167,
+            "score_below_teacher": 0.5343511450381679,
+            "plies_at_least_24": 0.3893129770992366,
+            "positions": 131
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 2.059798781610741,
+          "teacher_agreement": 0.3816793893129771,
+          "raw_legal": 0.7633587786259542,
+          "pass_chosen": 0.061068702290076333,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 131,
+          "tactics": {
+            "capture_opportunity": 0.022900763358778626,
+            "missed_available_capture": 0.007633587786259542,
+            "noncapturing_self_atari": 0.26717557251908397,
+            "pass_while_teacher_places": 0.022900763358778626,
+            "place_while_teacher_passes": 0.03816793893129771,
+            "score_below_teacher": 0.5419847328244275,
+            "plies_at_least_24": 0.3893129770992366,
+            "positions": 131
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 297,
+        "legal_set_changes_without_history": 2,
+        "teacher_changes_without_history": 2
+      },
+      "actual_tactics": {
+        "student_moves": 131,
+        "teacher_non_capturing_self_atari": 9,
+        "student_placements": 123,
+        "placed_stone_captured_by_next_reply": 33
+      },
+      "exact_reproduced_student_moves": 131,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.40772671112790704,
+        "reference_raw_argmax_matches_teacher": 0.375,
+        "prefix_steps": 15.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 419,
+      "method": "transport1",
+      "checkpoint_sha256": "87e4fcce04e96b3f3391dfae8be15df1a89f57bad1caddabd3c43746c5cdfbcf",
+      "formal_sha256": "e568885444b0060d8a57aecbd883e7c803fed0da33804ec5f61113c5692a4c75",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.4574600368747876,
+            "teacher_agreement": 0.5625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9956458344434699,
+            "max_attention_weight": 0.030594431804881122,
+            "position_query_centered_logit_rms": 2.061402337657133e-05,
+            "channel_gain_centered_logit_rms": 0.19925804432326308,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.4644238181305507,
+            "teacher_agreement": 0.5625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.010416666666666666,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.4751927217730554,
+            "teacher_agreement": 0.5677083333333334,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.020833333333333332,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.4228460499822784,
+            "teacher_agreement": 0.5677083333333334,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.026041666666666668,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.4574623013856278,
+            "teacher_agreement": 0.5625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 2.5943127005731546,
+            "teacher_agreement": 0.3333333333333333,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9952592324185116,
+            "max_attention_weight": 0.031789331706941766,
+            "position_query_centered_logit_rms": 2.7531853624980134e-05,
+            "channel_gain_centered_logit_rms": 0.23582405965494854,
+            "positions": 186
+          },
+          "reset_history": {
+            "joint_nll": 2.6102219496963808,
+            "teacher_agreement": 0.3387096774193548,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.005376344086021506,
+            "positions": 186
+          },
+          "spatial_base": {
+            "joint_nll": 2.667762547440987,
+            "teacher_agreement": 0.34946236559139787,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.03763440860215054,
+            "positions": 186
+          },
+          "no_learned_legality": {
+            "joint_nll": 2.5112107063052793,
+            "teacher_agreement": 0.34408602150537637,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.026881720430107527,
+            "positions": 186
+          },
+          "no_position_query": {
+            "joint_nll": 2.594320851568413,
+            "teacher_agreement": 0.3333333333333333,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 186
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 2.2938065394101774,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9957362036494648,
+          "max_attention_weight": 0.03076549114056808,
+          "position_query_centered_logit_rms": 2.13402135976955e-05,
+          "channel_gain_centered_logit_rms": 0.1968364086933434,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.49264705882352944,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.3065530072815497,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.007352941176470588,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.49264705882352944,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.3662490949431874,
+          "teacher_agreement": 0.39705882352941174,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.029411764705882353,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19852941176470587,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.5,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 2.250275472541997,
+          "teacher_agreement": 0.4117647058823529,
+          "raw_legal": 0.8897058823529411,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.022058823529411766,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.4852941176470588,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 2.293808803195134,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.49264705882352944,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 307,
+        "legal_set_changes_without_history": 0,
+        "teacher_changes_without_history": 0
+      },
+      "actual_tactics": {
+        "student_moves": 136,
+        "teacher_non_capturing_self_atari": 8,
+        "student_placements": 128,
+        "placed_stone_captured_by_next_reply": 25
+      },
+      "exact_reproduced_student_moves": 136,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.6424666508683003,
+        "reference_raw_argmax_matches_teacher": 0.75,
+        "prefix_steps": 16.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 419,
+      "method": "transport1_guard",
+      "checkpoint_sha256": "715ceceaf8d525b385bb27ea52b568ca22bbe0153e0c2e558e1fba4644a78c33",
+      "formal_sha256": "e568885444b0060d8a57aecbd883e7c803fed0da33804ec5f61113c5692a4c75",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.4574600368747876,
+            "teacher_agreement": 0.5625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9956458344434699,
+            "max_attention_weight": 0.030594431804881122,
+            "position_query_centered_logit_rms": 2.061402337657133e-05,
+            "channel_gain_centered_logit_rms": 0.19925804432326308,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.4644238181305507,
+            "teacher_agreement": 0.5625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.010416666666666666,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.4751927217730554,
+            "teacher_agreement": 0.5677083333333334,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.020833333333333332,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.4228460499822784,
+            "teacher_agreement": 0.5677083333333334,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.026041666666666668,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.4574623013856278,
+            "teacher_agreement": 0.5625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 2.5943127005731546,
+            "teacher_agreement": 0.3333333333333333,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9952592324185116,
+            "max_attention_weight": 0.031789331706941766,
+            "position_query_centered_logit_rms": 2.7531853624980134e-05,
+            "channel_gain_centered_logit_rms": 0.23582405965494854,
+            "positions": 186
+          },
+          "reset_history": {
+            "joint_nll": 2.6102219496963808,
+            "teacher_agreement": 0.3387096774193548,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.005376344086021506,
+            "positions": 186
+          },
+          "spatial_base": {
+            "joint_nll": 2.667762547440987,
+            "teacher_agreement": 0.34946236559139787,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.03763440860215054,
+            "positions": 186
+          },
+          "no_learned_legality": {
+            "joint_nll": 2.5112107063052793,
+            "teacher_agreement": 0.34408602150537637,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.026881720430107527,
+            "positions": 186
+          },
+          "no_position_query": {
+            "joint_nll": 2.594320851568413,
+            "teacher_agreement": 0.3333333333333333,
+            "raw_legal": 0.9354838709677419,
+            "pass_chosen": 0.010752688172043012,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 186
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 2.2938065394101774,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9957362036494648,
+          "max_attention_weight": 0.03076549114056808,
+          "position_query_centered_logit_rms": 2.13402135976955e-05,
+          "channel_gain_centered_logit_rms": 0.1968364086933434,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.49264705882352944,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.3065530072815497,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.007352941176470588,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.49264705882352944,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.3662490949431874,
+          "teacher_agreement": 0.39705882352941174,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.029411764705882353,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19852941176470587,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.5,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 2.250275472541997,
+          "teacher_agreement": 0.4117647058823529,
+          "raw_legal": 0.8897058823529411,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.022058823529411766,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.4852941176470588,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 2.293808803195134,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.8823529411764706,
+          "pass_chosen": 0.058823529411764705,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.09558823529411764,
+            "missed_available_capture": 0.08823529411764706,
+            "noncapturing_self_atari": 0.19117647058823528,
+            "pass_while_teacher_places": 0.022058823529411766,
+            "place_while_teacher_passes": 0.03676470588235294,
+            "score_below_teacher": 0.49264705882352944,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 307,
+        "legal_set_changes_without_history": 0,
+        "teacher_changes_without_history": 0
+      },
+      "actual_tactics": {
+        "student_moves": 136,
+        "teacher_non_capturing_self_atari": 8,
+        "student_placements": 128,
+        "placed_stone_captured_by_next_reply": 25
+      },
+      "exact_reproduced_student_moves": 136,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.6424666508683003,
+        "reference_raw_argmax_matches_teacher": 0.75,
+        "prefix_steps": 16.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 431,
+      "method": "transport1",
+      "checkpoint_sha256": "6420477c9fca7690cc08257e10e7b235af55e069924f69e91b45b85506f814fe",
+      "formal_sha256": "82ac598e189f1fbe9a1dbfd9a82b6a35f81de394bc2baccee7036029e7900454",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.735143439359187,
+            "teacher_agreement": 0.4427083333333333,
+            "raw_legal": 0.9947916666666666,
+            "pass_chosen": 0.046875,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9951235537106792,
+            "max_attention_weight": 0.03061186016808885,
+            "position_query_centered_logit_rms": 2.3602371221009832e-05,
+            "channel_gain_centered_logit_rms": 1.3641411386585485,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.6711529108385246,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.16145833333333334,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.7790253925340949,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.203125,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.6924644780616898,
+            "teacher_agreement": 0.4427083333333333,
+            "raw_legal": 0.9947916666666666,
+            "pass_chosen": 0.046875,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.7351337008682701,
+            "teacher_agreement": 0.4427083333333333,
+            "raw_legal": 0.9947916666666666,
+            "pass_chosen": 0.046875,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 1.9923992356813023,
+            "teacher_agreement": 0.31213872832369943,
+            "raw_legal": 0.9826589595375722,
+            "pass_chosen": 0.10404624277456648,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9953963250094067,
+            "max_attention_weight": 0.030766203105880345,
+            "position_query_centered_logit_rms": 3.2359648282912046e-05,
+            "channel_gain_centered_logit_rms": 1.942298511893763,
+            "positions": 173
+          },
+          "reset_history": {
+            "joint_nll": 2.1165873063782046,
+            "teacher_agreement": 0.35260115606936415,
+            "raw_legal": 0.9479768786127167,
+            "pass_chosen": 0.023121387283236993,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.21965317919075145,
+            "positions": 173
+          },
+          "spatial_base": {
+            "joint_nll": 2.450956670664294,
+            "teacher_agreement": 0.37572254335260113,
+            "raw_legal": 0.9364161849710982,
+            "pass_chosen": 0.023121387283236993,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.2774566473988439,
+            "positions": 173
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.9725052259560953,
+            "teacher_agreement": 0.31213872832369943,
+            "raw_legal": 0.9826589595375722,
+            "pass_chosen": 0.10404624277456648,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 173
+          },
+          "no_position_query": {
+            "joint_nll": 1.992396939782738,
+            "teacher_agreement": 0.31213872832369943,
+            "raw_legal": 0.9826589595375722,
+            "pass_chosen": 0.10404624277456648,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 173
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 1.8329920197526615,
+          "teacher_agreement": 0.34375,
+          "raw_legal": 0.9895833333333334,
+          "pass_chosen": 0.08333333333333333,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9951418073227009,
+          "max_attention_weight": 0.03086933355856066,
+          "position_query_centered_logit_rms": 3.219342575751701e-05,
+          "channel_gain_centered_logit_rms": 1.5952957856158416,
+          "positions": 96,
+          "tactics": {
+            "capture_opportunity": 0.20833333333333334,
+            "missed_available_capture": 0.16666666666666666,
+            "noncapturing_self_atari": 0.09375,
+            "pass_while_teacher_places": 0.0625,
+            "place_while_teacher_passes": 0.041666666666666664,
+            "score_below_teacher": 0.5520833333333334,
+            "plies_at_least_24": 0.23958333333333334,
+            "positions": 96
+          }
+        },
+        "reset_history": {
+          "joint_nll": 1.794455978476132,
+          "teacher_agreement": 0.3541666666666667,
+          "raw_legal": 0.9583333333333334,
+          "pass_chosen": 0.020833333333333332,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.2708333333333333,
+          "positions": 96,
+          "tactics": {
+            "capture_opportunity": 0.20833333333333334,
+            "missed_available_capture": 0.14583333333333334,
+            "noncapturing_self_atari": 0.10416666666666667,
+            "pass_while_teacher_places": 0.010416666666666666,
+            "place_while_teacher_passes": 0.052083333333333336,
+            "score_below_teacher": 0.5,
+            "plies_at_least_24": 0.23958333333333334,
+            "positions": 96
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.0262074841108793,
+          "teacher_agreement": 0.375,
+          "raw_legal": 0.9479166666666666,
+          "pass_chosen": 0.020833333333333332,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.3229166666666667,
+          "positions": 96,
+          "tactics": {
+            "capture_opportunity": 0.20833333333333334,
+            "missed_available_capture": 0.14583333333333334,
+            "noncapturing_self_atari": 0.125,
+            "pass_while_teacher_places": 0.010416666666666666,
+            "place_while_teacher_passes": 0.052083333333333336,
+            "score_below_teacher": 0.4895833333333333,
+            "plies_at_least_24": 0.23958333333333334,
+            "positions": 96
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.8291950475734968,
+          "teacher_agreement": 0.34375,
+          "raw_legal": 0.9895833333333334,
+          "pass_chosen": 0.08333333333333333,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 96,
+          "tactics": {
+            "capture_opportunity": 0.20833333333333334,
+            "missed_available_capture": 0.16666666666666666,
+            "noncapturing_self_atari": 0.09375,
+            "pass_while_teacher_places": 0.0625,
+            "place_while_teacher_passes": 0.041666666666666664,
+            "score_below_teacher": 0.5520833333333334,
+            "plies_at_least_24": 0.23958333333333334,
+            "positions": 96
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 1.8329949473651748,
+          "teacher_agreement": 0.34375,
+          "raw_legal": 0.9895833333333334,
+          "pass_chosen": 0.08333333333333333,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 96,
+          "tactics": {
+            "capture_opportunity": 0.20833333333333334,
+            "missed_available_capture": 0.16666666666666666,
+            "noncapturing_self_atari": 0.09375,
+            "pass_while_teacher_places": 0.0625,
+            "place_while_teacher_passes": 0.041666666666666664,
+            "score_below_teacher": 0.5520833333333334,
+            "plies_at_least_24": 0.23958333333333334,
+            "positions": 96
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 228,
+        "legal_set_changes_without_history": 0,
+        "teacher_changes_without_history": 0
+      },
+      "actual_tactics": {
+        "student_moves": 96,
+        "teacher_non_capturing_self_atari": 2,
+        "student_placements": 88,
+        "placed_stone_captured_by_next_reply": 9
+      },
+      "exact_reproduced_student_moves": 96,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.38608099054545164,
+        "reference_raw_argmax_matches_teacher": 0.375,
+        "prefix_steps": 18.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 431,
+      "method": "transport1_guard",
+      "checkpoint_sha256": "2b1b2f7c65b08f30da892d4f78d78a3ed1ad89bbdfd16184c7a24afc431559dc",
+      "formal_sha256": "82ac598e189f1fbe9a1dbfd9a82b6a35f81de394bc2baccee7036029e7900454",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.6475320688720483,
+            "teacher_agreement": 0.4739583333333333,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9954827163989345,
+            "max_attention_weight": 0.030186448188032955,
+            "position_query_centered_logit_rms": 1.9640897449916633e-05,
+            "channel_gain_centered_logit_rms": 1.1794892787778128,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.668558594334172,
+            "teacher_agreement": 0.5052083333333334,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.08854166666666667,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.7790253925340949,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.9791666666666666,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.11979166666666667,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.6130076588791173,
+            "teacher_agreement": 0.4739583333333333,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.005208333333333333,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.6475141491779748,
+            "teacher_agreement": 0.4739583333333333,
+            "raw_legal": 0.984375,
+            "pass_chosen": 0.005208333333333333,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 1.956838062819029,
+            "teacher_agreement": 0.3352601156069364,
+            "raw_legal": 0.9595375722543352,
+            "pass_chosen": 0.028901734104046242,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9958274784804768,
+            "max_attention_weight": 0.030212676141820202,
+            "position_query_centered_logit_rms": 2.565587063492333e-05,
+            "channel_gain_centered_logit_rms": 1.685402640717567,
+            "positions": 173
+          },
+          "reset_history": {
+            "joint_nll": 2.163997065340508,
+            "teacher_agreement": 0.36416184971098264,
+            "raw_legal": 0.9479768786127167,
+            "pass_chosen": 0.023121387283236993,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.13872832369942195,
+            "positions": 173
+          },
+          "spatial_base": {
+            "joint_nll": 2.450956670664294,
+            "teacher_agreement": 0.37572254335260113,
+            "raw_legal": 0.9364161849710982,
+            "pass_chosen": 0.023121387283236993,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.18497109826589594,
+            "positions": 173
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.9407844993506553,
+            "teacher_agreement": 0.3468208092485549,
+            "raw_legal": 0.9595375722543352,
+            "pass_chosen": 0.028901734104046242,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.011560693641618497,
+            "positions": 173
+          },
+          "no_position_query": {
+            "joint_nll": 1.9568291739749082,
+            "teacher_agreement": 0.3352601156069364,
+            "raw_legal": 0.9595375722543352,
+            "pass_chosen": 0.028901734104046242,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 173
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 1.8728383303045513,
+          "teacher_agreement": 0.3712574850299401,
+          "raw_legal": 0.9281437125748503,
+          "pass_chosen": 0.059880239520958084,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.9958523326291295,
+          "max_attention_weight": 0.03011386412123363,
+          "position_query_centered_logit_rms": 2.3799039749184647e-05,
+          "channel_gain_centered_logit_rms": 1.3639227769332019,
+          "positions": 167,
+          "tactics": {
+            "capture_opportunity": 0.18562874251497005,
+            "missed_available_capture": 0.11976047904191617,
+            "noncapturing_self_atari": 0.16167664670658682,
+            "pass_while_teacher_places": 0.029940119760479042,
+            "place_while_teacher_passes": 0.09580838323353294,
+            "score_below_teacher": 0.47305389221556887,
+            "plies_at_least_24": 0.5269461077844312,
+            "positions": 167
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.067579625564778,
+          "teacher_agreement": 0.38922155688622756,
+          "raw_legal": 0.8982035928143712,
+          "pass_chosen": 0.05389221556886228,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.16167664670658682,
+          "positions": 167,
+          "tactics": {
+            "capture_opportunity": 0.18562874251497005,
+            "missed_available_capture": 0.11377245508982035,
+            "noncapturing_self_atari": 0.19161676646706588,
+            "pass_while_teacher_places": 0.017964071856287425,
+            "place_while_teacher_passes": 0.08982035928143713,
+            "score_below_teacher": 0.47904191616766467,
+            "plies_at_least_24": 0.5269461077844312,
+            "positions": 167
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.4224557084683886,
+          "teacher_agreement": 0.39520958083832336,
+          "raw_legal": 0.8802395209580839,
+          "pass_chosen": 0.05389221556886228,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.2155688622754491,
+          "positions": 167,
+          "tactics": {
+            "capture_opportunity": 0.18562874251497005,
+            "missed_available_capture": 0.10778443113772455,
+            "noncapturing_self_atari": 0.19760479041916168,
+            "pass_while_teacher_places": 0.017964071856287425,
+            "place_while_teacher_passes": 0.08982035928143713,
+            "score_below_teacher": 0.46706586826347307,
+            "plies_at_least_24": 0.5269461077844312,
+            "positions": 167
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.8802434161394657,
+          "teacher_agreement": 0.3712574850299401,
+          "raw_legal": 0.9161676646706587,
+          "pass_chosen": 0.059880239520958084,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 167,
+          "tactics": {
+            "capture_opportunity": 0.18562874251497005,
+            "missed_available_capture": 0.11976047904191617,
+            "noncapturing_self_atari": 0.16167664670658682,
+            "pass_while_teacher_places": 0.029940119760479042,
+            "place_while_teacher_passes": 0.09580838323353294,
+            "score_below_teacher": 0.47305389221556887,
+            "plies_at_least_24": 0.5269461077844312,
+            "positions": 167
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 1.8728398556659323,
+          "teacher_agreement": 0.3712574850299401,
+          "raw_legal": 0.9281437125748503,
+          "pass_chosen": 0.059880239520958084,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 167,
+          "tactics": {
+            "capture_opportunity": 0.18562874251497005,
+            "missed_available_capture": 0.11976047904191617,
+            "noncapturing_self_atari": 0.16167664670658682,
+            "pass_while_teacher_places": 0.029940119760479042,
+            "place_while_teacher_passes": 0.09580838323353294,
+            "score_below_teacher": 0.47305389221556887,
+            "plies_at_least_24": 0.5269461077844312,
+            "positions": 167
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 370,
+        "legal_set_changes_without_history": 0,
+        "teacher_changes_without_history": 0
+      },
+      "actual_tactics": {
+        "student_moves": 167,
+        "teacher_non_capturing_self_atari": 5,
+        "student_placements": 157,
+        "placed_stone_captured_by_next_reply": 25
+      },
+      "exact_reproduced_student_moves": 167,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.38608099054545164,
+        "reference_raw_argmax_matches_teacher": 0.375,
+        "prefix_steps": 18.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 443,
+      "method": "transport1",
+      "checkpoint_sha256": "c8c635b07eb9374f1fdebadfe35897a7932d52e9a2108ec28e2ee73a2d0e04ed",
+      "formal_sha256": "dc4dd62eb963d35ee00922790aeb8a7ec5bcd6be97c1db2cd56057e5caab3f09",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.4381131932071487,
+            "teacher_agreement": 0.5104166666666666,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9950168309733272,
+            "max_attention_weight": 0.030507196594650548,
+            "position_query_centered_logit_rms": 1.292317733003756e-05,
+            "channel_gain_centered_logit_rms": 1.144487207600226,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.5110704475227976,
+            "teacher_agreement": 0.5364583333333334,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.036458333333333336,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.5689228019958439,
+            "teacher_agreement": 0.5364583333333334,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.057291666666666664,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.425801985450865,
+            "teacher_agreement": 0.5104166666666666,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.4381096492531167,
+            "teacher_agreement": 0.5104166666666666,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 1.7303610373309204,
+            "teacher_agreement": 0.39664804469273746,
+            "raw_legal": 0.9497206703910615,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9959209914314014,
+            "max_attention_weight": 0.029769305732912858,
+            "position_query_centered_logit_rms": 1.727664414946495e-05,
+            "channel_gain_centered_logit_rms": 1.627135211695506,
+            "positions": 179
+          },
+          "reset_history": {
+            "joint_nll": 1.8860736465570647,
+            "teacher_agreement": 0.40782122905027934,
+            "raw_legal": 0.9441340782122905,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0893854748603352,
+            "positions": 179
+          },
+          "spatial_base": {
+            "joint_nll": 2.0257809826968933,
+            "teacher_agreement": 0.41899441340782123,
+            "raw_legal": 0.9329608938547486,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.1005586592178771,
+            "positions": 179
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.7226811232846542,
+            "teacher_agreement": 0.4022346368715084,
+            "raw_legal": 0.9441340782122905,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.00558659217877095,
+            "positions": 179
+          },
+          "no_position_query": {
+            "joint_nll": 1.730354087645781,
+            "teacher_agreement": 0.39664804469273746,
+            "raw_legal": 0.9497206703910615,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 179
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 2.056912931339706,
+          "teacher_agreement": 0.4117647058823529,
+          "raw_legal": 0.75,
+          "pass_chosen": 0.0661764705882353,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.994907644303406,
+          "max_attention_weight": 0.030833739787340164,
+          "position_query_centered_logit_rms": 1.7069946728591222e-05,
+          "channel_gain_centered_logit_rms": 1.031602037303588,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.07352941176470588,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.25,
+            "pass_while_teacher_places": 0.029411764705882353,
+            "place_while_teacher_passes": 0.007352941176470588,
+            "score_below_teacher": 0.5367647058823529,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.3535387361531748,
+          "teacher_agreement": 0.41911764705882354,
+          "raw_legal": 0.7573529411764706,
+          "pass_chosen": 0.07352941176470588,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.04411764705882353,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.07352941176470588,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.23529411764705882,
+            "pass_while_teacher_places": 0.03676470588235294,
+            "place_while_teacher_passes": 0.007352941176470588,
+            "score_below_teacher": 0.5294117647058824,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.559515364454402,
+          "teacher_agreement": 0.41911764705882354,
+          "raw_legal": 0.75,
+          "pass_chosen": 0.07352941176470588,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.058823529411764705,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.07352941176470588,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.23529411764705882,
+            "pass_while_teacher_places": 0.03676470588235294,
+            "place_while_teacher_passes": 0.007352941176470588,
+            "score_below_teacher": 0.5294117647058824,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 2.0646900400135886,
+          "teacher_agreement": 0.4117647058823529,
+          "raw_legal": 0.75,
+          "pass_chosen": 0.0661764705882353,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.007352941176470588,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.07352941176470588,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.25,
+            "pass_while_teacher_places": 0.029411764705882353,
+            "place_while_teacher_passes": 0.007352941176470588,
+            "score_below_teacher": 0.5367647058823529,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 2.0569104383261325,
+          "teacher_agreement": 0.4117647058823529,
+          "raw_legal": 0.75,
+          "pass_chosen": 0.0661764705882353,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.07352941176470588,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.25,
+            "pass_while_teacher_places": 0.029411764705882353,
+            "place_while_teacher_passes": 0.007352941176470588,
+            "score_below_teacher": 0.5367647058823529,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 308,
+        "legal_set_changes_without_history": 1,
+        "teacher_changes_without_history": 1
+      },
+      "actual_tactics": {
+        "student_moves": 136,
+        "teacher_non_capturing_self_atari": 6,
+        "student_placements": 127,
+        "placed_stone_captured_by_next_reply": 32
+      },
+      "exact_reproduced_student_moves": 136,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.32145777670666575,
+        "reference_raw_argmax_matches_teacher": 0.375,
+        "prefix_steps": 16.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    },
+    {
+      "seed": 443,
+      "method": "transport1_guard",
+      "checkpoint_sha256": "cec9cb8b7cc13c397ee62d221ee2db6c23e9ae66847bbe67d67dcbdf323a41c8",
+      "formal_sha256": "dc4dd62eb963d35ee00922790aeb8a7ec5bcd6be97c1db2cd56057e5caab3f09",
+      "heldout": {
+        "a": {
+          "full": {
+            "joint_nll": 1.4301803252213479,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.9953917454307278,
+            "max_attention_weight": 0.030090913981742535,
+            "position_query_centered_logit_rms": 1.1054077983629895e-05,
+            "channel_gain_centered_logit_rms": 1.4440728126404185,
+            "positions": 192
+          },
+          "reset_history": {
+            "joint_nll": 1.4970305323513458,
+            "teacher_agreement": 0.5260416666666666,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.052083333333333336,
+            "positions": 192
+          },
+          "spatial_base": {
+            "joint_nll": 1.5689228019958439,
+            "teacher_agreement": 0.5364583333333334,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.09895833333333333,
+            "positions": 192
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.4190855430594336,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.010416666666666666,
+            "positions": 192
+          },
+          "no_position_query": {
+            "joint_nll": 1.4301777130167466,
+            "teacher_agreement": 0.515625,
+            "raw_legal": 0.9895833333333334,
+            "pass_chosen": 0.0,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 192
+          }
+        },
+        "b": {
+          "full": {
+            "joint_nll": 1.7037340504996603,
+            "teacher_agreement": 0.3854748603351955,
+            "raw_legal": 0.9553072625698324,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "normalized_attention_entropy": 0.996415268775471,
+            "max_attention_weight": 0.029238230293855985,
+            "position_query_centered_logit_rms": 1.3531906947642894e-05,
+            "channel_gain_centered_logit_rms": 2.0581533935482943,
+            "positions": 179
+          },
+          "reset_history": {
+            "joint_nll": 1.8614517935869082,
+            "teacher_agreement": 0.39664804469273746,
+            "raw_legal": 0.9441340782122905,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.11173184357541899,
+            "positions": 179
+          },
+          "spatial_base": {
+            "joint_nll": 2.0257809826968933,
+            "teacher_agreement": 0.41899441340782123,
+            "raw_legal": 0.9329608938547486,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.13966480446927373,
+            "positions": 179
+          },
+          "no_learned_legality": {
+            "joint_nll": 1.6991744062254548,
+            "teacher_agreement": 0.39106145251396646,
+            "raw_legal": 0.9553072625698324,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0111731843575419,
+            "positions": 179
+          },
+          "no_position_query": {
+            "joint_nll": 1.7037290810040255,
+            "teacher_agreement": 0.3854748603351955,
+            "raw_legal": 0.9553072625698324,
+            "pass_chosen": 0.0223463687150838,
+            "value_abs": 0.0,
+            "action_differs_from_full": 0.0,
+            "positions": 179
+          }
+        }
+      },
+      "matches": {
+        "full": {
+          "joint_nll": 1.9389715991256868,
+          "teacher_agreement": 0.41911764705882354,
+          "raw_legal": 0.7647058823529411,
+          "pass_chosen": 0.0661764705882353,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "normalized_attention_entropy": 0.995622005971039,
+          "max_attention_weight": 0.03007474703275982,
+          "position_query_centered_logit_rms": 1.4566633016035185e-05,
+          "channel_gain_centered_logit_rms": 1.4918750921154724,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.0661764705882353,
+            "missed_available_capture": 0.03676470588235294,
+            "noncapturing_self_atari": 0.25,
+            "pass_while_teacher_places": 0.014705882352941176,
+            "place_while_teacher_passes": 0.014705882352941176,
+            "score_below_teacher": 0.5220588235294118,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "reset_history": {
+          "joint_nll": 2.3457355537890074,
+          "teacher_agreement": 0.4264705882352941,
+          "raw_legal": 0.7426470588235294,
+          "pass_chosen": 0.07352941176470588,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.11029411764705882,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.0661764705882353,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.25735294117647056,
+            "pass_while_teacher_places": 0.029411764705882353,
+            "place_while_teacher_passes": 0.022058823529411766,
+            "score_below_teacher": 0.5147058823529411,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "spatial_base": {
+          "joint_nll": 2.633094100788345,
+          "teacher_agreement": 0.41911764705882354,
+          "raw_legal": 0.7352941176470589,
+          "pass_chosen": 0.07352941176470588,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.15441176470588236,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.0661764705882353,
+            "missed_available_capture": 0.029411764705882353,
+            "noncapturing_self_atari": 0.2647058823529412,
+            "pass_while_teacher_places": 0.029411764705882353,
+            "place_while_teacher_passes": 0.022058823529411766,
+            "score_below_teacher": 0.5147058823529411,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_learned_legality": {
+          "joint_nll": 1.958385730490965,
+          "teacher_agreement": 0.40441176470588236,
+          "raw_legal": 0.7573529411764706,
+          "pass_chosen": 0.08088235294117647,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.022058823529411766,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.0661764705882353,
+            "missed_available_capture": 0.03676470588235294,
+            "noncapturing_self_atari": 0.2426470588235294,
+            "pass_while_teacher_places": 0.029411764705882353,
+            "place_while_teacher_passes": 0.014705882352941176,
+            "score_below_teacher": 0.5294117647058824,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        },
+        "no_position_query": {
+          "joint_nll": 1.9389811944326056,
+          "teacher_agreement": 0.41911764705882354,
+          "raw_legal": 0.7647058823529411,
+          "pass_chosen": 0.0661764705882353,
+          "value_abs": 0.0,
+          "action_differs_from_full": 0.0,
+          "positions": 136,
+          "tactics": {
+            "capture_opportunity": 0.0661764705882353,
+            "missed_available_capture": 0.03676470588235294,
+            "noncapturing_self_atari": 0.25,
+            "pass_while_teacher_places": 0.014705882352941176,
+            "place_while_teacher_passes": 0.014705882352941176,
+            "score_below_teacher": 0.5220588235294118,
+            "plies_at_least_24": 0.4117647058823529,
+            "positions": 136
+          }
+        }
+      },
+      "history_dependence": {
+        "positions": 307,
+        "legal_set_changes_without_history": 0,
+        "teacher_changes_without_history": 0
+      },
+      "actual_tactics": {
+        "student_moves": 136,
+        "teacher_non_capturing_self_atari": 7,
+        "student_placements": 127,
+        "placed_stone_captured_by_next_reply": 30
+      },
+      "exact_reproduced_student_moves": 136,
+      "anchor_reference": {
+        "reference_teacher_probability": 0.32145777670666575,
+        "reference_raw_argmax_matches_teacher": 0.375,
+        "prefix_steps": 16.0,
+        "positions": 8
+      },
+      "parameter_groups": {
+        "core.angle_controllers.": 2592,
+        "core.input_": 1032,
+        "core.unitary_params.": 32,
+        "spatial_skip_heads.": 0,
+        "ring_keys": 384,
+        "ring_channel_gain.": 192,
+        "point_correction.": 32
+      }
+    }
+  ]
+}
