@@ -1103,12 +1103,10 @@ class TemporalUtilityMQRAgent(nn.Module):
         decision = self._write_decision(
             x, features, external_write, allow_exploration=False
         )
-        latent, next_state = self.core.forward_step(
-            x,
-            state=previous,
-            write_gate=decision["write_gate"],
+        output, next_state = self._transition(
+            x, previous, slow_write=bool(decision["effective_write"]),
         )
-        output = self._head_output(latent, x).detached()
+        output = output.detached()
         return {
             "output": output,
             "policy_logits": output.policy_logits,

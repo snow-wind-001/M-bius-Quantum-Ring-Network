@@ -2,6 +2,7 @@
 
 import copy
 import unittest
+from types import SimpleNamespace
 
 import torch
 
@@ -51,6 +52,23 @@ class GoMemoryTests(unittest.TestCase):
             optimizer.zero_grad(); loss.backward(); optimizer.step()
         self.assertEqual(int(base(x)[0].argmax()), 12)
         self.assertLess(float(loss.detach()), 0.1)
+
+    def test_shared_controls_start_from_the_same_nonuniform_policy(self):
+        from experiments.go_memory_research import build
+        args = SimpleNamespace(size=5, ring_dim=8, latent_dim=8, channels=6,
+                               slots=4, rank=4, lr=0.08, history_moves=12)
+        reference, encoder = build(args, "frozen", 809)
+        with torch.no_grad():
+            reference.spatial_skip_heads.legality.weight.normal_(std=0.5)
+        board = GoBoard(5); board.play(0); board.play(3)
+        policy = reference.preview_step(encoder.encode_board(board), external_write=True)["policy_logits"]
+        self.assertGreater(float(policy[0, :-1].std()), 0.01)
+        base = reference.spatial_skip_heads.state_dict()
+        for method in ("spatial", "film", "identity", "orthogonal", "conditional_external_guard"):
+            agent, current_encoder = build(args, method, 809)
+            agent.spatial_skip_heads.load_state_dict(base)
+            current = agent.preview_step(current_encoder.encode_board(board), external_write=True)["policy_logits"]
+            torch.testing.assert_close(current, policy, rtol=0, atol=0, msg=method)
 
     def test_fixed_colors_preserve_stones_across_player_changes(self):
         encoder = GoHistoryEncoder(3)
