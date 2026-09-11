@@ -1,0 +1,825 @@
+{
+  "exact_session_match_except_wall_time": true,
+  "matching_tensor_fields": [
+    {
+      "path": "session.agent.ring_keys",
+      "shape": [
+        48,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "6a99b0c0262410485dff99530dbf2c4f65475baece05b822770a9bc3b77a9da3"
+    },
+    {
+      "path": "session.agent.online_observations",
+      "shape": [],
+      "dtype": "torch.int64",
+      "sha256": "5d3d01170e39ebb34d629ab1f19ad60eba82cd1c4bafd46348e258b518de4b20"
+    },
+    {
+      "path": "session.agent.online_task_updates",
+      "shape": [],
+      "dtype": "torch.int64",
+      "sha256": "95162f2a9e6c4d9e5aa58704c19103681d854690f9103f4c5587fb43a74c2c0a"
+    },
+    {
+      "path": "session.agent.online_utility_updates",
+      "shape": [],
+      "dtype": "torch.int64",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "path": "session.agent.online_parameter_version",
+      "shape": [],
+      "dtype": "torch.int64",
+      "sha256": "95162f2a9e6c4d9e5aa58704c19103681d854690f9103f4c5587fb43a74c2c0a"
+    },
+    {
+      "path": "session.agent.core.leak_rates",
+      "shape": [
+        3
+      ],
+      "dtype": "torch.float64",
+      "sha256": "0da64d0d65a849e521c1c05282858db2d23833fa98aaa0a67f95d9178f9e777e"
+    },
+    {
+      "path": "session.agent.core.write_scales",
+      "shape": [
+        3
+      ],
+      "dtype": "torch.float64",
+      "sha256": "75c882af6150dc544cd5247ea9b711810c6c7237fb9fdb02e66319dcc6450984"
+    },
+    {
+      "path": "session.agent.core._fixed_transitions",
+      "shape": [
+        0,
+        16,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "session.agent.core._fixed_unitary_error",
+      "shape": [],
+      "dtype": "torch.float64",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "path": "session.agent.core.input_down.weight",
+      "shape": [
+        8,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "8b20cc153d5d9f0a1af5f8d2397d33c885d36a7647e2814f097da30739eb3141"
+    },
+    {
+      "path": "session.agent.core.input_up.0.weight",
+      "shape": [
+        16,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "dcb9fef42b8793e319293c2c5ea57a59c74a3c4f21b94764acb77f72dd20fea6"
+    },
+    {
+      "path": "session.agent.core.input_up.1.weight",
+      "shape": [
+        16,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "abb105dfd1c03c50d34a6c92db2b8f5814277563d9db92a90772e3822767d608"
+    },
+    {
+      "path": "session.agent.core.input_up.2.weight",
+      "shape": [
+        16,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "bb8322ee9f3e054d82f693bf34a0971eb182f4b17b311c8fa344bb0c06a5d8e3"
+    },
+    {
+      "path": "session.agent.core.readout.weight",
+      "shape": [
+        16,
+        48
+      ],
+      "dtype": "torch.float32",
+      "sha256": "528caed444851a1d09da5d359d3293ab250f4460717c54df814c740bcdb8fc8a"
+    },
+    {
+      "path": "session.agent.core.readout.bias",
+      "shape": [
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "f46089dc8f2db6accb7d012ab2294d318fd60c94485ea8ebd4794b5557d4b052"
+    },
+    {
+      "path": "session.agent.core.unitary_params.1.angles",
+      "shape": [
+        2,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "0812fb10e3877bb329bf998e51c35140e70138baa6b330e3234c89bb8baf682d"
+    },
+    {
+      "path": "session.agent.core.unitary_params.1.base_angles",
+      "shape": [
+        2,
+        8
+      ],
+      "dtype": "torch.float64",
+      "sha256": "26585f8e9fbe492bc1543c612a7d5558a8db9b16ea8e4ce1c60b6c829f23c52a"
+    },
+    {
+      "path": "session.agent.core.unitary_params.2.angles",
+      "shape": [
+        2,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "4ed4ccb3730d10738ece7dc2c7bd81cfed588a78bf10c96f8514927469248528"
+    },
+    {
+      "path": "session.agent.core.unitary_params.2.base_angles",
+      "shape": [
+        2,
+        8
+      ],
+      "dtype": "torch.float64",
+      "sha256": "245f006558d005553b90a70911765cf6e31c5e84b7e006c67c3944bb431e3e00"
+    },
+    {
+      "path": "session.agent.core.angle_controllers.1.weight",
+      "shape": [
+        16,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "7d44e98105518e5a1496c337a71c3dc8d2cff1b28a6bf805736dddfec7eba767"
+    },
+    {
+      "path": "session.agent.core.angle_controllers.2.weight",
+      "shape": [
+        16,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "5af9390468371eab1fea69fa1a9594e4f8e5e7dffcf3d0fad3539f3b2f43a9d1"
+    },
+    {
+      "path": "session.agent.placement_head.weight",
+      "shape": [
+        25,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "9877693ebef390cead85697948e20ef07ddfd9f25256f8b24b8bae320746e312"
+    },
+    {
+      "path": "session.agent.placement_head.bias",
+      "shape": [
+        25
+      ],
+      "dtype": "torch.float32",
+      "sha256": "3095f67dfb4c6997d84dc0abe0b9a73d504d36137ba87e0bfbbad5da845d4332"
+    },
+    {
+      "path": "session.agent.legality_head.weight",
+      "shape": [
+        25,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "c08e823f5e391c9bbaa0a08a650d3c8d2974d2e292ae8ce21d58f1ee932a19cd"
+    },
+    {
+      "path": "session.agent.legality_head.bias",
+      "shape": [
+        25
+      ],
+      "dtype": "torch.float32",
+      "sha256": "fbc03d020fbd643c1dc9ba087009c8192d91f29554abf22dec799a140b6ab6ab"
+    },
+    {
+      "path": "session.agent.pass_head.weight",
+      "shape": [
+        1,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "272051ec774cde4f5b01c9ba640af6413da540883b2b2dfcf2835f3ac8670968"
+    },
+    {
+      "path": "session.agent.pass_head.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "9cf0e2b00dd80d42d95094ca45706f290494bd9ebfccae45a9b2a25a76a8a591"
+    },
+    {
+      "path": "session.agent.value_head.weight",
+      "shape": [
+        1,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+    },
+    {
+      "path": "session.agent.value_head.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "path": "session.agent.utility_gate.input_down.weight",
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "torch.float32",
+      "sha256": "6e110f274e9b8210fae40f5e805037e355c19398fde93b516a9b4b03932d4d37"
+    },
+    {
+      "path": "session.agent.utility_gate.output.weight",
+      "shape": [
+        1,
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+    },
+    {
+      "path": "session.agent.utility_gate.output.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "ffaa446e45009bfdd9111a22a3dcafc827737e87a38920feb49739241ecfbc34"
+    },
+    {
+      "path": "session.agent.task_gradient_memory._basis",
+      "shape": [
+        8,
+        5218
+      ],
+      "dtype": "torch.float32",
+      "sha256": "b8643c938e1809f6848736d9f3eec496917d0c9134f6c27e413b72728d91ecd5"
+    },
+    {
+      "path": "session.agent.utility_gradient_memory._basis",
+      "shape": [
+        0,
+        0
+      ],
+      "dtype": "torch.float32",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.local.weight",
+      "shape": [
+        12,
+        7,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "sha256": "8a6c23313438810f1fac2866214f6f3e67a587ee96d2359c5b8a10449e5991d1"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.local.bias",
+      "shape": [
+        12
+      ],
+      "dtype": "torch.float32",
+      "sha256": "b237827747fa1c736a01c3fa276a93804b2553a8f564de1bd29b2607969c3c90"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.local_second.weight",
+      "shape": [
+        12,
+        12,
+        3,
+        3
+      ],
+      "dtype": "torch.float32",
+      "sha256": "5d099dbfc0fdcabeb226d1c6ac8a001f7d409fe69748e37871193a756aa579b4"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.local_second.bias",
+      "shape": [
+        12
+      ],
+      "dtype": "torch.float32",
+      "sha256": "d29e1105dfbbe0ecfbc37314482dbee9b9a642be44fa43d0c8fa7586e4681eb9"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.placement.weight",
+      "shape": [
+        1,
+        12,
+        1,
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "1ee69ddc4cc0a4bd341898f7f2ab1ea5e1e1355719fa4fa0d5edc7b1684eb6cb"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.placement.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "bf5525c5112ace5f9161a3e85343cc17a8939d3e0dfe1f67c4fa83edd9c02ed0"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.legality.weight",
+      "shape": [
+        1,
+        12,
+        1,
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "47c5faea6405d6aeb8a895b52a59373cb58ef8e41769ed4a8a54f78012e61891"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.legality.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "2ceb247a2c5deb40f76a5b7ee164955d4d68ec25b90147880b40dc436ea4fdbe"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.pass_decision.weight",
+      "shape": [
+        1,
+        18
+      ],
+      "dtype": "torch.float32",
+      "sha256": "a6388bd9ba040bc0fabd860cd652b1b8cb795e51e33bab16ac0156c3c023f3a6"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.pass_decision.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "7b0000d1c742467b5fd5b0da57932b742e01da79027db3470973b5389ada250f"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.value.weight",
+      "shape": [
+        1,
+        18
+      ],
+      "dtype": "torch.float32",
+      "sha256": "834a709ba2534ebe3ee1397fd4f7bd288b2acc1d20a08d6c862dcd99b6f04400"
+    },
+    {
+      "path": "session.agent.spatial_skip_heads.value.bias",
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "path": "session.agent.point_query.weight",
+      "shape": [
+        8,
+        12,
+        1,
+        1
+      ],
+      "dtype": "torch.float32",
+      "sha256": "2a2210c9fd8a3819faad8af61898e7b2404106d100af6431cdda6158ce1d4433"
+    },
+    {
+      "path": "session.agent.point_query.bias",
+      "shape": [
+        8
+      ],
+      "dtype": "torch.float32",
+      "sha256": "a6be075275fa4a9bf84303b710a0f89aae9f721ecdf91fc0505c88011269320c"
+    },
+    {
+      "path": "session.agent.ring_channel_gain.weight",
+      "shape": [
+        12,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "e9479600fb8ee0be679cb40450bd4336df1efc1534d97c3851af25bd5b51617b"
+    },
+    {
+      "path": "session.agent.ring_value.weight",
+      "shape": [
+        8,
+        4
+      ],
+      "dtype": "torch.float32",
+      "sha256": "53aae313afc5bd96b08b6776c785795b5aac47ffda437b41fa8040d93a1b0a8c"
+    },
+    {
+      "path": "session.agent.external_key.weight",
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "torch.float32",
+      "sha256": "eec56462ae450703c69d9a4b89010cd252a38e1048aae4cc19c0982be6e72547"
+    },
+    {
+      "path": "session.agent.external_value.weight",
+      "shape": [
+        8,
+        5
+      ],
+      "dtype": "torch.float32",
+      "sha256": "942fe7526a39974c9f988ff50e489ffce3fd0765f66acf0a734fb9849ab0e5b7"
+    },
+    {
+      "path": "session.agent.point_correction.weight",
+      "shape": [
+        2,
+        16
+      ],
+      "dtype": "torch.float32",
+      "sha256": "8393adda65e7efe7d42cf6434a0f432d8babed4beb293cb50f50e3b8e68f3328"
+    },
+    {
+      "path": "session.encoder.projection",
+      "shape": [
+        81,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "b0b6a2513f91aef40d162b37bf4f6493a6d17b893139d2b957b369f5e0782510"
+    },
+    {
+      "path": "session.observation_memory.slots",
+      "shape": [
+        0,
+        52
+      ],
+      "dtype": "torch.float32",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "session.protection.memory.records[0][0].features",
+      "shape": [
+        4,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "1052addc976fbb916b1b6d19111afd95f2f39a7efb5300934bc5924dcef2525e"
+    },
+    {
+      "path": "session.protection.memory.records[0][0].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "2d135004dc202d8ce1f6cc93287eaa313850a5cecabe90b7e6961c2922e185da"
+    },
+    {
+      "path": "session.protection.memory.records[0][1].features",
+      "shape": [
+        8,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "f7a9e69290b10147ada6ada208ddcf572a57d79d0b5cf2c540b2949e1c899ecd"
+    },
+    {
+      "path": "session.protection.memory.records[0][1].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "7ae2c9873bfa431a7a158b79434706ec2e1d87b69326577cb277659ecc34bdba"
+    },
+    {
+      "path": "session.protection.memory.records[1][0].features",
+      "shape": [
+        4,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "1052addc976fbb916b1b6d19111afd95f2f39a7efb5300934bc5924dcef2525e"
+    },
+    {
+      "path": "session.protection.memory.records[1][0].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "2d135004dc202d8ce1f6cc93287eaa313850a5cecabe90b7e6961c2922e185da"
+    },
+    {
+      "path": "session.protection.memory.records[1][1].features",
+      "shape": [
+        8,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "3b63afe7e27c18fd56c52efd2bde52c5c46849ae2e651c62c01c765b37a976da"
+    },
+    {
+      "path": "session.protection.memory.records[1][1].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "47c095964d8b0be4c3f26b1a40ba7d04b91fdf18880d30afef2f466b3f32ed2e"
+    },
+    {
+      "path": "session.protection.memory.records[2][0].features",
+      "shape": [
+        20,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "c790dba1d6716ff95cbf3e1ec2a257075d53ee00b9f77d228383a867aa92d99f"
+    },
+    {
+      "path": "session.protection.memory.records[2][0].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "23fdad82fe24ac1a4df02bc8283a9eef781a4a028236b24ba7f86b1ccd9845dc"
+    },
+    {
+      "path": "session.protection.memory.records[2][1].features",
+      "shape": [
+        24,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "74fec4632ebb473961025ed1e451fe7a7c4b2bc276c7ed7b3064f7d121f1925a"
+    },
+    {
+      "path": "session.protection.memory.records[2][1].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "33c99aaecd82ccddc40ab68ca46ad946e4631d65b789fd182770c218ef94c107"
+    },
+    {
+      "path": "session.protection.memory.records[3][0].features",
+      "shape": [
+        20,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "d7df665652e38a9284541fa307f9bb463d14f198c1c23bc26f7a4441e7eff107"
+    },
+    {
+      "path": "session.protection.memory.records[3][0].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "94436b429a7f2c70d95022d49e3c1c3659a7408108baff7282dd053b2ea0f1b1"
+    },
+    {
+      "path": "session.protection.memory.records[3][1].features",
+      "shape": [
+        16,
+        81
+      ],
+      "dtype": "torch.float32",
+      "sha256": "77b975564ff0d568762713569b22c8b72a1767439846e17531b44ed7b7dfce23"
+    },
+    {
+      "path": "session.protection.memory.records[3][1].reference_log_probs",
+      "shape": [
+        26
+      ],
+      "dtype": "torch.float32",
+      "sha256": "3e89f1dbe4d8080347f719cdfc9a1de7b0b4adaf0167f7abcf7587f6adb80269"
+    }
+  ],
+  "games_equal": true,
+  "games": [
+    {
+      "student_color": 1,
+      "moves": [
+        12,
+        6,
+        7,
+        11,
+        13,
+        16,
+        17,
+        10,
+        18,
+        1,
+        2,
+        15,
+        8,
+        21,
+        3,
+        22,
+        0,
+        5,
+        23,
+        14,
+        9,
+        19,
+        4,
+        24,
+        12,
+        23,
+        7,
+        13,
+        2,
+        17,
+        8,
+        9,
+        4,
+        3,
+        7,
+        8,
+        2,
+        12,
+        25,
+        25
+      ],
+      "terminated": true,
+      "winner": -1,
+      "student_win": false
+    },
+    {
+      "student_color": -1,
+      "moves": [
+        12,
+        6,
+        7,
+        11,
+        13,
+        16,
+        17,
+        1,
+        8,
+        2,
+        18,
+        3,
+        14,
+        10,
+        22,
+        9,
+        4,
+        15,
+        9,
+        21,
+        19,
+        0,
+        25,
+        5,
+        20,
+        16,
+        21,
+        15,
+        11,
+        24,
+        10,
+        16,
+        15,
+        5,
+        23,
+        1,
+        6,
+        0,
+        2,
+        0,
+        1,
+        25,
+        25
+      ],
+      "terminated": true,
+      "winner": 1,
+      "student_win": false
+    },
+    {
+      "student_color": 1,
+      "moves": [
+        12,
+        6,
+        7,
+        11,
+        13,
+        16,
+        17,
+        10,
+        18,
+        1,
+        2,
+        15,
+        8,
+        21,
+        3,
+        22,
+        0,
+        5,
+        23,
+        14,
+        9,
+        19,
+        4,
+        24,
+        12,
+        23,
+        7,
+        13,
+        2,
+        17,
+        8,
+        9,
+        4,
+        3,
+        7,
+        8,
+        2,
+        12,
+        25,
+        25
+      ],
+      "terminated": true,
+      "winner": -1,
+      "student_win": false
+    },
+    {
+      "student_color": -1,
+      "moves": [
+        12,
+        6,
+        7,
+        11,
+        13,
+        16,
+        17,
+        1,
+        8,
+        2,
+        18,
+        3,
+        14,
+        10,
+        22,
+        9,
+        4,
+        15,
+        9,
+        21,
+        19,
+        0,
+        25,
+        5,
+        20,
+        16,
+        21,
+        11,
+        6,
+        15,
+        10,
+        16,
+        11,
+        24,
+        15,
+        0,
+        23,
+        2,
+        1,
+        25,
+        25
+      ],
+      "terminated": true,
+      "winner": 1,
+      "student_win": false
+    }
+  ],
+  "feedback_positions": 164,
+  "accepted_updates": 22,
+  "max_anchor_kl": 0.009995229542255402,
+  "backtracked_updates": 6,
+  "commands": [
+    "/home/spikebai/anaconda3/envs/torch2/bin/python3 experiments/play_constraint_go.py checkpoints/go_constraint_v1/transport1_guard-401.pt --games 4 --save checkpoints/go_constraint_v1/continued-full-401.pt --output analysis/results/go_constraint_continuation_full.json",
+    "/home/spikebai/anaconda3/envs/torch2/bin/python3 experiments/play_constraint_go.py checkpoints/go_constraint_v1/transport1_guard-401.pt --games 2 --save checkpoints/go_constraint_v1/continued-part1-401.pt --output analysis/results/go_constraint_continuation_part1.json",
+    "/home/spikebai/anaconda3/envs/torch2/bin/python3 experiments/play_constraint_go.py checkpoints/go_constraint_v1/continued-part1-401.pt --games 2 --save checkpoints/go_constraint_v1/continued-split-401.pt --output analysis/results/go_constraint_continuation_part2.json"
+  ]
+}

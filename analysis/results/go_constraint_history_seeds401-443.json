@@ -1,0 +1,1057 @@
+{
+  "version": 1,
+  "config": {
+    "study": "history",
+    "methods": "",
+    "seeds": "401,409,419,431,443",
+    "size": 5,
+    "ring_dim": 16,
+    "latent_dim": 16,
+    "channels": 12,
+    "slots": 16,
+    "history_moves": 12,
+    "history_train_pairs": 96,
+    "history_test_pairs": 64,
+    "history_epochs": 64,
+    "warmup_games": 24,
+    "pretrain_epochs": 24,
+    "train_games": 8,
+    "test_games": 8,
+    "match_games": 8,
+    "max_game_moves": 100,
+    "window": 8,
+    "credit": 8,
+    "lr": 0.08,
+    "rank": 8,
+    "anchors": 8,
+    "anchor_kl": 0.01,
+    "lengths": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "repeats": 3,
+    "checkpoint_dir": "checkpoints/go_constraint_v1",
+    "output": "analysis/results/go_constraint_history_seeds401-443.json",
+    "refresh": 8
+  },
+  "source_sha256": {
+    "experiments/go_constraint_research.py": "6145e7c22389c353496a6fa3fe5838ac23a8e3afbe1c6326899dcff6f76b37db",
+    "experiments/go_memory_research.py": "eca0030d89fca8b53e82a9fb34879dd63a5d0c9f90e361137523c6795949657f",
+    "mqr/__init__.py": "dde71cf790356fbb4cac8e8446ab58077f2225d00288ab8ae0797a4286dd581d",
+    "mqr/agent.py": "6173ad9c883811dbda6c92c08a590de967d1815c638c473a53a79012c08dae16",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "1374fef89af641472c13d84755e3604bc8aad3909dc7aeb55018b567ffa7aacb",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_protection.py": "f5edc8801d3a1e9187451fe9bc1a8b77b3af5628a40edff6497f6490d8687476",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "base_git_revision": "ef9b3f2de67387a0e2645ed0d09c5dd6b256d1a7",
+  "runs": [
+    {
+      "method": "autograd_full",
+      "seed": 401,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.1073065772652626,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.1073065772652626,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 6.23960659140721e-05,
+          "paired_state_l2_distance": 5.332254409790039,
+          "paired_point_logit_l2_distance": 19.838363647460938
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 3.4942710399627686,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.4901161193847656e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 10.697613716125488,
+          "paired_state_l2_distance": 5.332254409790039,
+          "paired_point_logit_l2_distance": 19.838363647460938
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.45961127876105695,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 59.51961539097829,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "cc7eae3047e6edf198e1ef512c96160e78b2b74307b6749581e50e2054588793",
+      "test_trajectory_hash": "dcb420c4b13c8dfc1ef3707fa8fc2d65a0cb435b881784152b6dee9fd0163df5",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "transport_full",
+      "seed": 401,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.1073065772652626,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.1073065772652626,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 4.8067773604998365e-05,
+          "paired_state_l2_distance": 5.440972328186035,
+          "paired_point_logit_l2_distance": 20.757789611816406
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 2.5015509128570557,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 7.450580596923828e-09
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 10.68493938446045,
+          "paired_state_l2_distance": 5.440972328186035,
+          "paired_point_logit_l2_distance": 20.757789611816406
+        }
+      },
+      "updates": 768,
+      "backend": "transport",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.45837550577858127,
+      "peak_state_trace_bytes": 39936,
+      "max_adjoint_norm_error": 7.450580596923828e-09,
+      "seconds": 109.40955072498764,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "cc7eae3047e6edf198e1ef512c96160e78b2b74307b6749581e50e2054588793",
+      "test_trajectory_hash": "dcb420c4b13c8dfc1ef3707fa8fc2d65a0cb435b881784152b6dee9fd0163df5",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_short",
+      "seed": 401,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.1073065772652626,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.265625,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.1073065772652626,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931977272033691,
+          "paired_state_l2_distance": 0.1313113421201706,
+          "paired_point_logit_l2_distance": 0.05029311776161194
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.7000921964645386,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6935247182846069,
+          "paired_state_l2_distance": 0.1313113421201706,
+          "paired_point_logit_l2_distance": 0.05029311403632164
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": 8,
+      "actual_credit_steps": 5,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7541936858712385,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 52.54046610702062,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "cc7eae3047e6edf198e1ef512c96160e78b2b74307b6749581e50e2054588793",
+      "test_trajectory_hash": "dcb420c4b13c8dfc1ef3707fa8fc2d65a0cb435b881784152b6dee9fd0163df5",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_full",
+      "seed": 409,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.10151098668575287,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.10151098668575287,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 2.6883531972998753e-05,
+          "paired_state_l2_distance": 6.209410190582275,
+          "paired_point_logit_l2_distance": 21.872310638427734
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 3.6845011711120605,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.4901161193847656e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 10.903042793273926,
+          "paired_state_l2_distance": 6.209410190582275,
+          "paired_point_logit_l2_distance": 21.872310638427734
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.3214030801687026,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 65.07353007601341,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "6542e0fee886a85d0d444abc6164587866759bc286bbe5c9d68d95fc1d665261",
+      "test_trajectory_hash": "f9795d36bd8596af92fb0340249b2b73445fb04f1d134017632f8d26cb01b715",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "transport_full",
+      "seed": 409,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.10151098668575287,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.10151098668575287,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 3.5073127946816385e-05,
+          "paired_state_l2_distance": 6.204224586486816,
+          "paired_point_logit_l2_distance": 21.731971740722656
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 3.2449305057525635,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 10.800411224365234,
+          "paired_state_l2_distance": 6.204224586486816,
+          "paired_point_logit_l2_distance": 21.731971740722656
+        }
+      },
+      "updates": 768,
+      "backend": "transport",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.3216865361862773,
+      "peak_state_trace_bytes": 39936,
+      "max_adjoint_norm_error": 7.450580596923828e-09,
+      "seconds": 116.783016862988,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "6542e0fee886a85d0d444abc6164587866759bc286bbe5c9d68d95fc1d665261",
+      "test_trajectory_hash": "f9795d36bd8596af92fb0340249b2b73445fb04f1d134017632f8d26cb01b715",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_short",
+      "seed": 409,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.10151098668575287,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.10151098668575287,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5234375,
+          "full_action_accuracy": 0.5234375,
+          "point_nll": 0.6931173801422119,
+          "paired_state_l2_distance": 0.09680917859077454,
+          "paired_point_logit_l2_distance": 0.01886260323226452
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6943941116333008,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.4765625,
+          "full_action_accuracy": 0.4765625,
+          "point_nll": 0.6931954622268677,
+          "paired_state_l2_distance": 0.09680917859077454,
+          "paired_point_logit_l2_distance": 0.018862610682845116
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": 8,
+      "actual_credit_steps": 5,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7559188403344402,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 49.55629196099471,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "6542e0fee886a85d0d444abc6164587866759bc286bbe5c9d68d95fc1d665261",
+      "test_trajectory_hash": "f9795d36bd8596af92fb0340249b2b73445fb04f1d134017632f8d26cb01b715",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_full",
+      "seed": 419,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07836820930242538,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07836820930242538,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 1.83137999556493e-05,
+          "paired_state_l2_distance": 6.436886310577393,
+          "paired_point_logit_l2_distance": 55.478248596191406
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 7.556110858917236,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 2.9802322387695312e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 11.544271469116211,
+          "paired_state_l2_distance": 6.436886310577393,
+          "paired_point_logit_l2_distance": 55.478248596191406
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.4795224078789282,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 63.975391148007475,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "503d17fea16c18d5c8367916ed6ede811a4161832ce795e0ab6245d827420d95",
+      "test_trajectory_hash": "4f47e87ed19b65eb2a4ca8d6fad0f6870a5eeed070b0f21d356883a1f4a057e5",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "transport_full",
+      "seed": 419,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07836820930242538,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07836820930242538,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 2.3029904696159065e-05,
+          "paired_state_l2_distance": 6.113674163818359,
+          "paired_point_logit_l2_distance": 47.42144775390625
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 8.077935218811035,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 2.9802322387695312e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 11.27953052520752,
+          "paired_state_l2_distance": 6.113674163818359,
+          "paired_point_logit_l2_distance": 47.42144775390625
+        }
+      },
+      "updates": 768,
+      "backend": "transport",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.4740900131434647,
+      "peak_state_trace_bytes": 39936,
+      "max_adjoint_norm_error": 7.450580596923828e-09,
+      "seconds": 117.24574811197817,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "503d17fea16c18d5c8367916ed6ede811a4161832ce795e0ab6245d827420d95",
+      "test_trajectory_hash": "4f47e87ed19b65eb2a4ca8d6fad0f6870a5eeed070b0f21d356883a1f4a057e5",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_short",
+      "seed": 419,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07836820930242538,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.25,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07836820930242538,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.4921875,
+          "full_action_accuracy": 0.4921875,
+          "point_nll": 0.6931610703468323,
+          "paired_state_l2_distance": 0.07221318781375885,
+          "paired_point_logit_l2_distance": 0.031221488490700722
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6950210928916931,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 3.8399412538581146e-09
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5078125,
+          "full_action_accuracy": 0.5078125,
+          "point_nll": 0.6931625604629517,
+          "paired_state_l2_distance": 0.07221318781375885,
+          "paired_point_logit_l2_distance": 0.031221488490700722
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": 8,
+      "actual_credit_steps": 5,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7571342130346844,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 52.0917925920221,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "503d17fea16c18d5c8367916ed6ede811a4161832ce795e0ab6245d827420d95",
+      "test_trajectory_hash": "4f47e87ed19b65eb2a4ca8d6fad0f6870a5eeed070b0f21d356883a1f4a057e5",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_full",
+      "seed": 431,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07857518643140793,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07857518643140793,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 1.4970579286455177e-05,
+          "paired_state_l2_distance": 7.423633575439453,
+          "paired_point_logit_l2_distance": 24.40781593322754
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 5.952338695526123,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.4901161193847656e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 11.751265525817871,
+          "paired_state_l2_distance": 7.423633575439453,
+          "paired_point_logit_l2_distance": 24.40781593322754
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.369176320004474,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 65.7511147170153,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "bb97bfbf36a645f97b3a7c2386898acdd26b9c60747e58d71b3b4ef9aa2d6a00",
+      "test_trajectory_hash": "de12836f9f07fed7835c04ad69267d3107cf571f74912d77060dd8477ac447d0",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "transport_full",
+      "seed": 431,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07857518643140793,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07857518643140793,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 7.107963028829545e-05,
+          "paired_state_l2_distance": 7.2400898933410645,
+          "paired_point_logit_l2_distance": 24.305084228515625
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 6.726840019226074,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 11.63211441040039,
+          "paired_state_l2_distance": 7.2400898933410645,
+          "paired_point_logit_l2_distance": 24.305084228515625
+        }
+      },
+      "updates": 768,
+      "backend": "transport",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.36546407845183165,
+      "peak_state_trace_bytes": 39936,
+      "max_adjoint_norm_error": 7.450580596923828e-09,
+      "seconds": 110.3493955959857,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "bb97bfbf36a645f97b3a7c2386898acdd26b9c60747e58d71b3b4ef9aa2d6a00",
+      "test_trajectory_hash": "de12836f9f07fed7835c04ad69267d3107cf571f74912d77060dd8477ac447d0",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_short",
+      "seed": 431,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07857518643140793,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.234375,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07857518643140793,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.693171501159668,
+          "paired_state_l2_distance": 0.09081736207008362,
+          "paired_point_logit_l2_distance": 0.025102857500314713
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6956964731216431,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.862645149230957e-09
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6932192444801331,
+          "paired_state_l2_distance": 0.09081736207008362,
+          "paired_point_logit_l2_distance": 0.025102857500314713
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": 8,
+      "actual_credit_steps": 5,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7570870436417559,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 48.54496786900563,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "bb97bfbf36a645f97b3a7c2386898acdd26b9c60747e58d71b3b4ef9aa2d6a00",
+      "test_trajectory_hash": "de12836f9f07fed7835c04ad69267d3107cf571f74912d77060dd8477ac447d0",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_full",
+      "seed": 443,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.06103639677166939,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.06103639677166939,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931924223899841,
+          "paired_state_l2_distance": 0.08289848268032074,
+          "paired_point_logit_l2_distance": 0.045528315007686615
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931989789009094,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931926608085632,
+          "paired_state_l2_distance": 0.08289848268032074,
+          "paired_point_logit_l2_distance": 0.045528315007686615
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7602823775572082,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 61.79010258798371,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "82ca5a8379d449ef470eec6af8c602493ff9b399753d3aa2b8823eb451188b56",
+      "test_trajectory_hash": "cce4eca0a6a53af98b3bba7f5be83634bb50cf1cce94d4f1fdc45a9cf68d72a4",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "transport_full",
+      "seed": 443,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.06103639677166939,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.06103639677166939,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931924223899841,
+          "paired_state_l2_distance": 0.08292026817798615,
+          "paired_point_logit_l2_distance": 0.045446377247571945
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931990385055542,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 9.313225746154785e-10
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931926012039185,
+          "paired_state_l2_distance": 0.08292026817798615,
+          "paired_point_logit_l2_distance": 0.045446377247571945
+        }
+      },
+      "updates": 768,
+      "backend": "transport",
+      "credit_horizon": null,
+      "actual_credit_steps": 13,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7602823507040739,
+      "peak_state_trace_bytes": 39936,
+      "max_adjoint_norm_error": 1.862645149230957e-09,
+      "seconds": 107.96059173200047,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "82ca5a8379d449ef470eec6af8c602493ff9b399753d3aa2b8823eb451188b56",
+      "test_trajectory_hash": "cce4eca0a6a53af98b3bba7f5be83634bb50cf1cce94d4f1fdc45a9cf68d72a4",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    },
+    {
+      "method": "autograd_short",
+      "seed": 443,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.06103639677166939,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.2578125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.06103639677166939,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931891441345215,
+          "paired_state_l2_distance": 0.06746091693639755,
+          "paired_point_logit_l2_distance": 0.04199938103556633
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6932018399238586,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 2.986047320518992e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6931890845298767,
+          "paired_state_l2_distance": 0.06746091693639755,
+          "paired_point_logit_l2_distance": 0.04199938103556633
+        }
+      },
+      "updates": 768,
+      "backend": "autograd",
+      "credit_horizon": 8,
+      "actual_credit_steps": 5,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7611262080414841,
+      "peak_state_trace_bytes": 0,
+      "max_adjoint_norm_error": 0.0,
+      "seconds": 47.81775956301135,
+      "trainable_parameters": 7358,
+      "total_parameters": 8337,
+      "parameter_bytes": 33348,
+      "ring_state_bytes": 192,
+      "train_trajectory_hash": "82ca5a8379d449ef470eec6af8c602493ff9b399753d3aa2b8823eb451188b56",
+      "test_trajectory_hash": "cce4eca0a6a53af98b3bba7f5be83634bb50cf1cce94d4f1fdc45a9cf68d72a4",
+      "task": "legal antipode of first black move; diagnostic recall with replay, not Go strength"
+    }
+  ]
+}

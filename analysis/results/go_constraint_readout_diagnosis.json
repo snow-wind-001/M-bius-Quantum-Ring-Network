@@ -1,0 +1,65 @@
+{
+  "post_hoc": true,
+  "checkpoint_parameters_unchanged": true,
+  "probe_ridge": 1.0,
+  "probe_fit": "96 training pairs only; fixed standardization and ridge; 64 held-out test pairs",
+  "interpretation": "Separate train-only linear readouts diagnose retained information. They are not an improvement to the online agent.",
+  "source_sha256": "bbef2e557f39b37e978d0631502bd988d2dc99c177da0387148bce100c3f2333",
+  "runs": [
+    {
+      "seed": 401,
+      "checkpoint_sha256": "d75c312180940263c1da50ef12086429b03b8ced3f612e7d00fb5fae3d3c73d9",
+      "model_accuracy": 1.0,
+      "paired_state_distance": 5.440972328186035,
+      "paired_all_logit_distance": 20.757789611816406,
+      "paired_candidate_margin_difference": 21.369783401489258,
+      "paired_point_probability_l1": 1.9998105764389038,
+      "board_only_ridge_accuracy": 0.5,
+      "ring_and_board_ridge_accuracy": 0.9140625
+    },
+    {
+      "seed": 409,
+      "checkpoint_sha256": "c1c8332e0dd61a92e2c561f7bfe10fb9bfa91d2e13461da883a44e5599da9f02",
+      "model_accuracy": 1.0,
+      "paired_state_distance": 6.204224586486816,
+      "paired_all_logit_distance": 21.731971740722656,
+      "paired_candidate_margin_difference": 21.600753784179688,
+      "paired_point_probability_l1": 1.9998598098754883,
+      "board_only_ridge_accuracy": 0.5,
+      "ring_and_board_ridge_accuracy": 0.9296875
+    },
+    {
+      "seed": 419,
+      "checkpoint_sha256": "ca598e75a7a0e3e1619693046ebcb6c5d38d611478a9d70f746343a075ff3956",
+      "model_accuracy": 1.0,
+      "paired_state_distance": 6.113674163818359,
+      "paired_all_logit_distance": 47.42144775390625,
+      "paired_candidate_margin_difference": 22.559017181396484,
+      "paired_point_probability_l1": 1.999908208847046,
+      "board_only_ridge_accuracy": 0.5,
+      "ring_and_board_ridge_accuracy": 1.0
+    },
+    {
+      "seed": 431,
+      "checkpoint_sha256": "ea894f22268def6239443b995441970e0a12ce31019955b5105ca1ba424e69f2",
+      "model_accuracy": 1.0,
+      "paired_state_distance": 7.2400898933410645,
+      "paired_all_logit_distance": 24.305084228515625,
+      "paired_candidate_margin_difference": 23.264087677001953,
+      "paired_point_probability_l1": 1.9999407529830933,
+      "board_only_ridge_accuracy": 0.5,
+      "ring_and_board_ridge_accuracy": 1.0
+    },
+    {
+      "seed": 443,
+      "checkpoint_sha256": "46374bde3281527f4e0fa6ef29c6655b583c57e63e67f2d27a3d0daec9195ad4",
+      "model_accuracy": 0.5,
+      "paired_state_distance": 0.08292026817798615,
+      "paired_all_logit_distance": 0.045446377247571945,
+      "paired_candidate_margin_difference": 2.8014183044433594e-06,
+      "paired_point_probability_l1": 1.4199475799614447e-06,
+      "board_only_ridge_accuracy": 0.5,
+      "ring_and_board_ridge_accuracy": 0.6953125
+    }
+  ]
+}
