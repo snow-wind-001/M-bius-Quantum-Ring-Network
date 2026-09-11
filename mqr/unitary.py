@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from typing import Optional
 
 import torch
 import torch.nn as nn
@@ -179,7 +180,8 @@ class CyclicGivensUnistochasticParam(nn.Module):
         return torch.complex(orthogonal, torch.zeros_like(orthogonal))
 
     def apply_orthogonal(
-        self, state: torch.Tensor, *, transpose: bool = False
+        self, state: torch.Tensor, *, transpose: bool = False,
+        angle_offsets: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
         """Apply signed rotations to [..., dim] in O(layers * dim) work.
 
@@ -193,12 +195,20 @@ class CyclicGivensUnistochasticParam(nn.Module):
         if not state.is_floating_point() or torch.is_complex(state):
             raise TypeError("state must be a real floating-point tensor")
         angles = (self.angles + self.base_angles.to(self.angles)).to(state)
+        if angle_offsets is not None:
+            if angle_offsets.shape[-2:] != (self.layers, self.dim // 2):
+                raise ValueError("angle_offsets must end in [layers, dim // 2]")
+            if not angle_offsets.is_floating_point() or not bool(torch.isfinite(angle_offsets).all()):
+                raise ValueError("angle_offsets must be finite real angles")
+            if torch.broadcast_shapes(state.shape[:-1], angle_offsets.shape[:-2]) != state.shape[:-1]:
+                raise ValueError("angle_offsets must broadcast to the state batch dimensions")
+            angles = angles + angle_offsets.to(state)
         layers = range(self.layers - 1, -1, -1) if transpose else range(self.layers)
         value = state
         for layer in layers:
             left = self._pair_i[layer].to(device=state.device)
             right = self._pair_j[layer].to(device=state.device)
-            angle = -angles[layer] if transpose else angles[layer]
+            angle = -angles[..., layer, :] if transpose else angles[..., layer, :]
             cosine, sine = angle.cos(), angle.sin()
             left_value = value.index_select(-1, left)
             right_value = value.index_select(-1, right)

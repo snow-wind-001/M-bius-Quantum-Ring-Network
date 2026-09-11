@@ -122,18 +122,34 @@ class GoSpatialSkipHeads(nn.Module):
     simulator history is supplied.
     """
 
-    def __init__(self, input_dim: int, board_size: int, channels: int) -> None:
+    def __init__(
+        self, input_dim: int, board_size: int, channels: int, *,
+        geometry: bool = False, depth: int = 1,
+    ) -> None:
         super().__init__()
         if input_dim < 3 * board_size * board_size:
             raise ValueError("spatial skip requires three flattened board planes")
         if channels <= 0:
             raise ValueError("spatial skip channels must be positive")
+        if depth not in (1, 2):
+            raise ValueError("spatial depth must be one or two")
         self.input_dim = int(input_dim)
         self.board_size = int(board_size)
         self.points = self.board_size * self.board_size
         self.channels = int(channels)
         self.extra_dim = self.input_dim - 3 * self.points
-        self.local = nn.Conv2d(3, self.channels, kernel_size=3, padding=1)
+        self.geometry = bool(geometry)
+        coordinates = torch.linspace(-1.0, 1.0, board_size)
+        row, column = torch.meshgrid(coordinates, coordinates, indexing="ij")
+        # Validity distinguishes padding from an empty intersection; signed
+        # coordinates distinguish points with identical stone neighborhoods.
+        self.register_buffer("geometry_planes", torch.stack((
+            torch.ones_like(row), row, column, row.square() + column.square(),
+        )).unsqueeze(0), persistent=False)
+        self.local = nn.Conv2d(7 if geometry else 3, self.channels, kernel_size=3, padding=1)
+        self.local_second = (
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1) if depth == 2 else None
+        )
         self.placement = nn.Conv2d(self.channels, 1, kernel_size=1)
         self.legality = nn.Conv2d(self.channels, 1, kernel_size=1)
         global_dim = self.channels + self.extra_dim
@@ -149,16 +165,25 @@ class GoSpatialSkipHeads(nn.Module):
             if module.bias is not None:
                 nn.init.zeros_(module.bias)
 
-    def forward(
-        self,
-        x: torch.Tensor,
-    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+    def spatial_features(self, x: torch.Tensor) -> torch.Tensor:
+        """Return [batch, channels, size, size] rule-neutral board features."""
         if x.dim() != 2 or x.size(1) != self.input_dim:
             raise ValueError(f"x must have shape [batch, {self.input_dim}]")
         planes = x[:, : 3 * self.points].reshape(
             x.size(0), 3, self.board_size, self.board_size
         )
+        if self.geometry:
+            planes = torch.cat((planes, self.geometry_planes.to(x).expand(x.size(0), -1, -1, -1)), dim=1)
         hidden = torch.tanh(self.local(planes))
+        if self.local_second is not None:
+            hidden = torch.tanh(self.local_second(hidden))
+        return hidden
+
+    def forward(
+        self,
+        x: torch.Tensor,
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+        hidden = self.spatial_features(x)
         placement = self.placement(hidden).flatten(1)
         legality = self.legality(hidden).flatten(1)
         pooled = hidden.mean(dim=(2, 3))
@@ -1634,6 +1659,7 @@ class TemporalUtilityMQRAgent(nn.Module):
         project_with_memory: bool = True,
         return_grad_features: bool = False,
         allow_stale: bool = False,
+        credit_horizon: Optional[int] = None,
     ) -> Dict[str, Any]:
         """Apply one bounded, causal trajectory-end update.
 
@@ -1648,6 +1674,10 @@ class TemporalUtilityMQRAgent(nn.Module):
         key is ``action``; optional keys match :meth:`compute_go_loss` except
         that ``weights`` is shared by the trajectory.  No feedback field is ever
         passed to the write gate or its causal feature extractor.
+
+        ``credit_horizon`` optionally detaches state every K replay steps while
+        retaining all committed predictions, losses and the single update.
+        It never extends credit beyond the supplied ticket window.
         """
 
         ids = tuple(ticket_ids)
@@ -1661,6 +1691,11 @@ class TemporalUtilityMQRAgent(nn.Module):
             )
         if len(ids) != len(steps):
             raise ValueError("ticket_ids and feedback_steps must have equal length")
+        if credit_horizon is not None and (
+            isinstance(credit_horizon, bool) or not isinstance(credit_horizon, int)
+            or not 1 <= credit_horizon <= self.max_trace_horizon
+        ):
+            raise ValueError("credit_horizon must be a positive integer within the trace horizon")
         if len(set(ids)) != len(ids):
             raise ValueError("ticket_ids must be unique")
         records = [self._ticket_record(ticket_id) for ticket_id in ids]
@@ -1723,7 +1758,11 @@ class TemporalUtilityMQRAgent(nn.Module):
         outputs: List[GoMultiHeadOutput] = []
         states: List[TemporalMQRState] = []
         losses_per_step: List[Dict[str, torch.Tensor]] = []
-        for record, step in zip(records, normalized_steps):
+        for index, (record, step) in enumerate(zip(records, normalized_steps)):
+            # Keep the same observations, losses, and update count while
+            # changing only credit across deterministic block boundaries.
+            if credit_horizon is not None and index and index % credit_horizon == 0:
+                state = state.detached()
             x_value = record["x"].detach().requires_grad_(True)
             output, state = self._transition(
                 x_value,
@@ -2041,6 +2080,7 @@ class TemporalUtilityMQRAgent(nn.Module):
                 for losses in losses_per_step
             ],
             "loss_scales": list(scales),
+            "credit_horizon": len(ids) if credit_horizon is None else credit_horizon,
             "future_loss": (
                 None if future_loss is None else float(future_loss.detach().item())
             ),
@@ -2339,7 +2379,8 @@ class TemporalUtilityMQRAgent(nn.Module):
         """Return whether a task parameter belongs to a temporal Cayley map."""
 
         value = str(name)
-        return value.startswith("core.unitary_params.") or ".unitary_params." in value
+        return (value.startswith("core.unitary_params.") or ".unitary_params." in value
+                or value.startswith("core.angle_controllers."))
 
     @staticmethod
     def _output_linf_drift(

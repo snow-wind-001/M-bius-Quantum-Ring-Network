@@ -28,6 +28,14 @@ from mqr import (
     GoAgentTrajectory,
     GoVectorEncoder,
     GoOnlineSession,
+    GoHistoryEncoder,
+    GoObservationMemory,
+    GoResearchCore,
+    HistoryGoSession,
+    PositionQueryGoAgent,
+    GoBehaviorMemory,
+    ProtectedGoSession,
+    generate_reachable_history_pairs,
     consolidate_task_memory,
     GoLossWeights,
     GoMultiHeadOutput,
@@ -102,6 +110,8 @@ class HamiltonianOptimizer:
 
 
 __all__ = [
+    "GoHistoryEncoder", "GoObservationMemory", "GoResearchCore", "HistoryGoSession",
+    "PositionQueryGoAgent", "GoBehaviorMemory", "ProtectedGoSession", "generate_reachable_history_pairs",
     "CayleyUnistochasticParam",
     "CyclicGivensUnistochasticParam",
     "MoebiusQuantumRing",

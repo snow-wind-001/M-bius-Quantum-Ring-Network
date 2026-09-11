@@ -50,8 +50,7 @@ class SpatialRingGoAgent(TemporalUtilityMQRAgent):
             raise ValueError("spatially modulated readout requires the current board features")
         base = self.spatial_skip_heads
         latent = torch.tanh(latent)
-        planes = x[:, :3 * self.points].reshape(-1, 3, self.board_size, self.board_size)
-        hidden = torch.tanh(base.local(planes))
+        hidden = base.spatial_features(x)
         gamma, beta = self.ring_modulation(latent).chunk(2, dim=1)
         hidden = hidden * (1.0 + gamma[:, :, None, None]) + beta[:, :, None, None]
         pooled = hidden.mean(dim=(2, 3))
@@ -99,16 +98,23 @@ class GoOnlineSession:
         update_every: int = 8,
         stream_id: str = "online-go",
         project_with_memory: bool = True,
+        credit_horizon: Optional[int] = None,
     ) -> None:
         if not 1 <= update_every <= agent.max_trace_horizon:
             raise ValueError("update_every must be within the agent trace horizon")
         if agent.board_size != encoder.board_size or agent.input_dim != encoder.output_dim:
             raise ValueError("agent and encoder dimensions must match")
+        if credit_horizon is not None and (
+            isinstance(credit_horizon, bool) or not isinstance(credit_horizon, int)
+            or not 1 <= credit_horizon <= agent.max_trace_horizon
+        ):
+            raise ValueError("credit_horizon must be within the agent trace horizon")
         self.agent = agent
         self.encoder = encoder
         self.update_every = int(update_every)
         self.stream_id = str(stream_id)
         self.project_with_memory = bool(project_with_memory)
+        self.credit_horizon = credit_horizon
         self._pending: List[Dict[str, Any]] = []
 
     @property
@@ -153,7 +159,7 @@ class GoOnlineSession:
         if not learn and self._pending:
             raise RuntimeError("flush training feedback before evaluating")
         reference = next(self.agent.parameters())
-        features = self.encoder.encode_board(board).to(reference)
+        features = self._encode_observation(board).to(reference)
         result = self.agent.commit_step(
             features, stream_id=self.stream_id, external_write=True,
             issue_ticket=learn,
@@ -172,11 +178,18 @@ class GoOnlineSession:
                 "legality": legality_target(board, device=reference.device),
                 "feedback": None,
             })
+        self._after_observation(board)
         return {
             **result, "raw_action": raw_action, "action": action,
             "raw_legal": board.is_legal(raw_action),
             "action_mask_applied": True,
         }
+
+    def _encode_observation(self, board: GoBoard) -> torch.Tensor:
+        return self.encoder.encode_board(board)
+
+    def _after_observation(self, board: GoBoard) -> None:
+        """Hook for label-free memory writes after a successful commit."""
 
     def feedback(
         self, ticket_id: int, target_action: int, *, value_target: Optional[float] = None
@@ -218,6 +231,7 @@ class GoOnlineSession:
         else:
             result = self.agent.apply_trajectory_feedback(
                 ids, feedback, project_with_memory=self.project_with_memory,
+                credit_horizon=self.credit_horizon,
             )
         self._pending.clear()
         return result
@@ -246,6 +260,7 @@ class GoOnlineSession:
         return copy.deepcopy({
             "version": 1, "update_every": self.update_every,
             "stream_id": self.stream_id, "project_with_memory": self.project_with_memory,
+            "credit_horizon": self.credit_horizon,
             "agent": self.agent.state_dict(), "encoder": self.encoder.state_dict(),
             "pending": self._pending,
         })
@@ -258,6 +273,8 @@ class GoOnlineSession:
             raise ValueError("checkpoint stream_id does not match the session")
         if bool(state.get("project_with_memory")) != self.project_with_memory:
             raise ValueError("checkpoint OGD policy does not match the session")
+        if state.get("credit_horizon") != self.credit_horizon:
+            raise ValueError("checkpoint credit horizon does not match the session")
         self.agent.load_state_dict(state["agent"])
         self.encoder.load_state_dict(state["encoder"])
         reference = next(self.agent.parameters())

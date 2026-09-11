@@ -712,6 +712,10 @@ class MultiTimescaleMQR(nn.Module):
         )
         return self.readout(vector)
 
+    def orthogonal_offsets(self, index: int, x: torch.Tensor) -> Optional[torch.Tensor]:
+        """Optional exogenous [batch, layers, pairs] rotation angles."""
+        return None
+
     def forward_step(
         self,
         x: torch.Tensor,
@@ -764,13 +768,20 @@ class MultiTimescaleMQR(nn.Module):
                 value = (1.0 - leak) * previous
             elif self.transition_mode == "orthogonal":
                 parameter = self.unitary_params[index]
-                value = (1.0 - leak) * parameter.apply_orthogonal(previous)
+                offsets = self.orthogonal_offsets(index, x)
+                value = (1.0 - leak) * parameter.apply_orthogonal(previous, angle_offsets=offsets)
                 # Only the optional L-infinity certificate needs a dense
                 # operator; ordinary signed propagation stays linear-cost.
                 transition = (
                     self.transition_matrix(index, device=x.device, dtype=x.dtype)
                     if return_certificate else None
                 )
+                if return_certificate and offsets is not None:
+                    identity = torch.eye(self.ring_dim, device=x.device, dtype=x.dtype)
+                    transition = parameter.apply_orthogonal(
+                        identity.expand(x.size(0), -1, -1),
+                        angle_offsets=offsets[:, None],
+                    ).transpose(-2, -1)
             else:
                 transition = self.transition_matrix(
                     index, device=x.device, dtype=x.dtype
@@ -791,7 +802,7 @@ class MultiTimescaleMQR(nn.Module):
                 gain = (
                     x.new_tensor(1.0)
                     if transition is None
-                    else transition.abs().sum(dim=1).amax()
+                    else transition.abs().sum(dim=-1).amax(dim=-1)
                 )
                 bound = (1.0 - leak) * gain * previous_norm + external_norm
                 previous_linf.append(previous_norm)

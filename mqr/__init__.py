@@ -47,6 +47,12 @@ from .utility import (
 )
 from .go import GoBoard, HeuristicGoTeacher
 from .go_online import GoOnlineSession, SpatialRingGoAgent, consolidate_task_memory
+from .go_memory import (
+    GoHistoryEncoder, GoObservationMemory, GoResearchCore, HistoryGoSession,
+    PositionQueryGoAgent, fixed_color_features,
+)
+from .go_protection import GoBehaviorMemory, ProtectedGoSession
+from .go_history_tasks import GoHistoryPair, generate_reachable_history_pairs
 from .go_agent import (
     GoAgentExample,
     GoAgentTrajectory,
@@ -117,6 +123,16 @@ __all__ = [
     "GoBoard",
     "HeuristicGoTeacher",
     "GoOnlineSession",
+    "GoHistoryEncoder",
+    "GoObservationMemory",
+    "GoResearchCore",
+    "HistoryGoSession",
+    "PositionQueryGoAgent",
+    "fixed_color_features",
+    "GoBehaviorMemory",
+    "ProtectedGoSession",
+    "GoHistoryPair",
+    "generate_reachable_history_pairs",
     "SpatialRingGoAgent",
     "consolidate_task_memory",
     "GoAgentExample",
