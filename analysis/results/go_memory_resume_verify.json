@@ -1,0 +1,10 @@
+{
+  "exact_session_match": true,
+  "tensor_fields_compared": 71,
+  "games": 4,
+  "game_records_equal": true,
+  "split": [
+    2,
+    2
+  ]
+}

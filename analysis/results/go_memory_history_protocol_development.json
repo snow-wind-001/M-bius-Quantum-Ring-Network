@@ -1,0 +1,437 @@
+{
+  "version": 2,
+  "config": {
+    "study": "history",
+    "methods": "stateless,identity,shift,twisted,fixed,gru,orthogonal_short,orthogonal,conditional,stateless_external,conditional_external",
+    "seeds": "107,131,167,193,227",
+    "size": 5,
+    "ring_dim": 16,
+    "latent_dim": 16,
+    "channels": 12,
+    "slots": 16,
+    "history_moves": 12,
+    "history_train_pairs": 96,
+    "history_test_pairs": 64,
+    "history_epochs": 64,
+    "warmup_games": 24,
+    "pretrain_epochs": 8,
+    "train_games": 8,
+    "test_games": 8,
+    "match_games": 8,
+    "max_game_moves": 100,
+    "window": 8,
+    "credit": 8,
+    "lr": 0.08,
+    "rank": 8,
+    "anchors": 8,
+    "refresh": 8,
+    "anchor_kl": 0.01,
+    "checkpoint_dir": "checkpoints/go_memory_v2",
+    "output": "analysis/results/go_memory_history_5seed.json"
+  },
+  "runs": [
+    {
+      "method": "stateless",
+      "seed": 107,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6934823393821716,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 5.26835597369768e-09
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6934823393821716,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 5.26835597369768e-09
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6934823393821716,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 5.26835597369768e-09
+        }
+      },
+      "updates": 768,
+      "credit_horizon": 32,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7562079958928128,
+      "seconds": 10.695396830007667,
+      "trainable_parameters": 4734,
+      "total_parameters": 5713,
+      "parameter_bytes": 22852,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "optimizer_tensor_bytes": 37264,
+      "materialized_training_dataset_bytes": 810240,
+      "train_trajectory_hash": "041dd0fffb5fac7535856133f4c9d100f4257d7866bf598165e28b8b9f266055",
+      "test_trajectory_hash": "6dc458061af2c150711451ef5c5104b050db8abbb08ab84263ea59580af62f8f",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "identity",
+      "seed": 107,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.08522751182317734,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.08522751182317734,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 8.447144500678405e-05,
+          "paired_state_l2_distance": 3.560063362121582,
+          "paired_point_logit_l2_distance": 15.073007583618164
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 2.1731972694396973,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.4901161193847656e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 9.867541313171387,
+          "paired_state_l2_distance": 3.560063362121582,
+          "paired_point_logit_l2_distance": 15.073007583618164
+        }
+      },
+      "updates": 768,
+      "credit_horizon": 32,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.40381769288229447,
+      "seconds": 13.292221243988024,
+      "trainable_parameters": 4734,
+      "total_parameters": 5713,
+      "parameter_bytes": 22852,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "optimizer_tensor_bytes": 37264,
+      "materialized_training_dataset_bytes": 810240,
+      "train_trajectory_hash": "041dd0fffb5fac7535856133f4c9d100f4257d7866bf598165e28b8b9f266055",
+      "test_trajectory_hash": "6dc458061af2c150711451ef5c5104b050db8abbb08ab84263ea59580af62f8f",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "shift",
+      "seed": 107,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07918120175600052,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07918120175600052,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 5.976251031825086e-06,
+          "paired_state_l2_distance": 5.689826011657715,
+          "paired_point_logit_l2_distance": 26.56625747680664
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 11.30903434753418,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.4901161193847656e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 12.538325309753418,
+          "paired_state_l2_distance": 5.689826011657715,
+          "paired_point_logit_l2_distance": 26.56625747680664
+        }
+      },
+      "updates": 768,
+      "credit_horizon": 32,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.40802211073064615,
+      "seconds": 14.485224905976793,
+      "trainable_parameters": 4734,
+      "total_parameters": 5713,
+      "parameter_bytes": 22852,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "optimizer_tensor_bytes": 37264,
+      "materialized_training_dataset_bytes": 810240,
+      "train_trajectory_hash": "041dd0fffb5fac7535856133f4c9d100f4257d7866bf598165e28b8b9f266055",
+      "test_trajectory_hash": "6dc458061af2c150711451ef5c5104b050db8abbb08ab84263ea59580af62f8f",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "twisted",
+      "seed": 107,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07681620866060257,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.07681620866060257,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 4.452623670658795e-06,
+          "paired_state_l2_distance": 5.1929097175598145,
+          "paired_point_logit_l2_distance": 19.399690628051758
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.9601237177848816,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 1.4901161193847656e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 13.561460494995117,
+          "paired_state_l2_distance": 5.1929097175598145,
+          "paired_point_logit_l2_distance": 19.399690628051758
+        }
+      },
+      "updates": 768,
+      "credit_horizon": 32,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.2628232255331528,
+      "seconds": 15.412157847982598,
+      "trainable_parameters": 4734,
+      "total_parameters": 5713,
+      "parameter_bytes": 22852,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "optimizer_tensor_bytes": 37264,
+      "materialized_training_dataset_bytes": 810240,
+      "train_trajectory_hash": "041dd0fffb5fac7535856133f4c9d100f4257d7866bf598165e28b8b9f266055",
+      "test_trajectory_hash": "6dc458061af2c150711451ef5c5104b050db8abbb08ab84263ea59580af62f8f",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "fixed",
+      "seed": 107,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.08889717608690262,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.08889717608690262,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 1.0,
+          "full_action_accuracy": 1.0,
+          "point_nll": 0.00011125349556095898,
+          "paired_state_l2_distance": 3.627878427505493,
+          "paired_point_logit_l2_distance": 21.603290557861328
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 16.912508010864258,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 3.332000986233652e-08
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.0,
+          "full_action_accuracy": 0.0,
+          "point_nll": 10.298501968383789,
+          "paired_state_l2_distance": 3.627878427505493,
+          "paired_point_logit_l2_distance": 21.603290557861328
+        }
+      },
+      "updates": 768,
+      "credit_horizon": 32,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.44556515470949876,
+      "seconds": 23.403183111018734,
+      "trainable_parameters": 4734,
+      "total_parameters": 5745,
+      "parameter_bytes": 22980,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "optimizer_tensor_bytes": 37264,
+      "materialized_training_dataset_bytes": 810240,
+      "train_trajectory_hash": "041dd0fffb5fac7535856133f4c9d100f4257d7866bf598165e28b8b9f266055",
+      "test_trajectory_hash": "6dc458061af2c150711451ef5c5104b050db8abbb08ab84263ea59580af62f8f",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "gru",
+      "seed": 107,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0012274680193513632,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1953125,
+          "point_nll": 3.2188758850097656,
+          "paired_state_l2_distance": 0.0012274680193513632,
+          "paired_point_logit_l2_distance": 0.0
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6932226419448853,
+          "paired_state_l2_distance": 0.007374703884124756,
+          "paired_point_logit_l2_distance": 0.001394749036990106
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.693234384059906,
+          "paired_state_l2_distance": 0.0,
+          "paired_point_logit_l2_distance": 0.0
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.6932226419448853,
+          "paired_state_l2_distance": 0.007374703884124756,
+          "paired_point_logit_l2_distance": 0.001394749153405428
+        }
+      },
+      "updates": 768,
+      "credit_horizon": 32,
+      "training_replay_epochs": 64,
+      "prequential_point_nll": 0.7572721700804929,
+      "seconds": 16.558030965999933,
+      "trainable_parameters": 8094,
+      "total_parameters": 9073,
+      "parameter_bytes": 36292,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "optimizer_tensor_bytes": 64180,
+      "materialized_training_dataset_bytes": 810240,
+      "train_trajectory_hash": "041dd0fffb5fac7535856133f4c9d100f4257d7866bf598165e28b8b9f266055",
+      "test_trajectory_hash": "6dc458061af2c150711451ef5c5104b050db8abbb08ab84263ea59580af62f8f",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    }
+  ],
+  "source_sha256": {
+    "mqr/agent.py": "93558f3b70fff5092ac5354bbc359f9f2a0315f26cb3bc4cd71c251dc50e7599",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_protection.py": "f5edc8801d3a1e9187451fe9bc1a8b77b3af5628a40edff6497f6490d8687476",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "experiments/go_memory_research.py": "fa3ac6c06949355a717209a283acdc0d4d3aba1b36b6ea80ce0b9f6ce220d41c"
+  }
+}

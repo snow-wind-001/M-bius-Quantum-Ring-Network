@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "command": "python3 test_mobius_model.py",
+      "exit_code": 0,
+      "tests": 24,
+      "log_sha256": "515e8e4b2586367e1f8a351c4f84aa2f8e5757ba9880116148321111ef8909b6"
+    },
+    {
+      "command": "python3 test_online_learning.py",
+      "exit_code": 0,
+      "tests": 7,
+      "log_sha256": "71ba8d5f166e404a247642ec75fa4c16437f2b03494c936b668eac98577d0fd2"
+    },
+    {
+      "command": "python3 test_temporal_mqr.py",
+      "exit_code": 0,
+      "tests": 31,
+      "log_sha256": "ff5fdc21737e120328024ad8feb0048b9d57518104c0e978b054f31858bf4524"
+    },
+    {
+      "command": "python3 test_utility_mqr.py",
+      "exit_code": 0,
+      "tests": 11,
+      "log_sha256": "90d1ae13d7b4677e0d0500914d9902350bbb47d2379547a643b09ea8fb41e0af"
+    },
+    {
+      "command": "python3 test_unified_mqr_agent.py",
+      "exit_code": 0,
+      "tests": 12,
+      "log_sha256": "70edd151b05923f82646a25de7ead4a4150d6591d64821548e57e96e27daf6ad"
+    },
+    {
+      "command": "python3 test_go_minicpm.py",
+      "exit_code": 0,
+      "tests": 22,
+      "log_sha256": "739f3906370d1d36266a8f36df9bc6426471367948da10e8af26b67f4e25619d"
+    },
+    {
+      "command": "python3 test_routed_memory.py",
+      "exit_code": 0,
+      "tests": 11,
+      "log_sha256": "a468b121d61e6a64d0538feb16b59852c77ce3c73b490d606af374ffd6c99a6c"
+    },
+    {
+      "command": "python3 test_competitive_go.py",
+      "exit_code": 0,
+      "tests": 4,
+      "log_sha256": "0da066c5519be690ecf627b2170a1b98500592b75ffb9cd39bf7487ffa7344a1"
+    },
+    {
+      "command": "python3 test_orthogonal_ring.py",
+      "exit_code": 0,
+      "tests": 4,
+      "log_sha256": "904a47171cbce88df32f04f7deafc9de3ae3413821fde35a9c8f4f7e81e41e39"
+    },
+    {
+      "command": "python3 test_go_online_session.py",
+      "exit_code": 0,
+      "tests": 5,
+      "log_sha256": "d957e1d8debcb56a2cd2f55e3c9db5de32282c77b12506c8f6229fc1105c0e30"
+    },
+    {
+      "command": "python3 test_go_memory.py",
+      "exit_code": 0,
+      "tests": 8,
+      "log_sha256": "249b0c8267327d9e28ffb009ee60b31b4d5bd4d4600075f6b746b2748aa4606c"
+    },
+    {
+      "command": "python3 analysis/mqr_proof_verify.py",
+      "exit_code": 0,
+      "tests": 0,
+      "log_sha256": "ff3436460b7dcecfd7a5b371a6a5b14cc4d6cac58c7d83706504440dc0165d59"
+    },
+    {
+      "command": "python3 analysis/orthogonal_ring_verify.py",
+      "exit_code": 0,
+      "tests": 0,
+      "log_sha256": "678b4fc43f70c3d408d0acc704ac77c3d0dab73fde082dfb0351a110a9224a2c"
+    },
+    {
+      "command": "python3 experiments/online_digits_principle.py",
+      "exit_code": 0,
+      "tests": 0,
+      "log_sha256": "106207b78ffc041ef94c47b90ec8a1aae356ef7e83ed20b866660084b44d6c4b"
+    },
+    {
+      "command": "python3 quick_start.py",
+      "exit_code": 0,
+      "tests": 0,
+      "log_sha256": "6e5249986f7a050151d7cd08083f002f5e0a7bdcc55b9a44e5c95fe4f6cfd688"
+    }
+  ],
+  "total_tests": 139
+}

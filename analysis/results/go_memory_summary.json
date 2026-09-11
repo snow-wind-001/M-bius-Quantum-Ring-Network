@@ -1,0 +1,1672 @@
+{
+  "version": 2,
+  "source_hashes_match": true,
+  "source_verification": "recorded Git sources; current core AST identical outside the separately tested preview dispatcher",
+  "history": {
+    "methods": {
+      "stateless": {
+        "accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "point_nll": {
+          "mean": 0.6931670427322387,
+          "seed_values": [
+            0.6931547522544861,
+            0.6931920051574707,
+            0.6931565403938293,
+            0.6931759715080261,
+            0.6931559443473816
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.6931555867195129,
+            0.6931813478469848
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4734,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37264
+      },
+      "identity": {
+        "accuracy": {
+          "mean": 0.86875,
+          "seed_values": [
+            1.0,
+            0.5234375,
+            1.0,
+            0.8203125,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.678125,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 0.20569444408174603,
+          "seed_values": [
+            0.00030252544092945755,
+            0.6919164657592773,
+            0.0001984322734642774,
+            0.33563774824142456,
+            0.00041704869363456964
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0002837928244844079,
+            0.4823171155585442
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.13125,
+          "seed_values": [
+            0.0,
+            0.4765625,
+            0.0,
+            0.1796875,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.321875
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4734,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37264
+      },
+      "shift": {
+        "accuracy": {
+          "mean": 0.9,
+          "seed_values": [
+            1.0,
+            0.5,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.7,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 0.13868312357799367,
+          "seed_values": [
+            3.357217428856529e-05,
+            0.6931880712509155,
+            4.1510651499265805e-05,
+            1.6149056136782747e-06,
+            0.0001508489076513797
+          ],
+          "descriptive_seed_bootstrap_95": [
+            2.2376962260750587e-05,
+            0.41594333551320234
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.1,
+          "seed_values": [
+            0.0,
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.3
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4734,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37264
+      },
+      "twisted": {
+        "accuracy": {
+          "mean": 1.0,
+          "seed_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.0,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 8.482287885271944e-05,
+          "seed_values": [
+            3.4684311685850844e-05,
+            6.729736924171448e-05,
+            9.920178126776591e-05,
+            4.509232530836016e-05,
+            0.00017783860675990582
+          ],
+          "descriptive_seed_bootstrap_95": [
+            4.53701286460273e-05,
+            0.00013362211175262927
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4734,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37264
+      },
+      "fixed": {
+        "accuracy": {
+          "mean": 1.0,
+          "seed_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.0,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 3.02996483469542e-05,
+          "seed_values": [
+            8.392227027798072e-05,
+            9.862691285889014e-07,
+            1.4379346794157755e-05,
+            1.451998559787171e-05,
+            3.769036993617192e-05
+          ],
+          "descriptive_seed_bootstrap_95": [
+            9.050243488673004e-06,
+            5.8088689979740596e-05
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4734,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37264
+      },
+      "gru": {
+        "accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "point_nll": {
+          "mean": 0.693182396888733,
+          "seed_values": [
+            0.6931806802749634,
+            0.693181037902832,
+            0.6931951642036438,
+            0.693178653717041,
+            0.6931764483451843
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.693178141117096,
+            0.6931890368461608
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 8094,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 64180
+      },
+      "orthogonal_short": {
+        "accuracy": {
+          "mean": 0.5078125,
+          "seed_values": [
+            0.5234375,
+            0.5,
+            0.515625,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5171875
+          ]
+        },
+        "point_nll": {
+          "mean": 0.6931277394294739,
+          "seed_values": [
+            0.6931583881378174,
+            0.6932034492492676,
+            0.6929329633712769,
+            0.6931914687156677,
+            0.6931524276733398
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.6930285573005677,
+            0.693190848827362
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.4921875,
+          "seed_values": [
+            0.4765625,
+            0.5,
+            0.484375,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.4828125,
+            0.5
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4766,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37528
+      },
+      "orthogonal": {
+        "accuracy": {
+          "mean": 0.9,
+          "seed_values": [
+            1.0,
+            0.5,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.7,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 0.13866201584136206,
+          "seed_values": [
+            3.687709977384657e-05,
+            0.6932098269462585,
+            8.614717330601707e-07,
+            2.5995028408942744e-05,
+            3.651866063592024e-05
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.5196035121789464e-05,
+            0.4159383989055641
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.1,
+          "seed_values": [
+            0.0,
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.3
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4766,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 37528
+      },
+      "conditional": {
+        "accuracy": {
+          "mean": 1.0,
+          "seed_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.0,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 1.924516909639351e-05,
+          "seed_values": [
+            3.429676507948898e-05,
+            2.7324751499691047e-05,
+            1.6990414223982953e-05,
+            5.26659277966246e-06,
+            1.2347321899142116e-05
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.044364871631842e-05,
+            2.80466894764686e-05
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 7358,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 0,
+        "optimizer_tensor_bytes": 58272
+      },
+      "stateless_external": {
+        "accuracy": {
+          "mean": 0.6296875,
+          "seed_values": [
+            0.5703125,
+            0.5,
+            0.5078125,
+            0.7890625,
+            0.78125
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5187109375000001,
+            0.7421875
+          ]
+        },
+        "point_nll": {
+          "mean": 0.5403689742088318,
+          "seed_values": [
+            0.6927845478057861,
+            0.6931922435760498,
+            0.6938860416412354,
+            0.2929331958293915,
+            0.32904884219169617
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.3802081346511841,
+            0.6933882236480713
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.3703125,
+          "seed_values": [
+            0.4296875,
+            0.5,
+            0.4921875,
+            0.2109375,
+            0.21875
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.2578125,
+            0.4812890624999994
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 4814,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 3328,
+        "optimizer_tensor_bytes": 37912
+      },
+      "conditional_external": {
+        "accuracy": {
+          "mean": 1.0,
+          "seed_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.0,
+            1.0
+          ]
+        },
+        "point_nll": {
+          "mean": 2.2913128759682877e-05,
+          "seed_values": [
+            3.9714359445497394e-05,
+            4.07821016779053e-06,
+            1.5980242096702568e-05,
+            2.431860957585741e-05,
+            3.0474222512566485e-05
+          ],
+          "descriptive_seed_bootstrap_95": [
+            1.2174369931017282e-05,
+            3.3119508589152244e-05
+          ]
+        },
+        "swap_accuracy": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "reset_accuracy": {
+          "mean": 0.5,
+          "seed_values": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.5,
+            0.5
+          ]
+        },
+        "trainable_parameters": 7438,
+        "ring_state_bytes": 192,
+        "external_memory_bytes": 3328,
+        "optimizer_tensor_bytes": 58920
+      }
+    },
+    "paired_comparisons": {
+      "orthogonal_minus_orthogonal_short_accuracy": {
+        "mean": 0.3921875,
+        "seed_values": [
+          0.4765625,
+          0.0,
+          0.484375,
+          0.5,
+          0.5
+        ],
+        "descriptive_seed_bootstrap_95": [
+          0.1953125,
+          0.496875
+        ]
+      },
+      "orthogonal_minus_identity_accuracy": {
+        "mean": 0.03125,
+        "seed_values": [
+          0.0,
+          -0.0234375,
+          0.0,
+          0.1796875,
+          0.0
+        ],
+        "descriptive_seed_bootstrap_95": [
+          -0.0140625,
+          0.1078125
+        ]
+      },
+      "orthogonal_minus_shift_accuracy": {
+        "mean": 0.0,
+        "seed_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "descriptive_seed_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "conditional_minus_orthogonal_accuracy": {
+        "mean": 0.1,
+        "seed_values": [
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "descriptive_seed_bootstrap_95": [
+          0.0,
+          0.3
+        ]
+      },
+      "conditional_external_minus_conditional_accuracy": {
+        "mean": 0.0,
+        "seed_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "descriptive_seed_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "conditional_external_minus_stateless_external_accuracy": {
+        "mean": 0.3703125,
+        "seed_values": [
+          0.4296875,
+          0.5,
+          0.4921875,
+          0.2109375,
+          0.21875
+        ],
+        "descriptive_seed_bootstrap_95": [
+          0.2578125,
+          0.4812890624999994
+        ]
+      }
+    },
+    "runs": 55,
+    "task": "reachable history recall, not Go strength",
+    "test_pairs_per_seed": 64
+  },
+  "online": {
+    "methods": {
+      "frozen": {
+        "a_gain_after_a": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": 0.0,
+          "seed_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wins": 3,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 840,
+        "mean_online_step_ms": 5.924548569508921,
+        "trainable_parameters": 0,
+        "total_parameters": 5713,
+        "max_anchor_kl": 0,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 0,
+        "ogd_bytes": 0
+      },
+      "spatial": {
+        "a_gain_after_a": {
+          "mean": -0.1589846135250506,
+          "seed_values": [
+            -0.08314905677495199,
+            -0.2396236171698547,
+            -0.25034245233352226,
+            -0.16817488680438464,
+            -0.053633054542539416
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.2296214051622277,
+            -0.08834782188787349
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.15935441918377155,
+          "seed_values": [
+            0.4224032006655518,
+            -0.11668486119090749,
+            0.3232724657167254,
+            0.12373407947068849,
+            0.04404721125679956
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.004308244079505474,
+            0.3269058557940361
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": -0.09339277849867353,
+          "seed_values": [
+            -0.13489522049106495,
+            -0.1426974233424212,
+            -0.03391824032223667,
+            -0.2266526325741629,
+            0.07119962423651804
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.17471906646484664,
+            0.007396641808979254
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": -0.06559183502637707,
+          "seed_values": [
+            0.05174616371611296,
+            -0.0969261938274335,
+            -0.2164242120112856,
+            0.05847774576977827,
+            -0.12483267877905746
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.15588799508162393,
+            0.024704325028869788
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.2190698599371533,
+          "seed_values": [
+            0.5108700952988272,
+            -0.14278657642611559,
+            0.39378416222830626,
+            0.21286126336061884,
+            0.12062035522412984
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.01720895763481787,
+            0.4094029606697836
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.049225199696459346,
+          "seed_values": [
+            -0.06837649459249519,
+            0.011266754238636462,
+            -0.04134252078739212,
+            -0.07888253718455207,
+            -0.06879120015649384
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.07274479385491742,
+            -0.01728495905120696
+          ]
+        },
+        "wins": 17,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 13748,
+        "mean_online_step_ms": 12.004163867530753,
+        "trainable_parameters": 2140,
+        "total_parameters": 5713,
+        "max_anchor_kl": 0,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 0,
+        "ogd_bytes": 0
+      },
+      "film": {
+        "a_gain_after_a": {
+          "mean": 0.1790349852082727,
+          "seed_values": [
+            0.3816273068320395,
+            0.18731138434425998,
+            0.12815163260772056,
+            0.031003867831410847,
+            0.16708073442593263
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.08929252669719667,
+            0.2881240107555445
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": -0.03204047313451559,
+          "seed_values": [
+            -0.019094820270377788,
+            -0.05164350424107034,
+            -0.012293941076890968,
+            0.07696503514852271,
+            -0.15413513523276157
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.10011900924780806,
+            0.032031356186824
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": 0.0048990421579219404,
+          "seed_values": [
+            0.012120933970436454,
+            0.03890067412188114,
+            -0.03286659301617556,
+            -0.025040682330048636,
+            0.0313808780435163
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.02073872334440239,
+            0.030536807660246267
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.17413594305035077,
+          "seed_values": [
+            0.36950637286160304,
+            0.14841071022237884,
+            0.16101822562389612,
+            0.05604455016145948,
+            0.13569985638241633
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.09299101418582723,
+            0.27852593703792083
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": -0.013964648133649948,
+          "seed_values": [
+            0.03189984495528253,
+            -0.057049637903337835,
+            -0.007078522741794435,
+            0.12700458024262185,
+            -0.16459950522102185
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.10159111222933088,
+            0.07117278955596204
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.020016593958303974,
+          "seed_values": [
+            -0.049740170327465194,
+            -0.0005210899300389649,
+            -0.005739748477935791,
+            -0.0439270099694716,
+            -0.00015495108660831813
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.03873372217638123,
+            -0.0014183661022460713
+          ]
+        },
+        "wins": 14,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 13748,
+        "mean_online_step_ms": 12.605266364415774,
+        "trainable_parameters": 2232,
+        "total_parameters": 5305,
+        "max_anchor_kl": 0,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 0,
+        "ogd_bytes": 0
+      },
+      "identity": {
+        "a_gain_after_a": {
+          "mean": 0.14775543327317187,
+          "seed_values": [
+            0.2547844606015133,
+            0.22238171002876084,
+            0.07760100062175002,
+            0.05350368461222388,
+            0.13050631050161132
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.07854313619391182,
+            0.21696773035243191
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.028500013003708434,
+          "seed_values": [
+            -0.009962644553586308,
+            -0.03329810519497123,
+            0.044698272544292816,
+            0.12140247272576543,
+            0.019660069497041466
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.013372286000014721,
+            0.07978860923360057
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": -0.02136570101793036,
+          "seed_values": [
+            9.522033118014583e-05,
+            0.0512212327836703,
+            -0.08130860338739376,
+            -0.053506995454275286,
+            -0.023329359362833202
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.05906731704089898,
+            0.020050384645583154
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.16912113429110223,
+          "seed_values": [
+            0.25468924027033313,
+            0.17116047724509054,
+            0.15890960400914378,
+            0.10701068006649916,
+            0.15383566986444452
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.12920563746180652,
+            0.21536259893691753
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.06393861101427505,
+          "seed_values": [
+            0.13511913204402237,
+            -0.046928387675164496,
+            0.052751863350470884,
+            0.15992463840527504,
+            0.01882580894677144
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.000690658821263046,
+            0.12856788084981313
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.032787195595740726,
+          "seed_values": [
+            -0.13976811492041255,
+            0.00875461469222974,
+            -0.004146033047158049,
+            -0.03082526319804675,
+            0.0020488184946839683
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.08827499865341093,
+            0.0034921666653338736
+          ]
+        },
+        "wins": 13,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 13748,
+        "mean_online_step_ms": 12.682348113845986,
+        "trainable_parameters": 2594,
+        "total_parameters": 5713,
+        "max_anchor_kl": 0,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 0,
+        "ogd_bytes": 0
+      },
+      "orthogonal": {
+        "a_gain_after_a": {
+          "mean": 0.17854403467717925,
+          "seed_values": [
+            0.39633939811513597,
+            0.17022356757903845,
+            0.12738938433418912,
+            0.03666704934342602,
+            0.16210077401410672
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.08846509792468464,
+            0.2957422845065648
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": -0.0005135739072920753,
+          "seed_values": [
+            0.0027109479971145767,
+            -0.003496080733738971,
+            -0.04421065361411469,
+            0.09442690508888374,
+            -0.05199898827460503
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.03949933408816304,
+            0.04835620192993022
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": 0.00018279637976470475,
+          "seed_values": [
+            0.07386655379862828,
+            -0.010159542648277009,
+            -0.023950717006906874,
+            -0.036252654196384126,
+            -0.0025896580482367426
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.0270596675288592,
+            0.039011857268148244
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.17836123829741454,
+          "seed_values": [
+            0.3224728443165077,
+            0.18038311022731546,
+            0.151340101341096,
+            0.07291970353981014,
+            0.16469043206234346
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.11276653058181788,
+            0.25675656492419774
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.03078843709338086,
+          "seed_values": [
+            0.10692811142979997,
+            0.014052229676989603,
+            -0.034270399510860416,
+            0.11854748571751994,
+            -0.05131524184654479
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.03142381060756416,
+            0.09300068479432588
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.030197743413556865,
+          "seed_values": [
+            -0.10001210901844368,
+            -0.016088346962804922,
+            -0.012478771952935203,
+            -0.01841508306284001,
+            -0.0039944060707605145
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.06618603641422124,
+            -0.009085025600065327
+          ]
+        },
+        "wins": 16,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 13748,
+        "mean_online_step_ms": 15.859657519034702,
+        "trainable_parameters": 2626,
+        "total_parameters": 5745,
+        "max_anchor_kl": 0,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 0,
+        "ogd_bytes": 0
+      },
+      "orthogonal_ogd": {
+        "a_gain_after_a": {
+          "mean": 0.17854403504970834,
+          "seed_values": [
+            0.3963394004434424,
+            0.17022357308936376,
+            0.12738938712815684,
+            0.036667053689598106,
+            0.16210076089798053
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.08846509901122772,
+            0.2957422839322493
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.03517559184925294,
+          "seed_values": [
+            0.11227356466684468,
+            0.030502803430154657,
+            0.0035163114468255152,
+            0.04201179968920288,
+            -0.01242651998676303
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.0025364772700559256,
+            0.07646976102731248
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": -0.01875988319273647,
+          "seed_values": [
+            -0.027171011121633226,
+            -0.022595445906820943,
+            -0.026351732582649223,
+            -0.01778749597724527,
+            0.00010626962466631085
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.02592818666307717,
+            -0.008927939644975912
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.1973039182424448,
+          "seed_values": [
+            0.42351041156507563,
+            0.1928190189961847,
+            0.15374111971080606,
+            0.05445454966684338,
+            0.16199449127331422
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.10363543185400581,
+            0.31729463599368135
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.04275094980435621,
+          "seed_values": [
+            0.12444732176978679,
+            0.0451198789844478,
+            0.0043715224663416485,
+            0.05176004714573201,
+            -0.011944021344527211
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.005994976245615335,
+            0.0858947069842868
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.005250128816932634,
+          "seed_values": [
+            -0.007279764735296859,
+            -0.009929300902725813,
+            -0.000531373384558137,
+            -0.007257132128598215,
+            -0.001253072933484145
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.008335052680928712,
+            -0.0021617096182254695
+          ]
+        },
+        "wins": 12,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 140084,
+        "mean_online_step_ms": 46.597775633673514,
+        "trainable_parameters": 2626,
+        "total_parameters": 5745,
+        "max_anchor_kl": 0.10320200026035309,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 42304,
+        "ogd_bytes": 84032
+      },
+      "orthogonal_norm": {
+        "a_gain_after_a": {
+          "mean": 0.17854403467717925,
+          "seed_values": [
+            0.39633939811513597,
+            0.17022356757903845,
+            0.12738938433418912,
+            0.03666704934342602,
+            0.16210077401410672
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.08846509792468464,
+            0.2957422845065648
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.06216768474575311,
+          "seed_values": [
+            0.14518627809004836,
+            0.05914102388279785,
+            -0.003131044683633011,
+            0.1014411197029017,
+            0.008201046736650675
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.013856205597766635,
+            0.1104791638937396
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": -0.020515560656591925,
+          "seed_values": [
+            -0.0332450334681198,
+            0.0008391903441709037,
+            -0.017483891938657736,
+            -0.031423015117373554,
+            -0.021265053102979437
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.03012023005479323,
+            -0.009642270874852966
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.19905959533377118,
+          "seed_values": [
+            0.42958443158325577,
+            0.16938437723486754,
+            0.14487327627284685,
+            0.06809006446079957,
+            0.18336582711708616
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.10860778957042676,
+            0.32339847962794005
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.07412706279372014,
+          "seed_values": [
+            0.16049296613673714,
+            0.07902955420423252,
+            -0.001150251825650539,
+            0.12308384010861273,
+            0.009179205344668873
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.019017492248453838,
+            0.12923663333898644
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.007768735830211493,
+          "seed_values": [
+            -0.008995173352487978,
+            -0.01167768162566346,
+            -0.0020659838193728686,
+            -0.01571889771497187,
+            -0.0003859426385612874
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.012757666406751727,
+            -0.0027798052536712583
+          ]
+        },
+        "wins": 13,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 140084,
+        "mean_online_step_ms": 47.084661991845714,
+        "trainable_parameters": 2626,
+        "total_parameters": 5745,
+        "max_anchor_kl": 0.3163754642009735,
+        "anchor_backtracked_updates": 0,
+        "anchor_bytes": 42304,
+        "ogd_bytes": 84032
+      },
+      "orthogonal_guard": {
+        "a_gain_after_a": {
+          "mean": 0.17854403504970834,
+          "seed_values": [
+            0.3963394004434424,
+            0.17022357308936376,
+            0.12738938712815684,
+            0.036667053689598106,
+            0.16210076089798053
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.08846509901122772,
+            0.2957422839322493
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.035161940914733056,
+          "seed_values": [
+            0.06315486534927683,
+            0.035043475980108374,
+            -0.0059119602780284275,
+            0.03565787650485408,
+            0.04786544701745443
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.013157488537644646,
+            0.053981214350183396
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": -0.012377890481729992,
+          "seed_values": [
+            -0.02327936823712662,
+            -0.02487699917401187,
+            -0.00965450096555287,
+            -0.016113040990603622,
+            0.012034456958645023
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.02216562897519907,
+            0.0006339003346511162
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.19092192553143833,
+          "seed_values": [
+            0.419618768680569,
+            0.19510057226337563,
+            0.1370438880937097,
+            0.05278009468020173,
+            0.1500663039393355
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.10070143204866326,
+            0.3092584116941776
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.04061490911239622,
+          "seed_values": [
+            0.06877680541130515,
+            0.047742831912161776,
+            -0.007369852960109835,
+            0.044384077186120585,
+            0.049540684012503444
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.015034791408867144,
+            0.05969146506643956
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.0029626943956316846,
+          "seed_values": [
+            -0.0029172344823901603,
+            -0.007739065916507276,
+            0.0009119793956662292,
+            -0.006590080452475305,
+            0.0015209294775480886
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.006315105444071064,
+            0.0003897166528076951
+          ]
+        },
+        "wins": 13,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 140084,
+        "mean_online_step_ms": 80.74399370290237,
+        "trainable_parameters": 2626,
+        "total_parameters": 5745,
+        "max_anchor_kl": 0.009999959729611874,
+        "anchor_backtracked_updates": 53,
+        "anchor_bytes": 42304,
+        "ogd_bytes": 84032
+      },
+      "conditional_external_guard": {
+        "a_gain_after_a": {
+          "mean": 0.17972568940628358,
+          "seed_values": [
+            0.39361261384813884,
+            0.17961169565144997,
+            0.1275237719552631,
+            0.037338419375979814,
+            0.16054194620058615
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.09043377999599511,
+            0.2938760606873061
+          ]
+        },
+        "b_gain_during_b": {
+          "mean": 0.029078555645675096,
+          "seed_values": [
+            0.06102966358152684,
+            0.01904694668271323,
+            0.0029936891830997236,
+            0.04266200967650979,
+            0.0196604691045259
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.012748348167230361,
+            0.0463355404575132
+          ]
+        },
+        "a_forgetting_during_b": {
+          "mean": -0.00961863440170414,
+          "seed_values": [
+            -0.026540401566307992,
+            -6.757812419211362e-06,
+            -0.01606386779409741,
+            -0.017766771636767542,
+            0.012284626801071452
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.020935642840049694,
+            0.0038160701908055207
+          ]
+        },
+        "a_final_gain_from_initial": {
+          "mean": 0.1893443238079877,
+          "seed_values": [
+            0.42015301541444683,
+            0.17961845346386918,
+            0.1435876397493605,
+            0.05510519101274736,
+            0.1482573193995147
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.09863826918032519,
+            0.31048414947669356
+          ]
+        },
+        "b_point_gain_during_b": {
+          "mean": 0.03319101029306863,
+          "seed_values": [
+            0.06764286373093809,
+            0.024679081379503476,
+            0.0025324897964795756,
+            0.05082283688060363,
+            0.02027777967781841
+          ],
+          "descriptive_seed_bootstrap_95": [
+            0.01405992406561989,
+            0.05418684225067052
+          ]
+        },
+        "b_pass_gain_during_b": {
+          "mean": -0.0022792457252249904,
+          "seed_values": [
+            -0.003953072127331508,
+            -0.003068071294140523,
+            0.0006487866242726736,
+            -0.00571480951207208,
+            0.0006909376831464864
+          ],
+          "descriptive_seed_bootstrap_95": [
+            -0.00448076691458954,
+            -7.772453586044059e-05
+          ]
+        },
+        "wins": 13,
+        "terminated_matches": 40,
+        "matches": 40,
+        "peak_persistent_online_tensor_bytes": 714068,
+        "mean_online_step_ms": 91.98428833043688,
+        "trainable_parameters": 5298,
+        "total_parameters": 8337,
+        "max_anchor_kl": 0.009934866800904274,
+        "anchor_backtracked_updates": 51,
+        "anchor_bytes": 497504,
+        "ogd_bytes": 169536
+      }
+    },
+    "runs": 45,
+    "legally_replayed_games": 1080,
+    "initial_policy_match": true,
+    "paired_opening_match": true
+  },
+  "artifact_sha256": {
+    "analysis/results/go_memory_history_5seed.json": "a9d8d5a01b174f9202849150fc98d407cbea9dce3a0ac85b903af450def64610",
+    "analysis/results/go_memory_online_5seed.json": "52f9b9c37319fcdf9a221d6f8f7527c4c8bec6f141f79e23f7aff142a3e6c343"
+  },
+  "inference_limits": [
+    "five seeds; descriptive bootstrap intervals",
+    "heuristic teacher",
+    "no claim of equal parameter, compute or total memory budgets",
+    "no terminal-reward RL; online Go uses post-prediction teacher feedback",
+    "history data uses 64 explicitly reported replay epochs"
+  ]
+}

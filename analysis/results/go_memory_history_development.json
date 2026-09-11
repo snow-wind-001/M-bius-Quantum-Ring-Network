@@ -1,0 +1,297 @@
+{
+  "version": 2,
+  "config": {
+    "study": "history",
+    "methods": "stateless,identity,orthogonal_short,orthogonal,conditional_external",
+    "seeds": "7",
+    "size": 5,
+    "ring_dim": 16,
+    "latent_dim": 16,
+    "channels": 12,
+    "slots": 16,
+    "history_moves": 12,
+    "history_train_pairs": 64,
+    "history_test_pairs": 24,
+    "history_epochs": 4,
+    "warmup_games": 24,
+    "pretrain_epochs": 8,
+    "train_games": 8,
+    "test_games": 8,
+    "match_games": 8,
+    "max_game_moves": 100,
+    "window": 8,
+    "credit": 8,
+    "lr": 0.08,
+    "rank": 8,
+    "anchors": 8,
+    "refresh": 8,
+    "anchor_kl": 0.01,
+    "checkpoint_dir": "",
+    "output": "analysis/results/go_memory_history_development.json"
+  },
+  "runs": [
+    {
+      "method": "stateless",
+      "seed": 7,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8595816493034363
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8595816493034363
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8595816493034363
+        }
+      },
+      "updates": 32,
+      "credit_horizon": 32,
+      "training_replay_epochs": 4,
+      "prequential_point_nll": 2.197082109749317,
+      "seconds": 0.5079871929774527,
+      "trainable_parameters": 4542,
+      "total_parameters": 5521,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "train_trajectory_hash": "2be3b5c540acfd355f8c674e2cb22b0ff9464f6ea443ec2e551926ce108a32fa",
+      "test_trajectory_hash": "96226d191cbbff293791461f31b60f6a3ba4ee9715fb27a4724cd274d46ea046",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "identity",
+      "seed": 7,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8702322840690613
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 1.0097483396530151
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8704666495323181
+        }
+      },
+      "updates": 32,
+      "credit_horizon": 32,
+      "training_replay_epochs": 4,
+      "prequential_point_nll": 2.14339985139668,
+      "seconds": 0.5926791450183373,
+      "trainable_parameters": 4542,
+      "total_parameters": 5521,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "train_trajectory_hash": "2be3b5c540acfd355f8c674e2cb22b0ff9464f6ea443ec2e551926ce108a32fa",
+      "test_trajectory_hash": "96226d191cbbff293791461f31b60f6a3ba4ee9715fb27a4724cd274d46ea046",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "orthogonal_short",
+      "seed": 7,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8634420037269592
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 1.0166594982147217
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8635905385017395
+        }
+      },
+      "updates": 32,
+      "credit_horizon": 8,
+      "training_replay_epochs": 4,
+      "prequential_point_nll": 2.1475207060575485,
+      "seconds": 0.8442048690048978,
+      "trainable_parameters": 4574,
+      "total_parameters": 5553,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "train_trajectory_hash": "2be3b5c540acfd355f8c674e2cb22b0ff9464f6ea443ec2e551926ce108a32fa",
+      "test_trajectory_hash": "96226d191cbbff293791461f31b60f6a3ba4ee9715fb27a4724cd274d46ea046",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "orthogonal",
+      "seed": 7,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8709167838096619
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 1.027255892753601
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8711265921592712
+        }
+      },
+      "updates": 32,
+      "credit_horizon": 32,
+      "training_replay_epochs": 4,
+      "prequential_point_nll": 2.146626241505146,
+      "seconds": 1.1428426950005814,
+      "trainable_parameters": 4574,
+      "total_parameters": 5553,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 0,
+      "train_trajectory_hash": "2be3b5c540acfd355f8c674e2cb22b0ff9464f6ea443ec2e551926ce108a32fa",
+      "test_trajectory_hash": "96226d191cbbff293791461f31b60f6a3ba4ee9715fb27a4724cd274d46ea046",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    },
+    {
+      "method": "conditional_external",
+      "seed": 7,
+      "before": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.1666666716337204,
+          "point_nll": 3.2188758850097656
+        }
+      },
+      "after": {
+        "history": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.8682420253753662
+        },
+        "reset": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.9894353747367859
+        },
+        "swap": {
+          "pair_choice_accuracy": 0.5,
+          "full_action_accuracy": 0.5,
+          "point_nll": 0.86872798204422
+        }
+      },
+      "updates": 32,
+      "credit_horizon": 32,
+      "training_replay_epochs": 4,
+      "prequential_point_nll": 2.131018780171871,
+      "seconds": 1.5335418230097275,
+      "trainable_parameters": 7246,
+      "total_parameters": 8145,
+      "ring_state_bytes": 192,
+      "observation_memory_bytes": 3328,
+      "train_trajectory_hash": "2be3b5c540acfd355f8c674e2cb22b0ff9464f6ea443ec2e551926ce108a32fa",
+      "test_trajectory_hash": "96226d191cbbff293791461f31b60f6a3ba4ee9715fb27a4724cd274d46ea046",
+      "task": "legal_antipode_of_first_black_move; diagnostic, not optimal Go"
+    }
+  ],
+  "source_sha256": {
+    "mqr/agent.py": "0c3e24beae52e0444ba11625dc77134e1ae6e453e0fea78db665d26ff918c43d",
+    "mqr/go.py": "2804d89509d7da6b8b7bbb165ee545ca283307782753f94185623edd6ccf2387",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/go_memory.py": "67df10b995b1d39deb16e8a1a4355fec1a415a4f7ded1c241b27ceff35227e8f",
+    "mqr/go_protection.py": "0b1ce8f434dc9ffa774f7d07771cedbb91cbe630c520ff43c1a5a11a51f67a3e",
+    "mqr/go_history_tasks.py": "6c5db69f7eb04aea9d9ef7640089cc1ad04f50b26823a8cd009014fe68434efd",
+    "experiments/go_memory_research.py": "9db665817f83e4559f3bde1876619bdd63d2668a11f2abab510d218699e15781"
+  }
+}
