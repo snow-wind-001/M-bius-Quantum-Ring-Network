@@ -1,0 +1,41 @@
+{
+  "all_passed": true,
+  "commands": [
+    {
+      "check": "value",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "analysis/go11_value_verify.py",
+        "--workers",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 235.79191604501102,
+      "log_sha256": "eccb1474725a7ee913fc779df071bf77b048c230578e1f7ce21ece2767ff15c6"
+    },
+    {
+      "check": "decision",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "analysis/go11_decision_verify.py",
+        "--workers",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 2.141315184009727,
+      "log_sha256": "5d608064c549028c1f9183a6ef7bed48951cb4838e3a3f1349732c6bfae50a3f"
+    },
+    {
+      "check": "main",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "analysis/go11_verify.py",
+        "--workers",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 3.360109429981094,
+      "log_sha256": "6d8b29da70c6c94c30c5bb7f75b87c0ea0906a89b0262dc9fa28967908e8d2c4"
+    }
+  ]
+}

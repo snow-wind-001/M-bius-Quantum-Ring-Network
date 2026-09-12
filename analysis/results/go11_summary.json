@@ -1,0 +1,2626 @@
+{
+  "verified": true,
+  "implementation_commit": "1afa3de64f2be5333d79411491adf080dffd68ec",
+  "seeds": [
+    701,
+    709,
+    719,
+    727,
+    733
+  ],
+  "tables": {
+    "mixed_ogd3": {
+      "phases": {
+        "a": {
+          "games": 40,
+          "wins": 18,
+          "win_rate": 0.45,
+          "wins_per_seed": [
+            3,
+            3,
+            4,
+            4,
+            4
+          ],
+          "margin": -44.775,
+          "value_mse": 0.8545589108536911,
+          "prequential_color_prior_mse": 0.3448871882086168,
+          "black_winner_count": 2,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 18
+            },
+            "1": {
+              "games": 20,
+              "wins": 0
+            }
+          },
+          "plies_min_mean_max": [
+            76,
+            133.25,
+            198
+          ],
+          "observations": 5330,
+          "raw_legal": 0.9725667042465239,
+          "pass_fraction": 0.01503194287861706,
+          "noncapture_self_atari_fraction": 0.06829454406714994,
+          "captures": 18,
+          "nll": 1.5390168135094657,
+          "accepted_updates": 700,
+          "update_attempts": 700,
+          "guard_backtrack_fraction": 0.0,
+          "guard_step_scale": 1.0,
+          "seconds": 1403.5506071170093,
+          "ms_per_observation": 263.33032028461713,
+          "observation_peak_tensor_bytes": 698836,
+          "terminal_labels": 5330,
+          "replayed_positions": 5330,
+          "replayed_context": 0,
+          "network_evaluations": 82918,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.012180157005786896,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 18
+            }
+          }
+        },
+        "b": {
+          "games": 40,
+          "wins": 19,
+          "win_rate": 0.475,
+          "wins_per_seed": [
+            3,
+            4,
+            5,
+            5,
+            2
+          ],
+          "margin": -27.075,
+          "value_mse": 0.8117009790940916,
+          "prequential_color_prior_mse": 0.799788539969484,
+          "black_winner_count": 9,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 15
+            },
+            "1": {
+              "games": 20,
+              "wins": 4
+            }
+          },
+          "plies_min_mean_max": [
+            72,
+            118.675,
+            192
+          ],
+          "observations": 4267,
+          "raw_legal": 0.9615384615384616,
+          "pass_fraction": 0.019699812382739212,
+          "noncapture_self_atari_fraction": 0.049282296650717705,
+          "captures": 96,
+          "nll": 1.833471776172344,
+          "accepted_updates": 569,
+          "update_attempts": 570,
+          "guard_backtrack_fraction": 0.04035087719298246,
+          "guard_step_scale": 0.9639605605811403,
+          "seconds": 1128.652118323138,
+          "ms_per_observation": 264.50717560889103,
+          "observation_peak_tensor_bytes": 684180,
+          "terminal_labels": 4267,
+          "replayed_positions": 4267,
+          "replayed_context": 480,
+          "network_evaluations": 66522,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.05000007525086403,
+          "by_opening_length": {
+            "12": {
+              "games": 40,
+              "wins": 19
+            }
+          }
+        },
+        "return_a": {
+          "games": 40,
+          "wins": 21,
+          "win_rate": 0.525,
+          "wins_per_seed": [
+            7,
+            3,
+            1,
+            5,
+            5
+          ],
+          "margin": -32.7,
+          "value_mse": 0.7677379512976682,
+          "prequential_color_prior_mse": 0.7393748599061472,
+          "black_winner_count": 9,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 16
+            },
+            "1": {
+              "games": 20,
+              "wins": 5
+            }
+          },
+          "plies_min_mean_max": [
+            70,
+            131.4,
+            343
+          ],
+          "observations": 5256,
+          "raw_legal": 0.9786422578184591,
+          "pass_fraction": 0.015636918382913808,
+          "noncapture_self_atari_fraction": 0.05424254165052305,
+          "captures": 138,
+          "nll": 1.5109013119496868,
+          "accepted_updates": 670,
+          "update_attempts": 682,
+          "guard_backtrack_fraction": 0.11730205278592376,
+          "guard_step_scale": 0.8965817448680352,
+          "seconds": 1416.7966487747617,
+          "ms_per_observation": 269.55796209565483,
+          "observation_peak_tensor_bytes": 962124,
+          "terminal_labels": 5256,
+          "replayed_positions": 5256,
+          "replayed_context": 0,
+          "network_evaluations": 81367,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.05000009760260582,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 21
+            }
+          }
+        },
+        "search_eval": {
+          "games": 240,
+          "wins": 146,
+          "win_rate": 0.6083333333333334,
+          "wins_per_seed": [
+            33,
+            30,
+            31,
+            25,
+            27
+          ],
+          "margin": -26.22083333333334,
+          "value_mse": 0.7791492081407843,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 64,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 101
+            },
+            "1": {
+              "games": 120,
+              "wins": 45
+            }
+          },
+          "plies_min_mean_max": [
+            79,
+            126.40833333333333,
+            287
+          ],
+          "observations": 23298,
+          "raw_legal": 0.9629502278002235,
+          "pass_fraction": 0.02063096363792659,
+          "noncapture_self_atari_fraction": 0.06477661722110067,
+          "captures": 1129,
+          "nll": 1.9279829101338748,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 3535.3527007558732,
+          "ms_per_observation": 151.74490088230206,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 718743,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 53
+            },
+            "24": {
+              "games": 80,
+              "wins": 48
+            },
+            "60": {
+              "games": 80,
+              "wins": 45
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 50,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.576956485460202,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.5385108194003503,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.5772607671717802,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.8124468209328846,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4860618074735004,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.8553157621481997,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.5661189491550127,
+            "agreement": 0.45,
+            "value_mse": 0.7670549057689595,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.3802432477474214,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.8241644038206364,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.5783280496795973,
+            "agreement": 0.4166666666666667,
+            "value_mse": 0.7250726929464277,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.259293331578374,
+            "agreement": 0.35,
+            "value_mse": 0.8244073866658062,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.5720615610480306,
+            "agreement": 0.4166666666666667,
+            "value_mse": 0.7205390451735015,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4205717821915944,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.8059180606496262,
+            "prior_mse": 0.9062775365565944
+          }
+        }
+      },
+      "total_parameters": [
+        19919,
+        19919,
+        19919,
+        19919,
+        19919
+      ],
+      "trainable_parameters": [
+        14314,
+        14314,
+        14314,
+        14314,
+        14314
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "selfplay_ogd3": {
+      "phases": {
+        "a": {
+          "games": 40,
+          "wins": 18,
+          "win_rate": 0.45,
+          "wins_per_seed": [
+            3,
+            4,
+            3,
+            4,
+            4
+          ],
+          "margin": -4.075,
+          "value_mse": 0.9971508578380378,
+          "prequential_color_prior_mse": 1.362200680272109,
+          "black_winner_count": 14,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 12
+            },
+            "1": {
+              "games": 20,
+              "wins": 6
+            }
+          },
+          "plies_min_mean_max": [
+            78,
+            118.05,
+            238
+          ],
+          "observations": 4722,
+          "raw_legal": 0.9758576874205845,
+          "pass_fraction": 0.03324862346463363,
+          "noncapture_self_atari_fraction": 0.03921139101861994,
+          "captures": 789,
+          "nll": 1.708805697499796,
+          "accepted_updates": 630,
+          "update_attempts": 630,
+          "guard_backtrack_fraction": 0.0,
+          "guard_step_scale": 1.0,
+          "seconds": 1896.1666927410406,
+          "ms_per_observation": 401.56007893711154,
+          "observation_peak_tensor_bytes": 830488,
+          "terminal_labels": 4722,
+          "replayed_positions": 4722,
+          "replayed_context": 0,
+          "network_evaluations": 144604,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.01633954606950283,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 18
+            }
+          }
+        },
+        "b": {
+          "games": 40,
+          "wins": 21,
+          "win_rate": 0.525,
+          "wins_per_seed": [
+            5,
+            6,
+            2,
+            4,
+            4
+          ],
+          "margin": -0.3,
+          "value_mse": 0.960511781127386,
+          "prequential_color_prior_mse": 0.9183848294855205,
+          "black_winner_count": 13,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 14
+            },
+            "1": {
+              "games": 20,
+              "wins": 7
+            }
+          },
+          "plies_min_mean_max": [
+            74,
+            118.875,
+            250
+          ],
+          "observations": 4275,
+          "raw_legal": 0.9726315789473684,
+          "pass_fraction": 0.05403508771929825,
+          "noncapture_self_atari_fraction": 0.0390702274975272,
+          "captures": 785,
+          "nll": 1.9600340296972913,
+          "accepted_updates": 570,
+          "update_attempts": 570,
+          "guard_backtrack_fraction": 0.0,
+          "guard_step_scale": 1.0,
+          "seconds": 1792.7767075593001,
+          "ms_per_observation": 419.36297252849124,
+          "observation_peak_tensor_bytes": 845176,
+          "terminal_labels": 4275,
+          "replayed_positions": 4275,
+          "replayed_context": 480,
+          "network_evaluations": 130238,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0468367263674736,
+          "by_opening_length": {
+            "12": {
+              "games": 40,
+              "wins": 21
+            }
+          }
+        },
+        "return_a": {
+          "games": 40,
+          "wins": 22,
+          "win_rate": 0.55,
+          "wins_per_seed": [
+            4,
+            4,
+            4,
+            3,
+            7
+          ],
+          "margin": 1.6,
+          "value_mse": 0.9457809237551394,
+          "prequential_color_prior_mse": 0.9143350456354054,
+          "black_winner_count": 12,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 15
+            },
+            "1": {
+              "games": 20,
+              "wins": 7
+            }
+          },
+          "plies_min_mean_max": [
+            64,
+            107.075,
+            169
+          ],
+          "observations": 4283,
+          "raw_legal": 0.9787532103665655,
+          "pass_fraction": 0.04155965444781695,
+          "noncapture_self_atari_fraction": 0.03264311814859927,
+          "captures": 516,
+          "nll": 1.77543646196317,
+          "accepted_updates": 568,
+          "update_attempts": 568,
+          "guard_backtrack_fraction": 0.007042253521126761,
+          "guard_step_scale": 0.9964788732394366,
+          "seconds": 1720.9541408648656,
+          "ms_per_observation": 401.810446151031,
+          "observation_peak_tensor_bytes": 674892,
+          "terminal_labels": 4283,
+          "replayed_positions": 4283,
+          "replayed_context": 0,
+          "network_evaluations": 131842,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.04969079792499542,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 22
+            }
+          }
+        },
+        "search_eval": {
+          "games": 240,
+          "wins": 140,
+          "win_rate": 0.5833333333333334,
+          "wins_per_seed": [
+            25,
+            30,
+            31,
+            31,
+            23
+          ],
+          "margin": -29.025,
+          "value_mse": 0.8890587829756867,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 68,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 96
+            },
+            "1": {
+              "games": 120,
+              "wins": 44
+            }
+          },
+          "plies_min_mean_max": [
+            81,
+            125.32083333333334,
+            218
+          ],
+          "observations": 23037,
+          "raw_legal": 0.9627242640654938,
+          "pass_fraction": 0.020902281832433374,
+          "noncapture_self_atari_fraction": 0.06689201209749154,
+          "captures": 828,
+          "nll": 1.969611359432718,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 4971.450042469514,
+          "ms_per_observation": 215.80284075485153,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 706936,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 49
+            },
+            "24": {
+              "games": 80,
+              "wins": 46
+            },
+            "60": {
+              "games": 80,
+              "wins": 45
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 44,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.576956485460202,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.5385108194003503,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.6001695106426876,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.9303012227519762,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4870938581724964,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.9783775805086211,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.6044053805371128,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.8950030636091675,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4142499135186277,
+            "agreement": 0.33333333333333337,
+            "value_mse": 0.9452052682975773,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.5624148696660998,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.8413363827482605,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.312245478853584,
+            "agreement": 0.33333333333333337,
+            "value_mse": 0.9260045324753576,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.5787007309496404,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.8363717653622956,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4497785655160746,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.9207710829070599,
+            "prior_mse": 0.9062775365565944
+          }
+        }
+      },
+      "total_parameters": [
+        19919,
+        19919,
+        19919,
+        19919,
+        19919
+      ],
+      "trainable_parameters": [
+        14314,
+        14314,
+        14314,
+        14314,
+        14314
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "selfplay_cone3": {
+      "phases": {
+        "a": {
+          "games": 40,
+          "wins": 19,
+          "win_rate": 0.475,
+          "wins_per_seed": [
+            4,
+            4,
+            5,
+            2,
+            4
+          ],
+          "margin": -3.275,
+          "value_mse": 0.9978396631897919,
+          "prequential_color_prior_mse": 1.3547783446712018,
+          "black_winner_count": 15,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 12
+            },
+            "1": {
+              "games": 20,
+              "wins": 7
+            }
+          },
+          "plies_min_mean_max": [
+            72,
+            119.075,
+            226
+          ],
+          "observations": 4763,
+          "raw_legal": 0.9785849254671426,
+          "pass_fraction": 0.03170270837707327,
+          "noncapture_self_atari_fraction": 0.03577623590633131,
+          "captures": 864,
+          "nll": 1.7184121584996208,
+          "accepted_updates": 641,
+          "update_attempts": 642,
+          "guard_backtrack_fraction": 0.014018691588785047,
+          "guard_step_scale": 0.9908489096573209,
+          "seconds": 2086.0304128338466,
+          "ms_per_observation": 437.96565459455104,
+          "observation_peak_tensor_bytes": 1034252,
+          "terminal_labels": 4763,
+          "replayed_positions": 4763,
+          "replayed_context": 0,
+          "network_evaluations": 146589,
+          "qp_projected_steps": 642,
+          "qp_failure_count": 0,
+          "qp_active_fraction": 0.028037383177570093,
+          "qp_norm_retention": 0.9991631813324129,
+          "max_anchor_kl": 0.11653915047645569,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 19
+            }
+          }
+        },
+        "b": {
+          "games": 40,
+          "wins": 21,
+          "win_rate": 0.525,
+          "wins_per_seed": [
+            4,
+            6,
+            3,
+            4,
+            4
+          ],
+          "margin": 1.175,
+          "value_mse": 0.9707888428631222,
+          "prequential_color_prior_mse": 0.9427665833760781,
+          "black_winner_count": 13,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 14
+            },
+            "1": {
+              "games": 20,
+              "wins": 7
+            }
+          },
+          "plies_min_mean_max": [
+            77,
+            106.6,
+            163
+          ],
+          "observations": 3784,
+          "raw_legal": 0.9778012684989429,
+          "pass_fraction": 0.043076109936575055,
+          "noncapture_self_atari_fraction": 0.03949185307925987,
+          "captures": 413,
+          "nll": 2.0472834805404694,
+          "accepted_updates": 510,
+          "update_attempts": 510,
+          "guard_backtrack_fraction": 0.0392156862745098,
+          "guard_step_scale": 0.9786764705882353,
+          "seconds": 1635.0813832145068,
+          "ms_per_observation": 432.103959623284,
+          "observation_peak_tensor_bytes": 886060,
+          "terminal_labels": 3784,
+          "replayed_positions": 3784,
+          "replayed_context": 480,
+          "network_evaluations": 115585,
+          "qp_projected_steps": 510,
+          "qp_failure_count": 0,
+          "qp_active_fraction": 0.11568627450980393,
+          "qp_norm_retention": 0.9954058753509147,
+          "max_anchor_kl": 0.15283478796482086,
+          "by_opening_length": {
+            "12": {
+              "games": 40,
+              "wins": 21
+            }
+          }
+        },
+        "return_a": {
+          "games": 40,
+          "wins": 20,
+          "win_rate": 0.5,
+          "wins_per_seed": [
+            4,
+            4,
+            4,
+            5,
+            3
+          ],
+          "margin": -4.875,
+          "value_mse": 0.962626384109055,
+          "prequential_color_prior_mse": 0.9201992474796968,
+          "black_winner_count": 12,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 14
+            },
+            "1": {
+              "games": 20,
+              "wins": 6
+            }
+          },
+          "plies_min_mean_max": [
+            74,
+            114.2,
+            266
+          ],
+          "observations": 4568,
+          "raw_legal": 0.976138353765324,
+          "pass_fraction": 0.049912434325744305,
+          "noncapture_self_atari_fraction": 0.037557603686635944,
+          "captures": 658,
+          "nll": 1.626684741729413,
+          "accepted_updates": 610,
+          "update_attempts": 610,
+          "guard_backtrack_fraction": 0.04590163934426229,
+          "guard_step_scale": 0.9764344262295082,
+          "seconds": 1880.5710796114,
+          "ms_per_observation": 411.6836864298161,
+          "observation_peak_tensor_bytes": 1099404,
+          "terminal_labels": 4568,
+          "replayed_positions": 4568,
+          "replayed_context": 0,
+          "network_evaluations": 139576,
+          "qp_projected_steps": 610,
+          "qp_failure_count": 0,
+          "qp_active_fraction": 0.21311475409836064,
+          "qp_norm_retention": 0.990494800591078,
+          "max_anchor_kl": 0.1839880645275116,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 20
+            }
+          }
+        },
+        "search_eval": {
+          "games": 240,
+          "wins": 149,
+          "win_rate": 0.6208333333333333,
+          "wins_per_seed": [
+            27,
+            34,
+            37,
+            18,
+            33
+          ],
+          "margin": -27.179166666666667,
+          "value_mse": 0.9018640397952746,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 77,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 96
+            },
+            "1": {
+              "games": 120,
+              "wins": 53
+            }
+          },
+          "plies_min_mean_max": [
+            81,
+            125.32083333333334,
+            266
+          ],
+          "observations": 23037,
+          "raw_legal": 0.9566277651977008,
+          "pass_fraction": 0.020902281832433374,
+          "noncapture_self_atari_fraction": 0.07276285358477139,
+          "captures": 1108,
+          "nll": 1.9815775403501923,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 4496.589782738243,
+          "ms_per_observation": 195.18990244989553,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 710622,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 54
+            },
+            "24": {
+              "games": 80,
+              "wins": 50
+            },
+            "60": {
+              "games": 80,
+              "wins": 45
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 49,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.576956485460202,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.5385108194003503,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.6167009132603802,
+            "agreement": 0.45,
+            "value_mse": 0.9675179567556986,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4877596934636435,
+            "agreement": 0.33333333333333337,
+            "value_mse": 0.9855259898594244,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.6350524711112182,
+            "agreement": 0.45,
+            "value_mse": 0.9665136257198995,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.428662221133709,
+            "agreement": 0.33333333333333337,
+            "value_mse": 0.9433210026095077,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.6055167833964028,
+            "agreement": 0.45,
+            "value_mse": 0.8901104063819713,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.3357701865335305,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.9103862773065862,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.5809361574550471,
+            "agreement": 0.45,
+            "value_mse": 0.8893514145623103,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4480658200879892,
+            "agreement": 0.35,
+            "value_mse": 0.9029715541284654,
+            "prior_mse": 0.9062775365565944
+          }
+        }
+      },
+      "total_parameters": [
+        19919,
+        19919,
+        19919,
+        19919,
+        19919
+      ],
+      "trainable_parameters": [
+        14314,
+        14314,
+        14314,
+        14314,
+        14314
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "selfplay_cone6": {
+      "phases": {
+        "a": {
+          "games": 40,
+          "wins": 14,
+          "win_rate": 0.35,
+          "wins_per_seed": [
+            5,
+            2,
+            3,
+            3,
+            1
+          ],
+          "margin": -11.35,
+          "value_mse": 0.997538142152201,
+          "prequential_color_prior_mse": 1.3729387755102043,
+          "black_winner_count": 18,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 8
+            },
+            "1": {
+              "games": 20,
+              "wins": 6
+            }
+          },
+          "plies_min_mean_max": [
+            73,
+            124.875,
+            275
+          ],
+          "observations": 4995,
+          "raw_legal": 0.9725725725725726,
+          "pass_fraction": 0.02982982982982983,
+          "noncapture_self_atari_fraction": 0.03838217086256707,
+          "captures": 1112,
+          "nll": 1.8070295833693995,
+          "accepted_updates": 676,
+          "update_attempts": 676,
+          "guard_backtrack_fraction": 0.0029585798816568047,
+          "guard_step_scale": 0.9985207100591716,
+          "seconds": 2691.436981692823,
+          "ms_per_observation": 538.8262225611256,
+          "observation_peak_tensor_bytes": 1661516,
+          "terminal_labels": 4995,
+          "replayed_positions": 4995,
+          "replayed_context": 0,
+          "network_evaluations": 153535,
+          "qp_projected_steps": 676,
+          "qp_failure_count": 0,
+          "qp_active_fraction": 0.0073964497041420114,
+          "qp_norm_retention": 0.9998246839589621,
+          "max_anchor_kl": 0.1098659336566925,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 14
+            }
+          }
+        },
+        "b": {
+          "games": 40,
+          "wins": 26,
+          "win_rate": 0.65,
+          "wins_per_seed": [
+            6,
+            6,
+            4,
+            4,
+            6
+          ],
+          "margin": 3.425,
+          "value_mse": 0.9858445239613634,
+          "prequential_color_prior_mse": 1.0357381969358328,
+          "black_winner_count": 12,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 17
+            },
+            "1": {
+              "games": 20,
+              "wins": 9
+            }
+          },
+          "plies_min_mean_max": [
+            71,
+            112.65,
+            181
+          ],
+          "observations": 4026,
+          "raw_legal": 0.9736711376055638,
+          "pass_fraction": 0.045454545454545456,
+          "noncapture_self_atari_fraction": 0.045797553994275306,
+          "captures": 677,
+          "nll": 2.1287835933350423,
+          "accepted_updates": 537,
+          "update_attempts": 538,
+          "guard_backtrack_fraction": 0.07063197026022305,
+          "guard_step_scale": 0.9606216600836431,
+          "seconds": 2217.9840473182558,
+          "ms_per_observation": 550.9150639141221,
+          "observation_peak_tensor_bytes": 1448172,
+          "terminal_labels": 4026,
+          "replayed_positions": 4026,
+          "replayed_context": 480,
+          "network_evaluations": 123267,
+          "qp_projected_steps": 538,
+          "qp_failure_count": 0,
+          "qp_active_fraction": 0.20260223048327136,
+          "qp_norm_retention": 0.9908769969381808,
+          "max_anchor_kl": 0.1479053646326065,
+          "by_opening_length": {
+            "12": {
+              "games": 40,
+              "wins": 26
+            }
+          }
+        },
+        "return_a": {
+          "games": 40,
+          "wins": 15,
+          "win_rate": 0.375,
+          "wins_per_seed": [
+            4,
+            2,
+            2,
+            4,
+            3
+          ],
+          "margin": -3.925,
+          "value_mse": 0.9862844862380571,
+          "prequential_color_prior_mse": 0.9856286627295955,
+          "black_winner_count": 15,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 10
+            },
+            "1": {
+              "games": 20,
+              "wins": 5
+            }
+          },
+          "plies_min_mean_max": [
+            70,
+            111.15,
+            241
+          ],
+          "observations": 4446,
+          "raw_legal": 0.9739091318038686,
+          "pass_fraction": 0.04430949167791273,
+          "noncapture_self_atari_fraction": 0.03600847258178395,
+          "captures": 680,
+          "nll": 1.6449185296258622,
+          "accepted_updates": 592,
+          "update_attempts": 592,
+          "guard_backtrack_fraction": 0.033783783783783786,
+          "guard_step_scale": 0.9822635135135135,
+          "seconds": 2442.5214150986867,
+          "ms_per_observation": 549.3750371342076,
+          "observation_peak_tensor_bytes": 1596364,
+          "terminal_labels": 4446,
+          "replayed_positions": 4446,
+          "replayed_context": 0,
+          "network_evaluations": 136752,
+          "qp_projected_steps": 592,
+          "qp_failure_count": 0,
+          "qp_active_fraction": 0.12837837837837837,
+          "qp_norm_retention": 0.9933244773262256,
+          "max_anchor_kl": 0.19425365328788757,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 15
+            }
+          }
+        },
+        "search_eval": {
+          "games": 240,
+          "wins": 149,
+          "win_rate": 0.6208333333333333,
+          "wins_per_seed": [
+            30,
+            27,
+            33,
+            31,
+            28
+          ],
+          "margin": -23.525,
+          "value_mse": 0.9304091934052205,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 83,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 93
+            },
+            "1": {
+              "games": 120,
+              "wins": 56
+            }
+          },
+          "plies_min_mean_max": [
+            81,
+            122.64583333333333,
+            210
+          ],
+          "observations": 22395,
+          "raw_legal": 0.9621897679419407,
+          "pass_fraction": 0.021503449511692502,
+          "noncapture_self_atari_fraction": 0.06134969325153374,
+          "captures": 1131,
+          "nll": 1.964572921374545,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 5725.830066791474,
+          "ms_per_observation": 255.67448389334555,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 689550,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 52
+            },
+            "24": {
+              "games": 80,
+              "wins": 53
+            },
+            "60": {
+              "games": 80,
+              "wins": 44
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 45,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        },
+        "budget16_eval": {
+          "games": 240,
+          "wins": 123,
+          "win_rate": 0.5125,
+          "wins_per_seed": [
+            25,
+            25,
+            27,
+            23,
+            23
+          ],
+          "margin": -33.108333333333334,
+          "value_mse": 0.9144311507976818,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 71,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 86
+            },
+            "1": {
+              "games": 120,
+              "wins": 37
+            }
+          },
+          "plies_min_mean_max": [
+            83,
+            130.99583333333334,
+            210
+          ],
+          "observations": 24399,
+          "raw_legal": 0.9557340765636527,
+          "pass_fraction": 0.019673743749487663,
+          "noncapture_self_atari_fraction": 0.0707417008111046,
+          "captures": 809,
+          "nll": 1.9963900078553478,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 2331.5780027073342,
+          "ms_per_observation": 95.56039193029773,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 189840,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 42
+            },
+            "24": {
+              "games": 80,
+              "wins": 43
+            },
+            "60": {
+              "games": 80,
+              "wins": 38
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 33,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.5780195862054824,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.538879418869813,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.5960676625370978,
+            "agreement": 0.45,
+            "value_mse": 0.9891589198917832,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4258060492575173,
+            "agreement": 0.33333333333333337,
+            "value_mse": 1.0171202062755413,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.5976622852186364,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.9402336144213723,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.3551050109167893,
+            "agreement": 0.33333333333333337,
+            "value_mse": 0.9390450541651744,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.6027049432198204,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.9298622976141271,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.324185117830833,
+            "agreement": 0.33333333333333337,
+            "value_mse": 0.9367747637862418,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.5730015394588313,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.9269597401323549,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4406273879110816,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.9306537347751818,
+            "prior_mse": 0.9062775365565944
+          }
+        }
+      },
+      "total_parameters": [
+        36191,
+        36191,
+        36191,
+        36191,
+        36191
+      ],
+      "trainable_parameters": [
+        30586,
+        30586,
+        30586,
+        30586,
+        30586
+      ],
+      "anchor_counts": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "selfplay_free6": {
+      "phases": {
+        "a": {
+          "games": 40,
+          "wins": 14,
+          "win_rate": 0.35,
+          "wins_per_seed": [
+            5,
+            2,
+            3,
+            3,
+            1
+          ],
+          "margin": -11.1,
+          "value_mse": 0.9958603029880851,
+          "prequential_color_prior_mse": 1.3729387755102043,
+          "black_winner_count": 18,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 8
+            },
+            "1": {
+              "games": 20,
+              "wins": 6
+            }
+          },
+          "plies_min_mean_max": [
+            73,
+            121.625,
+            275
+          ],
+          "observations": 4865,
+          "raw_legal": 0.9724563206577596,
+          "pass_fraction": 0.03001027749229188,
+          "noncapture_self_atari_fraction": 0.03899131171858444,
+          "captures": 1011,
+          "nll": 1.8470590986226727,
+          "accepted_updates": 658,
+          "update_attempts": 658,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 2010.0314623527229,
+          "ms_per_observation": 413.1616572153593,
+          "observation_peak_tensor_bytes": 641948,
+          "terminal_labels": 4865,
+          "replayed_positions": 4865,
+          "replayed_context": 0,
+          "network_evaluations": 149613,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 14
+            }
+          }
+        },
+        "b": {
+          "games": 40,
+          "wins": 24,
+          "win_rate": 0.6,
+          "wins_per_seed": [
+            4,
+            6,
+            3,
+            5,
+            6
+          ],
+          "margin": 5.75,
+          "value_mse": 0.9942979147378204,
+          "prequential_color_prior_mse": 1.1039126235747947,
+          "black_winner_count": 14,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 15
+            },
+            "1": {
+              "games": 20,
+              "wins": 9
+            }
+          },
+          "plies_min_mean_max": [
+            71,
+            118.9,
+            182
+          ],
+          "observations": 4276,
+          "raw_legal": 0.9766136576239476,
+          "pass_fraction": 0.05215154349859682,
+          "noncapture_self_atari_fraction": 0.043671354552183565,
+          "captures": 802,
+          "nll": 2.0034207511822615,
+          "accepted_updates": 570,
+          "update_attempts": 570,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 1651.6173303821997,
+          "ms_per_observation": 386.2528836253975,
+          "observation_peak_tensor_bytes": 428604,
+          "terminal_labels": 4276,
+          "replayed_positions": 4276,
+          "replayed_context": 480,
+          "network_evaluations": 130389,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "12": {
+              "games": 40,
+              "wins": 24
+            }
+          }
+        },
+        "return_a": {
+          "games": 40,
+          "wins": 19,
+          "win_rate": 0.475,
+          "wins_per_seed": [
+            7,
+            2,
+            2,
+            4,
+            4
+          ],
+          "margin": -0.3,
+          "value_mse": 0.9885893133285585,
+          "prequential_color_prior_mse": 1.0166013666537421,
+          "black_winner_count": 17,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 11
+            },
+            "1": {
+              "games": 20,
+              "wins": 8
+            }
+          },
+          "plies_min_mean_max": [
+            64,
+            111.05,
+            177
+          ],
+          "observations": 4442,
+          "raw_legal": 0.9810895992796038,
+          "pass_fraction": 0.048626744709590275,
+          "noncapture_self_atari_fraction": 0.03738760056791292,
+          "captures": 551,
+          "nll": 1.6461210471811927,
+          "accepted_updates": 590,
+          "update_attempts": 590,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 1602.461718220031,
+          "ms_per_observation": 360.75230036470754,
+          "observation_peak_tensor_bytes": 446492,
+          "terminal_labels": 4442,
+          "replayed_positions": 4442,
+          "replayed_context": 0,
+          "network_evaluations": 136347,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 19
+            }
+          }
+        },
+        "search_eval": {
+          "games": 240,
+          "wins": 147,
+          "win_rate": 0.6124999999999999,
+          "wins_per_seed": [
+            32,
+            27,
+            33,
+            29,
+            26
+          ],
+          "margin": -25.1125,
+          "value_mse": 0.9248605730261747,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 73,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 97
+            },
+            "1": {
+              "games": 120,
+              "wins": 50
+            }
+          },
+          "plies_min_mean_max": [
+            82,
+            124.73333333333333,
+            210
+          ],
+          "observations": 22896,
+          "raw_legal": 0.9625996321275291,
+          "pass_fraction": 0.021021284050100727,
+          "noncapture_self_atari_fraction": 0.0633443678983627,
+          "captures": 1127,
+          "nll": 2.002071390719905,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 5883.763277282647,
+          "ms_per_observation": 256.9777811531555,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 705931,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 53
+            },
+            "24": {
+              "games": 80,
+              "wins": 49
+            },
+            "60": {
+              "games": 80,
+              "wins": 45
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 43,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.5780195862054824,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.538879418869813,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.5934611278275648,
+            "agreement": 0.45,
+            "value_mse": 0.9828172676487668,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.416882577414314,
+            "agreement": 0.33333333333333337,
+            "value_mse": 1.0092754490377618,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.603066937873761,
+            "agreement": 0.4,
+            "value_mse": 0.9310387939898931,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.3582813224444785,
+            "agreement": 0.35,
+            "value_mse": 0.9559571571728617,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.5936793764432273,
+            "agreement": 0.4166666666666667,
+            "value_mse": 0.9583557223028698,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.310269869615634,
+            "agreement": 0.35,
+            "value_mse": 0.9448925917647422,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.567599903047085,
+            "agreement": 0.4333333333333334,
+            "value_mse": 0.9542737917099628,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.4361678715795274,
+            "agreement": 0.3166666666666667,
+            "value_mse": 0.9402057201543161,
+            "prior_mse": 0.9062775365565944
+          }
+        }
+      },
+      "total_parameters": [
+        36191,
+        36191,
+        36191,
+        36191,
+        36191
+      ],
+      "trainable_parameters": [
+        30586,
+        30586,
+        30586,
+        30586,
+        30586
+      ],
+      "anchor_counts": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "frozen6": {
+      "phases": {
+        "a": {
+          "games": 40,
+          "wins": 17,
+          "win_rate": 0.425,
+          "wins_per_seed": [
+            4,
+            4,
+            3,
+            3,
+            3
+          ],
+          "margin": -3.85,
+          "value_mse": 1.0,
+          "prequential_color_prior_mse": 1.1099325396825397,
+          "black_winner_count": 13,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 12
+            },
+            "1": {
+              "games": 20,
+              "wins": 5
+            }
+          },
+          "plies_min_mean_max": [
+            53,
+            115.425,
+            290
+          ],
+          "observations": 4617,
+          "raw_legal": 0.9718431882174572,
+          "pass_fraction": 0.024474767164825644,
+          "noncapture_self_atari_fraction": 0.04262877442273535,
+          "captures": 785,
+          "nll": 1.8771592036078684,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 1231.972953229677,
+          "ms_per_observation": 266.8340812713184,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 142109,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 17
+            }
+          }
+        },
+        "b": {
+          "games": 40,
+          "wins": 17,
+          "win_rate": 0.425,
+          "wins_per_seed": [
+            3,
+            5,
+            1,
+            4,
+            4
+          ],
+          "margin": -5.0,
+          "value_mse": 1.0,
+          "prequential_color_prior_mse": 1.130087567156977,
+          "black_winner_count": 17,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 10
+            },
+            "1": {
+              "games": 20,
+              "wins": 7
+            }
+          },
+          "plies_min_mean_max": [
+            94,
+            126.6,
+            238
+          ],
+          "observations": 4584,
+          "raw_legal": 0.9722949389179756,
+          "pass_fraction": 0.029668411867364748,
+          "noncapture_self_atari_fraction": 0.0397931654676259,
+          "captures": 1120,
+          "nll": 2.1582618807535434,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 1212.586408620933,
+          "ms_per_observation": 264.5258308509889,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 140118,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "12": {
+              "games": 40,
+              "wins": 17
+            }
+          }
+        },
+        "return_a": {
+          "games": 40,
+          "wins": 22,
+          "win_rate": 0.55,
+          "wins_per_seed": [
+            5,
+            5,
+            3,
+            5,
+            4
+          ],
+          "margin": 0.425,
+          "value_mse": 1.0,
+          "prequential_color_prior_mse": 1.0093070914724234,
+          "black_winner_count": 16,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 20,
+              "wins": 13
+            },
+            "1": {
+              "games": 20,
+              "wins": 9
+            }
+          },
+          "plies_min_mean_max": [
+            76,
+            122.725,
+            220
+          ],
+          "observations": 4909,
+          "raw_legal": 0.9775921776329192,
+          "pass_fraction": 0.026685679364432675,
+          "noncapture_self_atari_fraction": 0.034114692339891166,
+          "captures": 1002,
+          "nll": 1.7161816597266784,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 1381.7844146855932,
+          "ms_per_observation": 281.47981558068716,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 150784,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "0": {
+              "games": 40,
+              "wins": 22
+            }
+          }
+        },
+        "search_eval": {
+          "games": 240,
+          "wins": 112,
+          "win_rate": 0.4666666666666667,
+          "wins_per_seed": [
+            17,
+            22,
+            19,
+            29,
+            25
+          ],
+          "margin": -45.81249999999999,
+          "value_mse": 1.0,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 68,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 82
+            },
+            "1": {
+              "games": 120,
+              "wins": 30
+            }
+          },
+          "plies_min_mean_max": [
+            87,
+            138.79166666666666,
+            199
+          ],
+          "observations": 26270,
+          "raw_legal": 0.9419438510833079,
+          "pass_fraction": 0.0183094293561184,
+          "noncapture_self_atari_fraction": 0.0917003419334784,
+          "captures": 817,
+          "nll": 2.188661612654222,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 7324.815979256586,
+          "ms_per_observation": 278.8281682244608,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 805382,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 39
+            },
+            "24": {
+              "games": 80,
+              "wins": 38
+            },
+            "60": {
+              "games": 80,
+              "wins": 35
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 40,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        },
+        "budget16_eval": {
+          "games": 240,
+          "wins": 91,
+          "win_rate": 0.3791666666666667,
+          "wins_per_seed": [
+            14,
+            18,
+            14,
+            27,
+            18
+          ],
+          "margin": -53.09583333333334,
+          "value_mse": 1.0,
+          "prequential_color_prior_mse": null,
+          "black_winner_count": 79,
+          "wins_by_student_color": {
+            "-1": {
+              "games": 120,
+              "wins": 66
+            },
+            "1": {
+              "games": 120,
+              "wins": 25
+            }
+          },
+          "plies_min_mean_max": [
+            87,
+            143.46666666666667,
+            204
+          ],
+          "observations": 27392,
+          "raw_legal": 0.9446677874424384,
+          "pass_fraction": 0.01761567136905197,
+          "noncapture_self_atari_fraction": 0.09047619047619047,
+          "captures": 718,
+          "nll": 2.154093890836118,
+          "accepted_updates": 0,
+          "update_attempts": 0,
+          "guard_backtrack_fraction": null,
+          "guard_step_scale": null,
+          "seconds": 2545.7522854410636,
+          "ms_per_observation": 92.93780247667434,
+          "observation_peak_tensor_bytes": 0,
+          "terminal_labels": 0,
+          "replayed_positions": 0,
+          "replayed_context": 0,
+          "network_evaluations": 212948,
+          "qp_projected_steps": 0,
+          "qp_failure_count": 0,
+          "qp_active_fraction": null,
+          "qp_norm_retention": null,
+          "max_anchor_kl": 0.0,
+          "by_opening_length": {
+            "4": {
+              "games": 80,
+              "wins": 32
+            },
+            "24": {
+              "games": 80,
+              "wins": 33
+            },
+            "60": {
+              "games": 80,
+              "wins": 26
+            }
+          },
+          "external_match_role_diagnostic": {
+            "paired_openings": 120,
+            "opposite_winner_pairs": 53,
+            "scope": "external matches only; these mixed-policy labels do not supervise the shared-policy value"
+          }
+        }
+      },
+      "probes": {
+        "before": {
+          "a": {
+            "nll": 1.5780195862054824,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.538879418869813,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_a": {
+          "a": {
+            "nll": 1.5780195862054824,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.538879418869813,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_b": {
+          "a": {
+            "nll": 1.5780195862054824,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.538879418869813,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "after_return_a": {
+          "a": {
+            "nll": 1.5780195862054824,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.538879418869813,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        },
+        "reset_history": {
+          "a": {
+            "nll": 1.577811414003372,
+            "agreement": 0.4166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.3771141741011402
+          },
+          "b": {
+            "nll": 2.5386024513592322,
+            "agreement": 0.3166666666666667,
+            "value_mse": 1.0,
+            "prior_mse": 0.9062775365565944
+          }
+        }
+      },
+      "total_parameters": [
+        36191,
+        36191,
+        36191,
+        36191,
+        36191
+      ],
+      "trainable_parameters": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "anchor_counts": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "contrasts": {
+    "selfplay_ogd3_minus_mixed_ogd3": {
+      "mean": -0.024999999999999998,
+      "interval95": [
+        -0.10833333333333332,
+        0.058333333333333334
+      ],
+      "per_seed": [
+        -0.16666666666666666,
+        0.0,
+        0.0,
+        0.125,
+        -0.08333333333333333
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "selfplay_cone3_minus_selfplay_ogd3": {
+      "mean": 0.037500000000000006,
+      "interval95": [
+        -0.12916666666666665,
+        0.15833333333333335
+      ],
+      "per_seed": [
+        0.041666666666666664,
+        0.08333333333333333,
+        0.125,
+        -0.2708333333333333,
+        0.20833333333333334
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "selfplay_cone6_minus_selfplay_cone3": {
+      "mean": -8.326672684688674e-18,
+      "interval95": [
+        -0.11666666666666667,
+        0.14583333333333331
+      ],
+      "per_seed": [
+        0.0625,
+        -0.14583333333333334,
+        -0.08333333333333333,
+        0.2708333333333333,
+        -0.10416666666666667
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "selfplay_cone6_minus_frozen6": {
+      "mean": 0.15416666666666667,
+      "interval95": [
+        0.0625,
+        0.24583333333333335
+      ],
+      "per_seed": [
+        0.2708333333333333,
+        0.10416666666666667,
+        0.2916666666666667,
+        0.041666666666666664,
+        0.0625
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "selfplay_cone6_minus_selfplay_free6": {
+      "mean": 0.008333333333333333,
+      "interval95": [
+        -0.016666666666666666,
+        0.03333333333333333
+      ],
+      "per_seed": [
+        -0.041666666666666664,
+        0.0,
+        0.0,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "selfplay_cone6_64_minus_16": {
+      "mean": 0.10833333333333332,
+      "interval95": [
+        0.07083333333333333,
+        0.14166666666666666
+      ],
+      "per_seed": [
+        0.10416666666666667,
+        0.041666666666666664,
+        0.125,
+        0.16666666666666666,
+        0.10416666666666667
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    },
+    "frozen6_64_minus_16": {
+      "mean": 0.0875,
+      "interval95": [
+        0.05833333333333333,
+        0.12083333333333335
+      ],
+      "per_seed": [
+        0.0625,
+        0.08333333333333333,
+        0.10416666666666667,
+        0.041666666666666664,
+        0.14583333333333334
+      ],
+      "unit": "fraction",
+      "method": "descriptive paired seed bootstrap"
+    }
+  },
+  "audits": [
+    {
+      "method": "mixed_ogd3",
+      "seed": 701,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 137
+    },
+    {
+      "method": "mixed_ogd3",
+      "seed": 709,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 142
+    },
+    {
+      "method": "mixed_ogd3",
+      "seed": 719,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 123
+    },
+    {
+      "method": "mixed_ogd3",
+      "seed": 727,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 142
+    },
+    {
+      "method": "mixed_ogd3",
+      "seed": 733,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 113
+    },
+    {
+      "method": "selfplay_ogd3",
+      "seed": 701,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 182
+    },
+    {
+      "method": "selfplay_ogd3",
+      "seed": 709,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 136
+    },
+    {
+      "method": "selfplay_ogd3",
+      "seed": 719,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 134
+    },
+    {
+      "method": "selfplay_ogd3",
+      "seed": 727,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 124
+    },
+    {
+      "method": "selfplay_ogd3",
+      "seed": 733,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 131
+    },
+    {
+      "method": "selfplay_cone3",
+      "seed": 701,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 139
+    },
+    {
+      "method": "selfplay_cone3",
+      "seed": 709,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 111
+    },
+    {
+      "method": "selfplay_cone3",
+      "seed": 719,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 132
+    },
+    {
+      "method": "selfplay_cone3",
+      "seed": 727,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 132
+    },
+    {
+      "method": "selfplay_cone3",
+      "seed": 733,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 131
+    },
+    {
+      "method": "selfplay_cone6",
+      "seed": 701,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 352
+    },
+    {
+      "method": "selfplay_cone6",
+      "seed": 709,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 276
+    },
+    {
+      "method": "selfplay_cone6",
+      "seed": 719,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 223
+    },
+    {
+      "method": "selfplay_cone6",
+      "seed": 727,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 165
+    },
+    {
+      "method": "selfplay_cone6",
+      "seed": 733,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 258
+    },
+    {
+      "method": "selfplay_free6",
+      "seed": 701,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 135
+    },
+    {
+      "method": "selfplay_free6",
+      "seed": 709,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 137
+    },
+    {
+      "method": "selfplay_free6",
+      "seed": 719,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 144
+    },
+    {
+      "method": "selfplay_free6",
+      "seed": 727,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 132
+    },
+    {
+      "method": "selfplay_free6",
+      "seed": 733,
+      "games": 72,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 2,
+      "decisions_reproduced": 132
+    },
+    {
+      "method": "frozen6",
+      "seed": 701,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 344
+    },
+    {
+      "method": "frozen6",
+      "seed": 709,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 260
+    },
+    {
+      "method": "frozen6",
+      "seed": 719,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 371
+    },
+    {
+      "method": "frozen6",
+      "seed": 727,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 178
+    },
+    {
+      "method": "frozen6",
+      "seed": 733,
+      "games": 120,
+      "frozen_feature_tensors": 4,
+      "matches_reproduced": 4,
+      "decisions_reproduced": 267
+    }
+  ],
+  "total_replayed_games": 2640,
+  "additional_base_games_replayed": 140,
+  "restored_checkpoints": 30,
+  "reproduced_matches": 80,
+  "reproduced_decisions": 5383,
+  "frozen_feature_tensors": 120,
+  "probe_value_scope": "teacher behavior diagnostic; not a shared-policy target",
+  "source": {
+    "experiments/go11_continual.py": "f62aab7f24bf214d149a5e316b5db84d0cde8bb3f275d1ff2e5567ac6fb08460",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "c6cdcd6aa3d95308962957c8ae1a7b7a28bcf40cf5e374909de4d1ea09677493",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "4432897a894234c8ad5c04b919255d98826c77160dd7904f2702d70c2e92a239",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_cone.py": "e5a29ab8643cfd4d8f467371ac37a357e4aba02131780c918942dc3ce7e87e95",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "6eda996bc117d0cb4a0a12e64e336f1035d4dc4c8fd03706d52c2b716baa02f5",
+    "mqr/go_policy.py": "7709733ce09ca53f4bc47a28029fe49e796d5298f1c8b74895f40ea3d0c76ed5",
+    "mqr/go_protection.py": "603df7153f925723c68cf45f25358b9d09bd6d89f013c4024a7d4f749825cc7f",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/go_selfplay.py": "e3ec0709a4ae8eead344db477918bface5dfde406454d09f03012da0cce9fccd",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "verifier_sha256": "9e5bc77163beb270a743bdd4ba50a199140b749daced39e56a338e54b5f21bef"
+}

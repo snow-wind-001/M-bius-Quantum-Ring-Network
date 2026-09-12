@@ -1,0 +1,141 @@
+{
+  "verified": true,
+  "scope": "post-hoc first observed live B checkpoint per six-ring seed; current-head live state versus full-history current-parameter replay",
+  "rows": [
+    {
+      "seed": 701,
+      "method": "selfplay_cone6",
+      "phase": "b",
+      "game_index": 3,
+      "observed_ply": 150,
+      "parameter_version": 178,
+      "pending_count": 11,
+      "state_max_absolute_difference": 0.21676628291606903,
+      "state_relative_l2_difference": 0.055285271257162094,
+      "policy_kl": 1.8626218661665916e-05,
+      "value_absolute_difference": 6.274878978729248e-05,
+      "legal_argmax_changed": false,
+      "actions": [
+        79,
+        79
+      ],
+      "checkpoint": "checkpoints/go11_state_audit/cone6-701.pt",
+      "checkpoint_sha256": "cd587ab831f3aa77ec315c2b5af3338c695bf669562d58b28724fd5959c5434b",
+      "parameters_unchanged": true
+    },
+    {
+      "seed": 709,
+      "method": "selfplay_cone6",
+      "phase": "b",
+      "game_index": 6,
+      "observed_ply": 38,
+      "parameter_version": 187,
+      "pending_count": 11,
+      "state_max_absolute_difference": 0.009719312191009521,
+      "state_relative_l2_difference": 0.008164783008396626,
+      "policy_kl": 2.68149187832023e-06,
+      "value_absolute_difference": 0.00016360729932785034,
+      "legal_argmax_changed": false,
+      "actions": [
+        13,
+        13
+      ],
+      "checkpoint": "checkpoints/go11_state_audit/cone6-709.pt",
+      "checkpoint_sha256": "80d92028353860a2434a51b4eec772a93bb31a2fe105e3c6b7bd3fff8295969e",
+      "parameters_unchanged": true
+    },
+    {
+      "seed": 727,
+      "method": "selfplay_cone6",
+      "phase": "b",
+      "game_index": 2,
+      "observed_ply": 33,
+      "parameter_version": 189,
+      "pending_count": 6,
+      "state_max_absolute_difference": 0.005788683891296387,
+      "state_relative_l2_difference": 0.00465621892362833,
+      "policy_kl": 7.390044629573822e-07,
+      "value_absolute_difference": 2.2359192371368408e-05,
+      "legal_argmax_changed": false,
+      "actions": [
+        76,
+        76
+      ],
+      "checkpoint": "checkpoints/go11_state_audit/cone6-727.pt",
+      "checkpoint_sha256": "9171571c270e9e23a4a23ee3f78ec29643d00b764b2c2f8f813db905ca527803",
+      "parameters_unchanged": true
+    },
+    {
+      "seed": 719,
+      "method": "selfplay_cone6",
+      "phase": "b",
+      "game_index": 5,
+      "observed_ply": 57,
+      "parameter_version": 189,
+      "pending_count": 14,
+      "state_max_absolute_difference": 0.005394101142883301,
+      "state_relative_l2_difference": 0.0033315597102046013,
+      "policy_kl": 1.2179043551441282e-08,
+      "value_absolute_difference": 6.113201379776001e-06,
+      "legal_argmax_changed": false,
+      "actions": [
+        21,
+        21
+      ],
+      "checkpoint": "checkpoints/go11_state_audit/cone6-719.pt",
+      "checkpoint_sha256": "306b2d1666f9f7bfb1fe1641886ffed14683bb8726f9c7684035a61e125135a6",
+      "parameters_unchanged": true
+    },
+    {
+      "seed": 733,
+      "method": "selfplay_cone6",
+      "phase": "b",
+      "game_index": 4,
+      "observed_ply": 61,
+      "parameter_version": 195,
+      "pending_count": 2,
+      "state_max_absolute_difference": 0.005492508411407471,
+      "state_relative_l2_difference": 0.0019443092169240117,
+      "policy_kl": 0.0,
+      "value_absolute_difference": 2.022157423198223e-05,
+      "legal_argmax_changed": false,
+      "actions": [
+        7,
+        7
+      ],
+      "checkpoint": "checkpoints/go11_state_audit/cone6-733.pt",
+      "checkpoint_sha256": "9dcc8c8563aa655e1fabb5ccd36256276ce205c9cc792dc3ab5346cc65269e06",
+      "parameters_unchanged": true
+    }
+  ],
+  "source": {
+    "experiments/go11_continual.py": "f62aab7f24bf214d149a5e316b5db84d0cde8bb3f275d1ff2e5567ac6fb08460",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "c6cdcd6aa3d95308962957c8ae1a7b7a28bcf40cf5e374909de4d1ea09677493",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "4432897a894234c8ad5c04b919255d98826c77160dd7904f2702d70c2e92a239",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_cone.py": "e5a29ab8643cfd4d8f467371ac37a357e4aba02131780c918942dc3ce7e87e95",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "6eda996bc117d0cb4a0a12e64e336f1035d4dc4c8fd03706d52c2b716baa02f5",
+    "mqr/go_policy.py": "7709733ce09ca53f4bc47a28029fe49e796d5298f1c8b74895f40ea3d0c76ed5",
+    "mqr/go_protection.py": "603df7153f925723c68cf45f25358b9d09bd6d89f013c4024a7d4f749825cc7f",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/go_selfplay.py": "e3ec0709a4ae8eead344db477918bface5dfde406454d09f03012da0cce9fccd",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "verifier_sha256": "b3d9a66843feff11066c9751e8c4178ad06ba8c5d476924fd6a5e1c6d6cb03ec"
+}

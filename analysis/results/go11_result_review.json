@@ -1,0 +1,143 @@
+{
+  "verified": true,
+  "scope": "Post hoc descriptive score tails and sample dispersion; no new games, training, or configuration selection.",
+  "methods": {
+    "mixed_ogd3": {
+      "games": 240,
+      "wins": 146,
+      "losses": 94,
+      "wins_per_seed": [
+        33,
+        30,
+        31,
+        25,
+        27
+      ],
+      "sample_sd_of_seed_win_rates_pp": 6.653633092779712,
+      "mean_winning_margin": 9.178082191780822,
+      "mean_losing_margin": -81.20212765957447,
+      "losses_by_at_least_50_points": 77,
+      "minimum_margin": -105.5
+    },
+    "selfplay_ogd3": {
+      "games": 240,
+      "wins": 140,
+      "losses": 100,
+      "wins_per_seed": [
+        25,
+        30,
+        31,
+        31,
+        23
+      ],
+      "sample_sd_of_seed_win_rates_pp": 7.795119555779046,
+      "mean_winning_margin": 7.114285714285714,
+      "mean_losing_margin": -79.62,
+      "losses_by_at_least_50_points": 81,
+      "minimum_margin": -105.5
+    },
+    "selfplay_cone3": {
+      "games": 240,
+      "wins": 149,
+      "losses": 91,
+      "wins_per_seed": [
+        27,
+        34,
+        37,
+        18,
+        33
+      ],
+      "sample_sd_of_seed_win_rates_pp": 15.687375497513917,
+      "mean_winning_margin": 8.345637583892618,
+      "mean_losing_margin": -85.34615384615384,
+      "losses_by_at_least_50_points": 77,
+      "minimum_margin": -105.5
+    },
+    "selfplay_cone6": {
+      "games": 240,
+      "wins": 149,
+      "losses": 91,
+      "wins_per_seed": [
+        30,
+        27,
+        33,
+        31,
+        28
+      ],
+      "sample_sd_of_seed_win_rates_pp": 4.973890160963884,
+      "mean_winning_margin": 8.71476510067114,
+      "mean_losing_margin": -76.31318681318682,
+      "losses_by_at_least_50_points": 71,
+      "minimum_margin": -105.5
+    },
+    "selfplay_free6": {
+      "games": 240,
+      "wins": 147,
+      "losses": 93,
+      "wins_per_seed": [
+        32,
+        27,
+        33,
+        29,
+        26
+      ],
+      "sample_sd_of_seed_win_rates_pp": 6.353312784157045,
+      "mean_winning_margin": 8.615646258503402,
+      "mean_losing_margin": -78.4247311827957,
+      "losses_by_at_least_50_points": 73,
+      "minimum_margin": -105.5
+    },
+    "frozen6": {
+      "games": 240,
+      "wins": 112,
+      "losses": 128,
+      "wins_per_seed": [
+        17,
+        22,
+        19,
+        29,
+        25
+      ],
+      "sample_sd_of_seed_win_rates_pp": 9.947780321927766,
+      "mean_winning_margin": 7.669642857142857,
+      "mean_losing_margin": -92.609375,
+      "losses_by_at_least_50_points": 119,
+      "minimum_margin": -105.5
+    }
+  },
+  "initialization_and_before_probes_identical_within_ring_count": true,
+  "input_sha256": {
+    "go11_summary.json": "f03a24dde8c339963c57a1b2e7f3a8eff681d7b2e4681da9a2139c2751a58270",
+    "go11_mixed_ogd3_seed701.json": "142ee5ca6cbfc2f59283fea88db5d0a92e1e00148b3a8fb56d2b06cf99f0438e",
+    "go11_mixed_ogd3_seed709.json": "efdf09915c34b36fbfc50e31678578d551230d48fa635b5009f342d29358b2e2",
+    "go11_mixed_ogd3_seed719.json": "c8c7f23e700833d68136a02e6b174efdaf52c2ffb456efcf6c73e2dd79c0f2f9",
+    "go11_mixed_ogd3_seed727.json": "b488482894c2b25fe2f63eac1b9e9296ee3b1dfe8d467c9130715ff96e7c9ae5",
+    "go11_mixed_ogd3_seed733.json": "b12fd7e471e50940ae056625932d9c598356a03b3b6b903ffaae97630e80fc5c",
+    "go11_selfplay_ogd3_seed701.json": "4b30f2e008f2427edcdba3a825d306e0fa71dac33fc7d9a94522e70b195f1565",
+    "go11_selfplay_ogd3_seed709.json": "6450a185432b4e836571a903debae9a4f3703a5a086b9a53c1f58f3ae6e7a00b",
+    "go11_selfplay_ogd3_seed719.json": "9f50d722ce05796b5a00625f611ba4efbeb665740df3a9c093950131b98fa972",
+    "go11_selfplay_ogd3_seed727.json": "3a2b9ef7fd2a7f6dc81697f40dcd655fd935f394686a867ba20f9927111fb2ee",
+    "go11_selfplay_ogd3_seed733.json": "3766121be9593962c3a87d3f8dc9d61a8a5b6719ffa763533ab0c0193e440845",
+    "go11_selfplay_cone3_seed701.json": "b9f6d82c75aff8109c6e2dd444c2f0c1ae5354b3abcc2606f6af0a07fb240a89",
+    "go11_selfplay_cone3_seed709.json": "9642ea0623d20154137c0ee2ea73d72c595d93fef62f22b19db4022643917643",
+    "go11_selfplay_cone3_seed719.json": "6d3da7d30dc992c8fa1befc856ab0bb6585ee71ce882545606a14b72b8536592",
+    "go11_selfplay_cone3_seed727.json": "cdb40f10308ea9a8d05f13fde29f69a6dc8e512f5be102eec8cdc7e20a19579e",
+    "go11_selfplay_cone3_seed733.json": "8d23a5f7ae3d8a6e154490689be98297ba09477dffdbbdcb80916419d7ffbce8",
+    "go11_selfplay_cone6_seed701.json": "a1068fc5fca303f51831f02174b821cc2b9db065da66775c441413a71756f8e2",
+    "go11_selfplay_cone6_seed709.json": "5632e57588b2d457f5a15b6d53aec84db1ad20e3fae42e05cdf668eaa6c1e028",
+    "go11_selfplay_cone6_seed719.json": "a6ff22263fe7a56cc099d0ac37974a58dbab268f87a1daecf3f1666766c2ec09",
+    "go11_selfplay_cone6_seed727.json": "fc15102ee6c607186cad06fb4c441556df51103c8ecfa1f53c8b5a85847515e6",
+    "go11_selfplay_cone6_seed733.json": "bb8683e6e7103965c680d5279a0e08311cc5072d6e8bc3f0448533d312c309a9",
+    "go11_selfplay_free6_seed701.json": "aa0ec79da4a90de37ea57ed6d63c13ef28b68e8f998ce03ff3fd179b16cc792f",
+    "go11_selfplay_free6_seed709.json": "d7d6f1ec7ad81da70eda6dd69403b9371df544b3e11c6e1a253e562efdfcb591",
+    "go11_selfplay_free6_seed719.json": "173c49ee61aeafdc2f1d34e5d4f1452e4fc1819c11e3cfc8f724e64a5980c3c1",
+    "go11_selfplay_free6_seed727.json": "42a860ed45858660242e9931a7182f862f77884da36df7c2b3c80dad6d459a6c",
+    "go11_selfplay_free6_seed733.json": "ea353107419102cf8bb8260a2c5b0736a8817b6e33db5cfcbf5e6afec21fb02b",
+    "go11_frozen6_seed701.json": "7fa6fb58c0f3d7c82ac87c1ff76f9c71e407b0f1846d30f97b567f4d6f8ec7f0",
+    "go11_frozen6_seed709.json": "54848aaf63e3522648bdfa6c4827bdb1b9586a16e2ab6c12fda0c1ddac2bda51",
+    "go11_frozen6_seed719.json": "684dfe56dc7c18beca742dce31642205c9789b9e82df91e1c7cdc09132cb9163",
+    "go11_frozen6_seed727.json": "9f651d5b0604bb29bd260a603c38bc8e014167fc07893256af8c276bbb787e3d",
+    "go11_frozen6_seed733.json": "8b416cab5b332f952973546ddbae9721aa9918928bc02ba8631087a027ed4f38"
+  },
+  "verifier_sha256": "620b2ebcaf8c1d354462f651eb1b861079dc8fa8e3513efe2388ff6e51022557"
+}

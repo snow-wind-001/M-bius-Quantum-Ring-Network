@@ -2,14 +2,24 @@
 
 本 PyTorch 研究实现源自 HTML 中的 **MQR / UHR-Net (Möbius Quantum Ring / Unistochastic Hamiltonian Ring)** 设想，保留固定点推理路径：**Cayley 酉矩阵参数化 → 幺模随机连接 \(H=|U|^2\) → 固定点松弛推理 → LoRA 式注入 → 局部采样读出**；另提供跨观察的时间环记忆。当前探索新增直接保留符号的正交 Givens 环、轨迹反馈与 OGD 在线更新。历史公式中的数学错误已在当前代码中修正。
 
-> **10×10 完整对局与在线搜索学习（2026-09-12）**：已完成五种子、每主要方案 **120 局**，
+> **最新：10×10 价值目标与保护修复（2026-09-12）**：已完成五种子、每主要方案 **240 局**，
+> 共 2160 局冻结评估、720 局训练／冻结暴露，加上 140 局基础数据，核验 **3020 局完整棋谱**。
+> 共享自博弈提供真实终局目标，任务 margin 半空间投影允许受保护行为改善；保留正交环和实时在线更新。
+> 六环在线方案 **149/240（62.08%）**，相同初始化冻结模型 **112/240（46.67%）**；五种子均提高。
+> 新三环同为 149 胜，无保护六环为 147 胜；学习叶价值置零为 150 胜。因此已建立本地在线训练收益，
+> 尚未建立扩环、值头或正交几何的独特棋力优势。173 项根测试及独立棋谱／决策核验通过。
+> [完整结果与根因分析](analysis/go11_report.md)、[数学推导](analysis/go11_math.md)、
+> [固定协议](analysis/go11_plan.md)、[CodeRecoder 保护回执](analysis/results/go11_protection.json)。
+> 对手为本地启发式控制器，历史轮次的数字与本轮不可直接合并或作前后胜率归因。
+
+> **历史轮次：10×10 完整对局与在线搜索学习（2026-09-12）**：已完成五种子、每主要方案 **120 局**，
 > 加上贪心对照共 **840 局冻结评估**；连同训练和基础数据，独立重放核验 **1280 份完整棋谱**。
 > 新增冻结卷积特征的头部适应、搜索分布监督、真实终局回放和动作 margin 保护，保留正交多环与在线更新。
 > 完整新方案胜率 **32.50%**，冻结初始模型 **35.83%**，旧在线方案 **34.17%**；
 > **尚未证明棋力提升**。移除保护消融为 41.67%，提示需要重新对齐保护与任务目标。
 > 166 项测试通过。协议、逐种子结果、价值角色别名与历史判断诊断见
-> [本轮完整报告](analysis/go10_report.md)、[数学合同](analysis/go10_math.md) 和 [核验结果](analysis/results/go10_summary.json)。
-> 下方 5×5、MiniCPM 及其他任务是历史证据，不能与本轮数字合并。
+> [该轮完整报告](analysis/go10_report.md)、[数学合同](analysis/go10_math.md) 和 [核验结果](analysis/results/go10_summary.json)。
+> 下方 5×5、MiniCPM 及其他任务同样是历史证据。
 
 > **围棋读出与真实终局学习（2026-09-11）**：新增有符号位置查询、参与联合 OGD 的空间更新、
 > 真实终局价值回放、可靠锚点筛选和只读策略/价值搜索。保留正交多环及预测先于反馈的在线协议。
@@ -56,9 +66,28 @@
 
 ## 🌟 核心机制与研究假设
 
-### 10×10 在线实验与完整对局恢复
+### 最新 10×10：共享自博弈与任务 margin 保护
 
-本轮实现固定于 `e0504d6`。`SignedQueryGoAgent(spatial_head_only=True)` 只开放空间输出头；
+训练实现固定于 `1afa3de`。`SharedPolicyGoSession` 在共享模式下要求每个受监督动作都有反馈前的
+`policy_target`，真实双停着以后才生成胜负标签；随机开局只作无标签历史，并在终局回放时完整重建。
+`TaskMarginMemory` 通过当前参数的正交伴随重算 margin 半空间，联合约束环与读出头的更新；
+float64 QP 检查后，还需通过实际 margin 检查才提交参数。旧接口和默认行为保留。
+
+```bash
+python3 test_go_selfplay.py
+python3 experiments/go11_continual.py --seed 701 --method selfplay_cone6 --confirmation \
+  --directory checkpoints/go11_reproduced \
+  --output analysis/reproduced/go11_selfplay_cone6_seed701.json
+```
+
+正式种子为 `701 709 719 727 733`，六种方法与完整矩阵见 [协议](analysis/go11_plan.md)。
+加入 `--max-plies 64` 只保存并暂停未完对局，使用同配置去掉该参数可续跑至真正结束。
+本轮恢复测试的棋谱与整数计数完全一致，float32 状态在 `1e-6` 容差内一致，未声称逐位相同。
+完整核验需要本地重建的检查点，复现目录与命令见 [报告](analysis/go11_report.md)。
+
+### 历史 10×10 在线实验与完整对局恢复
+
+该轮实现固定于 `e0504d6`。`SignedQueryGoAgent(spatial_head_only=True)` 只开放空间输出头；
 `SearchOutcomeGoSession.feedback(..., policy_target=...)` 可学习反馈前的搜索分布，终局后学习实际胜负。
 `PolicyBehaviorMemory(margin_fraction=0.5, reliable_only=True)` 增加可信动作 margin 检查。
 有限步检查与联合 OGD 配合使用，未实现不等式投影 QP。

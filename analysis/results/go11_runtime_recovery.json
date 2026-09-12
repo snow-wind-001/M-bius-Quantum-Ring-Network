@@ -1,0 +1,50 @@
+{
+  "completed": true,
+  "failures": [
+    {
+      "seed": 709,
+      "stage": "module initialization before any game or checkpoint",
+      "stderr": "Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.\n\tTry to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.\n",
+      "stderr_sha256": "a7725ed693545ef8bef7299d13c741a60cc1af465e23c676f12d42cb623df82e",
+      "completed_games_before_retry": 0
+    },
+    {
+      "seed": 719,
+      "stage": "module initialization before any game or checkpoint",
+      "stderr": "Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.\n\tTry to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.\n",
+      "stderr_sha256": "a7725ed693545ef8bef7299d13c741a60cc1af465e23c676f12d42cb623df82e",
+      "completed_games_before_retry": 0
+    },
+    {
+      "seed": 727,
+      "stage": "module initialization before any game or checkpoint",
+      "stderr": "Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.\n\tTry to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.\n",
+      "stderr_sha256": "a7725ed693545ef8bef7299d13c741a60cc1af465e23c676f12d42cb623df82e",
+      "completed_games_before_retry": 0
+    },
+    {
+      "seed": 733,
+      "stage": "module initialization before any game or checkpoint",
+      "stderr": "Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.\n\tTry to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.\n",
+      "stderr_sha256": "a7725ed693545ef8bef7299d13c741a60cc1af465e23c676f12d42cb623df82e",
+      "completed_games_before_retry": 0
+    }
+  ],
+  "correction": "Initialize NumPy before torch, matching the main experiment import order.",
+  "evaluator_sha256": "7f51f94eecc5658d4b091414246f13a934d3c17a310e9dedca1c5efeb8bdb00e",
+  "completed_seeds": [
+    701,
+    709,
+    719,
+    727,
+    733
+  ],
+  "verified_value_ablation_games": 240,
+  "entrypoint_pause_check": {
+    "seed": 709,
+    "max_plies": 1,
+    "returncode": 0,
+    "then_resumed_in_same_checkpoint": true
+  },
+  "training_source_changed": false
+}
