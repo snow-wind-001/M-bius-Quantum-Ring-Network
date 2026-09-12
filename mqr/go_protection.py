@@ -36,6 +36,10 @@ class GoBehaviorMemory:
         return [group[index] for index in range(self.capacity // self.strata)
                 for group in self.records if index < len(group)]
 
+    def project_update(self, delta: torch.Tensor, *, parameter_version: int):
+        """Optional finite-slack projection of a flat proposed parameter step."""
+        return delta, {}
+
     def add(self, features: Sequence[torch.Tensor], action: int, *, stratum: int) -> None:
         """Add an already observed full prefix; freeze() ends collection."""
         if self.frozen:
@@ -206,7 +210,18 @@ class ProtectedGoSession(HistoryGoSession):
         result = super().flush()
         if protected and result["did_update"]:
             delta = [p.detach() - old for p, old in zip(active, before)]
+            flat = torch.cat([d.flatten() for d in delta])
+            projected, projection = memory.project_update(flat, parameter_version=old_version)
+            if projection:
+                if projected.shape != flat.shape or not bool(torch.isfinite(projected).all()):
+                    raise RuntimeError("invalid constraint projection")
+                delta = list(projected.split([p.numel() for p in active]))
+                delta = [d.reshape_as(p) for d, p in zip(delta, active)]
+                result["constraint_projection"] = projection
+                result["update_norm"] = float(projected.norm())
             scale = 1.0
+            if projection and float(projected.norm()) == 0:
+                scale = 0.0
             if self.norm_matched_sgd and self.agent.task_gradient_memory.rank:
                 flat = torch.cat([d.flatten() for d in delta])
                 basis = self.agent.task_gradient_memory._basis.to(flat)

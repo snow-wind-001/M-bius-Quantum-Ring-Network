@@ -220,6 +220,17 @@ class OutcomeGoSession(ConstraintGoSession):
                 update = self.flush()
         return {**result, "teacher_action": target, "update": update, "search": search}
 
+    def _make_replay_session(self, stream_id: str) -> ConstraintGoSession:
+        return ConstraintGoSession(
+            self.agent, self.encoder, update_every=self.update_every, stream_id=stream_id,
+            credit_horizon=self.credit_horizon, project_with_memory=self.project_with_memory,
+            behavior_memory=self.behavior_memory, refresh_every=self.refresh_every,
+            max_anchor_kl=self.max_anchor_kl, norm_matched_sgd=self.norm_matched_sgd,
+        )
+
+    def _prime_replay(self, stream_id: str) -> None:
+        """Hook for replaying observed, unsupervised opening context."""
+
     def finish_game(self, board: GoBoard) -> Dict[str, Any]:
         """Consume a verified terminal episode exactly once; return update audits."""
         if not board.game_over or not self._episode:
@@ -235,13 +246,9 @@ class OutcomeGoSession(ConstraintGoSession):
         replay_updates = []
         if self.replay_mode != "none":
             replay_stream = self.stream_id + "-terminal-replay"
-            replay = ConstraintGoSession(
-                self.agent, self.encoder, update_every=self.update_every, stream_id=replay_stream,
-                credit_horizon=self.credit_horizon, project_with_memory=self.project_with_memory,
-                behavior_memory=self.behavior_memory, refresh_every=self.refresh_every,
-                max_anchor_kl=self.max_anchor_kl, norm_matched_sgd=self.norm_matched_sgd,
-            )
+            replay = self._make_replay_session(replay_stream)
             self.agent.reset_state(replay_stream)
+            self._prime_replay(replay_stream)
             original_weights = self.agent.loss_weights
             reference = next(self.agent.parameters())
             try:
