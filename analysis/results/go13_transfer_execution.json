@@ -1,0 +1,1390 @@
+{
+  "source": {
+    "experiments/go11_continual.py": "f62aab7f24bf214d149a5e316b5db84d0cde8bb3f275d1ff2e5567ac6fb08460",
+    "experiments/go13_algorithm.py": "afe08b7931d0ebe3f5d336693eca501bade235c410291dd23f0c869462dc58dd",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "84a597bcc274ee1a7ac16ea83748d559ec8c03ca1894561112408decba379bc8",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "41c095268cdc38205bbe24e4dd7e5368dc89aab4b76138b81c2e94218508b1dd",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_cone.py": "e5a29ab8643cfd4d8f467371ac37a357e4aba02131780c918942dc3ce7e87e95",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "11eb77388451cfa1caf55dcf8c0acd98c0895285d5ee8c3b70cdb05941a043e2",
+    "mqr/go_policy.py": "d976172a9c64aa5d6a51b41280cb54c46e9f86d0e41d495424113747a857ee82",
+    "mqr/go_protection.py": "603df7153f925723c68cf45f25358b9d09bd6d89f013c4024a7d4f749825cc7f",
+    "mqr/go_research.py": "24e1653da18a0406ac3f71bc0464caa714334cd9f684ddfe18a313be1e28afa2",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/go_selfplay.py": "e3ec0709a4ae8eead344db477918bface5dfde406454d09f03012da0cce9fccd",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb",
+    "experiments/go13_transfer.py": "84720714a425a040e9e66b0b237d178bc0d9be54707dcd4b3d7c1c4f42bc6a8d"
+  },
+  "started_utc": "2026-10-20T23:34:54.347415+00:00",
+  "workers": 6,
+  "jobs": [
+    {
+      "stage": "prepare",
+      "seed": 937,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "prepare",
+        "--seed",
+        "937",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 7.3896134559763595,
+      "log": "checkpoints/go13_transfer/logs/prepare-orth_current-937.log"
+    },
+    {
+      "stage": "prepare",
+      "seed": 911,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "prepare",
+        "--seed",
+        "911",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 7.4868376859813,
+      "log": "checkpoints/go13_transfer/logs/prepare-orth_current-911.log"
+    },
+    {
+      "stage": "prepare",
+      "seed": 941,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "prepare",
+        "--seed",
+        "941",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 7.549023401981685,
+      "log": "checkpoints/go13_transfer/logs/prepare-orth_current-941.log"
+    },
+    {
+      "stage": "prepare",
+      "seed": 929,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "prepare",
+        "--seed",
+        "929",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 7.582863744988572,
+      "log": "checkpoints/go13_transfer/logs/prepare-orth_current-929.log"
+    },
+    {
+      "stage": "prepare",
+      "seed": 919,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "prepare",
+        "--seed",
+        "919",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 7.586889245954808,
+      "log": "checkpoints/go13_transfer/logs/prepare-orth_current-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 13.861852057976648,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_free-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 14.02540212799795,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_free-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 10.585323041013908,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_frozen-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 14.930679153010715,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_free-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 14.163881699030753,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_free-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 48.763746840995736,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_stale-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 69.04879364999942,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_norm-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 73.19922724197386,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_current-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 911,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "911",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 75.63409161003074,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_current-911.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 8.835268919006921,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_frozen-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 11.86838241002988,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_free-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 44.94412054098211,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_stale-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 12.29654736595694,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_free-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 77.04029531398555,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_current-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 66.80107095598942,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_current-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 9.094930683029816,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_frozen-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 919,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "919",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 57.70313485205406,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_norm-919.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 10.298851656029,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_free-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 38.0544793040026,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_stale-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 11.07425925199641,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_free-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 51.85027476795949,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_norm-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 61.87096076901071,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_current-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 8.081211130018346,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_frozen-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 929,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "929",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 88.46735245198943,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_current-929.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 8.489142609003466,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_free-941.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 33.44470288796583,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_stale-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 8.418578535958659,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_free-941.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 63.378370973980054,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_current-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 54.17108531796839,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_current-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 8.38364889199147,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_frozen-941.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 937,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "937",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 58.31736420199741,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_norm-937.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 31.390327844012063,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_stale-941.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 49.73605231102556,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_current-941.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 46.951474444009364,
+      "log": "checkpoints/go13_transfer/logs/learn-similar_current-941.log"
+    },
+    {
+      "stage": "learn",
+      "seed": 941,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "learn",
+        "--seed",
+        "941",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 38.72546742396662,
+      "log": "checkpoints/go13_transfer/logs/learn-orth_norm-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 119.3387570620398,
+      "log": "checkpoints/go13_transfer/logs/games-similar_free-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 122.71452546602814,
+      "log": "checkpoints/go13_transfer/logs/games-orth_norm-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 125.81142460199771,
+      "log": "checkpoints/go13_transfer/logs/games-orth_free-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 145.28464215097483,
+      "log": "checkpoints/go13_transfer/logs/games-orth_current-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 145.33241599198664,
+      "log": "checkpoints/go13_transfer/logs/games-similar_current-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 146.12301270797616,
+      "log": "checkpoints/go13_transfer/logs/games-orth_stale-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 104.36142622999614,
+      "log": "checkpoints/go13_transfer/logs/games-orth_free-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 118.38971258001402,
+      "log": "checkpoints/go13_transfer/logs/games-orth_current-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 107.25755719002336,
+      "log": "checkpoints/go13_transfer/logs/games-similar_free-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 113.98689271404874,
+      "log": "checkpoints/go13_transfer/logs/games-orth_stale-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 911,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "911",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 170.76611894898815,
+      "log": "checkpoints/go13_transfer/logs/games-orth_frozen-911.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 147.71276314900024,
+      "log": "checkpoints/go13_transfer/logs/games-similar_current-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 100.63243168697227,
+      "log": "checkpoints/go13_transfer/logs/games-orth_norm-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 111.11255754204467,
+      "log": "checkpoints/go13_transfer/logs/games-orth_free-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 919,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "919",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 142.451465088001,
+      "log": "checkpoints/go13_transfer/logs/games-orth_frozen-919.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 160.39841287198942,
+      "log": "checkpoints/go13_transfer/logs/games-orth_current-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 148.18503360199975,
+      "log": "checkpoints/go13_transfer/logs/games-similar_free-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 92.13944955100305,
+      "log": "checkpoints/go13_transfer/logs/games-orth_norm-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 135.90385688398965,
+      "log": "checkpoints/go13_transfer/logs/games-orth_stale-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 192.26406877598492,
+      "log": "checkpoints/go13_transfer/logs/games-similar_current-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 115.73779290000675,
+      "log": "checkpoints/go13_transfer/logs/games-orth_free-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 929,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "929",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 150.75509220699314,
+      "log": "checkpoints/go13_transfer/logs/games-orth_frozen-929.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 120.01513726898702,
+      "log": "checkpoints/go13_transfer/logs/games-orth_current-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 115.80243996798526,
+      "log": "checkpoints/go13_transfer/logs/games-similar_free-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 131.64063765999163,
+      "log": "checkpoints/go13_transfer/logs/games-similar_current-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 114.04520277201664,
+      "log": "checkpoints/go13_transfer/logs/games-orth_stale-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 112.54843562701717,
+      "log": "checkpoints/go13_transfer/logs/games-orth_norm-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "orth_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "orth_free"
+      ],
+      "exit_code": 0,
+      "seconds": 97.43366883601993,
+      "log": "checkpoints/go13_transfer/logs/games-orth_free-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 937,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "937",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 150.21487915999023,
+      "log": "checkpoints/go13_transfer/logs/games-orth_frozen-937.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "similar_free",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "similar_free"
+      ],
+      "exit_code": 0,
+      "seconds": 99.8928406269988,
+      "log": "checkpoints/go13_transfer/logs/games-similar_free-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "orth_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "orth_current"
+      ],
+      "exit_code": 0,
+      "seconds": 139.50975009298418,
+      "log": "checkpoints/go13_transfer/logs/games-orth_current-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "similar_current",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "similar_current"
+      ],
+      "exit_code": 0,
+      "seconds": 132.79321172699565,
+      "log": "checkpoints/go13_transfer/logs/games-similar_current-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "orth_norm",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "orth_norm"
+      ],
+      "exit_code": 0,
+      "seconds": 94.57852186099626,
+      "log": "checkpoints/go13_transfer/logs/games-orth_norm-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "orth_stale",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "orth_stale"
+      ],
+      "exit_code": 0,
+      "seconds": 127.93543757701991,
+      "log": "checkpoints/go13_transfer/logs/games-orth_stale-941.log"
+    },
+    {
+      "stage": "games",
+      "seed": 941,
+      "method": "orth_frozen",
+      "command": [
+        "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+        "experiments/go13_transfer.py",
+        "--stage",
+        "games",
+        "--seed",
+        "941",
+        "--method",
+        "orth_frozen"
+      ],
+      "exit_code": 0,
+      "seconds": 129.85973701998591,
+      "log": "checkpoints/go13_transfer/logs/games-orth_frozen-941.log"
+    }
+  ],
+  "completed": true,
+  "finished_utc": "2026-10-20T23:52:28.287961+00:00"
+}

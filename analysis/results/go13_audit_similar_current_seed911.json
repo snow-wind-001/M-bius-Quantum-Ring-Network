@@ -1,0 +1,14 @@
+{
+  "method": "similar_current",
+  "seed": 911,
+  "verified": true,
+  "complete_games": 24,
+  "matches_reproduced": 2,
+  "decisions_reproduced": 124,
+  "raw_query_action_changes_in_reproduced_decisions": 37,
+  "constraint_tensor_bytes": 0,
+  "optimizer_tensor_bytes": 260744,
+  "learning_sha256": "79ca2414d6f8e270f01971f4f552f84d8184bf46265569ba4686f85c514aca1b",
+  "games_sha256": "28d8dede0a86b578761b1ebd388b34ec402c2118e373c2b82f35ee9581c50170",
+  "verifier_sha256": "d76474c5188a730ab06f63dd11a1eeca39d3f83f1a78271878ce6a4deb9321db"
+}

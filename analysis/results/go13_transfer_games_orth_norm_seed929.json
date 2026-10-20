@@ -1,0 +1,8235 @@
+{
+  "source": {
+    "experiments/go11_continual.py": "f62aab7f24bf214d149a5e316b5db84d0cde8bb3f275d1ff2e5567ac6fb08460",
+    "experiments/go13_algorithm.py": "afe08b7931d0ebe3f5d336693eca501bade235c410291dd23f0c869462dc58dd",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "84a597bcc274ee1a7ac16ea83748d559ec8c03ca1894561112408decba379bc8",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "41c095268cdc38205bbe24e4dd7e5368dc89aab4b76138b81c2e94218508b1dd",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_cone.py": "e5a29ab8643cfd4d8f467371ac37a357e4aba02131780c918942dc3ce7e87e95",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "11eb77388451cfa1caf55dcf8c0acd98c0895285d5ee8c3b70cdb05941a043e2",
+    "mqr/go_policy.py": "d976172a9c64aa5d6a51b41280cb54c46e9f86d0e41d495424113747a857ee82",
+    "mqr/go_protection.py": "603df7153f925723c68cf45f25358b9d09bd6d89f013c4024a7d4f749825cc7f",
+    "mqr/go_research.py": "24e1653da18a0406ac3f71bc0464caa714334cd9f684ddfe18a313be1e28afa2",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/go_selfplay.py": "e3ec0709a4ae8eead344db477918bface5dfde406454d09f03012da0cce9fccd",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb",
+    "experiments/go13_transfer.py": "84720714a425a040e9e66b0b237d178bc0d9be54707dcd4b3d7c1c4f42bc6a8d"
+  },
+  "seed": 929,
+  "method": "orth_norm",
+  "checkpoint_sha256": "ec64d2f07e9313217ea957f8a1c8e6930ac5f09a42ee4c72b2474472d825830b",
+  "parameter_hash": "e965c501795310c4edba9e0930915b44d6ded40b7d695aa4a76c0a2417485dab",
+  "games": [
+    {
+      "index": 0,
+      "opening": [
+        90,
+        44,
+        55,
+        45
+      ],
+      "student_color": 1,
+      "moves": [
+        90,
+        44,
+        55,
+        45,
+        54,
+        34,
+        53,
+        35,
+        43,
+        46,
+        33,
+        56,
+        42,
+        24,
+        32,
+        25,
+        52,
+        36,
+        23,
+        47,
+        22,
+        57,
+        41,
+        66,
+        31,
+        65,
+        64,
+        75,
+        21,
+        74,
+        51,
+        14,
+        63,
+        15,
+        73,
+        26,
+        62,
+        37,
+        61,
+        48,
+        40,
+        58,
+        50,
+        67,
+        30,
+        76,
+        20,
+        84,
+        60,
+        85,
+        72,
+        13,
+        71,
+        16,
+        12,
+        27,
+        83,
+        38,
+        82,
+        68,
+        69,
+        59,
+        49,
+        39,
+        91,
+        79,
+        81,
+        78,
+        77,
+        87,
+        92,
+        77,
+        86,
+        96,
+        93,
+        86,
+        94,
+        4,
+        95,
+        5,
+        3,
+        2,
+        1,
+        3,
+        70,
+        17,
+        80,
+        28,
+        11,
+        49,
+        6,
+        7,
+        0,
+        10,
+        55,
+        54,
+        100,
+        55,
+        64,
+        63,
+        100,
+        53,
+        100,
+        43,
+        100,
+        64,
+        100,
+        33,
+        23,
+        22,
+        12,
+        11,
+        100,
+        12,
+        100,
+        42,
+        1,
+        0,
+        32,
+        31,
+        21,
+        20,
+        30,
+        40,
+        41,
+        51,
+        52,
+        62,
+        100,
+        41,
+        50,
+        60,
+        61,
+        71,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 4,
+          "action": 54,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 6,
+          "action": 53,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 8,
+          "action": 43,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 10,
+          "action": 33,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 12,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 14,
+          "action": 32,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 16,
+          "action": 52,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 18,
+          "action": 23,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 20,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 22,
+          "action": 41,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 24,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 64,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 63,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 73,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 62,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 72,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 54,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 58,
+          "action": 82,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 60,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 64,
+          "action": 91,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 66,
+          "action": 81,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 70,
+          "action": 92,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 72,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 93,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 76,
+          "action": 94,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 78,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 80,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 82,
+          "action": 1,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 84,
+          "action": 70,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 86,
+          "action": 80,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 88,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 90,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 92,
+          "action": 0,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 94,
+          "action": 55,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 96,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 98,
+          "action": 64,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 100,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 102,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 104,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 106,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 108,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 110,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 112,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 114,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 116,
+          "action": 1,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 118,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 120,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 122,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 124,
+          "action": 41,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 126,
+          "action": 52,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 128,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 130,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 132,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 134,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 0.0,
+        "white": 105.5,
+        "white_without_komi": 100.0,
+        "komi": 5.5,
+        "margin_black": -105.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -105.5,
+      "seconds": 7.4533743590000086
+    },
+    {
+      "index": 1,
+      "opening": [
+        90,
+        44,
+        55,
+        45
+      ],
+      "student_color": -1,
+      "moves": [
+        90,
+        44,
+        55,
+        45,
+        54,
+        34,
+        53,
+        35,
+        43,
+        33,
+        56,
+        46,
+        64,
+        36,
+        65,
+        100,
+        42,
+        23,
+        52,
+        24,
+        57,
+        25,
+        47,
+        32,
+        63,
+        22,
+        66,
+        26,
+        74,
+        37,
+        75,
+        100,
+        41,
+        31,
+        48,
+        21,
+        51,
+        27,
+        58,
+        40,
+        50,
+        59,
+        30,
+        49,
+        40,
+        38,
+        62,
+        39,
+        67,
+        68,
+        73,
+        69,
+        76,
+        77,
+        84,
+        78,
+        85,
+        28,
+        61,
+        100,
+        72,
+        100,
+        83,
+        20,
+        86,
+        87,
+        71,
+        100,
+        82,
+        100,
+        94,
+        100,
+        95,
+        96,
+        97,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 5,
+          "action": 34,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 7,
+          "action": 35,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 9,
+          "action": 33,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 11,
+          "action": 46,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 13,
+          "action": 36,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 15,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 17,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 19,
+          "action": 24,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 21,
+          "action": 25,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 23,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 25,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 47,
+          "action": 39,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 49,
+          "action": 68,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 53,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 55,
+          "action": 78,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 57,
+          "action": 28,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 59,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 61,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 63,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 65,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 67,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 69,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 71,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 73,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 75,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 46.0,
+        "white": 54.5,
+        "white_without_komi": 49.0,
+        "komi": 5.5,
+        "margin_black": -8.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 8.5,
+      "seconds": 3.526893993956037
+    },
+    {
+      "index": 2,
+      "opening": [
+        44,
+        61,
+        95,
+        51,
+        10,
+        52,
+        45,
+        72,
+        31,
+        15,
+        59,
+        62,
+        54,
+        1,
+        55,
+        78,
+        43,
+        58,
+        91,
+        68,
+        34,
+        37,
+        97,
+        53
+      ],
+      "student_color": 1,
+      "moves": [
+        44,
+        61,
+        95,
+        51,
+        10,
+        52,
+        45,
+        72,
+        31,
+        15,
+        59,
+        62,
+        54,
+        1,
+        55,
+        78,
+        43,
+        58,
+        91,
+        68,
+        34,
+        37,
+        97,
+        53,
+        33,
+        25,
+        42,
+        35,
+        32,
+        36,
+        41,
+        46,
+        69,
+        56,
+        79,
+        57,
+        24,
+        47,
+        23,
+        63,
+        64,
+        66,
+        65,
+        14,
+        67,
+        77,
+        96,
+        26,
+        13,
+        48,
+        49,
+        73,
+        74,
+        76,
+        75,
+        11,
+        85,
+        16,
+        86,
+        27,
+        87,
+        38,
+        84,
+        39,
+        12,
+        89,
+        21,
+        88,
+        2,
+        83,
+        94,
+        4,
+        93,
+        5,
+        92,
+        17,
+        82,
+        28,
+        81,
+        49,
+        71,
+        59,
+        60,
+        50,
+        70,
+        40,
+        0,
+        30,
+        22,
+        3,
+        20,
+        6,
+        83,
+        18,
+        63,
+        69,
+        72,
+        7,
+        73,
+        29,
+        52,
+        8,
+        53,
+        19,
+        61,
+        98,
+        62,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 24,
+          "action": 33,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 42,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 32,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 41,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 69,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 79,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 24,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 23,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 64,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 65,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 67,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 54,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 58,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 60,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 84,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 66,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 70,
+          "action": 94,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 72,
+          "action": 93,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 92,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 76,
+          "action": 82,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 78,
+          "action": 81,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 80,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 82,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 84,
+          "action": 70,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 86,
+          "action": 0,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 88,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 90,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 92,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 94,
+          "action": 63,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 96,
+          "action": 72,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 98,
+          "action": 73,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 100,
+          "action": 52,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 102,
+          "action": 53,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 104,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 106,
+          "action": 62,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 108,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 0
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 57.0,
+        "white": 48.5,
+        "white_without_komi": 43.0,
+        "komi": 5.5,
+        "margin_black": 8.5
+      },
+      "winner": 1,
+      "win": 1,
+      "margin": 8.5,
+      "seconds": 4.213872627995443
+    },
+    {
+      "index": 3,
+      "opening": [
+        44,
+        61,
+        95,
+        51,
+        10,
+        52,
+        45,
+        72,
+        31,
+        15,
+        59,
+        62,
+        54,
+        1,
+        55,
+        78,
+        43,
+        58,
+        91,
+        68,
+        34,
+        37,
+        97,
+        53
+      ],
+      "student_color": -1,
+      "moves": [
+        44,
+        61,
+        95,
+        51,
+        10,
+        52,
+        45,
+        72,
+        31,
+        15,
+        59,
+        62,
+        54,
+        1,
+        55,
+        78,
+        43,
+        58,
+        91,
+        68,
+        34,
+        37,
+        97,
+        53,
+        96,
+        42,
+        35,
+        41,
+        46,
+        69,
+        49,
+        36,
+        56,
+        57,
+        64,
+        47,
+        65,
+        67,
+        24,
+        66,
+        25,
+        26,
+        14,
+        63,
+        33,
+        48,
+        39,
+        32,
+        74,
+        38,
+        29,
+        73,
+        75,
+        76,
+        85,
+        86,
+        23,
+        87,
+        84,
+        16,
+        11,
+        77,
+        21,
+        22,
+        13,
+        30,
+        12,
+        20,
+        40,
+        30,
+        20,
+        50,
+        2,
+        30,
+        0,
+        40,
+        83,
+        28,
+        19,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 25,
+          "action": 42,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 41,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 69,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 36,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 57,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 47,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 67,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 66,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 26,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 63,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 48,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 47,
+          "action": 32,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 49,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 73,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 53,
+          "action": 76,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 55,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 57,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 59,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 61,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 22,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 30,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 67,
+          "action": 20,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 30,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 73,
+          "action": 30,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 75,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 28,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 79,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 40.0,
+        "white": 40.5,
+        "white_without_komi": 35.0,
+        "komi": 5.5,
+        "margin_black": -0.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 0.5,
+      "seconds": 2.5856950230081566
+    },
+    {
+      "index": 4,
+      "opening": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        81,
+        35,
+        53,
+        43,
+        95,
+        25,
+        56,
+        19,
+        46,
+        24,
+        74,
+        33,
+        84,
+        23,
+        64,
+        36,
+        14,
+        15,
+        27,
+        65,
+        85,
+        1,
+        69,
+        68,
+        66,
+        13,
+        75,
+        51,
+        65,
+        4,
+        67,
+        80,
+        82,
+        14,
+        83,
+        57,
+        47,
+        58,
+        48,
+        42,
+        8,
+        6,
+        37,
+        97,
+        52,
+        32,
+        63,
+        90,
+        26,
+        78,
+        28,
+        41,
+        70,
+        16,
+        91
+      ],
+      "student_color": 1,
+      "moves": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        81,
+        35,
+        53,
+        43,
+        95,
+        25,
+        56,
+        19,
+        46,
+        24,
+        74,
+        33,
+        84,
+        23,
+        64,
+        36,
+        14,
+        15,
+        27,
+        65,
+        85,
+        1,
+        69,
+        68,
+        66,
+        13,
+        75,
+        51,
+        65,
+        4,
+        67,
+        80,
+        82,
+        14,
+        83,
+        57,
+        47,
+        58,
+        48,
+        42,
+        8,
+        6,
+        37,
+        97,
+        52,
+        32,
+        63,
+        90,
+        26,
+        78,
+        28,
+        41,
+        70,
+        16,
+        91,
+        77,
+        18,
+        76,
+        71,
+        86,
+        29,
+        87,
+        9,
+        96,
+        62,
+        38,
+        39,
+        61,
+        73,
+        79,
+        38,
+        80,
+        90,
+        59,
+        72,
+        49,
+        17,
+        22,
+        94,
+        5,
+        60,
+        50,
+        93,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 60,
+          "action": 77,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 76,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 86,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 66,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 70,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 72,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 76,
+          "action": 80,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 78,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 80,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 82,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 84,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 86,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 88,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 54.0,
+        "white": 50.5,
+        "white_without_komi": 45.0,
+        "komi": 5.5,
+        "margin_black": 3.5
+      },
+      "winner": 1,
+      "win": 1,
+      "margin": 3.5,
+      "seconds": 1.4460784089751542
+    },
+    {
+      "index": 5,
+      "opening": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        81,
+        35,
+        53,
+        43,
+        95,
+        25,
+        56,
+        19,
+        46,
+        24,
+        74,
+        33,
+        84,
+        23,
+        64,
+        36,
+        14,
+        15,
+        27,
+        65,
+        85,
+        1,
+        69,
+        68,
+        66,
+        13,
+        75,
+        51,
+        65,
+        4,
+        67,
+        80,
+        82,
+        14,
+        83,
+        57,
+        47,
+        58,
+        48,
+        42,
+        8,
+        6,
+        37,
+        97,
+        52,
+        32,
+        63,
+        90,
+        26,
+        78,
+        28,
+        41,
+        70,
+        16,
+        91
+      ],
+      "student_color": -1,
+      "moves": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        81,
+        35,
+        53,
+        43,
+        95,
+        25,
+        56,
+        19,
+        46,
+        24,
+        74,
+        33,
+        84,
+        23,
+        64,
+        36,
+        14,
+        15,
+        27,
+        65,
+        85,
+        1,
+        69,
+        68,
+        66,
+        13,
+        75,
+        51,
+        65,
+        4,
+        67,
+        80,
+        82,
+        14,
+        83,
+        57,
+        47,
+        58,
+        48,
+        42,
+        8,
+        6,
+        37,
+        97,
+        52,
+        32,
+        63,
+        90,
+        26,
+        78,
+        28,
+        41,
+        70,
+        16,
+        91,
+        59,
+        62,
+        79,
+        71,
+        22,
+        61,
+        31,
+        50,
+        40,
+        17,
+        60,
+        7,
+        50,
+        18,
+        77,
+        76,
+        87,
+        86,
+        5,
+        96,
+        12,
+        38,
+        11,
+        29,
+        21,
+        72,
+        49,
+        73,
+        3,
+        30,
+        20,
+        9,
+        39,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 61,
+          "action": 62,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 71,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 61,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 67,
+          "action": 50,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 17,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 7,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 73,
+          "action": 18,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 75,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 79,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 81,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 83,
+          "action": 29,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 85,
+          "action": 72,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 87,
+          "action": 73,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 89,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 91,
+          "action": 9,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 93,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 52.0,
+        "white": 53.5,
+        "white_without_komi": 48.0,
+        "komi": 5.5,
+        "margin_black": -1.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 1.5,
+      "seconds": 2.0609409859753214
+    },
+    {
+      "index": 6,
+      "opening": [
+        57,
+        44,
+        49,
+        45
+      ],
+      "student_color": 1,
+      "moves": [
+        57,
+        44,
+        49,
+        45,
+        58,
+        54,
+        59,
+        55,
+        56,
+        34,
+        46,
+        35,
+        47,
+        43,
+        48,
+        53,
+        36,
+        64,
+        37,
+        65,
+        66,
+        24,
+        38,
+        25,
+        26,
+        33,
+        27,
+        42,
+        67,
+        52,
+        100,
+        63,
+        100,
+        74,
+        75,
+        14,
+        76,
+        15,
+        16,
+        23,
+        6,
+        32,
+        5,
+        41,
+        4,
+        51,
+        13,
+        62,
+        22,
+        73,
+        31,
+        84,
+        85,
+        61,
+        3,
+        72,
+        12,
+        83,
+        21,
+        40,
+        11,
+        50,
+        100,
+        71,
+        100,
+        82,
+        100,
+        94,
+        95,
+        30,
+        86,
+        60,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 4,
+          "action": 58,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 6,
+          "action": 59,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 8,
+          "action": 56,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 10,
+          "action": 46,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 12,
+          "action": 47,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 14,
+          "action": 48,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 16,
+          "action": 36,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 18,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 20,
+          "action": 66,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 22,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 24,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 36,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 38,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 44,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 54,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 58,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 60,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 66,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 68,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 70,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 72,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 52.0,
+        "white": 48.5,
+        "white_without_komi": 43.0,
+        "komi": 5.5,
+        "margin_black": 3.5
+      },
+      "winner": 1,
+      "win": 1,
+      "margin": 3.5,
+      "seconds": 3.517155180044938
+    },
+    {
+      "index": 7,
+      "opening": [
+        57,
+        44,
+        49,
+        45
+      ],
+      "student_color": -1,
+      "moves": [
+        57,
+        44,
+        49,
+        45,
+        56,
+        46,
+        55,
+        47,
+        54,
+        48,
+        53,
+        58,
+        43,
+        59,
+        39,
+        38,
+        29,
+        37,
+        64,
+        36,
+        65,
+        35,
+        33,
+        34,
+        42,
+        28,
+        19,
+        27,
+        52,
+        26,
+        63,
+        25,
+        66,
+        24,
+        74,
+        23,
+        75,
+        32,
+        41,
+        67,
+        31,
+        76,
+        22,
+        68,
+        21,
+        77,
+        51,
+        100,
+        62,
+        100,
+        73,
+        100,
+        84,
+        85,
+        61,
+        86,
+        72,
+        100,
+        83,
+        100,
+        12,
+        13,
+        40,
+        14,
+        50,
+        15,
+        71,
+        16,
+        82,
+        100,
+        94,
+        95,
+        11,
+        3,
+        30,
+        4,
+        60,
+        2,
+        81,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 5,
+          "action": 46,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 7,
+          "action": 47,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 9,
+          "action": 48,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 11,
+          "action": 58,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 13,
+          "action": 59,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 15,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 17,
+          "action": 37,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 19,
+          "action": 36,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 21,
+          "action": 35,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 23,
+          "action": 34,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 25,
+          "action": 28,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 25,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 24,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 68,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 47,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 49,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 51,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 53,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 55,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 57,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 59,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 61,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 14,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 15,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 67,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 73,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 75,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 79,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 47.0,
+        "white": 47.5,
+        "white_without_komi": 42.0,
+        "komi": 5.5,
+        "margin_black": -0.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 0.5,
+      "seconds": 3.78526122297626
+    },
+    {
+      "index": 8,
+      "opening": [
+        30,
+        44,
+        31,
+        86,
+        32,
+        61,
+        41,
+        75,
+        33,
+        76,
+        34,
+        0,
+        43,
+        38,
+        35,
+        54,
+        37,
+        45,
+        36,
+        52,
+        46,
+        27,
+        87,
+        83
+      ],
+      "student_color": 1,
+      "moves": [
+        30,
+        44,
+        31,
+        86,
+        32,
+        61,
+        41,
+        75,
+        33,
+        76,
+        34,
+        0,
+        43,
+        38,
+        35,
+        54,
+        37,
+        45,
+        36,
+        52,
+        46,
+        27,
+        87,
+        83,
+        42,
+        53,
+        51,
+        62,
+        26,
+        28,
+        55,
+        65,
+        25,
+        56,
+        24,
+        55,
+        23,
+        64,
+        47,
+        57,
+        63,
+        73,
+        74,
+        84,
+        85,
+        95,
+        66,
+        67,
+        77,
+        85,
+        96,
+        97,
+        22,
+        96,
+        21,
+        63,
+        40,
+        66,
+        20,
+        74,
+        10,
+        48,
+        100,
+        58,
+        100,
+        68,
+        100,
+        78,
+        79,
+        88,
+        87,
+        77,
+        69,
+        59,
+        89,
+        99,
+        89,
+        79,
+        49,
+        39,
+        60,
+        89,
+        11,
+        72,
+        1,
+        17,
+        50,
+        16,
+        0,
+        15,
+        12,
+        14,
+        13,
+        4,
+        3,
+        5,
+        6,
+        7,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 24,
+          "action": 42,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 51,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 26,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 55,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 25,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 24,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 47,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 63,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 66,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 54,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 58,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 60,
+          "action": 10,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 62,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 64,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 66,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 68,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 70,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 72,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 89,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 76,
+          "action": 89,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 78,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 80,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 82,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 84,
+          "action": 1,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 86,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 88,
+          "action": 0,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 90,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 92,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 94,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 96,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 98,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 11
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 32.0,
+        "white": 63.5,
+        "white_without_komi": 58.0,
+        "komi": 5.5,
+        "margin_black": -31.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -31.5,
+      "seconds": 3.5637767760199495
+    },
+    {
+      "index": 9,
+      "opening": [
+        30,
+        44,
+        31,
+        86,
+        32,
+        61,
+        41,
+        75,
+        33,
+        76,
+        34,
+        0,
+        43,
+        38,
+        35,
+        54,
+        37,
+        45,
+        36,
+        52,
+        46,
+        27,
+        87,
+        83
+      ],
+      "student_color": -1,
+      "moves": [
+        30,
+        44,
+        31,
+        86,
+        32,
+        61,
+        41,
+        75,
+        33,
+        76,
+        34,
+        0,
+        43,
+        38,
+        35,
+        54,
+        37,
+        45,
+        36,
+        52,
+        46,
+        27,
+        87,
+        83,
+        53,
+        42,
+        51,
+        55,
+        62,
+        52,
+        42,
+        63,
+        52,
+        64,
+        26,
+        65,
+        56,
+        66,
+        24,
+        73,
+        25,
+        72,
+        47,
+        74,
+        48,
+        77,
+        57,
+        67,
+        14,
+        84,
+        15,
+        85,
+        23,
+        50,
+        40,
+        60,
+        58,
+        82,
+        13,
+        71,
+        16,
+        28,
+        22,
+        17,
+        68,
+        100,
+        4,
+        100,
+        5,
+        6,
+        7,
+        95,
+        6,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 25,
+          "action": 42,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 55,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 52,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 63,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 64,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 65,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 66,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 73,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 72,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 47,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 49,
+          "action": 84,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 53,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 55,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 57,
+          "action": 82,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 59,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 61,
+          "action": 28,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 63,
+          "action": 17,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 65,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 67,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 69,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 71,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 73,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 37.0,
+        "white": 43.5,
+        "white_without_komi": 38.0,
+        "komi": 5.5,
+        "margin_black": -6.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 6.5,
+      "seconds": 2.399351468018722
+    },
+    {
+      "index": 10,
+      "opening": [
+        58,
+        90,
+        57,
+        44,
+        56,
+        86,
+        55,
+        42,
+        45,
+        70,
+        54,
+        61,
+        35,
+        81,
+        34,
+        25,
+        73,
+        98,
+        43,
+        39,
+        26,
+        89,
+        74,
+        49,
+        44,
+        87,
+        20,
+        71,
+        64,
+        18,
+        36,
+        88,
+        21,
+        72,
+        24,
+        4,
+        15,
+        47,
+        30,
+        48,
+        17,
+        94,
+        50,
+        85,
+        16,
+        84,
+        32,
+        46,
+        33,
+        80,
+        22,
+        2,
+        40,
+        3,
+        79,
+        93,
+        41,
+        78,
+        52,
+        69
+      ],
+      "student_color": 1,
+      "moves": [
+        58,
+        90,
+        57,
+        44,
+        56,
+        86,
+        55,
+        42,
+        45,
+        70,
+        54,
+        61,
+        35,
+        81,
+        34,
+        25,
+        73,
+        98,
+        43,
+        39,
+        26,
+        89,
+        74,
+        49,
+        44,
+        87,
+        20,
+        71,
+        64,
+        18,
+        36,
+        88,
+        21,
+        72,
+        24,
+        4,
+        15,
+        47,
+        30,
+        48,
+        17,
+        94,
+        50,
+        85,
+        16,
+        84,
+        32,
+        46,
+        33,
+        80,
+        22,
+        2,
+        40,
+        3,
+        79,
+        93,
+        41,
+        78,
+        52,
+        69,
+        83,
+        68,
+        82,
+        59,
+        62,
+        75,
+        63,
+        65,
+        51,
+        66,
+        67,
+        14,
+        76,
+        77,
+        53,
+        37,
+        25,
+        13,
+        23,
+        27,
+        12,
+        28,
+        5,
+        1,
+        11,
+        0,
+        60,
+        91,
+        92,
+        95,
+        10,
+        96,
+        42,
+        29,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 60,
+          "action": 83,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 82,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 62,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 66,
+          "action": 63,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 51,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 70,
+          "action": 67,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 72,
+          "action": 76,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 53,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 76,
+          "action": 25,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 78,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 80,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 82,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 84,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 86,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 88,
+          "action": 92,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 90,
+          "action": 10,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 92,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 94,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 61.0,
+        "white": 39.5,
+        "white_without_komi": 34.0,
+        "komi": 5.5,
+        "margin_black": 21.5
+      },
+      "winner": 1,
+      "win": 1,
+      "margin": 21.5,
+      "seconds": 1.8498397959629074
+    },
+    {
+      "index": 11,
+      "opening": [
+        58,
+        90,
+        57,
+        44,
+        56,
+        86,
+        55,
+        42,
+        45,
+        70,
+        54,
+        61,
+        35,
+        81,
+        34,
+        25,
+        73,
+        98,
+        43,
+        39,
+        26,
+        89,
+        74,
+        49,
+        44,
+        87,
+        20,
+        71,
+        64,
+        18,
+        36,
+        88,
+        21,
+        72,
+        24,
+        4,
+        15,
+        47,
+        30,
+        48,
+        17,
+        94,
+        50,
+        85,
+        16,
+        84,
+        32,
+        46,
+        33,
+        80,
+        22,
+        2,
+        40,
+        3,
+        79,
+        93,
+        41,
+        78,
+        52,
+        69
+      ],
+      "student_color": -1,
+      "moves": [
+        58,
+        90,
+        57,
+        44,
+        56,
+        86,
+        55,
+        42,
+        45,
+        70,
+        54,
+        61,
+        35,
+        81,
+        34,
+        25,
+        73,
+        98,
+        43,
+        39,
+        26,
+        89,
+        74,
+        49,
+        44,
+        87,
+        20,
+        71,
+        64,
+        18,
+        36,
+        88,
+        21,
+        72,
+        24,
+        4,
+        15,
+        47,
+        30,
+        48,
+        17,
+        94,
+        50,
+        85,
+        16,
+        84,
+        32,
+        46,
+        33,
+        80,
+        22,
+        2,
+        40,
+        3,
+        79,
+        93,
+        41,
+        78,
+        52,
+        69,
+        53,
+        83,
+        65,
+        37,
+        63,
+        51,
+        66,
+        67,
+        68,
+        76,
+        77,
+        27,
+        59,
+        67,
+        79,
+        82,
+        77,
+        75,
+        14,
+        67,
+        23,
+        77,
+        62,
+        60,
+        13,
+        69,
+        5,
+        12,
+        79,
+        28,
+        11,
+        69,
+        1,
+        38,
+        79,
+        7,
+        6,
+        69,
+        8,
+        95,
+        79,
+        10,
+        0,
+        69,
+        4,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 61,
+          "action": 83,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 37,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 51,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 67,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 73,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 75,
+          "action": 82,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 79,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 81,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 83,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 85,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 87,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 89,
+          "action": 28,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 91,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 93,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 95,
+          "action": 7,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 97,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 99,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 101,
+          "action": 10,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 103,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 105,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 11
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 54.0,
+        "white": 48.5,
+        "white_without_komi": 43.0,
+        "komi": 5.5,
+        "margin_black": 5.5
+      },
+      "winner": 1,
+      "win": 0,
+      "margin": -5.5,
+      "seconds": 2.184718505013734
+    },
+    {
+      "index": 12,
+      "opening": [
+        47,
+        44,
+        55,
+        45
+      ],
+      "student_color": 1,
+      "moves": [
+        47,
+        44,
+        55,
+        45,
+        56,
+        54,
+        46,
+        34,
+        57,
+        35,
+        36,
+        43,
+        37,
+        53,
+        65,
+        64,
+        66,
+        24,
+        33,
+        23,
+        100,
+        32,
+        100,
+        33,
+        100,
+        25,
+        26,
+        42,
+        27,
+        52,
+        100,
+        63,
+        100,
+        74,
+        75,
+        14,
+        76,
+        15,
+        16,
+        41,
+        6,
+        51,
+        5,
+        62,
+        4,
+        73,
+        13,
+        84,
+        85,
+        22,
+        3,
+        31,
+        12,
+        61,
+        21,
+        72,
+        11,
+        83,
+        30,
+        40,
+        50,
+        60,
+        100,
+        20,
+        1,
+        30,
+        100,
+        50,
+        100,
+        71,
+        0,
+        82,
+        70,
+        80,
+        81,
+        91,
+        100,
+        81,
+        100,
+        94,
+        95,
+        93,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 4,
+          "action": 56,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 6,
+          "action": 46,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 8,
+          "action": 57,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 10,
+          "action": 36,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 12,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 14,
+          "action": 65,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 16,
+          "action": 66,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 18,
+          "action": 33,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 20,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 22,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 24,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 32,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 34,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 85,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 54,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 58,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 60,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 64,
+          "action": 1,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 66,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 68,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 70,
+          "action": 0,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 72,
+          "action": 70,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 74,
+          "action": 81,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 76,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 78,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 80,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 82,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 55.0,
+        "white": 49.5,
+        "white_without_komi": 44.0,
+        "komi": 5.5,
+        "margin_black": 5.5
+      },
+      "winner": 1,
+      "win": 1,
+      "margin": 5.5,
+      "seconds": 3.693447564030066
+    },
+    {
+      "index": 13,
+      "opening": [
+        47,
+        44,
+        55,
+        45
+      ],
+      "student_color": -1,
+      "moves": [
+        47,
+        44,
+        55,
+        45,
+        54,
+        46,
+        53,
+        56,
+        43,
+        57,
+        64,
+        65,
+        33,
+        66,
+        34,
+        35,
+        24,
+        36,
+        25,
+        37,
+        42,
+        26,
+        52,
+        27,
+        63,
+        75,
+        74,
+        76,
+        14,
+        100,
+        15,
+        16,
+        23,
+        6,
+        32,
+        5,
+        41,
+        4,
+        51,
+        13,
+        62,
+        22,
+        73,
+        31,
+        84,
+        85,
+        61,
+        12,
+        72,
+        21,
+        83,
+        40,
+        50,
+        60,
+        70,
+        71,
+        81,
+        82,
+        92,
+        100,
+        30,
+        80,
+        90,
+        20,
+        71,
+        40,
+        91,
+        100,
+        30,
+        11,
+        40,
+        100,
+        82,
+        100,
+        94,
+        95,
+        48,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 5,
+          "action": 46,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 7,
+          "action": 56,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 9,
+          "action": 57,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 11,
+          "action": 65,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 13,
+          "action": 66,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 15,
+          "action": 35,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 17,
+          "action": 36,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 19,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 21,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 23,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 25,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 47,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 49,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 53,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 55,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 57,
+          "action": 82,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 59,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 61,
+          "action": 80,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 67,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 69,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 71,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 73,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 75,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 41.0,
+        "white": 37.5,
+        "white_without_komi": 32.0,
+        "komi": 5.5,
+        "margin_black": 3.5
+      },
+      "winner": 1,
+      "win": 0,
+      "margin": -3.5,
+      "seconds": 3.421037911029998
+    },
+    {
+      "index": 14,
+      "opening": [
+        78,
+        81,
+        68,
+        71,
+        72,
+        82,
+        58,
+        10,
+        86,
+        61,
+        85,
+        62,
+        35,
+        73,
+        45,
+        90,
+        44,
+        63,
+        66,
+        53,
+        67,
+        40,
+        76,
+        98
+      ],
+      "student_color": 1,
+      "moves": [
+        78,
+        81,
+        68,
+        71,
+        72,
+        82,
+        58,
+        10,
+        86,
+        61,
+        85,
+        62,
+        35,
+        73,
+        45,
+        90,
+        44,
+        63,
+        66,
+        53,
+        67,
+        40,
+        76,
+        98,
+        75,
+        54,
+        55,
+        43,
+        74,
+        64,
+        56,
+        65,
+        57,
+        80,
+        46,
+        33,
+        34,
+        42,
+        52,
+        51,
+        47,
+        41,
+        36,
+        23,
+        24,
+        32,
+        25,
+        13,
+        14,
+        22,
+        84,
+        31,
+        83,
+        12,
+        50,
+        60,
+        77,
+        11,
+        21,
+        20,
+        94,
+        3,
+        93,
+        4,
+        92,
+        5,
+        91,
+        15,
+        26,
+        16,
+        2,
+        1,
+        37,
+        17,
+        27,
+        6,
+        7,
+        8,
+        95,
+        18,
+        48,
+        28,
+        38,
+        88,
+        87,
+        29,
+        39,
+        19,
+        97,
+        89,
+        79,
+        100,
+        99,
+        59,
+        69,
+        100,
+        49,
+        100,
+        89,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 24,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 55,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 56,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 57,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 46,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 34,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 52,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 47,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 36,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 24,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 25,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 14,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 84,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 54,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 58,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 60,
+          "action": 94,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 93,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 92,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 66,
+          "action": 91,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 70,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 72,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 74,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 76,
+          "action": 7,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 78,
+          "action": 95,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 80,
+          "action": 48,
+          "raw_legal": false,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 82,
+          "action": 38,
+          "raw_legal": false,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 84,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 86,
+          "action": 39,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 88,
+          "action": 97,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 90,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 92,
+          "action": 99,
+          "raw_legal": true,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 94,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 96,
+          "action": 49,
+          "raw_legal": true,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 98,
+          "action": 89,
+          "raw_legal": true,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 100,
+          "action": 100,
+          "raw_legal": true,
+          "search_evaluations": 11
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 48.0,
+        "white": 57.5,
+        "white_without_komi": 52.0,
+        "komi": 5.5,
+        "margin_black": -9.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -9.5,
+      "seconds": 3.6023547549848445
+    },
+    {
+      "index": 15,
+      "opening": [
+        78,
+        81,
+        68,
+        71,
+        72,
+        82,
+        58,
+        10,
+        86,
+        61,
+        85,
+        62,
+        35,
+        73,
+        45,
+        90,
+        44,
+        63,
+        66,
+        53,
+        67,
+        40,
+        76,
+        98
+      ],
+      "student_color": -1,
+      "moves": [
+        78,
+        81,
+        68,
+        71,
+        72,
+        82,
+        58,
+        10,
+        86,
+        61,
+        85,
+        62,
+        35,
+        73,
+        45,
+        90,
+        44,
+        63,
+        66,
+        53,
+        67,
+        40,
+        76,
+        98,
+        54,
+        52,
+        55,
+        77,
+        87,
+        64,
+        56,
+        65,
+        34,
+        75,
+        43,
+        74,
+        46,
+        84,
+        24,
+        42,
+        25,
+        41,
+        33,
+        83,
+        36,
+        79,
+        47,
+        88,
+        69,
+        89,
+        14,
+        59,
+        49,
+        32,
+        48,
+        51,
+        15,
+        72,
+        23,
+        31,
+        26,
+        91,
+        37,
+        100,
+        97,
+        100,
+        99,
+        79,
+        89,
+        98,
+        88,
+        22,
+        13,
+        21,
+        16,
+        50,
+        27,
+        11,
+        38,
+        12,
+        4,
+        30,
+        5,
+        60,
+        17,
+        70,
+        28,
+        80,
+        95,
+        94,
+        3,
+        39,
+        29,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 25,
+          "action": 52,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 77,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 64,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 65,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 84,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 41,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 47,
+          "action": 88,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 49,
+          "action": 89,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 53,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 55,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 57,
+          "action": 72,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 59,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 61,
+          "action": 91,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 65,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 67,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 98,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 73,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 75,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 77,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 79,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 81,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 83,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 85,
+          "action": 70,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 87,
+          "action": 80,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 89,
+          "action": 94,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 91,
+          "action": 39,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 93,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 59.0,
+        "white": 43.5,
+        "white_without_komi": 38.0,
+        "komi": 5.5,
+        "margin_black": 15.5
+      },
+      "winner": 1,
+      "win": 0,
+      "margin": -15.5,
+      "seconds": 3.623367814987432
+    },
+    {
+      "index": 16,
+      "opening": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        53,
+        35,
+        43,
+        46,
+        86,
+        70,
+        32,
+        0,
+        33,
+        98,
+        10,
+        56,
+        95,
+        24,
+        19,
+        65,
+        1,
+        93,
+        61,
+        66,
+        76,
+        3,
+        83,
+        58,
+        23,
+        57,
+        12,
+        31,
+        5,
+        64,
+        94,
+        25,
+        11,
+        92,
+        73,
+        38,
+        13,
+        48,
+        63,
+        68,
+        91,
+        15,
+        90,
+        36,
+        22,
+        8,
+        82,
+        47,
+        62,
+        40,
+        84,
+        85,
+        87,
+        78,
+        49
+      ],
+      "student_color": 1,
+      "moves": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        53,
+        35,
+        43,
+        46,
+        86,
+        70,
+        32,
+        0,
+        33,
+        98,
+        10,
+        56,
+        95,
+        24,
+        19,
+        65,
+        1,
+        93,
+        61,
+        66,
+        76,
+        3,
+        83,
+        58,
+        23,
+        57,
+        12,
+        31,
+        5,
+        64,
+        94,
+        25,
+        11,
+        92,
+        73,
+        38,
+        13,
+        48,
+        63,
+        68,
+        91,
+        15,
+        90,
+        36,
+        22,
+        8,
+        82,
+        47,
+        62,
+        40,
+        84,
+        85,
+        87,
+        78,
+        49,
+        77,
+        75,
+        74,
+        85,
+        14,
+        81,
+        4,
+        42,
+        71,
+        41,
+        72,
+        21,
+        60,
+        30,
+        51,
+        50,
+        37,
+        80,
+        60,
+        52,
+        88,
+        70,
+        71,
+        72,
+        67,
+        40,
+        59,
+        51,
+        26,
+        18,
+        2,
+        31,
+        39,
+        17,
+        28,
+        7,
+        27,
+        9,
+        16,
+        6,
+        97,
+        71,
+        96,
+        60,
+        49,
+        93,
+        69,
+        20,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 60,
+          "action": 77,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 74,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 14,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 66,
+          "action": 4,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 71,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 70,
+          "action": 72,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 72,
+          "action": 60,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 76,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 78,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 80,
+          "action": 88,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 82,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 84,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 86,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 88,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 90,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 92,
+          "action": 39,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 94,
+          "action": 28,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 96,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 98,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 100,
+          "action": 97,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 102,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 104,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 106,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 108,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 10
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 43.0,
+        "white": 61.5,
+        "white_without_komi": 56.0,
+        "komi": 5.5,
+        "margin_black": -18.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -18.5,
+      "seconds": 2.2870720790233463
+    },
+    {
+      "index": 17,
+      "opening": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        53,
+        35,
+        43,
+        46,
+        86,
+        70,
+        32,
+        0,
+        33,
+        98,
+        10,
+        56,
+        95,
+        24,
+        19,
+        65,
+        1,
+        93,
+        61,
+        66,
+        76,
+        3,
+        83,
+        58,
+        23,
+        57,
+        12,
+        31,
+        5,
+        64,
+        94,
+        25,
+        11,
+        92,
+        73,
+        38,
+        13,
+        48,
+        63,
+        68,
+        91,
+        15,
+        90,
+        36,
+        22,
+        8,
+        82,
+        47,
+        62,
+        40,
+        84,
+        85,
+        87,
+        78,
+        49
+      ],
+      "student_color": -1,
+      "moves": [
+        44,
+        55,
+        45,
+        54,
+        34,
+        53,
+        35,
+        43,
+        46,
+        86,
+        70,
+        32,
+        0,
+        33,
+        98,
+        10,
+        56,
+        95,
+        24,
+        19,
+        65,
+        1,
+        93,
+        61,
+        66,
+        76,
+        3,
+        83,
+        58,
+        23,
+        57,
+        12,
+        31,
+        5,
+        64,
+        94,
+        25,
+        11,
+        92,
+        73,
+        38,
+        13,
+        48,
+        63,
+        68,
+        91,
+        15,
+        90,
+        36,
+        22,
+        8,
+        82,
+        47,
+        62,
+        40,
+        84,
+        85,
+        87,
+        78,
+        49,
+        75,
+        71,
+        41,
+        80,
+        88,
+        67,
+        77,
+        74,
+        59,
+        42,
+        39,
+        51,
+        14,
+        50,
+        4,
+        30,
+        6,
+        72,
+        20,
+        21,
+        16,
+        30,
+        7,
+        31,
+        26,
+        96,
+        37,
+        52,
+        67,
+        60,
+        18,
+        81,
+        29,
+        2,
+        9,
+        97,
+        27,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 61,
+          "action": 71,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 80,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 67,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 67,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 73,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 75,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 72,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 79,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 81,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 83,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 85,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 87,
+          "action": 52,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 89,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 91,
+          "action": 81,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 93,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 95,
+          "action": 97,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 97,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 50.0,
+        "white": 55.5,
+        "white_without_komi": 50.0,
+        "komi": 5.5,
+        "margin_black": -5.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 5.5,
+      "seconds": 1.8686513169668615
+    },
+    {
+      "index": 18,
+      "opening": [
+        5,
+        14,
+        15,
+        25
+      ],
+      "student_color": 1,
+      "moves": [
+        5,
+        14,
+        15,
+        25,
+        4,
+        24,
+        23,
+        34,
+        13,
+        44,
+        3,
+        45,
+        12,
+        54,
+        22,
+        55,
+        2,
+        35,
+        1,
+        43,
+        33,
+        46,
+        32,
+        53,
+        42,
+        56,
+        31,
+        64,
+        41,
+        65,
+        21,
+        36,
+        11,
+        47,
+        30,
+        52,
+        20,
+        57,
+        51,
+        63,
+        40,
+        66,
+        0,
+        74,
+        10,
+        75,
+        50,
+        26,
+        100,
+        37,
+        100,
+        48,
+        100,
+        58,
+        100,
+        62,
+        16,
+        67,
+        61,
+        73,
+        60,
+        76,
+        100,
+        84,
+        59,
+        49,
+        68,
+        69,
+        77,
+        78,
+        79,
+        87,
+        100,
+        89,
+        100,
+        88,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 4,
+          "action": 4,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 6,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 8,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 10,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 12,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 14,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 16,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 18,
+          "action": 1,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 20,
+          "action": 33,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 22,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 24,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 41,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 0,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 10,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 48,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 50,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 52,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 54,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 56,
+          "action": 16,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 58,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 60,
+          "action": 60,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 62,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 64,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 66,
+          "action": 68,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 68,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 70,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 72,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 74,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 76,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 27.0,
+        "white": 47.5,
+        "white_without_komi": 42.0,
+        "komi": 5.5,
+        "margin_black": -20.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -20.5,
+      "seconds": 3.3396591830533
+    },
+    {
+      "index": 19,
+      "opening": [
+        5,
+        14,
+        15,
+        25
+      ],
+      "student_color": -1,
+      "moves": [
+        5,
+        14,
+        15,
+        25,
+        16,
+        4,
+        26,
+        24,
+        36,
+        13,
+        35,
+        3,
+        45,
+        34,
+        44,
+        23,
+        54,
+        33,
+        55,
+        43,
+        46,
+        32,
+        53,
+        22,
+        56,
+        12,
+        64,
+        2,
+        65,
+        42,
+        47,
+        52,
+        57,
+        41,
+        63,
+        31,
+        66,
+        21,
+        74,
+        51,
+        75,
+        11,
+        37,
+        1,
+        48,
+        40,
+        58,
+        100,
+        62,
+        30,
+        67,
+        61,
+        73,
+        100,
+        76,
+        100,
+        84,
+        100,
+        85,
+        100,
+        27,
+        100,
+        38,
+        100,
+        68,
+        100,
+        72,
+        69,
+        59,
+        49,
+        39,
+        50,
+        79,
+        20,
+        78,
+        77,
+        87,
+        0,
+        86,
+        10,
+        71,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 5,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 7,
+          "action": 24,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 9,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 11,
+          "action": 3,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 13,
+          "action": 34,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 15,
+          "action": 23,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 17,
+          "action": 33,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 19,
+          "action": 43,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 21,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 23,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 25,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 2,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 52,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 41,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 1,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 47,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 49,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 53,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 55,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 57,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 59,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 61,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 63,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 65,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 67,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 69,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 71,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 73,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 75,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 77,
+          "action": 0,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 79,
+          "action": 10,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 81,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 53.0,
+        "white": 34.5,
+        "white_without_komi": 29.0,
+        "komi": 5.5,
+        "margin_black": 18.5
+      },
+      "winner": 1,
+      "win": 0,
+      "margin": -18.5,
+      "seconds": 3.5797990140272304
+    },
+    {
+      "index": 20,
+      "opening": [
+        44,
+        82,
+        45,
+        72,
+        54,
+        62,
+        60,
+        52,
+        55,
+        43,
+        76,
+        53,
+        34,
+        33,
+        16,
+        57,
+        35,
+        24,
+        65,
+        23,
+        66,
+        3,
+        46,
+        38
+      ],
+      "student_color": 1,
+      "moves": [
+        44,
+        82,
+        45,
+        72,
+        54,
+        62,
+        60,
+        52,
+        55,
+        43,
+        76,
+        53,
+        34,
+        33,
+        16,
+        57,
+        35,
+        24,
+        65,
+        23,
+        66,
+        3,
+        46,
+        38,
+        25,
+        13,
+        64,
+        42,
+        63,
+        47,
+        56,
+        37,
+        36,
+        61,
+        73,
+        14,
+        15,
+        32,
+        74,
+        41,
+        51,
+        50,
+        40,
+        30,
+        83,
+        70,
+        71,
+        81,
+        4,
+        5,
+        26,
+        40,
+        80,
+        90,
+        75,
+        80,
+        84,
+        4,
+        31,
+        21,
+        22,
+        12,
+        85,
+        22,
+        100,
+        48,
+        100,
+        51,
+        27,
+        58,
+        67,
+        31,
+        6,
+        68,
+        69,
+        59,
+        49,
+        39,
+        77,
+        79,
+        78,
+        69,
+        86,
+        28,
+        94,
+        71,
+        93,
+        11,
+        92,
+        18,
+        91,
+        17,
+        29,
+        19,
+        7,
+        49,
+        20,
+        10,
+        8,
+        60,
+        9,
+        2,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 24,
+          "action": 25,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 26,
+          "action": 64,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 28,
+          "action": 63,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 30,
+          "action": 56,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 32,
+          "action": 36,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 34,
+          "action": 73,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 36,
+          "action": 15,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 38,
+          "action": 74,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 40,
+          "action": 51,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 42,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 44,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 46,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 48,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 50,
+          "action": 26,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 52,
+          "action": 80,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 54,
+          "action": 75,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 56,
+          "action": 84,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 58,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 60,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 85,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 64,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 66,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 68,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 70,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 72,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 74,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 76,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 78,
+          "action": 77,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 80,
+          "action": 78,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 82,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 84,
+          "action": 94,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 86,
+          "action": 93,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 88,
+          "action": 92,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 90,
+          "action": 91,
+          "raw_legal": true,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 92,
+          "action": 29,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 94,
+          "action": 7,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 96,
+          "action": 20,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 98,
+          "action": 8,
+          "raw_legal": false,
+          "search_evaluations": 11
+        },
+        {
+          "ply": 100,
+          "action": 9,
+          "raw_legal": false,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 102,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 9
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 37.0,
+        "white": 60.5,
+        "white_without_komi": 55.0,
+        "komi": 5.5,
+        "margin_black": -23.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -23.5,
+      "seconds": 4.369137950998265
+    },
+    {
+      "index": 21,
+      "opening": [
+        44,
+        82,
+        45,
+        72,
+        54,
+        62,
+        60,
+        52,
+        55,
+        43,
+        76,
+        53,
+        34,
+        33,
+        16,
+        57,
+        35,
+        24,
+        65,
+        23,
+        66,
+        3,
+        46,
+        38
+      ],
+      "student_color": -1,
+      "moves": [
+        44,
+        82,
+        45,
+        72,
+        54,
+        62,
+        60,
+        52,
+        55,
+        43,
+        76,
+        53,
+        34,
+        33,
+        16,
+        57,
+        35,
+        24,
+        65,
+        23,
+        66,
+        3,
+        46,
+        38,
+        56,
+        61,
+        47,
+        42,
+        67,
+        51,
+        58,
+        13,
+        57,
+        50,
+        64,
+        63,
+        25,
+        71,
+        15,
+        14,
+        36,
+        37,
+        74,
+        48,
+        75,
+        73,
+        26,
+        27,
+        84,
+        70,
+        85,
+        83,
+        68,
+        32,
+        77,
+        41,
+        86,
+        31,
+        5,
+        4,
+        17,
+        22,
+        59,
+        49,
+        78,
+        21,
+        87,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 25,
+          "action": 61,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 27,
+          "action": 42,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 29,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 31,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 33,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 35,
+          "action": 63,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 37,
+          "action": 71,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 39,
+          "action": 14,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 41,
+          "action": 37,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 43,
+          "action": 48,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 45,
+          "action": 73,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 47,
+          "action": 27,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 49,
+          "action": 70,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 51,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 53,
+          "action": 32,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 55,
+          "action": 41,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 57,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 59,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 61,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 63,
+          "action": 49,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 67,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 15
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 33.0,
+        "white": 47.5,
+        "white_without_komi": 42.0,
+        "komi": 5.5,
+        "margin_black": -14.5
+      },
+      "winner": -1,
+      "win": 1,
+      "margin": 14.5,
+      "seconds": 2.6164502640021965
+    },
+    {
+      "index": 22,
+      "opening": [
+        79,
+        44,
+        17,
+        86,
+        16,
+        34,
+        1,
+        54,
+        95,
+        45,
+        71,
+        55,
+        15,
+        27,
+        64,
+        32,
+        77,
+        56,
+        78,
+        20,
+        26,
+        18,
+        0,
+        33,
+        85,
+        28,
+        43,
+        53,
+        70,
+        89,
+        60,
+        42,
+        73,
+        65,
+        63,
+        35,
+        37,
+        14,
+        36,
+        29,
+        72,
+        24,
+        46,
+        43,
+        76,
+        25,
+        11,
+        52,
+        8,
+        98,
+        75,
+        57,
+        88,
+        47,
+        99,
+        66,
+        97,
+        23,
+        84,
+        41
+      ],
+      "student_color": 1,
+      "moves": [
+        79,
+        44,
+        17,
+        86,
+        16,
+        34,
+        1,
+        54,
+        95,
+        45,
+        71,
+        55,
+        15,
+        27,
+        64,
+        32,
+        77,
+        56,
+        78,
+        20,
+        26,
+        18,
+        0,
+        33,
+        85,
+        28,
+        43,
+        53,
+        70,
+        89,
+        60,
+        42,
+        73,
+        65,
+        63,
+        35,
+        37,
+        14,
+        36,
+        29,
+        72,
+        24,
+        46,
+        43,
+        76,
+        25,
+        11,
+        52,
+        8,
+        98,
+        75,
+        57,
+        88,
+        47,
+        99,
+        66,
+        97,
+        23,
+        84,
+        41,
+        62,
+        48,
+        61,
+        38,
+        51,
+        58,
+        67,
+        13,
+        68,
+        22,
+        74,
+        21,
+        96,
+        12,
+        87,
+        10,
+        31,
+        2,
+        40,
+        30,
+        50,
+        4,
+        5,
+        49,
+        59,
+        69,
+        86,
+        59,
+        94,
+        11,
+        83,
+        1,
+        93,
+        19,
+        82,
+        9,
+        92,
+        7,
+        81,
+        6,
+        46,
+        36,
+        89,
+        5,
+        17,
+        16,
+        91,
+        100,
+        80,
+        100,
+        98,
+        90,
+        100,
+        64,
+        100,
+        63,
+        100,
+        74,
+        100,
+        75,
+        100,
+        51,
+        100,
+        62,
+        100,
+        67,
+        68,
+        78,
+        79,
+        89,
+        76,
+        77,
+        100,
+        86,
+        100,
+        85,
+        100,
+        88,
+        87,
+        97,
+        40,
+        50,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 60,
+          "action": 62,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 62,
+          "action": 61,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 64,
+          "action": 51,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 66,
+          "action": 67,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 68,
+          "action": 68,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 70,
+          "action": 74,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 72,
+          "action": 96,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 74,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 76,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 78,
+          "action": 40,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 80,
+          "action": 50,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 82,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 84,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 86,
+          "action": 86,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 88,
+          "action": 94,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 90,
+          "action": 83,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 92,
+          "action": 93,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 94,
+          "action": 82,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 96,
+          "action": 92,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 98,
+          "action": 81,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 100,
+          "action": 46,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 102,
+          "action": 89,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 104,
+          "action": 17,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 106,
+          "action": 91,
+          "raw_legal": false,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 108,
+          "action": 80,
+          "raw_legal": true,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 110,
+          "action": 98,
+          "raw_legal": true,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 112,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 114,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 116,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 118,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 120,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 122,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 124,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 126,
+          "action": 68,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 128,
+          "action": 79,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 130,
+          "action": 76,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 132,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 134,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 136,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 138,
+          "action": 87,
+          "raw_legal": false,
+          "search_evaluations": 13
+        },
+        {
+          "ply": 140,
+          "action": 40,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 142,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 11
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 0.0,
+        "white": 105.5,
+        "white_without_komi": 100.0,
+        "komi": 5.5,
+        "margin_black": -105.5
+      },
+      "winner": -1,
+      "win": 0,
+      "margin": -105.5,
+      "seconds": 4.855425852001645
+    },
+    {
+      "index": 23,
+      "opening": [
+        79,
+        44,
+        17,
+        86,
+        16,
+        34,
+        1,
+        54,
+        95,
+        45,
+        71,
+        55,
+        15,
+        27,
+        64,
+        32,
+        77,
+        56,
+        78,
+        20,
+        26,
+        18,
+        0,
+        33,
+        85,
+        28,
+        43,
+        53,
+        70,
+        89,
+        60,
+        42,
+        73,
+        65,
+        63,
+        35,
+        37,
+        14,
+        36,
+        29,
+        72,
+        24,
+        46,
+        43,
+        76,
+        25,
+        11,
+        52,
+        8,
+        98,
+        75,
+        57,
+        88,
+        47,
+        99,
+        66,
+        97,
+        23,
+        84,
+        41
+      ],
+      "student_color": -1,
+      "moves": [
+        79,
+        44,
+        17,
+        86,
+        16,
+        34,
+        1,
+        54,
+        95,
+        45,
+        71,
+        55,
+        15,
+        27,
+        64,
+        32,
+        77,
+        56,
+        78,
+        20,
+        26,
+        18,
+        0,
+        33,
+        85,
+        28,
+        43,
+        53,
+        70,
+        89,
+        60,
+        42,
+        73,
+        65,
+        63,
+        35,
+        37,
+        14,
+        36,
+        29,
+        72,
+        24,
+        46,
+        43,
+        76,
+        25,
+        11,
+        52,
+        8,
+        98,
+        75,
+        57,
+        88,
+        47,
+        99,
+        66,
+        97,
+        23,
+        84,
+        41,
+        87,
+        62,
+        96,
+        61,
+        83,
+        51,
+        7,
+        22,
+        38,
+        21,
+        39,
+        12,
+        19,
+        10,
+        2,
+        13,
+        3,
+        4,
+        18,
+        5,
+        48,
+        27,
+        28,
+        67,
+        58,
+        68,
+        49,
+        69,
+        50,
+        6,
+        40,
+        30,
+        82,
+        31,
+        94,
+        11,
+        81,
+        59,
+        93,
+        80,
+        90,
+        100,
+        100
+      ],
+      "decisions": [
+        {
+          "ply": 61,
+          "action": 62,
+          "raw_legal": true,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 63,
+          "action": 61,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 65,
+          "action": 51,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 67,
+          "action": 22,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 69,
+          "action": 21,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 71,
+          "action": 12,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 73,
+          "action": 10,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 75,
+          "action": 13,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 77,
+          "action": 4,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 79,
+          "action": 5,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 81,
+          "action": 27,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 83,
+          "action": 67,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 85,
+          "action": 68,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 87,
+          "action": 69,
+          "raw_legal": false,
+          "search_evaluations": 16
+        },
+        {
+          "ply": 89,
+          "action": 6,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 91,
+          "action": 30,
+          "raw_legal": false,
+          "search_evaluations": 15
+        },
+        {
+          "ply": 93,
+          "action": 31,
+          "raw_legal": false,
+          "search_evaluations": 14
+        },
+        {
+          "ply": 95,
+          "action": 11,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 97,
+          "action": 59,
+          "raw_legal": false,
+          "search_evaluations": 12
+        },
+        {
+          "ply": 99,
+          "action": 80,
+          "raw_legal": false,
+          "search_evaluations": 10
+        },
+        {
+          "ply": 101,
+          "action": 100,
+          "raw_legal": false,
+          "search_evaluations": 11
+        }
+      ],
+      "terminated": true,
+      "consecutive_passes": 2,
+      "score": {
+        "black": 55.0,
+        "white": 50.5,
+        "white_without_komi": 45.0,
+        "komi": 5.5,
+        "margin_black": 4.5
+      },
+      "winner": 1,
+      "win": 0,
+      "margin": -4.5,
+      "seconds": 1.956980216957163
+    }
+  ],
+  "completed": true
+}

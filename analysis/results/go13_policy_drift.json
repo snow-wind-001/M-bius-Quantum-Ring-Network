@@ -1,0 +1,4491 @@
+{
+  "source": {
+    "experiments/go11_continual.py": "f62aab7f24bf214d149a5e316b5db84d0cde8bb3f275d1ff2e5567ac6fb08460",
+    "experiments/go13_algorithm.py": "afe08b7931d0ebe3f5d336693eca501bade235c410291dd23f0c869462dc58dd",
+    "mqr/__init__.py": "df30ee52bd13dd8899efe28ffaa4d5189accbb27af8ccd4885c5628a8761f644",
+    "mqr/agent.py": "84a597bcc274ee1a7ac16ea83748d559ec8c03ca1894561112408decba379bc8",
+    "mqr/agent_baselines.py": "dae6d23ca5e79bae2a12ebe402058dd454349483bc69c291047ca24053b05619",
+    "mqr/baselines.py": "76955c82e87cacb7005fb56d44a218b2ed4bdf765fbcaeca21cc49247f32ea07",
+    "mqr/constraint_transport.py": "31f5c9f7551eb90792e7ff8fcccfcdd280858ef677ff8db6db42d0e3ac338127",
+    "mqr/go.py": "41c095268cdc38205bbe24e4dd7e5368dc89aab4b76138b81c2e94218508b1dd",
+    "mqr/go_agent.py": "9fbf6bf492cf6344e5f74f30751a1eb231ccb54cf08e22ab1591268f5de08b0e",
+    "mqr/go_cone.py": "e5a29ab8643cfd4d8f467371ac37a357e4aba02131780c918942dc3ce7e87e95",
+    "mqr/go_constraints.py": "6fd3b288c7da49d2c3f81608bce27dd259a628fb2b13517fbfe83ccb8a8357d6",
+    "mqr/go_history_tasks.py": "c515394538869f7385b49f9f3c98ff6ef3aaac871e9dcb2c2ee6e940166f3f94",
+    "mqr/go_memory.py": "4cc74a6340e6ce19c5e4681c013774d9072f0b2918dd6ea7b1f679dce0ffcc67",
+    "mqr/go_online.py": "2baa2972788dd0732b3c55f985350170b5af7beecd71b6be6d6d832c1205cfb0",
+    "mqr/go_outcome.py": "11eb77388451cfa1caf55dcf8c0acd98c0895285d5ee8c3b70cdb05941a043e2",
+    "mqr/go_policy.py": "d976172a9c64aa5d6a51b41280cb54c46e9f86d0e41d495424113747a857ee82",
+    "mqr/go_protection.py": "603df7153f925723c68cf45f25358b9d09bd6d89f013c4024a7d4f749825cc7f",
+    "mqr/go_research.py": "24e1653da18a0406ac3f71bc0464caa714334cd9f684ddfe18a313be1e28afa2",
+    "mqr/go_search.py": "40962177e05f50bb8a1ed0912133b25df1b464f12f282257398bc34bbd2c5ad1",
+    "mqr/go_selfplay.py": "e3ec0709a4ae8eead344db477918bface5dfde406454d09f03012da0cce9fccd",
+    "mqr/minicpm.py": "5b49a4fce90a497761b3d296626db14ce543aefd8fa49594cbe357bf57d762fa",
+    "mqr/online.py": "477b5d4d9b9f29ea95740c181dacdad7fa777235e4251c4b878c0fecddae7d2d",
+    "mqr/ring.py": "fc0fa3e8a4a65f6dce14a24b0b737a56d945501a071f2f2a877db8c1d0923f4b",
+    "mqr/routing.py": "1c0bfd2e676b3896df4e33014e6e81bb23698d2819a0d4a53b78821edf32abef",
+    "mqr/safety.py": "9e3b5c2bb65d73e9c10eaf4b4c0659d5133e2ef4b664e970cc4f927f48ff2784",
+    "mqr/sayuri.py": "56b0aff60a532496d893a7a360a145cbe6533c30dfe24e2ded353168a7d36ddd",
+    "mqr/temporal.py": "58dd7821676a7b58e958594eb10bc1476c9059e67a7c76df929a2ff7117e6c13",
+    "mqr/unitary.py": "394c1220a7624a74b9b6bd912bd8c94b2913cff8a4a85d4fdbe1c9b88761ffe9",
+    "mqr/utility.py": "f63ef11ed7c8422306487bd3bdad21a00acc8bbd5ef7d719abe14c55e0c889bb"
+  },
+  "diagnostic_sha256": "2454f176d3032b30edc4be33a3a4ad987cbb79b2ee987804518fe8476c9b46b2",
+  "rows": [
+    {
+      "seed": 911,
+      "geometry": "orth",
+      "positions": 57,
+      "mean_legal_policy_kl": 2.920359365380647,
+      "greedy_changes": 34,
+      "mean_pass_before": 0.012063340951020731,
+      "mean_pass_after": 0.06550411334301755,
+      "parameter_hashes": [
+        "fc81fbae8034f369f1eddd560951f66a8224335021f9429b1049ff6b327727a0",
+        "074ceb23c5b953f53c9bb854be68261c6283a6c44e3e64beab8bdf8e71234e06"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 1.61299467086792,
+          "greedy_changed": 1,
+          "pass_before": 8.127745968522504e-05,
+          "pass_after": 2.102344296872616e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 8.82007884979248,
+          "greedy_changed": 1,
+          "pass_before": 0.00026252400130033493,
+          "pass_after": 3.352321755301091e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 3.2669289112091064,
+          "greedy_changed": 0,
+          "pass_before": 0.0004689604102168232,
+          "pass_after": 1.0262505384162068e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 2.155782461166382,
+          "greedy_changed": 0,
+          "pass_before": 0.0006632657605223358,
+          "pass_after": 2.560301436460577e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 5.053269863128662,
+          "greedy_changed": 1,
+          "pass_before": 0.0010894440347328782,
+          "pass_after": 0.0001118431900977157
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 0.6022258400917053,
+          "greedy_changed": 0,
+          "pass_before": 0.0015908533241599798,
+          "pass_after": 0.0004220244300086051
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 0.4191571772098541,
+          "greedy_changed": 1,
+          "pass_before": 0.0024083631578832865,
+          "pass_after": 0.0017229386139661074
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 0.4243214726448059,
+          "greedy_changed": 0,
+          "pass_before": 0.003417384810745716,
+          "pass_after": 0.004635571036487818
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 2.0197196006774902,
+          "greedy_changed": 1,
+          "pass_before": 0.004989894572645426,
+          "pass_after": 0.016762368381023407
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 2.8484649658203125,
+          "greedy_changed": 1,
+          "pass_before": 0.006605310365557671,
+          "pass_after": 0.043929703533649445
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 14.17849063873291,
+          "greedy_changed": 1,
+          "pass_before": 0.009150398895144463,
+          "pass_after": 0.13591468334197998
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 4.32260799407959,
+          "greedy_changed": 1,
+          "pass_before": 0.007118526380509138,
+          "pass_after": 0.08104799687862396
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 2.2297298908233643,
+          "greedy_changed": 0,
+          "pass_before": 0.009974172338843346,
+          "pass_after": 0.22640031576156616
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 3.8188228607177734,
+          "greedy_changed": 1,
+          "pass_before": 9.151049016509205e-05,
+          "pass_after": 1.7556354805492447e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 1.5496227741241455,
+          "greedy_changed": 0,
+          "pass_before": 0.00026367336977273226,
+          "pass_after": 3.663758661787142e-06
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 0.8521495461463928,
+          "greedy_changed": 0,
+          "pass_before": 0.0003943846095353365,
+          "pass_after": 9.846626198850572e-06
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 2.7160935401916504,
+          "greedy_changed": 0,
+          "pass_before": 0.0005313640576787293,
+          "pass_after": 2.4318947907886468e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 1.0467332601547241,
+          "greedy_changed": 0,
+          "pass_before": 0.0007720436551608145,
+          "pass_after": 7.589180313516408e-05
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 1.3080006837844849,
+          "greedy_changed": 0,
+          "pass_before": 0.0011288718087598681,
+          "pass_after": 0.0002662313054315746
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 1.3666654825210571,
+          "greedy_changed": 1,
+          "pass_before": 0.0017723030177876353,
+          "pass_after": 0.0010204142890870571
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 2.17807674407959,
+          "greedy_changed": 1,
+          "pass_before": 0.002793999155983329,
+          "pass_after": 0.004440442193299532
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 1.5687980651855469,
+          "greedy_changed": 1,
+          "pass_before": 0.004188196267932653,
+          "pass_after": 0.015608473680913448
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 1.8834556341171265,
+          "greedy_changed": 0,
+          "pass_before": 0.005853161681443453,
+          "pass_after": 0.05473651364445686
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 0.8710271120071411,
+          "greedy_changed": 0,
+          "pass_before": 0.008109115064144135,
+          "pass_after": 0.14388081431388855
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 0.9097292423248291,
+          "greedy_changed": 1,
+          "pass_before": 0.010896384716033936,
+          "pass_after": 0.2953468859195709
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 3.4257521629333496,
+          "greedy_changed": 1,
+          "pass_before": 0.3436005413532257,
+          "pass_after": 0.9691851735115051
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 1.5432686805725098,
+          "greedy_changed": 1,
+          "pass_before": 6.157551251817495e-05,
+          "pass_after": 2.8403194392012665e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 2.1163341999053955,
+          "greedy_changed": 1,
+          "pass_before": 0.00021770315652247518,
+          "pass_after": 3.4712659271463053e-06
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 0.4871404469013214,
+          "greedy_changed": 0,
+          "pass_before": 0.0004504587850533426,
+          "pass_after": 9.453783604840282e-06
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 3.7355241775512695,
+          "greedy_changed": 0,
+          "pass_before": 0.0006533353007398546,
+          "pass_after": 2.7454039809526876e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 4.556308269500732,
+          "greedy_changed": 1,
+          "pass_before": 0.0009530031820759177,
+          "pass_after": 0.00010561643284745514
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 3.328185558319092,
+          "greedy_changed": 1,
+          "pass_before": 0.0013611665926873684,
+          "pass_after": 0.00030524414614774287
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 2.535093307495117,
+          "greedy_changed": 1,
+          "pass_before": 0.00196842267177999,
+          "pass_after": 0.0010995038319379091
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 3.4389004707336426,
+          "greedy_changed": 1,
+          "pass_before": 0.0030902912840247154,
+          "pass_after": 0.004161789081990719
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 0.8249471187591553,
+          "greedy_changed": 1,
+          "pass_before": 0.0032307717483490705,
+          "pass_after": 0.0056215315125882626
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 1.1449153423309326,
+          "greedy_changed": 0,
+          "pass_before": 0.004462025128304958,
+          "pass_after": 0.015378938056528568
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 1.1953468322753906,
+          "greedy_changed": 0,
+          "pass_before": 0.0055834027007222176,
+          "pass_after": 0.035039469599723816
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 2.0116310119628906,
+          "greedy_changed": 1,
+          "pass_before": 0.00836070254445076,
+          "pass_after": 0.11511458456516266
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 1.791317343711853,
+          "greedy_changed": 1,
+          "pass_before": 0.0114364605396986,
+          "pass_after": 0.3198001980781555
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 0.11319724470376968,
+          "greedy_changed": 0,
+          "pass_before": 8.853959297994152e-05,
+          "pass_after": 2.2390456706489203e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 4.430965423583984,
+          "greedy_changed": 1,
+          "pass_before": 0.00024099186703097075,
+          "pass_after": 3.900206138496287e-06
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 2.01898193359375,
+          "greedy_changed": 0,
+          "pass_before": 0.0004769814549945295,
+          "pass_after": 1.3002267223782837e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 3.473017930984497,
+          "greedy_changed": 0,
+          "pass_before": 0.0007019633194431663,
+          "pass_after": 2.900638537539635e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 7.198339939117432,
+          "greedy_changed": 1,
+          "pass_before": 0.0010460418416187167,
+          "pass_after": 8.930248441174626e-05
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 7.179781436920166,
+          "greedy_changed": 1,
+          "pass_before": 0.0015068048378452659,
+          "pass_after": 0.00029537276714108884
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 2.724952459335327,
+          "greedy_changed": 0,
+          "pass_before": 0.0020607549231499434,
+          "pass_after": 0.0007896601455286145
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 4.994181156158447,
+          "greedy_changed": 1,
+          "pass_before": 0.002924926346167922,
+          "pass_after": 0.003574458649381995
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 8.026593208312988,
+          "greedy_changed": 1,
+          "pass_before": 0.004314163699746132,
+          "pass_after": 0.012128399685025215
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 3.1031434535980225,
+          "greedy_changed": 1,
+          "pass_before": 0.00609074579551816,
+          "pass_after": 0.03164166957139969
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 2.8252182006835938,
+          "greedy_changed": 0,
+          "pass_before": 0.008326256647706032,
+          "pass_after": 0.10340917855501175
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 7.93302583694458,
+          "greedy_changed": 1,
+          "pass_before": 0.011417880654335022,
+          "pass_after": 0.2318444550037384
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 1.2275649309158325,
+          "greedy_changed": 0,
+          "pass_before": 0.0010305007454007864,
+          "pass_after": 0.000586265348829329
+        },
+        {
+          "game": 3,
+          "ply": 108,
+          "kl_before_to_after": 1.3302265405654907,
+          "greedy_changed": 1,
+          "pass_before": 0.0015734343323856592,
+          "pass_after": 0.0018093547550961375
+        },
+        {
+          "game": 3,
+          "ply": 116,
+          "kl_before_to_after": 1.4595441818237305,
+          "greedy_changed": 1,
+          "pass_before": 0.0016838833689689636,
+          "pass_after": 0.002681972458958626
+        },
+        {
+          "game": 3,
+          "ply": 124,
+          "kl_before_to_after": 1.1790361404418945,
+          "greedy_changed": 0,
+          "pass_before": 0.0026450571604073048,
+          "pass_after": 0.011240262538194656
+        },
+        {
+          "game": 3,
+          "ply": 132,
+          "kl_before_to_after": 4.288125514984131,
+          "greedy_changed": 1,
+          "pass_before": 0.0037065730430185795,
+          "pass_after": 0.034702546894550323
+        },
+        {
+          "game": 3,
+          "ply": 140,
+          "kl_before_to_after": 2.796976089477539,
+          "greedy_changed": 1,
+          "pass_before": 0.1677296906709671,
+          "pass_after": 0.8066341280937195
+        }
+      ]
+    },
+    {
+      "seed": 911,
+      "geometry": "similar",
+      "positions": 57,
+      "mean_legal_policy_kl": 3.095214954724437,
+      "greedy_changes": 34,
+      "mean_pass_before": 0.011767245464796903,
+      "mean_pass_after": 0.06776675001578313,
+      "parameter_hashes": [
+        "29373cd0beafee04e8eca8aa3e6ec116e1b1c30aacafec6df3e30f03fd193ef7",
+        "4223aef176da3a0acea4d430dced9d1d3c74a39bbc8f641d3c47e50ca18ae0b0"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 1.6424027681350708,
+          "greedy_changed": 1,
+          "pass_before": 8.107256144285202e-05,
+          "pass_after": 2.038418188021751e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 9.29735279083252,
+          "greedy_changed": 1,
+          "pass_before": 0.00026850125868804753,
+          "pass_after": 3.2325599477189826e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 3.4209375381469727,
+          "greedy_changed": 0,
+          "pass_before": 0.00047654903028160334,
+          "pass_after": 1.0098931852553505e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 2.315640926361084,
+          "greedy_changed": 0,
+          "pass_before": 0.0006674295873381197,
+          "pass_after": 2.5560710128047504e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 5.627197265625,
+          "greedy_changed": 1,
+          "pass_before": 0.0010899086482822895,
+          "pass_after": 0.0001104037874029018
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 0.6577383875846863,
+          "greedy_changed": 0,
+          "pass_before": 0.001576929702423513,
+          "pass_after": 0.00040020799497142434
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 0.4139018952846527,
+          "greedy_changed": 1,
+          "pass_before": 0.002373435767367482,
+          "pass_after": 0.0016386737115681171
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 0.43005654215812683,
+          "greedy_changed": 1,
+          "pass_before": 0.003342902287840843,
+          "pass_after": 0.004519275389611721
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 2.082746744155884,
+          "greedy_changed": 1,
+          "pass_before": 0.004812476225197315,
+          "pass_after": 0.017404966056346893
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 3.4544780254364014,
+          "greedy_changed": 1,
+          "pass_before": 0.0063422988168895245,
+          "pass_after": 0.047387391328811646
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 14.93378734588623,
+          "greedy_changed": 1,
+          "pass_before": 0.008720246143639088,
+          "pass_after": 0.15208901464939117
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 4.886974334716797,
+          "greedy_changed": 1,
+          "pass_before": 0.0068614608608186245,
+          "pass_after": 0.08956458419561386
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 2.452439785003662,
+          "greedy_changed": 0,
+          "pass_before": 0.009583691135048866,
+          "pass_after": 0.25535616278648376
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 3.899080991744995,
+          "greedy_changed": 1,
+          "pass_before": 9.227037662640214e-05,
+          "pass_after": 1.6913725175982108e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 1.6085333824157715,
+          "greedy_changed": 0,
+          "pass_before": 0.0002702940546441823,
+          "pass_after": 3.557253194230725e-06
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 0.8806862235069275,
+          "greedy_changed": 0,
+          "pass_before": 0.00040220297523774207,
+          "pass_after": 1.0017380191129632e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 2.8615903854370117,
+          "greedy_changed": 0,
+          "pass_before": 0.000534569553565234,
+          "pass_after": 2.507202407286968e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 1.1098554134368896,
+          "greedy_changed": 0,
+          "pass_before": 0.0007706243195571005,
+          "pass_after": 7.601500692544505e-05
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 1.4433425664901733,
+          "greedy_changed": 0,
+          "pass_before": 0.0011219590669497848,
+          "pass_after": 0.00025669566821306944
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 1.443241834640503,
+          "greedy_changed": 1,
+          "pass_before": 0.0017503793351352215,
+          "pass_after": 0.0009927096543833613
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 2.3874497413635254,
+          "greedy_changed": 1,
+          "pass_before": 0.0027360597159713507,
+          "pass_after": 0.004432127811014652
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 1.9995478391647339,
+          "greedy_changed": 1,
+          "pass_before": 0.004061068873852491,
+          "pass_after": 0.016038430854678154
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 2.269659996032715,
+          "greedy_changed": 0,
+          "pass_before": 0.005681220907717943,
+          "pass_after": 0.05688013136386871
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 1.065211296081543,
+          "greedy_changed": 0,
+          "pass_before": 0.007954955101013184,
+          "pass_after": 0.1479295939207077
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 0.9937236905097961,
+          "greedy_changed": 1,
+          "pass_before": 0.010700130835175514,
+          "pass_after": 0.30113211274147034
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 3.4793357849121094,
+          "greedy_changed": 1,
+          "pass_before": 0.33869755268096924,
+          "pass_after": 0.9697495698928833
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 1.560081124305725,
+          "greedy_changed": 1,
+          "pass_before": 6.087617657613009e-05,
+          "pass_after": 2.7972873795079067e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 2.2886013984680176,
+          "greedy_changed": 1,
+          "pass_before": 0.00021938284044153988,
+          "pass_after": 3.4117699669877766e-06
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 0.483559250831604,
+          "greedy_changed": 0,
+          "pass_before": 0.0004554196202661842,
+          "pass_after": 9.359465366287623e-06
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 3.7825284004211426,
+          "greedy_changed": 0,
+          "pass_before": 0.0006564069190062582,
+          "pass_after": 2.6936913855024613e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 5.121281623840332,
+          "greedy_changed": 1,
+          "pass_before": 0.0009525906061753631,
+          "pass_after": 0.0001000190750346519
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 3.842440605163574,
+          "greedy_changed": 1,
+          "pass_before": 0.0013509021373465657,
+          "pass_after": 0.00028234667843207717
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 2.598008394241333,
+          "greedy_changed": 1,
+          "pass_before": 0.001945102121680975,
+          "pass_after": 0.0010645310394465923
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 3.7181012630462646,
+          "greedy_changed": 1,
+          "pass_before": 0.003041670424863696,
+          "pass_after": 0.004165221471339464
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 0.7471620440483093,
+          "greedy_changed": 1,
+          "pass_before": 0.003170270938426256,
+          "pass_after": 0.005731760058552027
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 1.1896275281906128,
+          "greedy_changed": 0,
+          "pass_before": 0.0043542771600186825,
+          "pass_after": 0.016139108687639236
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 1.2471776008605957,
+          "greedy_changed": 0,
+          "pass_before": 0.005411951337009668,
+          "pass_after": 0.03742970898747444
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 1.8309805393218994,
+          "greedy_changed": 1,
+          "pass_before": 0.008160968311131,
+          "pass_after": 0.12616612017154694
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 1.5997623205184937,
+          "greedy_changed": 1,
+          "pass_before": 0.011323487386107445,
+          "pass_after": 0.33801406621932983
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 0.1185264065861702,
+          "greedy_changed": 0,
+          "pass_before": 8.88157810550183e-05,
+          "pass_after": 2.199398068114533e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 4.661470890045166,
+          "greedy_changed": 1,
+          "pass_before": 0.00024347324506379664,
+          "pass_after": 3.833306891465327e-06
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 2.099008798599243,
+          "greedy_changed": 0,
+          "pass_before": 0.00048383156536147,
+          "pass_after": 1.2995150427741464e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 3.547755479812622,
+          "greedy_changed": 0,
+          "pass_before": 0.0007058514165692031,
+          "pass_after": 3.0760809750063345e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 7.552733421325684,
+          "greedy_changed": 1,
+          "pass_before": 0.001044051256030798,
+          "pass_after": 8.710039401194081e-05
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 7.522118091583252,
+          "greedy_changed": 1,
+          "pass_before": 0.0014944658614695072,
+          "pass_after": 0.000281673448625952
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 2.972346782684326,
+          "greedy_changed": 0,
+          "pass_before": 0.0020284305792301893,
+          "pass_after": 0.0007339924341067672
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 4.895902156829834,
+          "greedy_changed": 1,
+          "pass_before": 0.0028743722941726446,
+          "pass_after": 0.003466689959168434
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 8.801536560058594,
+          "greedy_changed": 1,
+          "pass_before": 0.004213264677673578,
+          "pass_after": 0.0124860480427742
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 3.0219857692718506,
+          "greedy_changed": 1,
+          "pass_before": 0.005938338115811348,
+          "pass_after": 0.0333583727478981
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 2.955723285675049,
+          "greedy_changed": 0,
+          "pass_before": 0.008125146850943565,
+          "pass_after": 0.10818030685186386
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 7.727272033691406,
+          "greedy_changed": 1,
+          "pass_before": 0.011164062656462193,
+          "pass_after": 0.2467675507068634
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 1.4146528244018555,
+          "greedy_changed": 0,
+          "pass_before": 0.0010106908157467842,
+          "pass_after": 0.0005667997756972909
+        },
+        {
+          "game": 3,
+          "ply": 108,
+          "kl_before_to_after": 1.4140480756759644,
+          "greedy_changed": 1,
+          "pass_before": 0.0015218555927276611,
+          "pass_after": 0.0017485239077359438
+        },
+        {
+          "game": 3,
+          "ply": 116,
+          "kl_before_to_after": 1.8435053825378418,
+          "greedy_changed": 1,
+          "pass_before": 0.0016245278529822826,
+          "pass_after": 0.002609569113701582
+        },
+        {
+          "game": 3,
+          "ply": 124,
+          "kl_before_to_after": 1.2759895324707031,
+          "greedy_changed": 0,
+          "pass_before": 0.0025176876224577427,
+          "pass_after": 0.01116497814655304
+        },
+        {
+          "game": 3,
+          "ply": 132,
+          "kl_before_to_after": 4.373366832733154,
+          "greedy_changed": 0,
+          "pass_before": 0.003517347853630781,
+          "pass_after": 0.0353211835026741
+        },
+        {
+          "game": 3,
+          "ply": 140,
+          "kl_before_to_after": 3.1630845069885254,
+          "greedy_changed": 1,
+          "pass_before": 0.16006328165531158,
+          "pass_after": 0.8107074499130249
+        }
+      ]
+    },
+    {
+      "seed": 919,
+      "geometry": "orth",
+      "positions": 53,
+      "mean_legal_policy_kl": 4.973534136448267,
+      "greedy_changes": 39,
+      "mean_pass_before": 0.0051047000078537135,
+      "mean_pass_after": 0.029392262334259046,
+      "parameter_hashes": [
+        "eb5f0a9a6a197dd82733d81c5f12df3b84dc36806c22320868fab9cffb7ff836",
+        "e0daaa9e57d2d4a557f983c26b6ea836a2891e53d2c2e3224cacb85eb7f18199"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 1.2692397832870483,
+          "greedy_changed": 1,
+          "pass_before": 0.00027676441823132336,
+          "pass_after": 4.899793566437438e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 0.8569834232330322,
+          "greedy_changed": 0,
+          "pass_before": 0.00044899623026140034,
+          "pass_after": 9.928302461048588e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 11.959487915039062,
+          "greedy_changed": 1,
+          "pass_before": 0.000627443369012326,
+          "pass_after": 2.3373635485768318e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 7.164410591125488,
+          "greedy_changed": 1,
+          "pass_before": 0.0008782210061326623,
+          "pass_after": 6.299345841398463e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 6.830388069152832,
+          "greedy_changed": 0,
+          "pass_before": 0.001242509693838656,
+          "pass_after": 0.00018138816813006997
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 4.641263961791992,
+          "greedy_changed": 0,
+          "pass_before": 0.0015224787639454007,
+          "pass_after": 0.00038142953417263925
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 4.3383893966674805,
+          "greedy_changed": 1,
+          "pass_before": 0.00196629180572927,
+          "pass_after": 0.001063818926922977
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 5.064975261688232,
+          "greedy_changed": 1,
+          "pass_before": 0.0023150029592216015,
+          "pass_after": 0.0028175320476293564
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 3.3096988201141357,
+          "greedy_changed": 1,
+          "pass_before": 0.003043079050257802,
+          "pass_after": 0.007585019338876009
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 6.68747615814209,
+          "greedy_changed": 1,
+          "pass_before": 0.003620083909481764,
+          "pass_after": 0.01856284588575363
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 6.399024963378906,
+          "greedy_changed": 1,
+          "pass_before": 0.0042145331390202045,
+          "pass_after": 0.0390053354203701
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 2.096858024597168,
+          "greedy_changed": 0,
+          "pass_before": 0.004616346675902605,
+          "pass_after": 0.05474139377474785
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 1.480018138885498,
+          "greedy_changed": 0,
+          "pass_before": 0.15582644939422607,
+          "pass_after": 0.76238614320755
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 2.2736825942993164,
+          "greedy_changed": 1,
+          "pass_before": 0.0003126820083707571,
+          "pass_after": 5.207371941651218e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 1.659313678741455,
+          "greedy_changed": 1,
+          "pass_before": 0.0004537874774541706,
+          "pass_after": 1.2200538549222983e-05
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 2.749713897705078,
+          "greedy_changed": 0,
+          "pass_before": 0.0006006766343489289,
+          "pass_after": 2.6599243938107975e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 10.747078895568848,
+          "greedy_changed": 1,
+          "pass_before": 0.0008108291658572853,
+          "pass_after": 5.923153003095649e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 7.291833400726318,
+          "greedy_changed": 1,
+          "pass_before": 0.0010601403191685677,
+          "pass_after": 0.00013293567462824285
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 4.342194557189941,
+          "greedy_changed": 0,
+          "pass_before": 0.001336949528194964,
+          "pass_after": 0.0002768018748611212
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 6.031058311462402,
+          "greedy_changed": 0,
+          "pass_before": 0.0017127319006249309,
+          "pass_after": 0.0007929583662189543
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 11.220032691955566,
+          "greedy_changed": 1,
+          "pass_before": 0.0021283540409058332,
+          "pass_after": 0.001938662608154118
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 3.1059937477111816,
+          "greedy_changed": 1,
+          "pass_before": 0.0026629141066223383,
+          "pass_after": 0.006583802402019501
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 4.390015125274658,
+          "greedy_changed": 1,
+          "pass_before": 0.0034658731892704964,
+          "pass_after": 0.016913216561079025
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 4.197035789489746,
+          "greedy_changed": 1,
+          "pass_before": 0.004083513747900724,
+          "pass_after": 0.03934352099895477
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 3.3629229068756104,
+          "greedy_changed": 1,
+          "pass_before": 0.004717666190117598,
+          "pass_after": 0.0691385343670845
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 4.643993377685547,
+          "greedy_changed": 1,
+          "pass_before": 0.005589060951024294,
+          "pass_after": 0.1375632882118225
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 3.195531129837036,
+          "greedy_changed": 0,
+          "pass_before": 0.0002903218846768141,
+          "pass_after": 5.25436325915507e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 1.4026758670806885,
+          "greedy_changed": 0,
+          "pass_before": 0.00047430803533643484,
+          "pass_after": 1.1680675925163087e-05
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 4.456915378570557,
+          "greedy_changed": 1,
+          "pass_before": 0.0006679326179437339,
+          "pass_after": 2.75806578429183e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 5.945473670959473,
+          "greedy_changed": 1,
+          "pass_before": 0.0009705773554742336,
+          "pass_after": 7.951710722409189e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 6.3396100997924805,
+          "greedy_changed": 1,
+          "pass_before": 0.0013066192623227835,
+          "pass_after": 0.00022935052402317524
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 5.9699273109436035,
+          "greedy_changed": 1,
+          "pass_before": 0.0014391017612069845,
+          "pass_after": 0.0003356866363901645
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 5.057373046875,
+          "greedy_changed": 0,
+          "pass_before": 0.001957837725058198,
+          "pass_after": 0.0010058891493827105
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 5.895983695983887,
+          "greedy_changed": 0,
+          "pass_before": 0.0024089552462100983,
+          "pass_after": 0.002613598480820656
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 8.930497169494629,
+          "greedy_changed": 1,
+          "pass_before": 0.0029509863816201687,
+          "pass_after": 0.006845488678663969
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 4.770733833312988,
+          "greedy_changed": 1,
+          "pass_before": 0.0038514502812176943,
+          "pass_after": 0.01687408611178398
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 7.744010925292969,
+          "greedy_changed": 1,
+          "pass_before": 0.0045123775489628315,
+          "pass_after": 0.03153523802757263
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 5.254179000854492,
+          "greedy_changed": 1,
+          "pass_before": 0.005267721135169268,
+          "pass_after": 0.07739748060703278
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 9.942190170288086,
+          "greedy_changed": 1,
+          "pass_before": 0.0042470949701964855,
+          "pass_after": 0.05274451896548271
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 0.9995107650756836,
+          "greedy_changed": 1,
+          "pass_before": 0.0003001638688147068,
+          "pass_after": 5.1278666433063336e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 3.961390972137451,
+          "greedy_changed": 1,
+          "pass_before": 0.0004661227867472917,
+          "pass_after": 1.3386039427132346e-05
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 4.506021499633789,
+          "greedy_changed": 1,
+          "pass_before": 0.0006718189688399434,
+          "pass_after": 3.473692777333781e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 5.496975898742676,
+          "greedy_changed": 1,
+          "pass_before": 0.0007653608336113393,
+          "pass_after": 3.830662535619922e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 6.767719268798828,
+          "greedy_changed": 1,
+          "pass_before": 0.0009694277541711926,
+          "pass_after": 0.0001031455904012546
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 3.9702417850494385,
+          "greedy_changed": 1,
+          "pass_before": 0.0013091572327539325,
+          "pass_after": 0.0002908241585828364
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 3.521552085876465,
+          "greedy_changed": 1,
+          "pass_before": 0.0017147721955552697,
+          "pass_after": 0.000909511698409915
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 4.91162109375,
+          "greedy_changed": 1,
+          "pass_before": 0.002351828385144472,
+          "pass_after": 0.002580749336630106
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 3.9858622550964355,
+          "greedy_changed": 0,
+          "pass_before": 0.0030951634980738163,
+          "pass_after": 0.00765946414321661
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 3.3245046138763428,
+          "greedy_changed": 1,
+          "pass_before": 0.0032345608342438936,
+          "pass_after": 0.013071879744529724
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 9.46311092376709,
+          "greedy_changed": 1,
+          "pass_before": 0.0036641263868659735,
+          "pass_after": 0.02132374234497547
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 4.084089756011963,
+          "greedy_changed": 1,
+          "pass_before": 0.003752178978174925,
+          "pass_after": 0.030600298196077347
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 4.399016380310059,
+          "greedy_changed": 1,
+          "pass_before": 0.003726076567545533,
+          "pass_after": 0.042010772973299026
+        },
+        {
+          "game": 3,
+          "ply": 108,
+          "kl_before_to_after": 1.187507152557373,
+          "greedy_changed": 0,
+          "pass_before": 0.004649678245186806,
+          "pass_after": 0.08982952684164047
+        }
+      ]
+    },
+    {
+      "seed": 919,
+      "geometry": "similar",
+      "positions": 53,
+      "mean_legal_policy_kl": 4.902114087680601,
+      "greedy_changes": 38,
+      "mean_pass_before": 0.00510647785103054,
+      "mean_pass_after": 0.028620852702123608,
+      "parameter_hashes": [
+        "f1f5359f5aa061ab7f01bd846e1e49ac17490fa7e85892ee4bbd569467667eab",
+        "aed9aff0e7a6d2a7b677a33208af6ec630984326a53323e1992933edd1595c0f"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 1.2612817287445068,
+          "greedy_changed": 1,
+          "pass_before": 0.00027665519155561924,
+          "pass_after": 5.079075435787672e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 0.8045837879180908,
+          "greedy_changed": 0,
+          "pass_before": 0.00044756688294000924,
+          "pass_after": 1.0146621207240969e-05
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 11.7371826171875,
+          "greedy_changed": 1,
+          "pass_before": 0.0006268047145567834,
+          "pass_after": 2.3593353034812026e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 7.023818492889404,
+          "greedy_changed": 1,
+          "pass_before": 0.0008763423538766801,
+          "pass_after": 6.303912959992886e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 6.759864807128906,
+          "greedy_changed": 0,
+          "pass_before": 0.001242683152668178,
+          "pass_after": 0.00018014595843851566
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 4.568442344665527,
+          "greedy_changed": 0,
+          "pass_before": 0.0015230326680466533,
+          "pass_after": 0.00037567541585303843
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 4.285473346710205,
+          "greedy_changed": 1,
+          "pass_before": 0.001966700656339526,
+          "pass_after": 0.0010407521622255445
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 4.9300737380981445,
+          "greedy_changed": 1,
+          "pass_before": 0.0023134856019169092,
+          "pass_after": 0.0027353079058229923
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 3.2075250148773193,
+          "greedy_changed": 1,
+          "pass_before": 0.0030365041457116604,
+          "pass_after": 0.007294834591448307
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 6.663743495941162,
+          "greedy_changed": 1,
+          "pass_before": 0.0036143367178738117,
+          "pass_after": 0.01784639060497284
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 6.509258270263672,
+          "greedy_changed": 1,
+          "pass_before": 0.004206979647278786,
+          "pass_after": 0.03758248686790466
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 2.1150879859924316,
+          "greedy_changed": 0,
+          "pass_before": 0.004620478488504887,
+          "pass_after": 0.05270693823695183
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 1.5415319204330444,
+          "greedy_changed": 0,
+          "pass_before": 0.1561048924922943,
+          "pass_after": 0.7561342120170593
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 2.2480416297912598,
+          "greedy_changed": 1,
+          "pass_before": 0.00031168555142357945,
+          "pass_after": 5.407233402365819e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 1.5860604047775269,
+          "greedy_changed": 1,
+          "pass_before": 0.0004519038484431803,
+          "pass_after": 1.2563881682581268e-05
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 2.746967077255249,
+          "greedy_changed": 0,
+          "pass_before": 0.000599006365519017,
+          "pass_after": 2.7025451345252804e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 10.693293571472168,
+          "greedy_changed": 1,
+          "pass_before": 0.000807472039014101,
+          "pass_after": 5.959066402283497e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 7.205347537994385,
+          "greedy_changed": 1,
+          "pass_before": 0.0010584051487967372,
+          "pass_after": 0.00013308838242664933
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 4.4170379638671875,
+          "greedy_changed": 0,
+          "pass_before": 0.0013361774617806077,
+          "pass_after": 0.00027393471100367606
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 6.005847930908203,
+          "greedy_changed": 0,
+          "pass_before": 0.0017126910388469696,
+          "pass_after": 0.0007751727243885398
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 10.81978702545166,
+          "greedy_changed": 1,
+          "pass_before": 0.002127197803929448,
+          "pass_after": 0.001882299780845642
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 3.0045204162597656,
+          "greedy_changed": 1,
+          "pass_before": 0.0026563608553260565,
+          "pass_after": 0.006319159641861916
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 4.153989791870117,
+          "greedy_changed": 1,
+          "pass_before": 0.003456174861639738,
+          "pass_after": 0.01616518385708332
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 3.962033987045288,
+          "greedy_changed": 1,
+          "pass_before": 0.004067166242748499,
+          "pass_after": 0.03776600584387779
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 3.3595407009124756,
+          "greedy_changed": 1,
+          "pass_before": 0.004712418653070927,
+          "pass_after": 0.06587732583284378
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 4.358007907867432,
+          "greedy_changed": 1,
+          "pass_before": 0.005586954765021801,
+          "pass_after": 0.13133440911769867
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 3.272826671600342,
+          "greedy_changed": 0,
+          "pass_before": 0.00028906273655593395,
+          "pass_after": 5.435250386653934e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 1.4632138013839722,
+          "greedy_changed": 0,
+          "pass_before": 0.0004726568004116416,
+          "pass_after": 1.2047767086187378e-05
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 4.404499053955078,
+          "greedy_changed": 1,
+          "pass_before": 0.0006659561768174171,
+          "pass_after": 2.8083133656764403e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 5.925516128540039,
+          "greedy_changed": 1,
+          "pass_before": 0.0009682032978162169,
+          "pass_after": 7.973465108079836e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 6.16660213470459,
+          "greedy_changed": 1,
+          "pass_before": 0.0013047787360846996,
+          "pass_after": 0.000228790522669442
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 6.043210029602051,
+          "greedy_changed": 1,
+          "pass_before": 0.0014383167726919055,
+          "pass_after": 0.0003325234283693135
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 5.059149265289307,
+          "greedy_changed": 0,
+          "pass_before": 0.0019573261961340904,
+          "pass_after": 0.0009896772680804133
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 5.90218448638916,
+          "greedy_changed": 0,
+          "pass_before": 0.0024085508193820715,
+          "pass_after": 0.002565188566222787
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 8.83413314819336,
+          "greedy_changed": 1,
+          "pass_before": 0.0029483106918632984,
+          "pass_after": 0.006674249656498432
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 4.643795967102051,
+          "greedy_changed": 1,
+          "pass_before": 0.003848425578325987,
+          "pass_after": 0.016385231167078018
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 7.368363857269287,
+          "greedy_changed": 1,
+          "pass_before": 0.0045106555335223675,
+          "pass_after": 0.03058319352567196
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 4.912829875946045,
+          "greedy_changed": 1,
+          "pass_before": 0.005273799411952496,
+          "pass_after": 0.0743778645992279
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 10.23338794708252,
+          "greedy_changed": 1,
+          "pass_before": 0.004257521126419306,
+          "pass_after": 0.049542199820280075
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 1.0035022497177124,
+          "greedy_changed": 1,
+          "pass_before": 0.0002988050691783428,
+          "pass_after": 5.32161584487767e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 3.8830459117889404,
+          "greedy_changed": 1,
+          "pass_before": 0.00046427364577539265,
+          "pass_after": 1.3772204511042219e-05
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 4.826515197753906,
+          "greedy_changed": 1,
+          "pass_before": 0.0006698312936350703,
+          "pass_after": 3.541138721629977e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 5.403330326080322,
+          "greedy_changed": 1,
+          "pass_before": 0.000762313895393163,
+          "pass_after": 3.927953002857976e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 6.689248085021973,
+          "greedy_changed": 1,
+          "pass_before": 0.0009667317499406636,
+          "pass_after": 0.00010439972538733855
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 3.551111936569214,
+          "greedy_changed": 1,
+          "pass_before": 0.0013086966937407851,
+          "pass_after": 0.0002904558787122369
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 3.613117218017578,
+          "greedy_changed": 1,
+          "pass_before": 0.001715080696158111,
+          "pass_after": 0.0008957061218097806
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 4.873605728149414,
+          "greedy_changed": 1,
+          "pass_before": 0.0023516605142503977,
+          "pass_after": 0.0025135439354926348
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 3.847547769546509,
+          "greedy_changed": 0,
+          "pass_before": 0.003090380923822522,
+          "pass_after": 0.007424709852784872
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 3.191096544265747,
+          "greedy_changed": 1,
+          "pass_before": 0.0032199444249272346,
+          "pass_after": 0.012581180781126022
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 9.319742202758789,
+          "greedy_changed": 1,
+          "pass_before": 0.0036408582236617804,
+          "pass_after": 0.020419791340827942
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 3.59730863571167,
+          "greedy_changed": 0,
+          "pass_before": 0.0037354074884206057,
+          "pass_after": 0.02909969538450241
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 4.5725250244140625,
+          "greedy_changed": 1,
+          "pass_before": 0.0037085828371345997,
+          "pass_after": 0.039547063410282135
+        },
+        {
+          "game": 3,
+          "ply": 108,
+          "kl_before_to_after": 1.2422939538955688,
+          "greedy_changed": 0,
+          "pass_before": 0.004627117421478033,
+          "pass_after": 0.08550087362527847
+        }
+      ]
+    },
+    {
+      "seed": 929,
+      "geometry": "orth",
+      "positions": 52,
+      "mean_legal_policy_kl": 5.634258617575352,
+      "greedy_changes": 41,
+      "mean_pass_before": 0.005034517155134101,
+      "mean_pass_after": 0.05081232161562464,
+      "parameter_hashes": [
+        "d757d3a37609c440d1d2926ab74618b8ab77201c16a70b8a0ca715c852ca6be3",
+        "b520edd363fb7bd958541877ffa99116b6dbfc1c8d17673eaa038f894d44188e"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 0.9765724539756775,
+          "greedy_changed": 1,
+          "pass_before": 0.0001640408590901643,
+          "pass_after": 4.263708888174733e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 8.562151908874512,
+          "greedy_changed": 1,
+          "pass_before": 0.0004003312496934086,
+          "pass_after": 1.2965690075361636e-05
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 10.010077476501465,
+          "greedy_changed": 1,
+          "pass_before": 0.0006371241179294884,
+          "pass_after": 3.544459832482971e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 6.556185722351074,
+          "greedy_changed": 1,
+          "pass_before": 0.0009948891820386052,
+          "pass_after": 9.671044972492382e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 6.263643264770508,
+          "greedy_changed": 1,
+          "pass_before": 0.001632381696254015,
+          "pass_after": 0.0002629220252856612
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 7.983377456665039,
+          "greedy_changed": 1,
+          "pass_before": 0.0021182589698582888,
+          "pass_after": 0.0007033644942566752
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 9.051456451416016,
+          "greedy_changed": 1,
+          "pass_before": 0.003392590442672372,
+          "pass_after": 0.0026151910424232483
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 4.850234508514404,
+          "greedy_changed": 0,
+          "pass_before": 0.0045785559341311455,
+          "pass_after": 0.007957156747579575
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 5.181953430175781,
+          "greedy_changed": 1,
+          "pass_before": 0.00596680399030447,
+          "pass_after": 0.020638208836317062
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 8.14456558227539,
+          "greedy_changed": 1,
+          "pass_before": 0.00791225302964449,
+          "pass_after": 0.051367904990911484
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 9.044731140136719,
+          "greedy_changed": 1,
+          "pass_before": 0.010282399132847786,
+          "pass_after": 0.13448098301887512
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 8.556563377380371,
+          "greedy_changed": 1,
+          "pass_before": 0.013482684269547462,
+          "pass_after": 0.29154694080352783
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 1.1176159381866455,
+          "greedy_changed": 0,
+          "pass_before": 0.00018400796398054808,
+          "pass_after": 4.1452581172052305e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 6.983188629150391,
+          "greedy_changed": 1,
+          "pass_before": 0.0003595394955482334,
+          "pass_after": 1.3094111636746675e-05
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 6.759359836578369,
+          "greedy_changed": 1,
+          "pass_before": 0.0006218919879756868,
+          "pass_after": 3.684500916278921e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 7.619353771209717,
+          "greedy_changed": 1,
+          "pass_before": 0.0009688963182270527,
+          "pass_after": 0.0001137399667641148
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 6.809422969818115,
+          "greedy_changed": 0,
+          "pass_before": 0.001467272755689919,
+          "pass_after": 0.00030349550070241094
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 7.695991516113281,
+          "greedy_changed": 1,
+          "pass_before": 0.0023239075671881437,
+          "pass_after": 0.0008699640748091042
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 5.160031318664551,
+          "greedy_changed": 1,
+          "pass_before": 0.003564008977264166,
+          "pass_after": 0.0024573022965341806
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 6.124637603759766,
+          "greedy_changed": 1,
+          "pass_before": 0.004941808059811592,
+          "pass_after": 0.00814205314964056
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 6.270326137542725,
+          "greedy_changed": 1,
+          "pass_before": 0.006526696961373091,
+          "pass_after": 0.019574668258428574
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 4.429097652435303,
+          "greedy_changed": 0,
+          "pass_before": 0.009504993446171284,
+          "pass_after": 0.06293684989213943
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 2.730473041534424,
+          "greedy_changed": 0,
+          "pass_before": 0.01203692052513361,
+          "pass_after": 0.13626237213611603
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 1.9330452680587769,
+          "greedy_changed": 0,
+          "pass_before": 0.01600571535527706,
+          "pass_after": 0.3189147412776947
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 3.1469826698303223,
+          "greedy_changed": 1,
+          "pass_before": 0.013291429728269577,
+          "pass_after": 0.131074458360672
+        },
+        {
+          "game": 1,
+          "ply": 108,
+          "kl_before_to_after": 3.6103603839874268,
+          "greedy_changed": 1,
+          "pass_before": 0.015225897543132305,
+          "pass_after": 0.2125430405139923
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 0.9729281067848206,
+          "greedy_changed": 0,
+          "pass_before": 0.00015378938405774534,
+          "pass_after": 4.360579623607919e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 7.955532073974609,
+          "greedy_changed": 1,
+          "pass_before": 0.0003490711678750813,
+          "pass_after": 1.4000586816109717e-05
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 6.754122257232666,
+          "greedy_changed": 1,
+          "pass_before": 0.000608678674325347,
+          "pass_after": 3.5707020288100466e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 9.23119068145752,
+          "greedy_changed": 1,
+          "pass_before": 0.0009991374099627137,
+          "pass_after": 0.00010962528176605701
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 6.981478691101074,
+          "greedy_changed": 1,
+          "pass_before": 0.0015667008701711893,
+          "pass_after": 0.0003578012983780354
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 6.177662372589111,
+          "greedy_changed": 1,
+          "pass_before": 0.0021961189340800047,
+          "pass_after": 0.0010535938199609518
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 6.860757827758789,
+          "greedy_changed": 1,
+          "pass_before": 0.0032901745289564133,
+          "pass_after": 0.0035284978803247213
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 4.547391891479492,
+          "greedy_changed": 1,
+          "pass_before": 0.004267470445483923,
+          "pass_after": 0.009338674135506153
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 6.090238094329834,
+          "greedy_changed": 1,
+          "pass_before": 0.006239902228116989,
+          "pass_after": 0.020982613787055016
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 3.17044734954834,
+          "greedy_changed": 1,
+          "pass_before": 0.00913956668227911,
+          "pass_after": 0.07657617330551147
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 7.302759647369385,
+          "greedy_changed": 1,
+          "pass_before": 0.00891251303255558,
+          "pass_after": 0.08387572318315506
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 2.3860697746276855,
+          "greedy_changed": 1,
+          "pass_before": 0.011484663933515549,
+          "pass_after": 0.20043118298053741
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 1.5439207553863525,
+          "greedy_changed": 0,
+          "pass_before": 0.014899433590471745,
+          "pass_after": 0.36907920241355896
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 0.9729281067848206,
+          "greedy_changed": 0,
+          "pass_before": 0.00015378938405774534,
+          "pass_after": 4.360579623607919e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 4.420801162719727,
+          "greedy_changed": 1,
+          "pass_before": 0.0003283847763668746,
+          "pass_after": 1.138344578066608e-05
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 3.720947742462158,
+          "greedy_changed": 1,
+          "pass_before": 0.0006489253137260675,
+          "pass_after": 3.216790719307028e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 10.084242820739746,
+          "greedy_changed": 1,
+          "pass_before": 0.0010177569929510355,
+          "pass_after": 8.427572902292013e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 6.331005096435547,
+          "greedy_changed": 0,
+          "pass_before": 0.0015153512358665466,
+          "pass_after": 0.00027585739735513926
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 6.5878825187683105,
+          "greedy_changed": 1,
+          "pass_before": 0.002312371041625738,
+          "pass_after": 0.0007537492201663554
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 6.106716156005859,
+          "greedy_changed": 1,
+          "pass_before": 0.003037970745936036,
+          "pass_after": 0.0016431637341156602
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 7.700094699859619,
+          "greedy_changed": 1,
+          "pass_before": 0.004065833520144224,
+          "pass_after": 0.004362926818430424
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 4.34499979019165,
+          "greedy_changed": 0,
+          "pass_before": 0.0053255558013916016,
+          "pass_after": 0.013411524705588818
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 4.670389652252197,
+          "greedy_changed": 1,
+          "pass_before": 0.006846850737929344,
+          "pass_after": 0.024262739345431328
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 4.197479248046875,
+          "greedy_changed": 1,
+          "pass_before": 0.008963816799223423,
+          "pass_after": 0.0625738650560379
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 5.2107744216918945,
+          "greedy_changed": 1,
+          "pass_before": 0.011355449445545673,
+          "pass_after": 0.1380101889371872
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 3.087287664413452,
+          "greedy_changed": 1,
+          "pass_before": 0.013530315831303596,
+          "pass_after": 0.22845853865146637
+        }
+      ]
+    },
+    {
+      "seed": 929,
+      "geometry": "similar",
+      "positions": 52,
+      "mean_legal_policy_kl": 5.783754166502219,
+      "greedy_changes": 42,
+      "mean_pass_before": 0.004987436072462095,
+      "mean_pass_after": 0.04686621188341178,
+      "parameter_hashes": [
+        "327d72d9f37f7831956c93a1e8c61b9ec56ceef269ef578d002dd42b6431fc5f",
+        "8325567962877e43824ed4a37f8de1362c42db59f6efaa5cd8bd2f5cd93d114a"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 0.8625537157058716,
+          "greedy_changed": 1,
+          "pass_before": 0.0001652903447393328,
+          "pass_after": 4.515719865594292e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 9.207401275634766,
+          "greedy_changed": 1,
+          "pass_before": 0.00040232413448393345,
+          "pass_after": 1.3031713024247438e-05
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 10.502561569213867,
+          "greedy_changed": 1,
+          "pass_before": 0.0006378097459673882,
+          "pass_after": 3.3182441256940365e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 7.357846260070801,
+          "greedy_changed": 1,
+          "pass_before": 0.0009928097715601325,
+          "pass_after": 9.037565178005025e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 6.489429950714111,
+          "greedy_changed": 1,
+          "pass_before": 0.0016252680215984583,
+          "pass_after": 0.0002401040546828881
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 8.75047779083252,
+          "greedy_changed": 1,
+          "pass_before": 0.002104210900142789,
+          "pass_after": 0.0006385022425092757
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 9.739554405212402,
+          "greedy_changed": 1,
+          "pass_before": 0.0033662652131170034,
+          "pass_after": 0.0022627294529229403
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 5.6535234451293945,
+          "greedy_changed": 0,
+          "pass_before": 0.0045411791652441025,
+          "pass_after": 0.007229368202388287
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 5.2018609046936035,
+          "greedy_changed": 1,
+          "pass_before": 0.005900679621845484,
+          "pass_after": 0.019493233412504196
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 8.250138282775879,
+          "greedy_changed": 1,
+          "pass_before": 0.007861130870878696,
+          "pass_after": 0.045984573662281036
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 8.092513084411621,
+          "greedy_changed": 1,
+          "pass_before": 0.01029132679104805,
+          "pass_after": 0.12559175491333008
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 7.871115207672119,
+          "greedy_changed": 1,
+          "pass_before": 0.013661704957485199,
+          "pass_after": 0.2629537284374237
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 0.8605213761329651,
+          "greedy_changed": 0,
+          "pass_before": 0.00018634778098203242,
+          "pass_after": 4.580397217068821e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 7.918506145477295,
+          "greedy_changed": 1,
+          "pass_before": 0.00036147836362943053,
+          "pass_after": 1.3814930753142107e-05
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 7.545138359069824,
+          "greedy_changed": 1,
+          "pass_before": 0.0006240211077965796,
+          "pass_after": 3.726778959389776e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 8.009821891784668,
+          "greedy_changed": 1,
+          "pass_before": 0.0009671784937381744,
+          "pass_after": 0.00010296791151631624
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 7.005372524261475,
+          "greedy_changed": 0,
+          "pass_before": 0.0014593516243621707,
+          "pass_after": 0.00027355575002729893
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 8.324172019958496,
+          "greedy_changed": 1,
+          "pass_before": 0.0023084557615220547,
+          "pass_after": 0.0007964832475408912
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 5.455142021179199,
+          "greedy_changed": 1,
+          "pass_before": 0.003542291233316064,
+          "pass_after": 0.0021877966355532408
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 6.403448104858398,
+          "greedy_changed": 1,
+          "pass_before": 0.0048971171490848064,
+          "pass_after": 0.006755929905921221
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 6.624587535858154,
+          "greedy_changed": 1,
+          "pass_before": 0.006468366365879774,
+          "pass_after": 0.01584414206445217
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 4.688442707061768,
+          "greedy_changed": 0,
+          "pass_before": 0.009385976940393448,
+          "pass_after": 0.0541510134935379
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 2.767889976501465,
+          "greedy_changed": 0,
+          "pass_before": 0.011853935196995735,
+          "pass_after": 0.12905998528003693
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 1.889840006828308,
+          "greedy_changed": 0,
+          "pass_before": 0.01555664837360382,
+          "pass_after": 0.3132442235946655
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 2.96120023727417,
+          "greedy_changed": 1,
+          "pass_before": 0.013015840202569962,
+          "pass_after": 0.1292581558227539
+        },
+        {
+          "game": 1,
+          "ply": 108,
+          "kl_before_to_after": 4.114535808563232,
+          "greedy_changed": 1,
+          "pass_before": 0.014927657321095467,
+          "pass_after": 0.2089896947145462
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 0.6662018299102783,
+          "greedy_changed": 0,
+          "pass_before": 0.00015470170183107257,
+          "pass_after": 4.66082337879925e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 7.811856269836426,
+          "greedy_changed": 1,
+          "pass_before": 0.00035100081004202366,
+          "pass_after": 1.4251472748583183e-05
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 7.376192092895508,
+          "greedy_changed": 1,
+          "pass_before": 0.0006105477805249393,
+          "pass_after": 3.524132625898346e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 9.300704002380371,
+          "greedy_changed": 1,
+          "pass_before": 0.0009974673157557845,
+          "pass_after": 9.939118899637833e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 7.005413055419922,
+          "greedy_changed": 1,
+          "pass_before": 0.00155655387789011,
+          "pass_after": 0.00031534911249764264
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 6.200568675994873,
+          "greedy_changed": 1,
+          "pass_before": 0.0021801195107400417,
+          "pass_after": 0.0009244710090570152
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 6.946150779724121,
+          "greedy_changed": 1,
+          "pass_before": 0.0032655522227287292,
+          "pass_after": 0.0030953134410083294
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 4.554263114929199,
+          "greedy_changed": 1,
+          "pass_before": 0.004223516210913658,
+          "pass_after": 0.008433608338236809
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 5.444573879241943,
+          "greedy_changed": 1,
+          "pass_before": 0.00617920933291316,
+          "pass_after": 0.01935606077313423
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 3.712412118911743,
+          "greedy_changed": 1,
+          "pass_before": 0.009063046425580978,
+          "pass_after": 0.07050032913684845
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 7.829359531402588,
+          "greedy_changed": 1,
+          "pass_before": 0.008882967755198479,
+          "pass_after": 0.07531044632196426
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 3.368168592453003,
+          "greedy_changed": 0,
+          "pass_before": 0.011524275876581669,
+          "pass_after": 0.17620277404785156
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 2.2310092449188232,
+          "greedy_changed": 0,
+          "pass_before": 0.014909164980053902,
+          "pass_after": 0.33567944169044495
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 0.6662018299102783,
+          "greedy_changed": 0,
+          "pass_before": 0.00015470170183107257,
+          "pass_after": 4.66082337879925e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 3.7898707389831543,
+          "greedy_changed": 1,
+          "pass_before": 0.0003315917565487325,
+          "pass_after": 1.1539397746673785e-05
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 3.362443208694458,
+          "greedy_changed": 1,
+          "pass_before": 0.0006530476966872811,
+          "pass_after": 3.143732828903012e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 10.558555603027344,
+          "greedy_changed": 1,
+          "pass_before": 0.0010189007734879851,
+          "pass_after": 7.584116247016937e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 6.074653625488281,
+          "greedy_changed": 1,
+          "pass_before": 0.0015112422406673431,
+          "pass_after": 0.00024094615946523845
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 6.6959052085876465,
+          "greedy_changed": 1,
+          "pass_before": 0.0022981392685323954,
+          "pass_after": 0.0006479859002865851
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 6.3142828941345215,
+          "greedy_changed": 1,
+          "pass_before": 0.0030199990142136812,
+          "pass_after": 0.001454997225664556
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 8.095148086547852,
+          "greedy_changed": 1,
+          "pass_before": 0.004024272318929434,
+          "pass_after": 0.0038747081998735666
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 4.737167835235596,
+          "greedy_changed": 1,
+          "pass_before": 0.005244236905127764,
+          "pass_after": 0.011668524704873562
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 4.40460729598999,
+          "greedy_changed": 1,
+          "pass_before": 0.006745711900293827,
+          "pass_after": 0.020633650943636894
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 3.6716651916503906,
+          "greedy_changed": 1,
+          "pass_before": 0.008824524469673634,
+          "pass_after": 0.05430857092142105
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 4.49688196182251,
+          "greedy_changed": 1,
+          "pass_before": 0.01119802426546812,
+          "pass_after": 0.12114845961332321
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 2.8933653831481934,
+          "greedy_changed": 1,
+          "pass_before": 0.01331949420273304,
+          "pass_after": 0.20771564543247223
+        }
+      ]
+    },
+    {
+      "seed": 937,
+      "geometry": "orth",
+      "positions": 54,
+      "mean_legal_policy_kl": 3.989820811483595,
+      "greedy_changes": 46,
+      "mean_pass_before": 0.008730595059306425,
+      "mean_pass_after": 0.05938690769606949,
+      "parameter_hashes": [
+        "a336f2da455404d456618831a2b6245154f5fbbb1cf693fbb5524b4e4abb9cdb",
+        "ff249514ded8668b6055c93e0c8a30b6ec12325e65540bf520007ce83387f686"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 1.000067949295044,
+          "greedy_changed": 0,
+          "pass_before": 5.1826380513375625e-05,
+          "pass_after": 2.050858711299952e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 1.1842397451400757,
+          "greedy_changed": 0,
+          "pass_before": 0.00018975595594383776,
+          "pass_after": 3.2798600386740873e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 0.3694370985031128,
+          "greedy_changed": 1,
+          "pass_before": 0.00038409230182878673,
+          "pass_after": 9.612717803975102e-06
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 6.326896667480469,
+          "greedy_changed": 1,
+          "pass_before": 0.0006141707417555153,
+          "pass_after": 3.288653533672914e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 6.536046504974365,
+          "greedy_changed": 1,
+          "pass_before": 0.0009557155426591635,
+          "pass_after": 0.00011882218677783385
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 4.495038032531738,
+          "greedy_changed": 1,
+          "pass_before": 0.0014370853314176202,
+          "pass_after": 0.00035692163510248065
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 6.531482696533203,
+          "greedy_changed": 1,
+          "pass_before": 0.0022805389016866684,
+          "pass_after": 0.0011086250888183713
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 4.013253688812256,
+          "greedy_changed": 1,
+          "pass_before": 0.0030709521379321814,
+          "pass_after": 0.0028887332882732153
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 3.5974466800689697,
+          "greedy_changed": 1,
+          "pass_before": 0.004024820867925882,
+          "pass_after": 0.009818004444241524
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 4.553153038024902,
+          "greedy_changed": 1,
+          "pass_before": 0.005808760412037373,
+          "pass_after": 0.039509210735559464
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 4.027987003326416,
+          "greedy_changed": 1,
+          "pass_before": 0.0073592946864664555,
+          "pass_after": 0.12023953348398209
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 5.80785608291626,
+          "greedy_changed": 1,
+          "pass_before": 0.0056600505486130714,
+          "pass_after": 0.03434291109442711
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 4.082061767578125,
+          "greedy_changed": 1,
+          "pass_before": 0.00790339894592762,
+          "pass_after": 0.11575947701931
+        },
+        {
+          "game": 0,
+          "ply": 108,
+          "kl_before_to_after": 2.3412764072418213,
+          "greedy_changed": 1,
+          "pass_before": 0.011362308636307716,
+          "pass_after": 0.2853250801563263
+        },
+        {
+          "game": 0,
+          "ply": 116,
+          "kl_before_to_after": 6.4005126953125,
+          "greedy_changed": 1,
+          "pass_before": 0.012344795279204845,
+          "pass_after": 0.3208567202091217
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 0.791824221611023,
+          "greedy_changed": 0,
+          "pass_before": 5.017275907448493e-05,
+          "pass_after": 1.3802663261230919e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 5.781311988830566,
+          "greedy_changed": 1,
+          "pass_before": 0.00018785921565722674,
+          "pass_after": 3.2625523544993484e-06
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 2.559468984603882,
+          "greedy_changed": 0,
+          "pass_before": 0.0003682874084915966,
+          "pass_after": 1.0022864444181323e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 7.281305313110352,
+          "greedy_changed": 1,
+          "pass_before": 0.000627721194177866,
+          "pass_after": 2.904840584960766e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 3.944363832473755,
+          "greedy_changed": 0,
+          "pass_before": 0.0009487175848335028,
+          "pass_after": 9.10394373931922e-05
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 4.1891350746154785,
+          "greedy_changed": 1,
+          "pass_before": 0.0013727536424994469,
+          "pass_after": 0.00027778191724792123
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 3.599940299987793,
+          "greedy_changed": 1,
+          "pass_before": 0.0018396788509562612,
+          "pass_after": 0.0010076031321659684
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 2.902203321456909,
+          "greedy_changed": 1,
+          "pass_before": 0.0026401218492537737,
+          "pass_after": 0.0029971159528940916
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 5.2399163246154785,
+          "greedy_changed": 1,
+          "pass_before": 0.003735377686098218,
+          "pass_after": 0.008614761754870415
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 5.061651229858398,
+          "greedy_changed": 1,
+          "pass_before": 0.00550118600949645,
+          "pass_after": 0.02709221839904785
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 4.931999683380127,
+          "greedy_changed": 1,
+          "pass_before": 0.006503163371235132,
+          "pass_after": 0.05395732447504997
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 2.974402904510498,
+          "greedy_changed": 1,
+          "pass_before": 0.008837596513330936,
+          "pass_after": 0.15386781096458435
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 8.14985466003418,
+          "greedy_changed": 1,
+          "pass_before": 0.012434063479304314,
+          "pass_after": 0.3648073971271515
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 3.3689141273498535,
+          "greedy_changed": 1,
+          "pass_before": 4.4996337237535045e-05,
+          "pass_after": 1.270920961360389e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 3.057417631149292,
+          "greedy_changed": 0,
+          "pass_before": 0.00019624625565484166,
+          "pass_after": 3.403168420845759e-06
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 5.352839946746826,
+          "greedy_changed": 1,
+          "pass_before": 0.0003741482214536518,
+          "pass_after": 1.056158453138778e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 2.9499926567077637,
+          "greedy_changed": 1,
+          "pass_before": 0.0006001066649332643,
+          "pass_after": 3.240236037527211e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 4.262488842010498,
+          "greedy_changed": 1,
+          "pass_before": 0.0009601584752090275,
+          "pass_after": 8.884864655556157e-05
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 2.080078601837158,
+          "greedy_changed": 1,
+          "pass_before": 0.0013019794132560492,
+          "pass_after": 0.0001732633973006159
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 7.208745956420898,
+          "greedy_changed": 1,
+          "pass_before": 0.0018158253515139222,
+          "pass_after": 0.00043049672967754304
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 2.6455438137054443,
+          "greedy_changed": 1,
+          "pass_before": 0.002644564025104046,
+          "pass_after": 0.0017155975801870227
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 2.1688268184661865,
+          "greedy_changed": 1,
+          "pass_before": 0.003885469166561961,
+          "pass_after": 0.00661561219021678
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 1.616339921951294,
+          "greedy_changed": 1,
+          "pass_before": 0.004110329318791628,
+          "pass_after": 0.012102050706744194
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 1.9556711912155151,
+          "greedy_changed": 1,
+          "pass_before": 0.005247242748737335,
+          "pass_after": 0.028584949672222137
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 2.140688896179199,
+          "greedy_changed": 1,
+          "pass_before": 0.007495170459151268,
+          "pass_after": 0.11129215359687805
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 2.029571533203125,
+          "greedy_changed": 1,
+          "pass_before": 0.009968467056751251,
+          "pass_after": 0.21153998374938965
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 1.1513426303863525,
+          "greedy_changed": 0,
+          "pass_before": 4.544486728264019e-05,
+          "pass_after": 1.7654743942330242e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 8.75398063659668,
+          "greedy_changed": 1,
+          "pass_before": 0.0002206612698500976,
+          "pass_after": 3.329947276142775e-06
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 8.775192260742188,
+          "greedy_changed": 1,
+          "pass_before": 0.0003414696257095784,
+          "pass_after": 8.17718591861194e-06
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 3.5879125595092773,
+          "greedy_changed": 1,
+          "pass_before": 0.0005493634380400181,
+          "pass_after": 3.0486817195196636e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 5.468043804168701,
+          "greedy_changed": 1,
+          "pass_before": 0.0009293256443925202,
+          "pass_after": 8.170080400304869e-05
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 5.128048896789551,
+          "greedy_changed": 1,
+          "pass_before": 0.0014192726230248809,
+          "pass_after": 0.0002513091894797981
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 3.524350166320801,
+          "greedy_changed": 1,
+          "pass_before": 0.002238910412415862,
+          "pass_after": 0.0010076483013108373
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 3.692023515701294,
+          "greedy_changed": 1,
+          "pass_before": 0.0028293770737946033,
+          "pass_after": 0.0042022778652608395
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 2.7762491703033447,
+          "greedy_changed": 1,
+          "pass_before": 0.0038691575173288584,
+          "pass_after": 0.014604603871703148
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 2.5207479000091553,
+          "greedy_changed": 0,
+          "pass_before": 0.005141576752066612,
+          "pass_after": 0.044853951781988144
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 4.257598876953125,
+          "greedy_changed": 1,
+          "pass_before": 0.006881352514028549,
+          "pass_after": 0.1105978935956955
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 4.564014911651611,
+          "greedy_changed": 1,
+          "pass_before": 0.008229291997849941,
+          "pass_after": 0.16469356417655945
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 1.7395646572113037,
+          "greedy_changed": 1,
+          "pass_before": 0.2916179597377777,
+          "pass_after": 0.9508370757102966
+        }
+      ]
+    },
+    {
+      "seed": 937,
+      "geometry": "similar",
+      "positions": 54,
+      "mean_legal_policy_kl": 4.112210764929101,
+      "greedy_changes": 46,
+      "mean_pass_before": 0.008680485502500905,
+      "mean_pass_after": 0.05740758348477786,
+      "parameter_hashes": [
+        "e0925c2dda5118dd9f17ca8ed5d8ca03516dd792ecc5ab09266d485f9719a274",
+        "4411899b305064e43c7d0118a9dd4352204af8a4c987190776003d44914163a5"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 0.969325840473175,
+          "greedy_changed": 0,
+          "pass_before": 5.141793371876702e-05,
+          "pass_after": 2.289089252371923e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 1.159807562828064,
+          "greedy_changed": 0,
+          "pass_before": 0.00019003261695615947,
+          "pass_after": 3.4857430364354514e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 0.46485936641693115,
+          "greedy_changed": 1,
+          "pass_before": 0.00038926603156141937,
+          "pass_after": 9.862283150141593e-06
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 6.469352722167969,
+          "greedy_changed": 1,
+          "pass_before": 0.0006221670773811638,
+          "pass_after": 3.3295222237939015e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 6.730071067810059,
+          "greedy_changed": 1,
+          "pass_before": 0.0009630444692447782,
+          "pass_after": 0.00011813573655672371
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 4.737375259399414,
+          "greedy_changed": 1,
+          "pass_before": 0.0014432246098294854,
+          "pass_after": 0.000352319359080866
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 6.783031940460205,
+          "greedy_changed": 1,
+          "pass_before": 0.002285467693582177,
+          "pass_after": 0.0010818388545885682
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 3.994541883468628,
+          "greedy_changed": 1,
+          "pass_before": 0.003076017601415515,
+          "pass_after": 0.002804577350616455
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 3.6731395721435547,
+          "greedy_changed": 1,
+          "pass_before": 0.004028205759823322,
+          "pass_after": 0.009452367201447487
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 4.965453147888184,
+          "greedy_changed": 1,
+          "pass_before": 0.005806648638099432,
+          "pass_after": 0.03753257915377617
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 3.7263638973236084,
+          "greedy_changed": 1,
+          "pass_before": 0.0073241544887423515,
+          "pass_after": 0.11432052403688431
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 6.214641571044922,
+          "greedy_changed": 1,
+          "pass_before": 0.005640311632305384,
+          "pass_after": 0.03281063213944435
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 4.247553825378418,
+          "greedy_changed": 1,
+          "pass_before": 0.007856498472392559,
+          "pass_after": 0.10967640578746796
+        },
+        {
+          "game": 0,
+          "ply": 108,
+          "kl_before_to_after": 2.6237802505493164,
+          "greedy_changed": 1,
+          "pass_before": 0.011250292882323265,
+          "pass_after": 0.27245742082595825
+        },
+        {
+          "game": 0,
+          "ply": 116,
+          "kl_before_to_after": 5.426535129547119,
+          "greedy_changed": 1,
+          "pass_before": 0.012211893685162067,
+          "pass_after": 0.3065398037433624
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 0.7998136281967163,
+          "greedy_changed": 0,
+          "pass_before": 4.983933104085736e-05,
+          "pass_after": 1.542370000606752e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 5.709743022918701,
+          "greedy_changed": 1,
+          "pass_before": 0.0001866840902948752,
+          "pass_after": 3.4317015433771303e-06
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 2.623350143432617,
+          "greedy_changed": 0,
+          "pass_before": 0.00037296893424354494,
+          "pass_after": 1.0261144780088216e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 7.39688777923584,
+          "greedy_changed": 1,
+          "pass_before": 0.0006337976665236056,
+          "pass_after": 2.9334636565181427e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 4.03010368347168,
+          "greedy_changed": 0,
+          "pass_before": 0.0009555179276503623,
+          "pass_after": 9.082638280233368e-05
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 4.2138166427612305,
+          "greedy_changed": 1,
+          "pass_before": 0.001380406552925706,
+          "pass_after": 0.00027596286963671446
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 3.559497117996216,
+          "greedy_changed": 1,
+          "pass_before": 0.0018451649229973555,
+          "pass_after": 0.0009886331390589476
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 2.997156858444214,
+          "greedy_changed": 1,
+          "pass_before": 0.0026439502835273743,
+          "pass_after": 0.0029232455417513847
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 5.3928375244140625,
+          "greedy_changed": 1,
+          "pass_before": 0.003742761444300413,
+          "pass_after": 0.008337844163179398
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 5.2992024421691895,
+          "greedy_changed": 1,
+          "pass_before": 0.0055227396078407764,
+          "pass_after": 0.02582092583179474
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 5.020094394683838,
+          "greedy_changed": 1,
+          "pass_before": 0.006543751806020737,
+          "pass_after": 0.051122087985277176
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 3.249891996383667,
+          "greedy_changed": 1,
+          "pass_before": 0.008885016664862633,
+          "pass_after": 0.14647646248340607
+        },
+        {
+          "game": 1,
+          "ply": 100,
+          "kl_before_to_after": 7.900386810302734,
+          "greedy_changed": 1,
+          "pass_before": 0.012456837110221386,
+          "pass_after": 0.3505442440509796
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 3.510114908218384,
+          "greedy_changed": 1,
+          "pass_before": 4.471342617762275e-05,
+          "pass_after": 1.401611939400027e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 3.096839189529419,
+          "greedy_changed": 0,
+          "pass_before": 0.00019605137640610337,
+          "pass_after": 3.556758201739285e-06
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 5.46513557434082,
+          "greedy_changed": 1,
+          "pass_before": 0.00037861624150536954,
+          "pass_after": 1.0793065484904218e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 3.414719820022583,
+          "greedy_changed": 1,
+          "pass_before": 0.0006069997907616198,
+          "pass_after": 3.2354593713534996e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 4.635591506958008,
+          "greedy_changed": 1,
+          "pass_before": 0.0009650559513829648,
+          "pass_after": 8.875388448359445e-05
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 2.345700979232788,
+          "greedy_changed": 1,
+          "pass_before": 0.0013088780688121915,
+          "pass_after": 0.00017179286805912852
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 7.6459832191467285,
+          "greedy_changed": 1,
+          "pass_before": 0.0018212577560916543,
+          "pass_after": 0.00042350991861894727
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 2.7686831951141357,
+          "greedy_changed": 1,
+          "pass_before": 0.0026498818770051003,
+          "pass_after": 0.0016697762766852975
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 2.50718355178833,
+          "greedy_changed": 1,
+          "pass_before": 0.0039011621847748756,
+          "pass_after": 0.00637511070817709
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 1.8323419094085693,
+          "greedy_changed": 1,
+          "pass_before": 0.004133469425141811,
+          "pass_after": 0.011603145860135555
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 2.159522771835327,
+          "greedy_changed": 1,
+          "pass_before": 0.005293309222906828,
+          "pass_after": 0.027250906452536583
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 2.5370657444000244,
+          "greedy_changed": 1,
+          "pass_before": 0.007618963252753019,
+          "pass_after": 0.10550317168235779
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 2.508723735809326,
+          "greedy_changed": 1,
+          "pass_before": 0.01011629682034254,
+          "pass_after": 0.20106972754001617
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 1.1232739686965942,
+          "greedy_changed": 0,
+          "pass_before": 4.5174165279604495e-05,
+          "pass_after": 1.9703174984897487e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 8.637306213378906,
+          "greedy_changed": 1,
+          "pass_before": 0.00021956238197162747,
+          "pass_after": 3.481297881080536e-06
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 8.641886711120605,
+          "greedy_changed": 1,
+          "pass_before": 0.0003459238214418292,
+          "pass_after": 8.411377166339662e-06
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 3.806361436843872,
+          "greedy_changed": 1,
+          "pass_before": 0.0005546617321670055,
+          "pass_after": 3.085388379986398e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 5.788733005523682,
+          "greedy_changed": 1,
+          "pass_before": 0.0009343094425275922,
+          "pass_after": 8.187878847820684e-05
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 5.56928825378418,
+          "greedy_changed": 1,
+          "pass_before": 0.0014303289353847504,
+          "pass_after": 0.00024884738377295434
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 3.7220849990844727,
+          "greedy_changed": 1,
+          "pass_before": 0.002242820104584098,
+          "pass_after": 0.0009884616592898965
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 3.892706871032715,
+          "greedy_changed": 1,
+          "pass_before": 0.0028281048871576786,
+          "pass_after": 0.004079561680555344
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 2.732943534851074,
+          "greedy_changed": 1,
+          "pass_before": 0.0038723160978406668,
+          "pass_after": 0.014114887453615665
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 2.568812608718872,
+          "greedy_changed": 0,
+          "pass_before": 0.005127490498125553,
+          "pass_after": 0.042970117181539536
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 4.322838306427002,
+          "greedy_changed": 1,
+          "pass_before": 0.006891513708978891,
+          "pass_after": 0.1054067611694336
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 4.708384990692139,
+          "greedy_changed": 1,
+          "pass_before": 0.008168146014213562,
+          "pass_after": 0.15627332031726837
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 1.738539218902588,
+          "greedy_changed": 1,
+          "pass_before": 0.2886931300163269,
+          "pass_after": 0.9477766156196594
+        }
+      ]
+    },
+    {
+      "seed": 941,
+      "geometry": "orth",
+      "positions": 52,
+      "mean_legal_policy_kl": 2.6737308456347537,
+      "greedy_changes": 25,
+      "mean_pass_before": 0.003454312579658738,
+      "mean_pass_after": 0.03550023295594411,
+      "parameter_hashes": [
+        "6bcc4c400e90858ffd1b27b695b6c5b2591e8e5e2c50bd43cc2e21b9fed22415",
+        "027aca6418ba6dbe8809f1af2be8ce053e2f3ab703d49636120830a21267ea55"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 2.3582189083099365,
+          "greedy_changed": 1,
+          "pass_before": 3.9571816159877926e-05,
+          "pass_after": 2.186023266403936e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 5.905567169189453,
+          "greedy_changed": 1,
+          "pass_before": 0.0001026635873131454,
+          "pass_after": 5.52216943106032e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 3.2834677696228027,
+          "greedy_changed": 0,
+          "pass_before": 0.00017792504513636231,
+          "pass_after": 1.4654131518909708e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 1.447054147720337,
+          "greedy_changed": 0,
+          "pass_before": 0.00029525929130613804,
+          "pass_after": 3.965250289184041e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 1.4133906364440918,
+          "greedy_changed": 0,
+          "pass_before": 0.0005066393059678376,
+          "pass_after": 0.0001350340899080038
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 3.9794135093688965,
+          "greedy_changed": 0,
+          "pass_before": 0.0008176192059181631,
+          "pass_after": 0.0003775338991545141
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 3.146346092224121,
+          "greedy_changed": 0,
+          "pass_before": 0.0012946448987349868,
+          "pass_after": 0.0008505081641487777
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 4.336023330688477,
+          "greedy_changed": 1,
+          "pass_before": 0.0019171241438016295,
+          "pass_after": 0.002808614168316126
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 2.4816346168518066,
+          "greedy_changed": 1,
+          "pass_before": 0.003690076759085059,
+          "pass_after": 0.01046613696962595
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 1.251535415649414,
+          "greedy_changed": 0,
+          "pass_before": 0.005817849189043045,
+          "pass_after": 0.0303280521184206
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 1.9128190279006958,
+          "greedy_changed": 1,
+          "pass_before": 0.008223611861467361,
+          "pass_after": 0.0650019496679306
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 2.4856114387512207,
+          "greedy_changed": 0,
+          "pass_before": 0.0117782698944211,
+          "pass_after": 0.18049916625022888
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 1.1705516576766968,
+          "greedy_changed": 0,
+          "pass_before": 0.01521342620253563,
+          "pass_after": 0.2837490141391754
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 2.2105205059051514,
+          "greedy_changed": 1,
+          "pass_before": 3.765705332625657e-05,
+          "pass_after": 2.0571640106936684e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 7.598221778869629,
+          "greedy_changed": 1,
+          "pass_before": 0.00010064929665531963,
+          "pass_after": 5.247092758509098e-06
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 5.0068230628967285,
+          "greedy_changed": 0,
+          "pass_before": 0.00017257319996133447,
+          "pass_after": 1.2954455087310635e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 6.116531848907471,
+          "greedy_changed": 1,
+          "pass_before": 0.00029422802617773414,
+          "pass_after": 4.1261395381297916e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 4.93375825881958,
+          "greedy_changed": 1,
+          "pass_before": 0.0005534577067010105,
+          "pass_after": 0.00013760582078248262
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 1.6353204250335693,
+          "greedy_changed": 0,
+          "pass_before": 0.000913413183297962,
+          "pass_after": 0.00045508547918871045
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 0.2770848870277405,
+          "greedy_changed": 0,
+          "pass_before": 0.0014969141921028495,
+          "pass_after": 0.0015187379904091358
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 0.35136914253234863,
+          "greedy_changed": 0,
+          "pass_before": 0.002637044992297888,
+          "pass_after": 0.005365962628275156
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 1.2463784217834473,
+          "greedy_changed": 0,
+          "pass_before": 0.004858918022364378,
+          "pass_after": 0.019162707030773163
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 1.314225435256958,
+          "greedy_changed": 0,
+          "pass_before": 0.006351593881845474,
+          "pass_after": 0.036666713654994965
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 1.677103877067566,
+          "greedy_changed": 0,
+          "pass_before": 0.008618195541203022,
+          "pass_after": 0.08683288842439651
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 1.2952708005905151,
+          "greedy_changed": 0,
+          "pass_before": 0.011749781668186188,
+          "pass_after": 0.16733700037002563
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 2.3582189083099365,
+          "greedy_changed": 1,
+          "pass_before": 3.9571816159877926e-05,
+          "pass_after": 2.186023266403936e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 2.5761876106262207,
+          "greedy_changed": 1,
+          "pass_before": 8.716155571164563e-05,
+          "pass_after": 5.299893018673174e-06
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 2.9610233306884766,
+          "greedy_changed": 1,
+          "pass_before": 0.00016727398906368762,
+          "pass_after": 1.319386501563713e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 1.8263894319534302,
+          "greedy_changed": 0,
+          "pass_before": 0.0003119774628430605,
+          "pass_after": 4.059329876326956e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 2.188241481781006,
+          "greedy_changed": 0,
+          "pass_before": 0.0004985560663044453,
+          "pass_after": 0.0001193315620184876
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 3.1106643676757812,
+          "greedy_changed": 0,
+          "pass_before": 0.0008266738150268793,
+          "pass_after": 0.00022882390476297587
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 5.066283226013184,
+          "greedy_changed": 1,
+          "pass_before": 0.0013343855971470475,
+          "pass_after": 0.0007219589897431433
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 6.247503280639648,
+          "greedy_changed": 1,
+          "pass_before": 0.002063123509287834,
+          "pass_after": 0.002010153606534004
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 4.564680576324463,
+          "greedy_changed": 1,
+          "pass_before": 0.003788767848163843,
+          "pass_after": 0.007148398086428642
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 5.267954349517822,
+          "greedy_changed": 1,
+          "pass_before": 0.005985184572637081,
+          "pass_after": 0.022339841350913048
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 1.421473503112793,
+          "greedy_changed": 1,
+          "pass_before": 0.008692936040461063,
+          "pass_after": 0.07376260310411453
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 1.7613122463226318,
+          "greedy_changed": 1,
+          "pass_before": 0.011778797954320908,
+          "pass_after": 0.1453549861907959
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 0.8570517301559448,
+          "greedy_changed": 1,
+          "pass_before": 0.012853173539042473,
+          "pass_after": 0.18576595187187195
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 2.0108864307403564,
+          "greedy_changed": 1,
+          "pass_before": 4.619377796188928e-05,
+          "pass_after": 2.110379455189104e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 0.9900320768356323,
+          "greedy_changed": 1,
+          "pass_before": 0.00010042160283774137,
+          "pass_after": 5.772150871052872e-06
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 1.4612314701080322,
+          "greedy_changed": 0,
+          "pass_before": 0.00017051455506589264,
+          "pass_after": 1.419656109646894e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 5.477240562438965,
+          "greedy_changed": 1,
+          "pass_before": 0.0003127174568362534,
+          "pass_after": 4.6054297854425386e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 2.0947768688201904,
+          "greedy_changed": 0,
+          "pass_before": 0.000583810789976269,
+          "pass_after": 0.00014892563922330737
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 1.207276463508606,
+          "greedy_changed": 0,
+          "pass_before": 0.0009284405969083309,
+          "pass_after": 0.00044084107503294945
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 1.1591804027557373,
+          "greedy_changed": 1,
+          "pass_before": 0.0010999846272170544,
+          "pass_after": 0.0005545290769077837
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 1.627772569656372,
+          "greedy_changed": 1,
+          "pass_before": 0.001521168160252273,
+          "pass_after": 0.0012874483363702893
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 0.7419262528419495,
+          "greedy_changed": 0,
+          "pass_before": 0.0025204806588590145,
+          "pass_after": 0.0040617999620735645
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 1.5253715515136719,
+          "greedy_changed": 0,
+          "pass_before": 0.0029870762955397367,
+          "pass_after": 0.0069161057472229
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 2.2249794006347656,
+          "greedy_changed": 0,
+          "pass_before": 0.00460369698703289,
+          "pass_after": 0.02078305184841156
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 1.918699860572815,
+          "greedy_changed": 0,
+          "pass_before": 0.0069235144183039665,
+          "pass_after": 0.07126891613006592
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 2.3688764572143555,
+          "greedy_changed": 0,
+          "pass_before": 0.009084058925509453,
+          "pass_after": 0.14088018238544464
+        },
+        {
+          "game": 3,
+          "ply": 108,
+          "kl_before_to_after": 5.184527397155762,
+          "greedy_changed": 1,
+          "pass_before": 0.012655483558773994,
+          "pass_after": 0.2702726125717163
+        }
+      ]
+    },
+    {
+      "seed": 941,
+      "geometry": "similar",
+      "positions": 52,
+      "mean_legal_policy_kl": 3.216302516368719,
+      "greedy_changes": 27,
+      "mean_pass_before": 0.00332200998393371,
+      "mean_pass_after": 0.03419271685572111,
+      "parameter_hashes": [
+        "7ff6488cdc826d315d83e2d7216a201576e556678ccd446e4259041066242926",
+        "243233eb257a8b1b483c0916552f9ec80445b870a468f6a0042f79b23953f194"
+      ],
+      "samples": [
+        {
+          "game": 0,
+          "ply": 4,
+          "kl_before_to_after": 2.5306694507598877,
+          "greedy_changed": 1,
+          "pass_before": 3.9821436075726524e-05,
+          "pass_after": 1.941247546710656e-06
+        },
+        {
+          "game": 0,
+          "ply": 12,
+          "kl_before_to_after": 5.35920524597168,
+          "greedy_changed": 1,
+          "pass_before": 0.00010234591172775254,
+          "pass_after": 4.836602784052957e-06
+        },
+        {
+          "game": 0,
+          "ply": 20,
+          "kl_before_to_after": 2.3852920532226562,
+          "greedy_changed": 0,
+          "pass_before": 0.00017775004380382597,
+          "pass_after": 1.2645272363442928e-05
+        },
+        {
+          "game": 0,
+          "ply": 28,
+          "kl_before_to_after": 2.1603238582611084,
+          "greedy_changed": 0,
+          "pass_before": 0.000295184989226982,
+          "pass_after": 3.265427585574798e-05
+        },
+        {
+          "game": 0,
+          "ply": 36,
+          "kl_before_to_after": 2.3992767333984375,
+          "greedy_changed": 0,
+          "pass_before": 0.0005047697341069579,
+          "pass_after": 0.00011228248331462964
+        },
+        {
+          "game": 0,
+          "ply": 44,
+          "kl_before_to_after": 4.3447465896606445,
+          "greedy_changed": 1,
+          "pass_before": 0.0008177048875950277,
+          "pass_after": 0.00031995921744965017
+        },
+        {
+          "game": 0,
+          "ply": 52,
+          "kl_before_to_after": 4.286472797393799,
+          "greedy_changed": 0,
+          "pass_before": 0.0012993142008781433,
+          "pass_after": 0.0006987389642745256
+        },
+        {
+          "game": 0,
+          "ply": 60,
+          "kl_before_to_after": 6.656843185424805,
+          "greedy_changed": 1,
+          "pass_before": 0.0019189807353541255,
+          "pass_after": 0.0024334697518497705
+        },
+        {
+          "game": 0,
+          "ply": 68,
+          "kl_before_to_after": 2.6479427814483643,
+          "greedy_changed": 1,
+          "pass_before": 0.003666351782158017,
+          "pass_after": 0.009122899733483791
+        },
+        {
+          "game": 0,
+          "ply": 76,
+          "kl_before_to_after": 1.2761046886444092,
+          "greedy_changed": 0,
+          "pass_before": 0.005733793135732412,
+          "pass_after": 0.02786998078227043
+        },
+        {
+          "game": 0,
+          "ply": 84,
+          "kl_before_to_after": 1.678399682044983,
+          "greedy_changed": 0,
+          "pass_before": 0.007997166365385056,
+          "pass_after": 0.05939687415957451
+        },
+        {
+          "game": 0,
+          "ply": 92,
+          "kl_before_to_after": 2.68589448928833,
+          "greedy_changed": 0,
+          "pass_before": 0.011352082714438438,
+          "pass_after": 0.1737903207540512
+        },
+        {
+          "game": 0,
+          "ply": 100,
+          "kl_before_to_after": 1.023232102394104,
+          "greedy_changed": 0,
+          "pass_before": 0.014208520762622356,
+          "pass_after": 0.2855015993118286
+        },
+        {
+          "game": 1,
+          "ply": 4,
+          "kl_before_to_after": 2.3682212829589844,
+          "greedy_changed": 1,
+          "pass_before": 3.7989215343259275e-05,
+          "pass_after": 1.8071483509629616e-06
+        },
+        {
+          "game": 1,
+          "ply": 12,
+          "kl_before_to_after": 8.139689445495605,
+          "greedy_changed": 1,
+          "pass_before": 9.996405424317345e-05,
+          "pass_after": 4.605021331371972e-06
+        },
+        {
+          "game": 1,
+          "ply": 20,
+          "kl_before_to_after": 4.430233478546143,
+          "greedy_changed": 0,
+          "pass_before": 0.0001716356782708317,
+          "pass_after": 1.1351704415574204e-05
+        },
+        {
+          "game": 1,
+          "ply": 28,
+          "kl_before_to_after": 8.864773750305176,
+          "greedy_changed": 1,
+          "pass_before": 0.00029586965683847666,
+          "pass_after": 3.5607961763162166e-05
+        },
+        {
+          "game": 1,
+          "ply": 36,
+          "kl_before_to_after": 6.153800964355469,
+          "greedy_changed": 1,
+          "pass_before": 0.0005548253539018333,
+          "pass_after": 0.00011786321556428447
+        },
+        {
+          "game": 1,
+          "ply": 44,
+          "kl_before_to_after": 2.064199209213257,
+          "greedy_changed": 0,
+          "pass_before": 0.0009155745501630008,
+          "pass_after": 0.0003950946847908199
+        },
+        {
+          "game": 1,
+          "ply": 52,
+          "kl_before_to_after": 0.5876702070236206,
+          "greedy_changed": 1,
+          "pass_before": 0.0014967209426686168,
+          "pass_after": 0.00131633086130023
+        },
+        {
+          "game": 1,
+          "ply": 60,
+          "kl_before_to_after": 0.6306332945823669,
+          "greedy_changed": 0,
+          "pass_before": 0.00262283137999475,
+          "pass_after": 0.004726798739284277
+        },
+        {
+          "game": 1,
+          "ply": 68,
+          "kl_before_to_after": 1.7828962802886963,
+          "greedy_changed": 0,
+          "pass_before": 0.004814461339265108,
+          "pass_after": 0.017191462218761444
+        },
+        {
+          "game": 1,
+          "ply": 76,
+          "kl_before_to_after": 1.5151472091674805,
+          "greedy_changed": 1,
+          "pass_before": 0.0062113008461892605,
+          "pass_after": 0.03298835828900337
+        },
+        {
+          "game": 1,
+          "ply": 84,
+          "kl_before_to_after": 2.11719012260437,
+          "greedy_changed": 0,
+          "pass_before": 0.008221784606575966,
+          "pass_after": 0.08260008692741394
+        },
+        {
+          "game": 1,
+          "ply": 92,
+          "kl_before_to_after": 3.5649611949920654,
+          "greedy_changed": 1,
+          "pass_before": 0.01057280320674181,
+          "pass_after": 0.16609901189804077
+        },
+        {
+          "game": 2,
+          "ply": 4,
+          "kl_before_to_after": 2.5306694507598877,
+          "greedy_changed": 1,
+          "pass_before": 3.9821436075726524e-05,
+          "pass_after": 1.941247546710656e-06
+        },
+        {
+          "game": 2,
+          "ply": 12,
+          "kl_before_to_after": 2.1719698905944824,
+          "greedy_changed": 1,
+          "pass_before": 8.687096124049276e-05,
+          "pass_after": 4.700918907474261e-06
+        },
+        {
+          "game": 2,
+          "ply": 20,
+          "kl_before_to_after": 4.110881805419922,
+          "greedy_changed": 1,
+          "pass_before": 0.00016655730723869056,
+          "pass_after": 1.1377966075087897e-05
+        },
+        {
+          "game": 2,
+          "ply": 28,
+          "kl_before_to_after": 3.006998062133789,
+          "greedy_changed": 0,
+          "pass_before": 0.0003121937916148454,
+          "pass_after": 3.4350483474554494e-05
+        },
+        {
+          "game": 2,
+          "ply": 36,
+          "kl_before_to_after": 2.060542345046997,
+          "greedy_changed": 0,
+          "pass_before": 0.0004968924913555384,
+          "pass_after": 0.00010062328510684893
+        },
+        {
+          "game": 2,
+          "ply": 44,
+          "kl_before_to_after": 4.488872051239014,
+          "greedy_changed": 0,
+          "pass_before": 0.0008255713619291782,
+          "pass_after": 0.00018926337361335754
+        },
+        {
+          "game": 2,
+          "ply": 52,
+          "kl_before_to_after": 6.0233588218688965,
+          "greedy_changed": 1,
+          "pass_before": 0.0013364709448069334,
+          "pass_after": 0.0006241590599529445
+        },
+        {
+          "game": 2,
+          "ply": 60,
+          "kl_before_to_after": 6.510632514953613,
+          "greedy_changed": 1,
+          "pass_before": 0.0020457073114812374,
+          "pass_after": 0.0017331286799162626
+        },
+        {
+          "game": 2,
+          "ply": 68,
+          "kl_before_to_after": 5.921884059906006,
+          "greedy_changed": 1,
+          "pass_before": 0.003717140993103385,
+          "pass_after": 0.006188941188156605
+        },
+        {
+          "game": 2,
+          "ply": 76,
+          "kl_before_to_after": 6.732052326202393,
+          "greedy_changed": 1,
+          "pass_before": 0.005767854396253824,
+          "pass_after": 0.020065074786543846
+        },
+        {
+          "game": 2,
+          "ply": 84,
+          "kl_before_to_after": 2.0632381439208984,
+          "greedy_changed": 1,
+          "pass_before": 0.008230121806263924,
+          "pass_after": 0.0673336461186409
+        },
+        {
+          "game": 2,
+          "ply": 92,
+          "kl_before_to_after": 2.326014518737793,
+          "greedy_changed": 1,
+          "pass_before": 0.011305947788059711,
+          "pass_after": 0.14041104912757874
+        },
+        {
+          "game": 2,
+          "ply": 100,
+          "kl_before_to_after": 0.715113639831543,
+          "greedy_changed": 1,
+          "pass_before": 0.012161832302808762,
+          "pass_after": 0.18187041580677032
+        },
+        {
+          "game": 3,
+          "ply": 4,
+          "kl_before_to_after": 2.263028144836426,
+          "greedy_changed": 1,
+          "pass_before": 4.651022027246654e-05,
+          "pass_after": 1.905069893837208e-06
+        },
+        {
+          "game": 3,
+          "ply": 12,
+          "kl_before_to_after": 0.5548161864280701,
+          "greedy_changed": 1,
+          "pass_before": 9.956165013136342e-05,
+          "pass_after": 5.174234502192121e-06
+        },
+        {
+          "game": 3,
+          "ply": 20,
+          "kl_before_to_after": 1.7178597450256348,
+          "greedy_changed": 0,
+          "pass_before": 0.0001696584076853469,
+          "pass_after": 1.2633616279345006e-05
+        },
+        {
+          "game": 3,
+          "ply": 28,
+          "kl_before_to_after": 6.7505717277526855,
+          "greedy_changed": 1,
+          "pass_before": 0.0003144565562251955,
+          "pass_after": 4.0866663766792044e-05
+        },
+        {
+          "game": 3,
+          "ply": 36,
+          "kl_before_to_after": 2.6952407360076904,
+          "greedy_changed": 0,
+          "pass_before": 0.0005823630490340292,
+          "pass_after": 0.00012963355402462184
+        },
+        {
+          "game": 3,
+          "ply": 44,
+          "kl_before_to_after": 1.7234179973602295,
+          "greedy_changed": 0,
+          "pass_before": 0.0009269834263250232,
+          "pass_after": 0.0003866197366733104
+        },
+        {
+          "game": 3,
+          "ply": 52,
+          "kl_before_to_after": 1.6358861923217773,
+          "greedy_changed": 1,
+          "pass_before": 0.0011012066388502717,
+          "pass_after": 0.00046088543604128063
+        },
+        {
+          "game": 3,
+          "ply": 60,
+          "kl_before_to_after": 1.6685000658035278,
+          "greedy_changed": 0,
+          "pass_before": 0.0015246209222823381,
+          "pass_after": 0.001105297589674592
+        },
+        {
+          "game": 3,
+          "ply": 68,
+          "kl_before_to_after": 0.9108867645263672,
+          "greedy_changed": 0,
+          "pass_before": 0.002527062315493822,
+          "pass_after": 0.0035581530537456274
+        },
+        {
+          "game": 3,
+          "ply": 76,
+          "kl_before_to_after": 2.0014517307281494,
+          "greedy_changed": 0,
+          "pass_before": 0.003002837998792529,
+          "pass_after": 0.005856056232005358
+        },
+        {
+          "game": 3,
+          "ply": 84,
+          "kl_before_to_after": 3.0427887439727783,
+          "greedy_changed": 0,
+          "pass_before": 0.004596157930791378,
+          "pass_after": 0.018344053998589516
+        },
+        {
+          "game": 3,
+          "ply": 92,
+          "kl_before_to_after": 2.058412790298462,
+          "greedy_changed": 0,
+          "pass_before": 0.006852326449006796,
+          "pass_after": 0.0642097145318985
+        },
+        {
+          "game": 3,
+          "ply": 100,
+          "kl_before_to_after": 2.572887659072876,
+          "greedy_changed": 0,
+          "pass_before": 0.008730816654860973,
+          "pass_after": 0.1326541155576706
+        },
+        {
+          "game": 3,
+          "ply": 108,
+          "kl_before_to_after": 7.335934638977051,
+          "greedy_changed": 1,
+          "pass_before": 0.011647426523268223,
+          "pass_after": 0.26790091395378113
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "orth": {
+      "positions": 268,
+      "greedy_changes": 185,
+      "mean_legal_policy_kl": 4.038340755304523,
+      "mean_pass_before": 0.006877493150594742,
+      "mean_pass_after": 0.04811916758898297
+    },
+    "similar": {
+      "positions": 268,
+      "greedy_changes": 187,
+      "mean_legal_policy_kl": 4.221919298041016,
+      "mean_pass_before": 0.006772730974944831,
+      "mean_pass_after": 0.046970822988363505
+    }
+  },
+  "scope": "Post-hoc checkpoint comparison on identical complete held-out probe trajectories; sample ply modulo 8 equals 4. Legal action policy comparison uses the engine mask only for evaluation. Existing complete games are replayed, not counted again. No policy training or causal attribution among shared features, pass and legality paths."
+}

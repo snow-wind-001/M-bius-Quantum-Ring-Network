@@ -1,0 +1,68 @@
+{
+  "verified_utc": "2026-10-20T23:54:54.113726+00:00",
+  "source_and_protocol_hashes_unchanged": true,
+  "original_files_changed": [
+    "README.md"
+  ],
+  "root_tests_passed": 186,
+  "root_check_commands_passed": 21,
+  "additional_compilation": {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "-m",
+      "py_compile",
+      "mqr/go_research.py",
+      "test_go_research.py",
+      "experiments/go13_transfer.py",
+      "experiments/go13_algorithm.py",
+      "analysis/go13_geometry.py",
+      "analysis/go13_findings.py",
+      "analysis/go13_transfer_verify.py",
+      "analysis/go13_run.py",
+      "analysis/go13_transfer_run.py",
+      "analysis/go13_verify.py",
+      "analysis/go13_plot.py",
+      "analysis/go13_policy_drift.py",
+      "analysis/go13_write_diagnostic.py",
+      "analysis/go13_readout_diagnostic.py"
+    ],
+    "exit_code": 0
+  },
+  "complete_games": 1820,
+  "separate_evaluation_games_per_method_per_round": 120,
+  "matches_reproduced": 140,
+  "search_decisions_reproduced": 9396,
+  "new_artifact_sha256": {
+    "mqr/go_research.py": "24e1653da18a0406ac3f71bc0464caa714334cd9f684ddfe18a313be1e28afa2",
+    "test_go_research.py": "052cce8b007da300a78680cb59882d8b6053521ea301348f8dea19e777792d54",
+    "experiments/go13_transfer.py": "84720714a425a040e9e66b0b237d178bc0d9be54707dcd4b3d7c1c4f42bc6a8d",
+    "experiments/go13_algorithm.py": "afe08b7931d0ebe3f5d336693eca501bade235c410291dd23f0c869462dc58dd",
+    "analysis/go13_geometry.py": "343fa5e837eba726a6e34dd1a8bb3c0f63f546d9ada45afede058aedc7b6795b",
+    "analysis/go13_findings.py": "363713c2b64dd8e4216bb915d4273fd00151b0627b9bbabbadf001889a4dfa28",
+    "analysis/go13_transfer_verify.py": "490d37c60f45e265906c284971e6e10c95a16e8cfbaaaebef63db25d4076ebf1",
+    "analysis/go13_run.py": "8e394fee51794fc39835eb25a7ee34bfc5fa09092c636c5dfde78240199ba33b",
+    "analysis/go13_transfer_run.py": "7ca24ce76f7441cdc07a7c56db8aba9757dbdccfdbb2ba216ab25be0555caf7a",
+    "analysis/go13_verify.py": "d76474c5188a730ab06f63dd11a1eeca39d3f83f1a78271878ce6a4deb9321db",
+    "analysis/go13_plot.py": "5381fa58dd6ca2327034348dfe7622e2cccdf1e112e9731b453237d45c13d6e2",
+    "analysis/go13_policy_drift.py": "2454f176d3032b30edc4be33a3a4ad987cbb79b2ee987804518fe8476c9b46b2",
+    "analysis/go13_write_diagnostic.py": "cb0513d0372bbd7641057e707afe2d406c3b3f8050cfa8ccaa01dcb02a76df48",
+    "analysis/go13_readout_diagnostic.py": "33ea934e21f5edb124a61efee09e46761ff7ebee6c9aa9fc401838d29d6f825b",
+    "README.md": "8e1f3a8983690725ab22f3829dfe16bc542b0ec14d4d930a5cc36c56d64ee558",
+    "analysis/go13_plan.md": "b16ef195bac975c9eeac17b59c2fb679e23e03259d523971669f8100c12761c8",
+    "analysis/go13_report.md": "7b9eb8a419f69ff3c5e97cf7460ed6d102f9a78c3f3018a697025057c6eb747c",
+    "analysis/go13_math.md": "adbcadd73e13dc08bc314d55ff0bfe777dc8db089acfd7d7c722fea8504fcf06",
+    "analysis/go13_transfer_plan.md": "585e4a9e0910c85a309a992cbc0781fc885929ce16059e43c81f9229f264fc3a",
+    "analysis/figures/go13_summary.svg": "333cc09c87ea651bf0170499df2d2206e576f5f31a23657dcc64a086ebd3245c",
+    "analysis/figures/go13_summary.png": "8970d4473a1f1c6116ac767ca89d3401581ec6da4de9342221e60652265ff9f5"
+  },
+  "report_links_resolve": true,
+  "figure_visual_review": "Axes, legends, seed ranges and numeric labels checked on rendered PNG; no clipping.",
+  "supplemental_audit_repair": {
+    "change": "Match torch-before-numpy BLAS load order and single-thread environment to experiment; strict first-update equality retained.",
+    "observed_diagnostic_difference": [
+      0.2942870855331421,
+      0.2942873239517212
+    ],
+    "no_training_source_or_result_changes": true
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "input_sha256": {
+    "go13_summary": "636481f3369ff7cc4013c69504a98fb58978ce3e6f7691d2c5b3d014ad728c61",
+    "go13_transfer_summary": "d8e90bb411ba4a1172ad65e31ba79c5d5d9d59625dbfd2a4c387ece594029fce",
+    "go13_geometry": "ec67f7c71a63ae0dbbed57401b905d009827797b941dd1bb1154ce170eb61512",
+    "go13_readout_diagnostic": "ba25bfe9290ec79151db1196a7c6affb6564607ccc29fae57e1fa9f3520f7d81",
+    "go13_write_diagnostic": "f1707dc170a7dee6c7062b1f28dc56b444a1f43f98da3924133986cb3f803f67",
+    "go13_policy_drift": "de15576ae7bc9f52f40ccb364e9c9a8630f2c0a512d1db0c08c69324a12f8b8f",
+    "go13_checks": "810b117a578a76d0a196f626aef3edc70ebcd59a0a1e3288344c0e7d17d53bab",
+    "go13_source": "1b0e1170ddbcf89149beda0059d12f2c4e691393f4cb97ddd1583a87118a8eb3",
+    "go13_transfer_source": "3a0d6dcc232ac1ce98e388e9741bdad823d077cc88003d5b8fd06c6297b788d7",
+    "go13_execution": "9aacb5f2f11666ff6f83e690a74a29ebe110b5762cacb0f0312ae8adb0ef8c5a",
+    "go13_transfer_execution": "f5689600d34b7753b8eb2b21b7ab859f0b4d772134ebef71e627c643d76e36c5"
+  },
+  "synthesis_sha256": "363713c2b64dd8e4216bb915d4273fd00151b0627b9bbabbadf001889a4dfa28",
+  "followup_counters": {
+    "orth_free": {
+      "qp_failures": 0,
+      "rejected_after_converged_projection": 0,
+      "backtrack_limit_reached": 0,
+      "changed_raw_query_actions": 61,
+      "query_action_probes": 613
+    },
+    "orth_current": {
+      "qp_failures": 0,
+      "rejected_after_converged_projection": 471,
+      "backtrack_limit_reached": 500,
+      "changed_raw_query_actions": 59,
+      "query_action_probes": 603
+    },
+    "similar_free": {
+      "qp_failures": 0,
+      "rejected_after_converged_projection": 0,
+      "backtrack_limit_reached": 0,
+      "changed_raw_query_actions": 66,
+      "query_action_probes": 685
+    },
+    "similar_current": {
+      "qp_failures": 0,
+      "rejected_after_converged_projection": 456,
+      "backtrack_limit_reached": 487,
+      "changed_raw_query_actions": 55,
+      "query_action_probes": 679
+    },
+    "orth_stale": {
+      "qp_failures": 0,
+      "rejected_after_converged_projection": 501,
+      "backtrack_limit_reached": 534,
+      "changed_raw_query_actions": 52,
+      "query_action_probes": 642
+    },
+    "orth_norm": {
+      "qp_failures": 4,
+      "rejected_after_converged_projection": 0,
+      "backtrack_limit_reached": 0,
+      "changed_raw_query_actions": 61,
+      "query_action_probes": 624
+    },
+    "orth_frozen": {
+      "qp_failures": 0,
+      "rejected_after_converged_projection": 0,
+      "backtrack_limit_reached": 0,
+      "changed_raw_query_actions": 169,
+      "query_action_probes": 678
+    }
+  },
+  "complete_games": 1820,
+  "matches_reproduced": 140,
+  "decisions_reproduced": 9396,
+  "conclusion": "Geometric identities and finite-anchor protection verified; joint reliable historical acquisition and retention not established."
+}
