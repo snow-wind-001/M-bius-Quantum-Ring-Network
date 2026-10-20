@@ -2,7 +2,16 @@
 
 本 PyTorch 研究实现源自 HTML 中的 **MQR / UHR-Net (Möbius Quantum Ring / Unistochastic Hamiltonian Ring)** 设想，保留固定点推理路径：**Cayley 酉矩阵参数化 → 幺模随机连接 \(H=|U|^2\) → 固定点松弛推理 → LoRA 式注入 → 局部采样读出**；另提供跨观察的时间环记忆。当前探索新增直接保留符号的正交 Givens 环、轨迹反馈与 OGD 在线更新。历史公式中的数学错误已在当前代码中修正。
 
-> **最新：10×10 价值目标与保护修复（2026-09-12）**：已完成五种子、每主要方案 **240 局**，
+> **最新：有限反馈与长信用实验（2026-10-21）**：完成并核验 **2,780 局完整棋谱**，七个方案各评估 **240 局**。
+> 在共同的 24 局教师预训练后，用 16 局在线自博弈学习；统一 16 次搜索模拟、深度 8。
+> 冻结模型 **102/240（42.50%）**，旧 16 步回放 **140/240（58.33%）**，新增归属监督与长信用组合 **134/240（55.83%）**。
+> 在线学习有收益，但新组合尚未建立超过旧方案的优势，因此保留旧默认节奏，新机制作为可选实验接口。
+> 归属 MSE 降低 33%，但仍不及当前棋子归属基线；原始劫判断为 50%，按位置查询屏蔽未改变 120 个探针中的落子。
+> 180 项根测试、数学校验、Digits 回归、旧检查点兼容性和独立搜索复现通过。
+> [完整结果与根因分析](analysis/go12_report.md)、[数学合同](analysis/go12_math.md)、
+> [固定协议](analysis/go12_plan.md)、[CodeRecoder 保护回执](analysis/results/go12_protection.json)。
+
+> **历史轮次：10×10 价值目标与保护修复（2026-09-12）**：已完成五种子、每主要方案 **240 局**，
 > 共 2160 局冻结评估、720 局训练／冻结暴露，加上 140 局基础数据，核验 **3020 局完整棋谱**。
 > 共享自博弈提供真实终局目标，任务 margin 半空间投影允许受保护行为改善；保留正交环和实时在线更新。
 > 六环在线方案 **149/240（62.08%）**，相同初始化冻结模型 **112/240（46.67%）**；五种子均提高。
@@ -66,7 +75,23 @@
 
 ## 🌟 核心机制与研究假设
 
-### 最新 10×10：共享自博弈与任务 margin 保护
+### 最新 10×10：终局归属与独立回放信用
+
+`SignedQueryGoAgent(ownership_head=True)` 提供可选逐点归属预测。
+`SharedPolicyGoSession` 新增 `ownership_weight`、`replay_window`、`replay_credit_horizon`；
+终局标签只在实际双停着后产生，回放信用不能超过回放窗口。默认值保留旧行为。
+
+```bash
+python3 test_go_efficiency.py
+python3 experiments/go12_efficiency.py --seed 811 --method combined \
+  --directory checkpoints/go12_reproduced \
+  --output analysis/reproduced/go12_combined_seed811.json
+```
+
+本轮不是从零少样本学习或 RSI 的实现。完整消融、旧更新节奏对照、置信区间、历史与归属诊断见
+[Go12 报告](analysis/go12_report.md)。与下面历史实验的预算不同，胜率不能直接合并。
+
+### 历史 10×10：共享自博弈与任务 margin 保护
 
 训练实现固定于 `1afa3de`。`SharedPolicyGoSession` 在共享模式下要求每个受监督动作都有反馈前的
 `policy_target`，真实双停着以后才生成胜负标签；随机开局只作无标签历史，并在终局回放时完整重建。

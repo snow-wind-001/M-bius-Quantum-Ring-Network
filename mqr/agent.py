@@ -44,6 +44,7 @@ class GoMultiHeadOutput:
     value: torch.Tensor
     latent: torch.Tensor
     legality_policy_scale: float = 0.0
+    ownership: Optional[torch.Tensor] = None
 
     @property
     def policy_logits(self) -> torch.Tensor:
@@ -79,6 +80,7 @@ class GoMultiHeadOutput:
             value=self.value.detach().clone(),
             latent=self.latent.detach().clone(),
             legality_policy_scale=self.legality_policy_scale,
+            ownership=None if self.ownership is None else self.ownership.detach().clone(),
         )
 
 
@@ -96,6 +98,7 @@ class GoLossWeights:
     reference_kl: float = 0.0
     illegal_mass: float = 0.0
     policy_distillation: float = 0.0
+    ownership: float = 0.0
 
     def __post_init__(self) -> None:
         values = (
@@ -109,6 +112,7 @@ class GoLossWeights:
             self.reference_kl,
             self.illegal_mass,
             self.policy_distillation,
+            self.ownership,
         )
         if any(not math.isfinite(float(value)) or float(value) < 0.0 for value in values):
             raise ValueError("all Go loss weights must be finite and non-negative")
@@ -685,6 +689,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             "value": output.value.detach().clone(),
             "latent": output.latent.detach().clone(),
             "legality_policy_scale": float(output.legality_policy_scale),
+            "ownership": None if output.ownership is None else output.ownership.detach().clone(),
         }
 
     def _restore_output(self, record: Mapping[str, Any]) -> GoMultiHeadOutput:
@@ -710,6 +715,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             value=tensor("value", (1,)),
             latent=tensor("latent", (1, self.latent_dim)),
             legality_policy_scale=float(record.get("legality_policy_scale", 0.0)),
+            ownership=None if record.get("ownership") is None else tensor("ownership", (1, self.points)),
         )
 
     def _restore_state(self, values: Sequence[torch.Tensor]) -> TemporalMQRState:
@@ -1234,6 +1240,7 @@ class TemporalUtilityMQRAgent(nn.Module):
         old_log_prob: Optional[torch.Tensor] = None,
         reference_log_probs: Optional[torch.Tensor] = None,
         policy_target: Optional[torch.Tensor] = None,
+        ownership_target: Optional[torch.Tensor] = None,
         weights: Optional[GoLossWeights] = None,
     ) -> Dict[str, torch.Tensor]:
         """Compose task losses; policy_target is a detached joint [B,A] distribution."""
@@ -1288,6 +1295,16 @@ class TemporalUtilityMQRAgent(nn.Module):
             )
 
         log_probs = F.log_softmax(output.policy_logits, dim=1)
+        ownership = zero
+        if ownership_target is not None:
+            if output.ownership is None:
+                raise ValueError("ownership_target requires an ownership head")
+            target = ownership_target.detach().to(output.ownership)
+            if (target.shape != output.ownership.shape or not bool(torch.isfinite(target).all())
+                    or bool((target.abs() > 1).any())):
+                raise ValueError("ownership_target must be finite [batch, points] in [-1, 1]")
+            # Average over points: the auxiliary scale does not grow with board area.
+            ownership = F.mse_loss(output.ownership, target)
         policy_distillation = zero
         if policy_target is not None:
             target = policy_target.detach().to(log_probs)
@@ -1339,6 +1356,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             + selected.reference_kl * reference_kl
             + selected.illegal_mass * illegal_mass
             + selected.policy_distillation * policy_distillation
+            + selected.ownership * ownership
         )
         return {
             "total": total,
@@ -1352,6 +1370,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             "reference_kl": reference_kl,
             "illegal_mass": illegal_mass,
             "policy_distillation": policy_distillation,
+            "ownership": ownership,
             "chosen_log_prob": chosen_log_prob.mean(),
         }
 
@@ -1367,6 +1386,7 @@ class TemporalUtilityMQRAgent(nn.Module):
         old_log_prob: Optional[torch.Tensor] = None,
         reference_log_probs: Optional[torch.Tensor] = None,
         policy_target: Optional[torch.Tensor] = None,
+        ownership_target: Optional[torch.Tensor] = None,
         weights: Optional[GoLossWeights] = None,
         learn: bool = True,
         remember_gradient: bool = False,
@@ -1403,6 +1423,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             old_log_prob=old_log_prob,
             reference_log_probs=reference_log_probs,
             policy_target=policy_target,
+            ownership_target=ownership_target,
             weights=weights,
         )
         active = [
@@ -1753,6 +1774,7 @@ class TemporalUtilityMQRAgent(nn.Module):
             "old_log_prob",
             "reference_log_probs",
             "policy_target",
+            "ownership_target",
         }
         normalized_steps: List[Dict[str, Any]] = []
         for index, step in enumerate(steps):
@@ -1794,6 +1816,7 @@ class TemporalUtilityMQRAgent(nn.Module):
                 old_log_prob=step.get("old_log_prob"),
                 reference_log_probs=step.get("reference_log_probs"),
                 policy_target=step.get("policy_target"),
+                ownership_target=step.get("ownership_target"),
                 weights=weights,
             )
             x_work.append(x_value)

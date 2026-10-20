@@ -1,0 +1,6 @@
+{
+  "checkpoint": "checkpoints/go11_v1/work-selfplay_cone6-701.pt",
+  "legacy_probe_exact_match": true,
+  "optional_ownership_disabled": true,
+  "parameter_version": 396
+}

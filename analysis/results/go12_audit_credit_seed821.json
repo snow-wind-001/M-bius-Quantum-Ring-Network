@@ -1,0 +1,12 @@
+{
+  "verified": true,
+  "result_sha256": "07b48f9af326a9e3a9a50171b032e501bb62a2ca30ab4d0839e6cd32520bbd5f",
+  "verifier_sha256": "eae002e1168ea2f232e7c5cfebcd29f077a22d11c97b6451cca250f975bb06bf",
+  "audit": {
+    "method": "credit",
+    "seed": 821,
+    "games_replayed": 64,
+    "matches_reproduced": 2,
+    "decisions_reproduced": 94
+  }
+}

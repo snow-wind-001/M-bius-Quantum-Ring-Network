@@ -24,7 +24,8 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
     """
 
     def __init__(self, input_dim: int, *, adapt_spatial: bool = False,
-                 spatial_head_only: bool = False, **kwargs: Any) -> None:
+                 spatial_head_only: bool = False, ownership_head: bool = False,
+                 **kwargs: Any) -> None:
         if spatial_head_only and not adapt_spatial:
             raise ValueError("spatial_head_only requires adapt_spatial")
         super().__init__(input_dim, **kwargs)
@@ -33,6 +34,11 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
         self.geometry_query = nn.Conv2d(4, self.query_dim, 1, bias=False)
         # A zero output matrix blocks all query/key gradients at initialization.
         nn.init.normal_(self.point_correction.weight, std=0.05)
+        self.ownership_head = None
+        if ownership_head:
+            self.ownership_head = nn.Linear(self.spatial_skip_heads.channels + self.query_dim, 1)
+            nn.init.normal_(self.ownership_head.weight, std=0.05)
+            nn.init.zeros_(self.ownership_head.bias)
         self.spatial_skip_heads.requires_grad_(self.adapt_spatial)
         if self.spatial_head_only:
             self.spatial_skip_heads.local.requires_grad_(False)
@@ -43,6 +49,12 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
         self, latent: torch.Tensor, state: TemporalMQRState, x: torch.Tensor,
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """Return spatial features [B,C,H,W], corrections [B,P,2], weights [B,P,S]."""
+        hidden, correction, addressing, _ = self._query_features(latent, state, x)
+        return hidden, correction, addressing
+
+    def _query_features(
+        self, latent: torch.Tensor, state: TemporalMQRState, x: torch.Tensor,
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         base = self.spatial_skip_heads
         hidden = base.spatial_features(x[:, :self.board_dim])
         hidden = hidden * (1 + self.ring_channel_gain(latent.tanh())[:, :, None, None])
@@ -74,16 +86,17 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
             correction[..., 0] - correction[..., 0].mean(dim=1, keepdim=True),
             correction[..., 1],
         ), dim=-1)
-        return hidden, correction, addressing
+        return hidden, correction, addressing, ring_read + external_read
 
     def _query_output(
         self, latent: torch.Tensor, state: TemporalMQRState, x: torch.Tensor,
         *, include_query: bool = True,
     ) -> GoMultiHeadOutput:
         base = self.spatial_skip_heads
-        hidden, correction, _ = self.query_components(latent, state, x)
+        hidden, correction, _, memory_read = self._query_features(latent, state, x)
         if not include_query:
             correction = torch.zeros_like(correction)
+            memory_read = torch.zeros_like(memory_read)
         pooled = torch.cat((hidden.mean(dim=(2, 3)), x[:, 3 * self.points:self.board_dim]), dim=1)
         latent = latent.tanh()
         return GoMultiHeadOutput(
@@ -92,24 +105,34 @@ class SignedQueryGoAgent(PositionQueryGoAgent):
             base.pass_decision(pooled).squeeze(1) + self.pass_head(latent).squeeze(1),
             (base.value(pooled).squeeze(1) + self.value_head(latent).squeeze(1)).tanh(),
             latent, legality_policy_scale=self.legality_policy_scale,
+            ownership=None if self.ownership_head is None else self.ownership_head(
+                torch.cat((hidden.flatten(2).transpose(1, 2), memory_read), dim=-1),
+            ).squeeze(-1).tanh(),
         )
 
     def _named_task_parameters(self) -> List[Tuple[str, nn.Parameter]]:
-        return super()._named_task_parameters() + [
+        parameters = super()._named_task_parameters() + [
             (f"geometry_query.{name}", p) for name, p in self.geometry_query.named_parameters()
         ]
+        if self.ownership_head is not None:
+            parameters += [(f"ownership_head.{name}", p) for name, p in self.ownership_head.named_parameters()]
+        return parameters
 
     def get_extra_state(self) -> Dict[str, Any]:
         result = super().get_extra_state()
         result["signed_query"] = {"version": 1, "adapt_spatial": self.adapt_spatial}
         if self.spatial_head_only:
             result["signed_query"]["spatial_head_only"] = True
+        if self.ownership_head is not None:
+            result["signed_query"]["ownership_head"] = True
         return result
 
     def set_extra_state(self, state: Dict[str, Any]) -> None:
         expected = {"version": 1, "adapt_spatial": self.adapt_spatial}
         if self.spatial_head_only:
             expected["spatial_head_only"] = True
+        if self.ownership_head is not None:
+            expected["ownership_head"] = True
         if state.get("signed_query") != expected:
             raise ValueError("checkpoint signed query or spatial adaptation configuration differs")
         super().set_extra_state(state)

@@ -204,11 +204,14 @@ class GoBoard:
             self.game_over = True
         return GoMoveResult(action, player, captures, self.game_over)
 
-    def score(self) -> Dict[str, float]:
-        """Return Chinese area score; no dead-stone adjudication is attempted."""
+    def area_ownership(self) -> List[int]:
+        """Return signed area ownership [points], excluding komi.
 
-        black = float(sum(value == BLACK for value in self.board))
-        white = float(sum(value == WHITE for value in self.board))
+        Black is +1, white -1, and neutral empty regions 0. As in ``score``,
+        stones still on the board are counted alive; no dead-stone adjudication
+        is attempted. Terminal supervision must call this only after game over.
+        """
+        ownership = list(self.board)
         visited: Set[int] = set()
         for start, value in enumerate(self.board):
             if value != EMPTY or start in visited:
@@ -228,9 +231,18 @@ class GoBoard:
                     elif neighbor_value != EMPTY:
                         boundary.add(neighbor_value)
             if boundary == {BLACK}:
-                black += len(region)
+                for point in region:
+                    ownership[point] = BLACK
             elif boundary == {WHITE}:
-                white += len(region)
+                for point in region:
+                    ownership[point] = WHITE
+        return ownership
+
+    def score(self) -> Dict[str, float]:
+        """Return Chinese area score; no dead-stone adjudication is attempted."""
+        ownership = self.area_ownership()
+        black = float(ownership.count(BLACK))
+        white = float(ownership.count(WHITE))
         white_with_komi = white + self.komi
         return {
             "black": black,

@@ -141,7 +141,9 @@ class OutcomeGoSession(ConstraintGoSession):
 
     def __init__(
         self, *args: Any, replay_mode: str = "none", episode_capacity: int = 100,
-        outcome_weight: float = 1.0, **kwargs: Any,
+        outcome_weight: float = 1.0, ownership_weight: float = 0.0,
+        replay_window: Optional[int] = None, replay_credit_horizon: Optional[int] = None,
+        **kwargs: Any,
     ) -> None:
         super().__init__(*args, **kwargs)
         if replay_mode not in ("none", "policy", "outcome"):
@@ -152,6 +154,21 @@ class OutcomeGoSession(ConstraintGoSession):
             raise ValueError("outcome_weight must be positive and finite")
         self.replay_mode, self.episode_capacity = replay_mode, episode_capacity
         self.outcome_weight = float(outcome_weight)
+        if not 0 <= ownership_weight < float("inf"):
+            raise ValueError("ownership_weight must be finite and non-negative")
+        if ownership_weight and (replay_mode != "outcome" or getattr(self.agent, "ownership_head", None) is None):
+            raise ValueError("ownership supervision requires outcome replay and an ownership head")
+        for name, value in (("replay_window", replay_window), ("replay_credit_horizon", replay_credit_horizon)):
+            if value is not None and (isinstance(value, bool) or not isinstance(value, int)
+                                     or not 1 <= value <= self.agent.max_trace_horizon):
+                raise ValueError(f"{name} must be within the agent trace horizon")
+        window = self.update_every if replay_window is None else replay_window
+        horizon = self.credit_horizon if replay_credit_horizon is None else replay_credit_horizon
+        if (replay_window is not None or replay_credit_horizon is not None) and horizon is not None and horizon > window:
+            raise ValueError("replay credit cannot exceed the replay window")
+        self.ownership_weight = float(ownership_weight)
+        self.replay_window = replay_window
+        self.replay_credit_horizon = replay_credit_horizon
         self._episode: List[Dict[str, Any]] = []
         self._last_board: Optional[Dict[str, Any]] = None
         self.finished_games = self.aborted_games = self.replayed_positions = 0
@@ -222,8 +239,11 @@ class OutcomeGoSession(ConstraintGoSession):
 
     def _make_replay_session(self, stream_id: str) -> ConstraintGoSession:
         return ConstraintGoSession(
-            self.agent, self.encoder, update_every=self.update_every, stream_id=stream_id,
-            credit_horizon=self.credit_horizon, project_with_memory=self.project_with_memory,
+            self.agent, self.encoder,
+            update_every=self.update_every if self.replay_window is None else self.replay_window,
+            stream_id=stream_id,
+            credit_horizon=self.credit_horizon if self.replay_credit_horizon is None else self.replay_credit_horizon,
+            project_with_memory=self.project_with_memory,
             behavior_memory=self.behavior_memory, refresh_every=self.refresh_every,
             max_anchor_kl=self.max_anchor_kl, norm_matched_sgd=self.norm_matched_sgd,
         )
@@ -254,7 +274,9 @@ class OutcomeGoSession(ConstraintGoSession):
             try:
                 self.agent.loss_weights = replace(
                     original_weights, value=self.outcome_weight if self.replay_mode == "outcome" else 0.0,
+                    ownership=self.ownership_weight,
                 )
+                ownership = reference.new_tensor(board.area_ownership()).unsqueeze(0) if self.ownership_weight else None
                 for record, target in zip(self._episode, targets):
                     memory = self.behavior_memory
                     if not replay.pending_count and memory is not None and memory.frozen:
@@ -270,6 +292,8 @@ class OutcomeGoSession(ConstraintGoSession):
                                 for key, value in record["feedback"].items()}
                     if self.replay_mode == "outcome":
                         feedback["value_target"] = reference.new_tensor([target])
+                    if ownership is not None:
+                        feedback["ownership_target"] = ownership * record["to_play"]
                     replay._pending.append({"ticket_id": ticket, "legality": feedback["legality_target"],
                                             "feedback": feedback})
                     if replay.pending_count == replay.update_every:
@@ -284,6 +308,7 @@ class OutcomeGoSession(ConstraintGoSession):
             "terminal": True, "winner": winner, "positions": len(self._episode),
             "prequential_value_mse": mse, "value_targets": targets if self.replay_mode == "outcome" else [],
             "replayed_positions": len(self._episode) if self.replay_mode != "none" else 0,
+            "ownership_positions": len(self._episode) if self.ownership_weight else 0,
             "online_update": update, "replay_updates": replay_updates,
         }
         self.finished_games += 1
@@ -314,8 +339,13 @@ class OutcomeGoSession(ConstraintGoSession):
         return super().online_tensor_bytes + sum(x.numel() * x.element_size() for x in tensors)
 
     def _outcome_config(self) -> Dict[str, Any]:
-        return {"version": 1, "replay_mode": self.replay_mode, "episode_capacity": self.episode_capacity,
-                "outcome_weight": self.outcome_weight}
+        config = {"version": 1, "replay_mode": self.replay_mode, "episode_capacity": self.episode_capacity,
+                  "outcome_weight": self.outcome_weight}
+        # Keep legacy checkpoints loadable when every new option is disabled.
+        if self.ownership_weight or self.replay_window is not None or self.replay_credit_horizon is not None:
+            config.update(ownership_weight=self.ownership_weight, replay_window=self.replay_window,
+                          replay_credit_horizon=self.replay_credit_horizon)
+        return config
 
     def state_dict(self) -> Dict[str, Any]:
         state = super().state_dict()
