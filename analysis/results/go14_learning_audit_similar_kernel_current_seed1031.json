@@ -1,0 +1,26 @@
+{
+  "method": "similar_kernel_current",
+  "seed": 1031,
+  "verified": true,
+  "checkpoint_sha256": "1067cddc534c713deec4f423a84c4c891c0c0673fafa29fc1e3e8eea5683eab9",
+  "learning_sha256": "a74794a7996118937e06cf9be5d53d322e449484bfd44a35c3a9836f225d5fd6",
+  "constraint_tensor_bytes": 2124352,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 3.725290298461914e-09,
+  "policy_raw_pass_error": 0.0,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 2.9802322387695312e-08,
+    "trust_radius": 0.0,
+    "curvature_estimate": 0.0
+  },
+  "anchor_margin_max_error": 0.0,
+  "verifier_sha256": "df118b7b7e5c4eb1d37630a52a2265dfaae601eb882115e40d9dbf92122ef826"
+}

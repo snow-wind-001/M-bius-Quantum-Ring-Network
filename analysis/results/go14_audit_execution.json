@@ -1,0 +1,1140 @@
+[
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_pool_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_pool_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_pool_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_pool_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_pool_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_current",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_current",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_current",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_current",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_reserve",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_current",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_reserve",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_reserve",
+      1013
+    ],
+    "verified": false,
+    "error": "AssertionError(('curvature_estimate', 0.20241543027167566, 0.20241750320202961))"
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_adaptive",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_adaptive",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_adaptive",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_adaptive",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_frozen",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_adaptive",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_frozen",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_frozen",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_frozen",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_frozen",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_reserve",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_reserve",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_reserve",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rollback",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rollback",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rollback",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rollback",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rollback",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_aligned",
+      1019
+    ],
+    "verified": false,
+    "error": "AssertionError()"
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_aligned",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_aligned",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_aligned",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_aligned",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_aligned",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rule24",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rule24",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_current",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_current",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rule24",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rule24",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_rule24",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_current",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_current",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_adaptive",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_adaptive",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_adaptive",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_current",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_adaptive",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_spatial_adaptive",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_current",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_current",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_current",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_current",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_current",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_adaptive",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_adaptive",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_adaptive",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_adaptive",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_adaptive",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_current",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_current",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_current",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_current",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_adaptive",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_current",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_adaptive",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_adaptive",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_adaptive",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "similar_kernel_adaptive",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "shared_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "shared_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "shared_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "shared_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "shared_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_current",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_current",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_current",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_current",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_adaptive",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_current",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_adaptive",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_adaptive",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_adaptive",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_aligned",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_adaptive",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_aligned",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_aligned",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_aligned",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_frozen",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_aligned",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_frozen",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_frozen",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_frozen",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "games",
+      "spatial_frozen",
+      1021
+    ],
+    "verified": true
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "method": "spatial_reserve",
+  "seed": 1031,
+  "window": 48,
+  "error": "a protected behavior was already outside its feasible floor",
+  "margin": 0.6950557231903076,
+  "floor": 0.6950657367706299,
+  "difference": -1.0013580322265625e-05,
+  "floor_minus_tolerance": 0.6950557231903076,
+  "same_predicate_violation": false,
+  "subtracted_predicate_violation": true
+}

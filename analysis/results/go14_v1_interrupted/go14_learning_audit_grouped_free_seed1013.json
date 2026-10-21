@@ -1,0 +1,15 @@
+{
+  "method": "grouped_free",
+  "seed": 1013,
+  "verified": true,
+  "checkpoint_sha256": "e343cde8f037ca1422c9fd19c2aaceeb7a6b6fe54ecb786144732aa7cf036903",
+  "learning_sha256": "ebf9e395f9b62bec2919e595e20226ef9972eaf23c74aaf3d63e3d2dd9c4acd6",
+  "constraint_tensor_bytes": 0,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 5.960464477539063e-08,
+  "policy_raw_pass_error": 0.0,
+  "verifier_sha256": "f566f8959f2513fa1c38e221de9df8edaddea211aea02b01743202dd894bd694"
+}

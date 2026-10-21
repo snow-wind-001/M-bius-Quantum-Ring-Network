@@ -1,0 +1,27 @@
+{
+  "method": "spatial_aligned",
+  "seed": 1009,
+  "verified": true,
+  "checkpoint_sha256": "4eed0fab9dc95aa47715b861ed90ed5775a33d5358cdd2cb738d54fb8566cbb7",
+  "learning_sha256": "af2fc5bfe8c5a09034c9bb7ac4c20a6432745b8f24d894fe2ffbb78c49e95863",
+  "constraint_tensor_bytes": 3187464,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 1.0186340659856796e-10,
+  "policy_raw_pass_error": 0.0,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 2.60770320892334e-08,
+    "curvature_estimate": 0.0,
+    "trust_radius": 0.0,
+    "maximum_trial_remainder": 0.0
+  },
+  "anchor_margin_max_error": 0.0,
+  "verifier_sha256": "f80bec4338e2fb2e555b13e0c47a6e5c64fd85ad6bd2caab01d3343404231781"
+}

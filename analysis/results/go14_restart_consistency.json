@@ -1,0 +1,337 @@
+{
+  "amendment": "float32 boundary predicate only; full rerun",
+  "completed_v1_runs_compared": 55,
+  "matching_parameter_hashes": 55,
+  "runs": [
+    {
+      "method": "grouped_free",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "grouped_free",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "grouped_free",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "grouped_free",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "grouped_free",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "kernel_pool_free",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "kernel_pool_free",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "kernel_pool_free",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "kernel_pool_free",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "kernel_pool_free",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "previous_free",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "previous_free",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "previous_free",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "previous_free",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "previous_free",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "shared_free",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "shared_free",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "shared_free",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "shared_free",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "shared_free",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_adaptive",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_adaptive",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_adaptive",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_adaptive",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_adaptive",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_aligned",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_current",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_current",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_current",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_current",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_current",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_free",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_free",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_free",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_free",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_free",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_frozen",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_frozen",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_frozen",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_frozen",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_frozen",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_pool_free",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_pool_free",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_pool_free",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_pool_free",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_pool_free",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_reserve",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_reserve",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_reserve",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_reserve",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_rollback",
+      "seed": 1009,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_rollback",
+      "seed": 1013,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_rollback",
+      "seed": 1019,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_rollback",
+      "seed": 1021,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    },
+    {
+      "method": "spatial_rollback",
+      "seed": 1031,
+      "same_final_parameters": true,
+      "same_rule_results": true
+    }
+  ]
+}

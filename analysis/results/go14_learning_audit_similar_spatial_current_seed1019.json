@@ -1,0 +1,26 @@
+{
+  "method": "similar_spatial_current",
+  "seed": 1019,
+  "verified": true,
+  "checkpoint_sha256": "336d9b8272ae09e6068cc3bf922ae831cb6dd00f3e7e402f63ea76ca90417887",
+  "learning_sha256": "23f9935fbc8060a15fc420c20d65e3c9117f7655801a900313621abb8c219a4b",
+  "constraint_tensor_bytes": 2124352,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 5.960464477539063e-08,
+  "policy_raw_pass_error": 9.313225746154785e-10,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 5.960464477539063e-08,
+    "trust_radius": 0.0,
+    "curvature_estimate": 0.0
+  },
+  "anchor_margin_max_error": 0.0,
+  "verifier_sha256": "f80bec4338e2fb2e555b13e0c47a6e5c64fd85ad6bd2caab01d3343404231781"
+}

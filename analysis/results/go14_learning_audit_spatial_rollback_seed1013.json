@@ -1,0 +1,26 @@
+{
+  "method": "spatial_rollback",
+  "seed": 1013,
+  "verified": true,
+  "checkpoint_sha256": "4fd24dc977c9ef89f9b58f7ca839cd31540c4229b3832857e50e233e63aedd19",
+  "learning_sha256": "56149be3235dfefeadf802aa2d7f908705575c4bae9de4fdbd20e840ab83fbdb",
+  "constraint_tensor_bytes": 2124352,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 0.0,
+  "policy_raw_pass_error": 0.0,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 0.0,
+    "curvature_estimate": 2.0729303539523958e-06,
+    "trust_radius": 0.0,
+    "maximum_trial_remainder": 1.1920928955078125e-07
+  },
+  "verifier_sha256": "7559efe3a14bd8bb91280d97c4771fbc498e9f813f4ca89057a312521215071d"
+}

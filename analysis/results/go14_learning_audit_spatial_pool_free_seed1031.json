@@ -1,0 +1,25 @@
+{
+  "method": "spatial_pool_free",
+  "seed": 1031,
+  "verified": true,
+  "checkpoint_sha256": "6783afcfd65c0e0b4d2bb7cfb74d618fd6a24ba549e64ad4485a4bc25d9ac301",
+  "learning_sha256": "cce168f7d17c632a9f42c8f464b93b283bc5a6a6072d3775c3efaeb9ff3884da",
+  "constraint_tensor_bytes": 0,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 5.587935447692871e-09,
+  "policy_raw_pass_error": 0.0,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 0.0,
+    "trust_radius": 0.0,
+    "curvature_estimate": 0.0
+  },
+  "verifier_sha256": "2708e048bb38745dfdc53aae36959fbbc9599aab83a551a9aa8bc05947bbca0f"
+}

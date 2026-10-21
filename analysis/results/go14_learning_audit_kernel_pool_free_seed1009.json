@@ -1,0 +1,25 @@
+{
+  "method": "kernel_pool_free",
+  "seed": 1009,
+  "verified": true,
+  "checkpoint_sha256": "748919693ad2e9f57bd64b5604a5012777a58b84748a04707a9d3972ffca5fb4",
+  "learning_sha256": "347e502bf8b9675d754ce6f959431d2d538d19ad1e9ee2a9fb9dc73f9869d014",
+  "constraint_tensor_bytes": 0,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 1.1920928955078125e-07,
+  "policy_raw_pass_error": 1.4901161193847656e-08,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 0.0,
+    "trust_radius": 0.0,
+    "curvature_estimate": 0.0
+  },
+  "verifier_sha256": "2708e048bb38745dfdc53aae36959fbbc9599aab83a551a9aa8bc05947bbca0f"
+}

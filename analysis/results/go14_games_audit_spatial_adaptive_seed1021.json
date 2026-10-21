@@ -1,0 +1,10 @@
+{
+  "method": "spatial_adaptive",
+  "seed": 1021,
+  "verified": true,
+  "complete_games": 24,
+  "full_matches_reproduced": 0,
+  "decisions_reproduced": 1,
+  "games_sha256": "205b2a0a8790e5fc00e760240a6d8d8a6fb3463bcf3c3e50a6d62e4724c483fc",
+  "verifier_sha256": "df118b7b7e5c4eb1d37630a52a2265dfaae601eb882115e40d9dbf92122ef826"
+}

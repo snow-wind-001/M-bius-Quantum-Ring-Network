@@ -1,0 +1,41 @@
+{
+  "experiment_change": {
+    "method": "spatial_reserve",
+    "seed": 1031,
+    "window": 48,
+    "error": "a protected behavior was already outside its feasible floor",
+    "margin": 0.6950557231903076,
+    "floor": 0.6950657367706299,
+    "difference": -1.0013580322265625e-05,
+    "floor_minus_tolerance": 0.6950557231903076,
+    "same_predicate_violation": false,
+    "subtracted_predicate_violation": true
+  },
+  "v1_partial_evidence": "go14_v1_interrupted/",
+  "v2_complete_rerun_consistency": "go14_restart_consistency.json",
+  "verification_only_adjustments": [
+    {
+      "field": "policy probabilities",
+      "reason": "float32 recomputation may differ in last bits; exact action checks retained",
+      "absolute_tolerance": 1e-07,
+      "relative_tolerance": 1e-06
+    },
+    {
+      "field": "curvature estimate",
+      "observed_reproduction": [
+        0.20241543027167566,
+        0.20241750320202961
+      ],
+      "reason": "float32 remainder divided by squared step norm",
+      "absolute_tolerance": 1e-05,
+      "relative_tolerance": 0.0001
+    },
+    {
+      "field": "anchor margin comparison",
+      "reason": "use float32 tolerance for serialized-score reproduction, while retaining the original hard protection predicate",
+      "absolute_tolerance": 2e-06,
+      "relative_tolerance": 1e-06
+    }
+  ],
+  "unchanged": "formal training threshold 1e-5; discrete actions and accept/reject counts checked exactly"
+}

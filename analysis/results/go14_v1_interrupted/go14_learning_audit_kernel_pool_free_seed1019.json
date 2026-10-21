@@ -1,0 +1,15 @@
+{
+  "method": "kernel_pool_free",
+  "seed": 1019,
+  "verified": true,
+  "checkpoint_sha256": "fd5f34b5147c7c4ddf9b281d9ad7ec296d85994c7419b47dfae63f92e7aeecdb",
+  "learning_sha256": "71c9f081de2788e41e79404151ce435bd80efd7777b6a8b642d1aa97737f2a8c",
+  "constraint_tensor_bytes": 0,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 1.1920928955078125e-07,
+  "policy_raw_pass_error": 0.0,
+  "verifier_sha256": "f566f8959f2513fa1c38e221de9df8edaddea211aea02b01743202dd894bd694"
+}

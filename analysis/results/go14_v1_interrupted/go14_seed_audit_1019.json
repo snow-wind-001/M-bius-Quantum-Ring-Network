@@ -1,0 +1,14 @@
+{
+  "seed": 1019,
+  "verified": true,
+  "base_complete_games": 28,
+  "rule_histories": {
+    "a_train": 2048,
+    "a_test": 256,
+    "b_train": 1024,
+    "b_test": 256
+  },
+  "prepared_sha256": "f84654a90faa66b6ac220aa9cc45d68f0ae60fa3f37d140ceda967fa56dbca7e",
+  "rule_anchors": 24,
+  "policy_anchors": 5
+}

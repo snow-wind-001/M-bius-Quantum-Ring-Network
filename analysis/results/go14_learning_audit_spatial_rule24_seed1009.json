@@ -1,0 +1,27 @@
+{
+  "method": "spatial_rule24",
+  "seed": 1009,
+  "verified": true,
+  "checkpoint_sha256": "cfd7ca22509d3704add40857a5ca3b5f8770a84c79afcb52a1c7c827c576eaf5",
+  "learning_sha256": "fe7a287db8b20493138e5bcbbe254b9020a22fedaa37cb7afc734de6f091d56c",
+  "constraint_tensor_bytes": 3186528,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 2.9103830456733704e-10,
+  "policy_raw_pass_error": 0.0,
+  "first_update_float_errors": {
+    "pre_logits": 0.0,
+    "pre_loss": 0.0,
+    "pre_accuracy": 0.0,
+    "raw_step_norm": 0.0,
+    "step_norm": 0.0,
+    "first_order_max_error": 1.1920928955078125e-07,
+    "curvature_estimate": 0.0,
+    "trust_radius": 0.0,
+    "maximum_trial_remainder": 0.0
+  },
+  "anchor_margin_max_error": 0.0,
+  "verifier_sha256": "f80bec4338e2fb2e555b13e0c47a6e5c64fd85ad6bd2caab01d3343404231781"
+}

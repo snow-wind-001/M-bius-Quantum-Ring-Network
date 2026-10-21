@@ -1,0 +1,180 @@
+[
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1009
+    ],
+    "verified": false,
+    "error": "AssertionError()"
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "grouped_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "kernel_pool_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "previous_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1009
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1013
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1019
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1021
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "shared_free",
+      1031
+    ],
+    "verified": true
+  },
+  {
+    "key": [
+      "learning",
+      "spatial_adaptive",
+      1009
+    ],
+    "verified": false,
+    "error": "AssertionError()"
+  }
+]

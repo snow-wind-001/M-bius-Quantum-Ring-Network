@@ -1,0 +1,34 @@
+--- a/mqr/go_feasible.py
++++ b/mqr/go_feasible.py
+@@ -117,7 +117,9 @@
+         with torch.no_grad():
+             margins = c.margins(self.agent)
+         slack = margins - c.floors
+-        if bool((slack < -1e-5).any()):
++        # Use the identical float32 predicate at entry and commit. Subtracting
++        # first can round a previously accepted boundary outside the tolerance.
++        if bool((margins < c.floors - 1e-5).any()):
+             raise RuntimeError("a protected behavior was already outside its feasible floor")
+         bounds = -.5 * slack.clamp_min(0)
+         radius = self.max_step if self.variant == "reserve" else self.trust_radius
+--- a/experiments/go14_readability.py
++++ b/experiments/go14_readability.py
+@@ -50,7 +50,7 @@
+ }
+ GAME_METHODS = ("shared_free", "spatial_free", "spatial_current",
+                 "spatial_adaptive", "spatial_aligned", "spatial_frozen")
+-DIRECTORY = ROOT / "checkpoints/go14_v1"
++DIRECTORY = ROOT / "checkpoints/go14_v2"
+ 
+ 
+ def source_hashes() -> dict:
+--- a/analysis/go14_plan.md
++++ b/analysis/go14_plan.md
+@@ -89,3 +89,7 @@
+ 完成前三项的固定研究后，再据联合结果制定更长真实历史和完整在线对局的实验；本轮不以状态传播恒等式冒充长历史学习，不宣称实现 RSI。若历史获取或联合学习再次失败，明确指出哪一环未通过，而不是继续增加环数或搜索。
+ 
+ 修改前后使用 CodeRecoder 生产引擎保存并独立校验。本轮仅提交研究实现、协议、校验和结果；检查点不提交。原 paper/ 与 .serena/ 用户改动保留。
++
++### 数值实现勘误：v2 重跑
++
++v1 正式执行在 spatial_reserve、种子 1031 的第 49 个 B 窗口前触发异常。margin 为 0.6950557231903076、floor 为 0.6950657367706299；float32 的 `margin < floor - 1e-5` 为假，`margin - floor < -1e-5` 却为真。前者是已有提交检查的合同，后者是新入口检查的实现错误。v2 统一使用前者，保留原 1e-5 容差、模型、种子、选择规则和所有预算；增加这一具体边界的连续窗口回归测试。v1 部分结果和失败日志存入 results/go14_v1_interrupted/，检查点保留在 checkpoints/go14_v1/；不纳入最终统计。重新锁定源码与本勘误，全部正式训练在 checkpoints/go14_v2/ 从头运行，不将旧结果改指纹冒充新运行。

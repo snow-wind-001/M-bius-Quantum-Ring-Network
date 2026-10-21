@@ -1,0 +1,208 @@
+[
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_competitive_go.py"
+    ],
+    "exit_code": 0,
+    "seconds": 2.1613421229994856,
+    "output": "2026-10-21 12:46:41,173 - INFO - Running implicit Sinkhorn gradient check...\n2026-10-21 12:46:41,271 - INFO - \u2713 implicit Sinkhorn pullback matches converged autograd\n2026-10-21 12:46:41,272 - INFO - Running all-core online feedback contract...\n2026-10-21 12:46:41,506 - INFO - \u2713 all nine methods execute the same prequential feedback API\n2026-10-21 12:46:41,506 - INFO - Running 10x10/13x13 resource and initialization gate...\n2026-10-21 12:46:41,627 - INFO - \u2713 exact 48-byte state and <=1.05 parameter/MAC gates\n2026-10-21 12:46:41,627 - INFO - Running byte-capped replay check...\n2026-10-21 12:46:41,627 - INFO - \u2713 replay reports occupied tensor bytes and never pads capacity\n2026-10-21 12:46:41,628 - INFO - Competitive Go tests: 4 passed, 0 failed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_constraint_transport.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.00616147503024,
+    "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 2.173s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go10_continual.py"
+    ],
+    "exit_code": 0,
+    "seconds": 2.598562959989067,
+    "output": "test_head_adaptation_preserves_pretrained_features (__main__.Go10Tests.test_head_adaptation_preserves_pretrained_features) ... ok\ntest_invalid_policy_target_does_not_consume_feedback (__main__.Go10Tests.test_invalid_policy_target_does_not_consume_feedback) ... ok\ntest_ko_pairs_have_identical_observation_and_different_true_legality (__main__.Go10Tests.test_ko_pairs_have_identical_observation_and_different_true_legality) ... ok\ntest_margin_guard_checks_actual_actions_and_roundtrips (__main__.Go10Tests.test_margin_guard_checks_actual_actions_and_roundtrips) ... ok\ntest_soft_policy_gradient_matches_joint_cross_entropy (__main__.Go10Tests.test_soft_policy_gradient_matches_joint_cross_entropy) ... ok\ntest_teacher_free_terminal_feedback_and_checkpoint (__main__.Go10Tests.test_teacher_free_terminal_feedback_and_checkpoint) ... ok\ntest_zero_value_search_is_read_only_and_retains_terminal_returns (__main__.Go10Tests.test_zero_value_search_is_read_only_and_retains_terminal_returns) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.711s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_efficiency.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.519955403986387,
+    "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 1.554s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_memory.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.036982025951147,
+    "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 1.981s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_online_session.py"
+    ],
+    "exit_code": 0,
+    "seconds": 2.477889894042164,
+    "output": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.359s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_minicpm.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.927446328045335,
+    "output": "2026-10-21 12:46:48,902 - INFO - Running test_compressed_int4_decode_exact...\n2026-10-21 12:46:48,905 - INFO - \u2713 test_compressed_int4_decode_exact\n2026-10-21 12:46:48,905 - INFO - Running test_lora_identity_then_external_update...\n2026-10-21 12:46:48,953 - INFO - \u2713 test_lora_identity_then_external_update\n2026-10-21 12:46:48,953 - INFO - Running test_external_gradient_updates_lora_with_ogd...\n2026-10-21 12:46:49,317 - INFO - \u2713 test_external_gradient_updates_lora_with_ogd\n2026-10-21 12:46:49,317 - INFO - Running test_lora_constancy_guard_rolls_back_adapter_and_ogd_atomically...\n2026-10-21 12:46:49,320 - INFO - \u2713 test_lora_constancy_guard_rolls_back_adapter_and_ogd_atomically\n2026-10-21 12:46:49,321 - INFO - Running test_adapter_checkpoint_roundtrip...\n2026-10-21 12:46:49,324 - INFO - \u2713 test_adapter_checkpoint_roundtrip\n2026-10-21 12:46:49,324 - INFO - Running test_capture_suicide_and_superko...\n2026-10-21 12:46:49,324 - INFO - \u2713 test_capture_suicide_and_superko\n2026-10-21 12:46:49,324 - INFO - Running test_pass_scoring_and_coordinates...\n2026-10-21 12:46:49,324 - INFO - \u2713 test_pass_scoring_and_coordinates\n2026-10-21 12:46:49,324 - INFO - Running test_teacher_dataset_is_legal_and_deterministic...\n2026-10-21 12:46:49,341 - INFO - \u2713 test_teacher_dataset_is_legal_and_deterministic\n2026-10-21 12:46:49,341 - INFO - Running test_go_prompt_rule_ablation_is_label_free...\n2026-10-21 12:46:49,341 - INFO - \u2713 test_go_prompt_rule_ablation_is_label_free\n2026-10-21 12:46:49,341 - INFO - Running test_preview_step_is_read_only_and_matches_deferred_update...\n2026-10-21 12:46:49,351 - INFO - \u2713 test_preview_step_is_read_only_and_matches_deferred_update\n2026-10-21 12:46:49,351 - INFO - Running test_online_input_gradient_is_prequential...\n2026-10-21 12:46:49,359 - INFO - \u2713 test_online_input_gradient_is_prequential\n2026-10-21 12:46:49,360 - INFO - Running test_complete_mqr_update_respects_trust_region...\n2026-10-21 12:46:49,365 - INFO - \u2713 test_complete_mqr_update_respects_trust_region\n2026-10-21 12:46:49,365 - INFO - Running test_local_checkpoint_metadata...\n2026-10-21 12:46:49,367 - INFO - \u2713 test_local_checkpoint_metadata\n2026-10-21 12:46:49,367 - INFO - Running test_sayuri_discovery_matches_setup_layout...\n2026-10-21 12:46:49,368 - INFO - \u2713 test_sayuri_discovery_matches_setup_layout\n2026-10-21 12:46:49,368 - INFO - Running test_context_local_memory_schedule_has_no_color_aliasing...\n2026-10-21 12:46:49,368 - INFO - \u2713 test_context_local_memory_schedule_has_no_color_aliasing\n2026-10-21 12:46:49,368 - INFO - Running test_stream_resume_keeps_board_and_ring_state_aligned...\n2026-10-21 12:46:49,371 - INFO - \u2713 test_stream_resume_keeps_board_and_ring_state_aligned\n2026-10-21 12:46:49,371 - INFO - Running test_pass_gated_sayuri_policy_teacher...\n2026-10-21 12:46:49,371 - INFO - \u2713 test_pass_gated_sayuri_policy_teacher\n2026-10-21 12:46:49,371 - INFO - Running test_real_game_probe_split_is_exact_and_deterministic...\n2026-10-21 12:46:49,420 - INFO - \u2713 test_real_game_probe_split_is_exact_and_deterministic\n2026-10-21 12:46:49,420 - INFO - Running test_probe_metrics_separate_placement_pass_and_raw_legality...\n2026-10-21 12:46:49,425 - INFO - \u2713 test_probe_metrics_separate_placement_pass_and_raw_legality\n2026-10-21 12:46:49,425 - INFO - Running test_probe_curve_trend_arithmetic...\n2026-10-21 12:46:49,426 - INFO - \u2713 test_probe_curve_trend_arithmetic\n2026-10-21 12:46:49,426 - INFO - Running test_lora_only_game_path_has_exact_zero_mqr_parameter_drift...\n2026-10-21 12:46:49,436 - INFO - \u2713 test_lora_only_game_path_has_exact_zero_mqr_parameter_drift\n2026-10-21 12:46:49,436 - INFO - Running test_sayuri_gtp_rules_policy_and_search...\n2026-10-21 12:46:51,396 - INFO - \u2713 test_sayuri_gtp_rules_policy_and_search\n2026-10-21 12:46:51,396 - INFO - Go/MiniCPM test results: 22 passed, 0 failed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_policy.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.8831092930049635,
+    "output": "............\n----------------------------------------------------------------------\nRan 12 tests in 2.244s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_research.py"
+    ],
+    "exit_code": 0,
+    "seconds": 5.465146733971778,
+    "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 2.718s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_selfplay.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.8822260930319317,
+    "output": "test_coupled_projection_matches_analytic_solution (__main__.SharedPolicyTests.test_coupled_projection_matches_analytic_solution) ... ok\ntest_invalid_or_stale_halfspaces_rejected (__main__.SharedPolicyTests.test_invalid_or_stale_halfspaces_rejected) ... ok\ntest_margin_adjoint_matches_autograd (__main__.SharedPolicyTests.test_margin_adjoint_matches_autograd) ... ok\ntest_opening_context_is_replayed_without_tickets (__main__.SharedPolicyTests.test_opening_context_is_replayed_without_tickets) ... ok\ntest_pending_context_and_projected_terminal_replay_roundtrip (__main__.SharedPolicyTests.test_pending_context_and_projected_terminal_replay_roundtrip) ... ok\ntest_projection_preserves_improvement_and_uses_slack (__main__.SharedPolicyTests.test_projection_preserves_improvement_and_uses_slack) ... ok\ntest_shared_policy_rejects_missing_target_without_consuming_ticket (__main__.SharedPolicyTests.test_shared_policy_rejects_missing_target_without_consuming_ticket) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 1.239s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_mobius_model.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.638483952963725,
+    "output": "2026-10-21 12:46:59,611 - INFO - ============================================================\n2026-10-21 12:46:59,611 - INFO - M\u00f6bius Quantum Ring Network - Test Suite\n2026-10-21 12:46:59,611 - INFO - ============================================================\n2026-10-21 12:46:59,611 - INFO - Testing UnitaryMatrixParam...\n2026-10-21 12:46:59,644 - INFO - \u2713 UnitaryMatrixParam test passed (ortho_error=0.000000)\n2026-10-21 12:46:59,644 - INFO - Testing UnistochasticWeightGenerator...\n2026-10-21 12:46:59,645 - INFO - \u2713 UnistochasticWeightGenerator test passed\n2026-10-21 12:46:59,646 - INFO -   Row sums range: [1.000000, 1.000000]\n2026-10-21 12:46:59,646 - INFO -   Col sums range: [1.000000, 1.000000]\n2026-10-21 12:46:59,646 - INFO - Testing Cayley-to-unistochastic coverage despite eigenvalue -1...\n2026-10-21 12:46:59,655 - INFO - \u2713 Cayley phase choice preserves the complete unistochastic image\n2026-10-21 12:46:59,655 - INFO - Testing MoebiusQuantumRing (vector)...\n2026-10-21 12:46:59,719 - INFO - \u2713 MoebiusQuantumRing (vector) test passed\n2026-10-21 12:46:59,719 - INFO - Testing M\u00f6biusQuantumRing...\n2026-10-21 12:46:59,721 - INFO -   Total parameters: 59,968\n2026-10-21 12:46:59,731 - INFO - \u2713 M\u00f6biusQuantumRing test passed\n2026-10-21 12:46:59,731 - INFO -   Output shape: torch.Size([2, 100])\n2026-10-21 12:46:59,731 - INFO -   Orthogonal loss: 0.000004\n2026-10-21 12:46:59,731 - INFO -   Classification loss: 4.618798\n2026-10-21 12:46:59,731 - INFO - Testing patch encoder (forward + eqprop)...\n2026-10-21 12:47:00,208 - INFO - \u2713 Patch encoder test passed\n2026-10-21 12:47:00,209 - INFO - Testing H-mix beta (doubly-stochastic + learnable update)...\n2026-10-21 12:47:00,214 - INFO - \u2713 H-mix beta test passed\n2026-10-21 12:47:00,214 - INFO - Testing unitary dynamics mode (complex inference)...\n2026-10-21 12:47:00,333 - INFO - \u2713 Unitary dynamics mode test passed\n2026-10-21 12:47:00,333 - INFO - Testing HamiltonianOptimizer...\n2026-10-21 12:47:01,056 - INFO - \u2713 HamiltonianOptimizer test passed\n2026-10-21 12:47:01,056 - INFO - Testing model export...\n2026-10-21 12:47:01,067 - INFO - \u2713 Model export test passed\n2026-10-21 12:47:01,068 - INFO - Testing EQPROP update step...\n2026-10-21 12:47:01,073 - INFO - \u2713 EQPROP update step test passed\n2026-10-21 12:47:01,073 - INFO - Testing EQPROP dual-unitary + learnable state targets...\n2026-10-21 12:47:01,082 - INFO - \u2713 EQPROP dual-unitary + state targets test passed\n2026-10-21 12:47:01,082 - INFO - Testing EQPROP proto readout...\n2026-10-21 12:47:01,088 - INFO - \u2713 EQPROP proto readout test passed\n2026-10-21 12:47:01,088 - INFO - Testing exact Cayley gradient pullback...\n2026-10-21 12:47:01,091 - INFO - \u2713 Exact Cayley pullback matches autograd\n2026-10-21 12:47:01,091 - INFO - Testing implicit real-ring gradients against autograd...\n2026-10-21 12:47:01,112 - INFO - \u2713 Real-ring implicit gradients match autograd\n2026-10-21 12:47:01,113 - INFO - Testing implicit complex-ring gradient against autograd...\n2026-10-21 12:47:01,153 - INFO - \u2713 Complex-ring implicit gradient matches autograd\n2026-10-21 12:47:01,155 - INFO - Testing unitary descent direction and batch-size invariance...\n2026-10-21 12:47:01,185 - INFO - \u2713 Unitary update descends and is batch-size invariant\n2026-10-21 12:47:01,185 - INFO - Testing generic implicit output-gradient update...\n2026-10-21 12:47:01,204 - INFO - \u2713 Generic output-gradient update matches the CE transaction\n2026-10-21 12:47:01,205 - INFO - Testing minimal Cayley coordinates and local mixing rank...\n2026-10-21 12:47:01,214 - INFO - \u2713 Minimal coordinates span u(N); |U|\u00b2 degeneracy is diagnosed\n2026-10-21 12:47:01,214 - INFO - Testing certified nonlinear implicit gradient...\n2026-10-21 12:47:01,264 - INFO - \u2713 Certified nonlinear adjoint matches direct solve and autograd\n2026-10-21 12:47:01,266 - INFO - Testing atomic rejection of an inexact implicit update...\n2026-10-21 12:47:01,274 - INFO - \u2713 Failed certificates are atomic; override is explicit and reported\n2026-10-21 12:47:01,274 - INFO - Testing uniform contraction for time-varying rings...\n2026-10-21 12:47:01,280 - INFO - \u2713 Time-varying unistochastic rings obey the uniform contraction bound\n2026-10-21 12:47:01,281 - INFO - Testing zero-initialized sidecar readout...\n2026-10-21 12:47:01,298 - INFO - \u2713 Residual readout is initially no-op and learns without backbone drift\n2026-10-21 12:47:01,298 - INFO - Testing converged Sinkhorn implicit pullback...\n2026-10-21 12:47:01,342 - INFO - \u2713 Sinkhorn implicit pullback matches converged unrolled autograd\n2026-10-21 12:47:01,343 - INFO - ============================================================\n2026-10-21 12:47:01,343 - INFO - Test Results: 24 passed, 0 failed\n2026-10-21 12:47:01,343 - INFO - ============================================================\n2026-10-21 12:47:01,343 - INFO - \ud83c\udf89 All tests passed!\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_online_learning.py"
+    ],
+    "exit_code": 0,
+    "seconds": 2.7406721400329843,
+    "output": "2026-10-21 12:47:01,748 - INFO - Running test_preconditioned_ogd_theorem...\n2026-10-21 12:47:01,751 - INFO - \u2713 test_preconditioned_ogd_theorem\n2026-10-21 12:47:01,751 - INFO - Running test_constrained_ogd_projection_preserves_slow_parameter_mask...\n2026-10-21 12:47:01,753 - INFO - \u2713 test_constrained_ogd_projection_preserves_slow_parameter_mask\n2026-10-21 12:47:01,754 - INFO - Running test_prequential_prediction_has_no_label_leakage...\n2026-10-21 12:47:01,777 - INFO - \u2713 test_prequential_prediction_has_no_label_leakage\n2026-10-21 12:47:01,778 - INFO - Running test_explicit_multiring_isolation_and_capacity...\n2026-10-21 12:47:01,795 - INFO - \u2713 test_explicit_multiring_isolation_and_capacity\n2026-10-21 12:47:01,795 - INFO - Running test_state_is_carried_between_inference_and_learning_steps...\n2026-10-21 12:47:01,799 - INFO - \u2713 test_state_is_carried_between_inference_and_learning_steps\n2026-10-21 12:47:01,800 - INFO - Running test_ring_update_uses_one_complete_ogd_vector...\n2026-10-21 12:47:01,819 - INFO - \u2713 test_ring_update_uses_one_complete_ogd_vector\n2026-10-21 12:47:01,819 - INFO - Running test_novelty_router_and_checkpoint_roundtrip...\n2026-10-21 12:47:01,835 - INFO - \u2713 test_novelty_router_and_checkpoint_roundtrip\n2026-10-21 12:47:01,835 - INFO - Online test results: 7 passed, 0 failed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_orthogonal_ring.py"
+    ],
+    "exit_code": 0,
+    "seconds": 2.7929931139806286,
+    "output": "../home/spikebai/owncode/M\u00f6biusQuantumRing/test_orthogonal_ring.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\nConsider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)\n  self.assertGreater(float((x.norm(dim=1) - (x @ parameter.unistochastic().T).norm(dim=1)).abs().max()), 0.01)\n..\n----------------------------------------------------------------------\nRan 4 tests in 0.117s\n\nOK\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_routed_memory.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.714323847962078,
+    "output": "2026-10-21 12:47:04,797 - INFO - Running residual transition invariant test...\n2026-10-21 12:47:04,811 - INFO - \u2713 residual routes are non-negative and doubly stochastic\n2026-10-21 12:47:04,812 - INFO - Running residual formula and epsilon-gradient test...\n2026-10-21 12:47:04,863 - INFO - \u2713 T_epsilon formula and bounded epsilon gradient\n2026-10-21 12:47:04,863 - INFO - Running content/address separation test...\n2026-10-21 12:47:04,884 - INFO - \u2713 routes change addresses only; identity replacement changes behavior\n2026-10-21 12:47:04,885 - INFO - Running projected long-horizon address test...\n2026-10-21 12:47:05,023 - INFO - \u2713 nonlinear address commit preserves the route for 512 steps\n2026-10-21 12:47:05,024 - INFO - Running hard slot-write test...\n2026-10-21 12:47:05,026 - INFO - \u2713 forward writes are discrete while route credit remains connected\n2026-10-21 12:47:05,026 - INFO - Running routing resource audit test...\n2026-10-21 12:47:05,028 - INFO - \u2713 sparse/block variants report lower refresh and peak costs\n2026-10-21 12:47:05,028 - INFO - Running Givens/direct sparse-route equivalence test...\n2026-10-21 12:47:05,030 - INFO - \u2713 local route families match exactly after p=sin(theta)^2\n2026-10-21 12:47:05,031 - INFO - Running contextual route-bank isolation test...\n2026-10-21 12:47:06,115 - INFO - \u2713 active context updates; inactive route is bitwise unchanged\n2026-10-21 12:47:06,116 - INFO - Running matched-marginal contextual-topology generator test...\n2026-10-21 12:47:06,128 - INFO - \u2713 identical marginals, relational utility, and nontrivial contexts\n2026-10-21 12:47:06,128 - INFO - Running hard write-budget test...\n2026-10-21 12:47:06,135 - INFO - \u2713 every prefix respects the explicit cumulative write budget\n2026-10-21 12:47:06,135 - INFO - Running utility balance/calibration test...\n2026-10-21 12:47:06,143 - INFO - \u2713 balanced replay, multi-horizon loss, AUPRC/Brier/ECE/write gap\n2026-10-21 12:47:06,143 - INFO - All 11 routed-memory tests passed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_unified_mqr_agent.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.11461872496875,
+    "output": "2026-10-21 12:47:09,176 - INFO - Running test_preview_commit_and_four_heads...\n2026-10-21 12:47:09,192 - INFO - \u2713 preview/commit causality and four-head shapes\n2026-10-21 12:47:09,192 - INFO - Running test_task_feedback_and_dual_return_critic...\n2026-10-21 12:47:09,276 - INFO - \u2713 multi-head feedback, state immutability, and twin-return critic\n2026-10-21 12:47:09,277 - INFO - Running test_task_update_guard_rolls_back_parameters_ogd_and_external_gradient...\n2026-10-21 12:47:09,299 - INFO - \u2713 unsafe candidate update is atomically rejected\n2026-10-21 12:47:09,300 - INFO - Running test_cayley_updates_follow_explicit_slow_schedule_with_ogd...\n2026-10-21 12:47:09,360 - INFO - \u2713 fast task blocks update while Cayley follows its slow tick\n2026-10-21 12:47:09,360 - INFO - Running test_trajectory_future_credit_is_causal_and_reaches_memory_content...\n2026-10-21 12:47:09,395 - INFO - \u2713 future-only loss reaches early injection/transition without label leakage\n2026-10-21 12:47:09,396 - INFO - Running test_trajectory_guard_rolls_back_parameters_and_ogd...\n2026-10-21 12:47:09,425 - INFO - \u2713 unsafe trace update atomically restores parameters and OGD\n2026-10-21 12:47:09,425 - INFO - Running test_nonflat_gate_and_pending_trace_checkpoint_roundtrip...\n2026-10-21 12:47:09,486 - INFO - \u2713 non-flat base, content gate, and pending trace resume exactly\n2026-10-21 12:47:09,486 - INFO - Running test_awr_ppo_and_gae_objectives...\n2026-10-21 12:47:09,497 - INFO - \u2713 AWR/PPO gradients and exact GAE return\n2026-10-21 12:47:09,498 - INFO - Running test_slow_lora_schedule...\n2026-10-21 12:47:09,498 - INFO - \u2713 slow LoRA schedule and external-gradient transaction\n2026-10-21 12:47:09,498 - INFO - Running test_shared_agent_contract_for_non_mqr_cores...\n2026-10-21 12:47:09,519 - INFO - \u2713 GRU/fast-weight share routing, heads, losses, and resource audit\n2026-10-21 12:47:09,519 - INFO - Running test_go_simulator_twin_rollout_contract...\n2026-10-21 12:47:09,559 - INFO - \u2713 real-rule trajectories and isolated twin-rollout utility target\n2026-10-21 12:47:09,559 - INFO - Running repeated-query accounting and CI regression test...\n2026-10-21 12:47:09,723 - INFO - \u2713 every repeated query is classified and seed CI uses Student-t\n2026-10-21 12:47:09,723 - INFO - Unified-agent test results: 12 passed, 0 failed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_temporal_mqr.py"
+    ],
+    "exit_code": 0,
+    "seconds": 6.303130403044634,
+    "output": "2026-10-21 12:47:09,105 - INFO - Running test_exact_multiscale_decay_and_half_life...\n2026-10-21 12:47:09,143 - INFO - \u2713 test_exact_multiscale_decay_and_half_life\n2026-10-21 12:47:09,143 - INFO - Running test_unistochastic_constraints_and_contraction...\n2026-10-21 12:47:09,148 - INFO - \u2713 test_unistochastic_constraints_and_contraction\n2026-10-21 12:47:09,149 - INFO - Running test_nonflat_temporal_cayley_base_and_inactive_full_leak_ring...\n2026-10-21 12:47:09,239 - INFO - \u2713 test_nonflat_temporal_cayley_base_and_inactive_full_leak_ring\n2026-10-21 12:47:09,240 - INFO - Running test_cyclic_givens_is_a_low_cost_literal_ring_with_nonzero_jacobian...\n2026-10-21 12:47:09,851 - INFO - \u2713 test_cyclic_givens_is_a_low_cost_literal_ring_with_nonzero_jacobian\n2026-10-21 12:47:09,851 - INFO - Running test_signed_state_certificate_and_cayley_finite_drift_bound...\n2026-10-21 12:47:09,860 - INFO - \u2713 test_signed_state_certificate_and_cayley_finite_drift_bound\n2026-10-21 12:47:09,861 - INFO - Running test_temporal_residual_sidecar_is_initially_exact_noop_and_bounded...\n2026-10-21 12:47:09,870 - INFO - \u2713 test_temporal_residual_sidecar_is_initially_exact_noop_and_bounded\n2026-10-21 12:47:09,870 - INFO - Running test_write_strength_is_independent_from_decay...\n2026-10-21 12:47:09,874 - INFO - \u2713 test_write_strength_is_independent_from_decay\n2026-10-21 12:47:09,874 - INFO - Running test_batch_lanes_are_independent...\n2026-10-21 12:47:09,881 - INFO - \u2713 test_batch_lanes_are_independent\n2026-10-21 12:47:09,882 - INFO - Running test_frozen_unistochastic_transition_is_cached_exactly...\n2026-10-21 12:47:09,886 - INFO - \u2713 test_frozen_unistochastic_transition_is_cached_exactly\n2026-10-21 12:47:09,886 - INFO - Running test_topology_ablation_has_matched_shared_initialization...\n2026-10-21 12:47:09,892 - INFO - \u2713 test_topology_ablation_has_matched_shared_initialization\n2026-10-21 12:47:09,892 - INFO - Running test_write_ablation_is_parameter_matched_and_changes_only_amplitude...\n2026-10-21 12:47:09,927 - INFO - \u2713 test_write_ablation_is_parameter_matched_and_changes_only_amplitude\n2026-10-21 12:47:09,928 - INFO - Running test_delayed_digits_query_contains_no_digit_features...\n2026-10-21 12:47:09,929 - INFO - \u2713 test_delayed_digits_query_contains_no_digit_features\n2026-10-21 12:47:09,930 - INFO - Running test_interference_digits_query_is_identical_and_label_free...\n2026-10-21 12:47:09,930 - INFO - \u2713 test_interference_digits_query_is_identical_and_label_free\n2026-10-21 12:47:09,930 - INFO - Running test_preview_is_read_only_and_feedback_has_no_label_leakage...\n2026-10-21 12:47:09,970 - INFO - \u2713 test_preview_is_read_only_and_feedback_has_no_label_leakage\n2026-10-21 12:47:09,970 - INFO - Running test_state_memory_and_parameter_memory_are_separately_observable...\n2026-10-21 12:47:09,985 - INFO - \u2713 test_state_memory_and_parameter_memory_are_separately_observable\n2026-10-21 12:47:09,986 - INFO - Running test_small_online_step_decreases_current_loss_and_preserves_manifold...\n2026-10-21 12:47:09,999 - INFO - \u2713 test_small_online_step_decreases_current_loss_and_preserves_manifold\n2026-10-21 12:47:09,999 - INFO - Running test_temporal_update_uses_one_complete_ogd_vector...\n2026-10-21 12:47:10,017 - INFO - \u2713 test_temporal_update_uses_one_complete_ogd_vector\n2026-10-21 12:47:10,017 - INFO - Running test_update_norm_is_atomically_clipped...\n2026-10-21 12:47:10,027 - INFO - \u2713 test_update_norm_is_atomically_clipped\n2026-10-21 12:47:10,028 - INFO - Running test_checkpoint_roundtrip_preserves_state_and_ogd...\n2026-10-21 12:47:10,061 - INFO - \u2713 test_checkpoint_roundtrip_preserves_state_and_ogd\n2026-10-21 12:47:10,061 - INFO - Running test_temporal_write_gate_initialization_range_and_validation...\n2026-10-21 12:47:10,064 - INFO - \u2713 test_temporal_write_gate_initialization_range_and_validation\n2026-10-21 12:47:10,064 - INFO - Running test_gate_label_is_causal_and_cannot_change_current_prediction...\n2026-10-21 12:47:10,085 - INFO - \u2713 test_gate_label_is_causal_and_cannot_change_current_prediction\n2026-10-21 12:47:10,085 - INFO - Running test_small_auxiliary_gate_step_decreases_gate_bce...\n2026-10-21 12:47:10,092 - INFO - \u2713 test_small_auxiliary_gate_step_decreases_gate_bce\n2026-10-21 12:47:10,093 - INFO - Running test_gate_ogd_uses_complete_vector_and_has_independent_clip...\n2026-10-21 12:47:10,101 - INFO - \u2713 test_gate_ogd_uses_complete_vector_and_has_independent_clip\n2026-10-21 12:47:10,102 - INFO - Running test_learned_gate_checkpoint_and_external_override_are_exact...\n2026-10-21 12:47:10,123 - INFO - \u2713 test_learned_gate_checkpoint_and_external_override_are_exact\n2026-10-21 12:47:10,123 - INFO - Running test_external_write_gate_is_exact_and_shape_safe...\n2026-10-21 12:47:10,127 - INFO - \u2713 test_external_write_gate_is_exact_and_shape_safe\n2026-10-21 12:47:10,127 - INFO - Running test_gated_contraction_is_independent_of_input_write...\n2026-10-21 12:47:10,132 - INFO - \u2713 test_gated_contraction_is_independent_of_input_write\n2026-10-21 12:47:10,132 - INFO - Running test_keyed_stream_bank_has_zero_state_crosstalk...\n2026-10-21 12:47:10,152 - INFO - \u2713 test_keyed_stream_bank_has_zero_state_crosstalk\n2026-10-21 12:47:10,152 - INFO - Running test_stream_capacity_is_explicit_and_lru_is_auditable...\n2026-10-21 12:47:10,159 - INFO - \u2713 test_stream_capacity_is_explicit_and_lru_is_auditable\n2026-10-21 12:47:10,160 - INFO - Running test_delayed_feedback_reconstructs_exact_issue_time_readout_gradient...\n2026-10-21 12:47:10,166 - INFO - \u2713 test_delayed_feedback_reconstructs_exact_issue_time_readout_gradient\n2026-10-21 12:47:10,166 - INFO - Running test_feedback_queue_capacity_expiry_and_unknown_ids_fail_closed...\n2026-10-21 12:47:10,178 - INFO - \u2713 test_feedback_queue_capacity_expiry_and_unknown_ids_fail_closed\n2026-10-21 12:47:10,178 - INFO - Running test_runtime_checkpoint_preserves_stream_lru_and_pending_feedback...\n2026-10-21 12:47:10,196 - INFO - \u2713 test_runtime_checkpoint_preserves_stream_lru_and_pending_feedback\n2026-10-21 12:47:10,197 - INFO - Temporal MQR test results: 31 passed, 0 failed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_utility_mqr.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.060306797036901,
+    "output": "2026-10-21 12:47:12,469 - INFO - Running test_external_promotion_preserves_contraction...\n2026-10-21 12:47:12,477 - INFO - \u2713 test_external_promotion_preserves_contraction\n2026-10-21 12:47:12,477 - INFO - Running test_marker_free_features_are_strictly_causal...\n2026-10-21 12:47:12,503 - INFO - \u2713 test_marker_free_features_are_strictly_causal\n2026-10-21 12:47:12,503 - INFO - Running test_future_target_cannot_change_issue_time_action_or_state...\n2026-10-21 12:47:12,575 - INFO - \u2713 test_future_target_cannot_change_issue_time_action_or_state\n2026-10-21 12:47:12,576 - INFO - Running test_context_trace_is_strictly_past_and_experts_are_isolated...\n2026-10-21 12:47:12,592 - INFO - \u2713 test_context_trace_is_strictly_past_and_experts_are_isolated\n2026-10-21 12:47:12,592 - INFO - Running test_hard_routed_expert_isolation_survives_ogd_projection...\n2026-10-21 12:47:12,644 - INFO - \u2713 test_hard_routed_expert_isolation_survives_ogd_projection\n2026-10-21 12:47:12,645 - INFO - Running test_candidate_capacity_and_single_consumption_fail_closed...\n2026-10-21 12:47:12,651 - INFO - \u2713 test_candidate_capacity_and_single_consumption_fail_closed\n2026-10-21 12:47:12,652 - INFO - Running test_positive_missed_candidate_is_promoted_on_next_transition...\n2026-10-21 12:47:12,665 - INFO - \u2713 test_positive_missed_candidate_is_promoted_on_next_transition\n2026-10-21 12:47:12,665 - INFO - Running test_harmful_false_positive_is_reported_and_not_retroactively_erased...\n2026-10-21 12:47:12,674 - INFO - \u2713 test_harmful_false_positive_is_reported_and_not_retroactively_erased\n2026-10-21 12:47:12,674 - INFO - Running test_utility_ogd_uses_complete_vector_and_atomic_clip...\n2026-10-21 12:47:12,696 - INFO - \u2713 test_utility_ogd_uses_complete_vector_and_atomic_clip\n2026-10-21 12:47:12,696 - INFO - Running test_readout_feedback_is_prequential_and_clipped...\n2026-10-21 12:47:12,702 - INFO - \u2713 test_readout_feedback_is_prequential_and_clipped\n2026-10-21 12:47:12,702 - INFO - Running test_runtime_checkpoint_restores_shadow_ticket_and_ogd...\n2026-10-21 12:47:12,743 - INFO - \u2713 test_runtime_checkpoint_restores_shadow_ticket_and_ogd\n2026-10-21 12:47:12,744 - INFO - Utility MQR test results: 11 passed, 0 failed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "analysis/mqr_proof_verify.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.5143080690177158,
+    "output": "[structure] {'A_skew_error': 0.0, 'U_unitary_error': 8.466573969476718e-16, 'H_row_error': 5.551115123125783e-16, 'H_col_error': 5.551115123125783e-16}\n[cayley-unistochastic-coverage] {'phase_candidate_count': 11, 'selected_margin_sigma_min': 0.869206430570201, 'skew_error': 0.0, 'unitary_reconstruction_error': 5.551115123125783e-16, 'transition_reconstruction_error': 4.440892098500626e-16}\n[fixed-point] {'closed_form_max_error': 1.3322676295501878e-15, 'initial_state_ratio': 0.01342574265515048, 'theoretical_bound': 0.01384128720099999}\n[bounded-trajectory-credit] {'observed_jacobian_norm': 0.5005724308655501, 'contraction_upper_bound': 0.5578466012364802, 'saturated_zero_gradient_witness': 0.0}\n[implicit-gradient] {'A_real_relative_error': 6.76489458810448e-16, 'A_imag_relative_error': 6.421309628452266e-16, 'cos_real': 1.0, 'cos_imag': 0.9999999999999999}\n[legacy-counterexample] {'mean_cosine_with_true_gradient': -0.25886395949769386, 'negative_cases': '27/30'}\n[linear-ring=LoRA] {'max_error': 0.0, 'effective_rank': 4, 'rank_bound': 4}\n[continual-OGD] {'old_loss_first_order_term': 3.469446951953614e-18, 'new_descent_identity_error': 0.0, 'retained_norm': 0.9978331502165055}\n[blockwise-OGD+trust] {'old_loss_first_order_term': 4.336808689942018e-19, 'new_descent_identity_error': 2.7755575615628914e-17}\n[temporal-gate-bound] {'actual_final_difference': 0.4454331135118087, 'recursive_upper_bound': 1.6590275216232258, 'slack': 1.2135944081114172}\n[promotion-contraction] {'actual_difference': 0.09483571599719265, 'theoretical_bound': 0.772043522992366}\n[utility-conditional-mean] {'conditional_means': [-2.0, 2.0], 'gradient_max_error': 0.0, 'optimal_risk': 1.0, 'perturbed_risk': 1.325}\n[learned-gate-causality] {'weighted_bce_derivative_max_error': 2.7755575615628914e-17, 'current_gate_max_difference': 0.0, 'current_state_max_difference': 0.0, 'current_logit_max_difference': 0.0, 'future_gate_parameter_difference': 0.01}\n[delayed-readout-ticket] {'weight_update_max_error': 0.0, 'parameter_staleness': 0}\nall rigorous numerical checks passed\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "-m",
+      "compileall",
+      "-q",
+      "mqr",
+      "experiments/go14_readability.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.09126910602208227,
+    "output": "",
+    "revision": 2
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "quick_start.py"
+    ],
+    "exit_code": 0,
+    "seconds": 4.119445693970192,
+    "output": "============================================================\n\u83ab\u6bd4\u4e4c\u65af\u91cf\u5b50\u73af\u5f62\u7f51\u7edc - \u5feb\u901f\u5f00\u59cb\n============================================================\n\n1. \u521b\u5efa\u6a21\u578b...\n   \u6a21\u578b\u521b\u5efa\u6210\u529f!\n   \u603b\u53c2\u6570\u91cf: 185,920\n\n2. \u51c6\u5907\u8f93\u5165\u6570\u636e...\n   \u8f93\u5165\u5f62\u72b6: torch.Size([4, 3, 32, 32])\n   \u6807\u7b7e\u5f62\u72b6: torch.Size([4])\n\n3. \u524d\u5411\u4f20\u64ad...\n   \u8f93\u51fa\u5f62\u72b6: torch.Size([4, 100])\n   \u9884\u6d4b\u7c7b\u522b: tensor([22, 21, 78, 32])\n   \u771f\u5b9e\u6807\u7b7e: tensor([43,  4, 92, 10])\n\n4. \u8ba1\u7b97\u635f\u5931...\n   \u5206\u7c7b\u635f\u5931: 4.5906\n   \u6b63\u4ea4\u7ea6\u675f\u635f\u5931: 0.000006\n   \u603b\u635f\u5931: 4.5906\n\n5. \u8bad\u7ec3\u4e00\u4e2abatch...\n   \u8bad\u7ec3batch\u5b8c\u6210!\n   Loss: 4.5906\n   \u68af\u5ea6\u6d41\u52a8: 5/5 \u53c2\u6570\u6709\u68af\u5ea6\n\n6. \u4fdd\u5b58\u548c\u52a0\u8f7d\u6a21\u578b...\n   \u6a21\u578b\u5df2\u4fdd\u5b58\u5230: /tmp/mobius_quick_start.pth\n   \u6a21\u578b\u5df2\u52a0\u8f7d!\n   \u52a0\u8f7d\u7684\u635f\u5931: 4.5906\n\n7. \u63a8\u7406\u793a\u4f8b...\n   \u6d4b\u8bd5\u6837\u672c1:\n      Top-1: \u7c7b\u522b  12, \u6982\u7387 1.16%\n      Top-2: \u7c7b\u522b  22, \u6982\u7387 1.15%\n      Top-3: \u7c7b\u522b  72, \u6982\u7387 1.14%\n      Top-4: \u7c7b\u522b  79, \u6982\u7387 1.12%\n      Top-5: \u7c7b\u522b  77, \u6982\u7387 1.11%\n\n============================================================\n\u5feb\u901f\u5f00\u59cb\u793a\u4f8b\u5b8c\u6210!\n============================================================\n\n\u4e0b\u4e00\u6b65:\n1. \u8fd0\u884c\u5b8c\u6574\u8bad\u7ec3: python train_mobius_cifar100.py --epochs 200\n2. \u67e5\u770b\u8bad\u7ec3\u8fdb\u5ea6: tensorboard --logdir runs/\n3. \u6d4b\u8bd5\u6a21\u578b: python test_mobius_model.py\n\n\u66f4\u591a\u4fe1\u606f\u8bf7\u53c2\u8003 README.md\n\n============================================================\n\u6a21\u578b\u67b6\u6784\u8be6\u89e3\n============================================================\n\n1. Unitary parameterization (CayleyUnistochasticParam)\n----------------------------------------\n   \u9149\u77e9\u9635 U (shape: torch.Size([4, 4])):\n   tensor([[ 0.9994-0.0073j, -0.0099-0.0143j, -0.0235+0.0129j, -0.0108+0.0078j],\n        [ 0.0104-0.0135j,  0.9992+0.0070j,  0.0253+0.0031j,  0.0120+0.0232j],\n        [ 0.0231+0.0132j, -0.0252+0.0019j,  0.9992+0.0094j, -0.0153-0.0011j],\n        [ 0.0115+0.0083j, -0.0124+0.0230j,  0.0146-0.0006j,  0.9994-0.0067j]],\n       grad_fn=<LinalgSolveExBackward0>)\n\n   \u9a8c\u8bc1\u9149\u6027 (U^\u2020 U \u2248 I):\n   tensor([[ 1.0000e+00+1.7290e-10j, -1.5280e-10+0.0000e+00j,\n          1.1350e-09-9.4587e-10j, -9.3132e-10-9.3132e-10j],\n        [-1.5280e-10+9.6043e-10j,  1.0000e+00-7.7020e-11j,\n         -1.3970e-09-3.4925e-10j, -9.3132e-10-3.7253e-09j],\n        [ 1.1350e-09+1.4552e-11j, -1.3970e-09+3.4925e-10j,\n          1.0000e+00+2.8126e-11j, -1.8626e-09+2.6193e-10j],\n        [-9.3132e-10+9.3132e-10j, -9.3132e-10+3.7253e-09j,\n         -1.8626e-09-3.2014e-10j,  1.0000e+00-6.2196e-11j]],\n       grad_fn=<MmBackward0>)\n   \u4e0e\u5355\u4f4d\u77e9\u9635\u7684\u8bef\u5dee: 0.000000\n\n2. Unistochastic weights (H = |U|^2)\n----------------------------------------\n   \u53cc\u968f\u673a\u77e9\u9635 H = |U|\u00b2 (shape: torch.Size([4, 4])):\n   tensor([[9.9849e-01, 1.0015e-03, 4.5088e-04, 6.0225e-05],\n        [1.0031e-03, 9.9888e-01, 1.8453e-05, 9.5323e-05],\n        [4.4946e-04, 2.4211e-05, 9.9899e-01, 5.3740e-04],\n        [5.9999e-05, 9.1220e-05, 5.4173e-04, 9.9931e-01]],\n       grad_fn=<PowBackward0>)\n\n   \u9a8c\u8bc1\u53cc\u968f\u673a\u6027\u8d28:\n   \u884c\u548c: tensor([1.0000, 1.0000, 1.0000, 1.0000], grad_fn=<SumBackward1>)\n   \u5217\u548c: tensor([1.0000, 1.0000, 1.0000, 1.0000], grad_fn=<SumBackward1>)\n   \u6240\u6709\u5143\u7d20\u975e\u8d1f: True\n\n3. M\u00f6bius Quantum Ring (vector) demo\n----------------------------------------\n   Input shape: torch.Size([2, 64])\n   Output shape: torch.Size([2, 10])\n   State shape: torch.Size([2, 32])\n\n4. \u5b8c\u6574\u6a21\u578b\u67b6\u6784 (M\u00f6biusQuantumRing)\n----------------------------------------\n   \u6a21\u578b\u7ec4\u4ef6:\n   - Headless ring dynamics (fixed-point relaxation)\n   - Unistochastic manifold: H = |U|^2 with U from Cayley transform\n   - LoRA injection: J(x)=W_up W_down x\n   - Local sampling readout: first k nodes -> classifier\n\n   \u603b\u53c2\u6570\u91cf: 59,968\n\n   Parameter count (total): 59,968\n\n============================================================\n\n\u2713 \u6240\u6709\u793a\u4f8b\u8fd0\u884c\u5b8c\u6210!\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/online_digits_principle.py",
+      "--output",
+      "analysis/results/go14_digits_regression.json"
+    ],
+    "exit_code": 0,
+    "seconds": 11.5990608939901,
+    "output": "shared_ring          seed=  7 A: 0.822->0.657 B: 0.894 forget=+0.165\nshared_ring_ogd      seed=  7 A: 0.822->0.722 B: 0.878 forget=+0.100\nisolated_two_rings   seed=  7 A: 0.822->0.822 B: 0.846 forget=+0.000\nshared_ring          seed= 17 A: 0.828->0.607 B: 0.887 forget=+0.220\nshared_ring_ogd      seed= 17 A: 0.828->0.665 B: 0.874 forget=+0.163\nisolated_two_rings   seed= 17 A: 0.828->0.828 B: 0.852 forget=+0.000\nshared_ring          seed= 29 A: 0.850->0.696 B: 0.900 forget=+0.154\nshared_ring_ogd      seed= 29 A: 0.850->0.674 B: 0.894 forget=+0.176\nisolated_two_rings   seed= 29 A: 0.850->0.850 B: 0.859 forget=+0.000\nwrote analysis/results/go14_digits_regression.json\n"
+  },
+  {
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "test_go_readable.py"
+    ],
+    "exit_code": 0,
+    "seconds": 14.430392609036062,
+    "output": ".............\n----------------------------------------------------------------------\nRan 13 tests in 10.809s\n\nOK\n",
+    "revision": 2
+  }
+]

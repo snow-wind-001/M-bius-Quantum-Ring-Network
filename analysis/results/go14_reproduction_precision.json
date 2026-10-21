@@ -1,0 +1,9 @@
+{
+  "verified_runs": 110,
+  "maximum_recomputed_policy_probability_error": 1.6391277313232422e-07,
+  "maximum_recomputed_anchor_margin_error": 2.384185791015625e-07,
+  "maximum_first_update_float_error": 1.070623781379565e-05,
+  "actions_and_discrete_update_decisions": "exactly reproduced",
+  "protected_margin_predicate": "actual >= float32(floor - 1e-5); never relaxed by verifier tolerances",
+  "note": "earlier exact-score audits without the margin error field passed bitwise comparison"
+}

@@ -1,0 +1,2602 @@
+[
+  {
+    "stage": "prepare",
+    "seed": 1031,
+    "method": "",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "prepare",
+      "--seed",
+      "1031"
+    ],
+    "exit_code": 0,
+    "seconds": 138.04273865895811,
+    "log": "checkpoints/go14_v2/logs/prepare-all-1031.log"
+  },
+  {
+    "stage": "prepare",
+    "seed": 1019,
+    "method": "",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "prepare",
+      "--seed",
+      "1019"
+    ],
+    "exit_code": 0,
+    "seconds": 138.04862347000744,
+    "log": "checkpoints/go14_v2/logs/prepare-all-1019.log"
+  },
+  {
+    "stage": "prepare",
+    "seed": 1009,
+    "method": "",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "prepare",
+      "--seed",
+      "1009"
+    ],
+    "exit_code": 0,
+    "seconds": 138.4389150699717,
+    "log": "checkpoints/go14_v2/logs/prepare-all-1009.log"
+  },
+  {
+    "stage": "prepare",
+    "seed": 1013,
+    "method": "",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "prepare",
+      "--seed",
+      "1013"
+    ],
+    "exit_code": 0,
+    "seconds": 138.50799883296713,
+    "log": "checkpoints/go14_v2/logs/prepare-all-1013.log"
+  },
+  {
+    "stage": "prepare",
+    "seed": 1021,
+    "method": "",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "prepare",
+      "--seed",
+      "1021"
+    ],
+    "exit_code": 0,
+    "seconds": 138.71905763901304,
+    "log": "checkpoints/go14_v2/logs/prepare-all-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.038190272985958,
+    "log": "checkpoints/go14_v2/logs/learn-shared_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "grouped_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "grouped_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.146841881971341,
+    "log": "checkpoints/go14_v2/logs/learn-grouped_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.202777958009392,
+    "log": "checkpoints/go14_v2/logs/learn-shared_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.256721390003804,
+    "log": "checkpoints/go14_v2/logs/learn-shared_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.4033366100047715,
+    "log": "checkpoints/go14_v2/logs/learn-shared_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.412609745981172,
+    "log": "checkpoints/go14_v2/logs/learn-shared_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "grouped_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "grouped_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.746586658002343,
+    "log": "checkpoints/go14_v2/logs/learn-grouped_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "grouped_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "grouped_free"
+    ],
+    "exit_code": 0,
+    "seconds": 7.655510710028466,
+    "log": "checkpoints/go14_v2/logs/learn-grouped_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "grouped_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "grouped_free"
+    ],
+    "exit_code": 0,
+    "seconds": 10.419623096997384,
+    "log": "checkpoints/go14_v2/logs/learn-grouped_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "grouped_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "grouped_free"
+    ],
+    "exit_code": 0,
+    "seconds": 10.350577163975686,
+    "log": "checkpoints/go14_v2/logs/learn-grouped_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 15.15321523003513,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_pool_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 16.013147939986084,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_pool_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "previous_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "previous_free"
+    ],
+    "exit_code": 0,
+    "seconds": 10.894889679038897,
+    "log": "checkpoints/go14_v2/logs/learn-previous_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 15.426109049003571,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_pool_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 16.236450889031403,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_pool_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "previous_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "previous_free"
+    ],
+    "exit_code": 0,
+    "seconds": 10.182069387985393,
+    "log": "checkpoints/go14_v2/logs/learn-previous_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 16.153358073031995,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_pool_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "previous_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "previous_free"
+    ],
+    "exit_code": 0,
+    "seconds": 11.242525688954629,
+    "log": "checkpoints/go14_v2/logs/learn-previous_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "previous_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "previous_free"
+    ],
+    "exit_code": 0,
+    "seconds": 10.370133072021417,
+    "log": "checkpoints/go14_v2/logs/learn-previous_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "previous_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "previous_free"
+    ],
+    "exit_code": 0,
+    "seconds": 10.039971964957658,
+    "log": "checkpoints/go14_v2/logs/learn-previous_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "kernel_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "kernel_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 18.96334035100881,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_pool_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "kernel_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "kernel_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 17.868795952002984,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_pool_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "kernel_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "kernel_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 17.896646275999956,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_pool_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "kernel_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "kernel_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 18.9150001250091,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_pool_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "kernel_pool_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "kernel_pool_free"
+    ],
+    "exit_code": 0,
+    "seconds": 19.183243295003194,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_pool_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 25.547437697998248,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 24.441333716036752,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 24.752435281989165,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 23.59292095102137,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 26.908548794977833,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 135.53820389701286,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_current-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 128.14873383298982,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_current-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 127.78321758500533,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_current-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 133.5089116289746,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_current-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_reserve",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_reserve"
+    ],
+    "exit_code": 0,
+    "seconds": 136.01170730299782,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_reserve-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 145.96170982701005,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_current-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_reserve",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_reserve"
+    ],
+    "exit_code": 0,
+    "seconds": 117.5388422490214,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_reserve-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_reserve",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_reserve"
+    ],
+    "exit_code": 0,
+    "seconds": 121.240594518953,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_reserve-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_reserve",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_reserve"
+    ],
+    "exit_code": 0,
+    "seconds": 116.94704268599162,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_reserve-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 112.02111247600988,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_adaptive-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_reserve",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_reserve"
+    ],
+    "exit_code": 0,
+    "seconds": 121.36335783597315,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_reserve-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 111.98817428597249,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_adaptive-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 111.03298386896495,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_adaptive-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 109.98297706001904,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_adaptive-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 111.30035804398358,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_adaptive-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_rollback",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_rollback"
+    ],
+    "exit_code": 0,
+    "seconds": 109.7287475639605,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rollback-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_rollback",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_rollback"
+    ],
+    "exit_code": 0,
+    "seconds": 108.31070719298441,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rollback-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_rollback",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_rollback"
+    ],
+    "exit_code": 0,
+    "seconds": 109.67347078595776,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rollback-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 16.92938713595504,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_frozen-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 16.749846032995265,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_frozen-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 16.884260730003007,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_frozen-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 16.599932787998114,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_frozen-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 17.288763176009525,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_frozen-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_rollback",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_rollback"
+    ],
+    "exit_code": 0,
+    "seconds": 124.09340517199598,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rollback-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_rollback",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_rollback"
+    ],
+    "exit_code": 0,
+    "seconds": 126.53559474699432,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rollback-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 207.59839084401028,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_aligned-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 293.81686901900684,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_aligned-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 280.8342815390206,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_aligned-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 293.267675486044,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_aligned-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 217.50014589796774,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_aligned-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "similar_spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "similar_spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 27.54765814001439,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "spatial_rule24",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_rule24"
+    ],
+    "exit_code": 0,
+    "seconds": 246.12274948199047,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rule24-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "similar_spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "similar_spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 25.820509430021048,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "similar_spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "similar_spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 27.059046028996818,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "similar_spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "similar_spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 27.71643202297855,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "similar_spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "similar_spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 27.53958533599507,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "spatial_rule24",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_rule24"
+    ],
+    "exit_code": 0,
+    "seconds": 244.40169893600978,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rule24-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "similar_spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "similar_spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 148.94159529695753,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_current-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "similar_spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "similar_spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 144.5204972779611,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_current-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "spatial_rule24",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_rule24"
+    ],
+    "exit_code": 0,
+    "seconds": 252.1492650549626,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rule24-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "spatial_rule24",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_rule24"
+    ],
+    "exit_code": 0,
+    "seconds": 255.3994539740379,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rule24-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "spatial_rule24",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_rule24"
+    ],
+    "exit_code": 0,
+    "seconds": 255.8408541789977,
+    "log": "checkpoints/go14_v2/logs/learn-spatial_rule24-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "similar_spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "similar_spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 145.99836476502242,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_current-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "similar_spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "similar_spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 129.43772333901143,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_current-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "similar_spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "similar_spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 125.44346929201856,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_adaptive-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "similar_spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "similar_spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 129.24730982800247,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_adaptive-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "similar_spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "similar_spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 132.4999588279752,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_current-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "similar_spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "similar_spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 127.00361517700367,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_adaptive-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 23.179731481999625,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 22.301752531027887,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 23.05605942499824,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 23.650394458964,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "similar_spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "similar_spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 109.86386891902657,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_adaptive-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 19.817264158977196,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "similar_spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "similar_spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 95.2787148419884,
+    "log": "checkpoints/go14_v2/logs/learn-similar_spatial_adaptive-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 99.24589440098498,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_current-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 101.68036772194318,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_current-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 111.29960951500107,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_current-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 103.78368911001598,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_current-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 107.75127377803437,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_current-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "similar_kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "similar_kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 20.542784965015016,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_free-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 89.69244803901529,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_adaptive-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "similar_kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "similar_kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 21.79976246203296,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_free-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "similar_kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "similar_kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 19.394451959000435,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_free-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "similar_kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "similar_kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 20.3449787190184,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_free-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 90.09397740702843,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_adaptive-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 90.45817236503353,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_adaptive-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "similar_kernel_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "similar_kernel_free"
+    ],
+    "exit_code": 0,
+    "seconds": 20.299940664030146,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_free-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 87.3456000710139,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_adaptive-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 90.22076322499197,
+    "log": "checkpoints/go14_v2/logs/learn-kernel_adaptive-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "similar_kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "similar_kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 106.7557391920127,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_current-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "similar_kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "similar_kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 108.14873869699659,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_current-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "similar_kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "similar_kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 114.23027500900207,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_current-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "similar_kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "similar_kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 120.48454736999702,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_current-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1009,
+    "method": "similar_kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1009",
+      "--method",
+      "similar_kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 102.69941458897665,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_adaptive-1009.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "similar_kernel_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "similar_kernel_current"
+    ],
+    "exit_code": 0,
+    "seconds": 118.07801233400824,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_current-1031.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1013,
+    "method": "similar_kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1013",
+      "--method",
+      "similar_kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 84.5244962759898,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_adaptive-1013.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1019,
+    "method": "similar_kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1019",
+      "--method",
+      "similar_kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 84.39442330301972,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_adaptive-1019.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1021,
+    "method": "similar_kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1021",
+      "--method",
+      "similar_kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 77.78291466803057,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_adaptive-1021.log"
+  },
+  {
+    "stage": "learn",
+    "seed": 1031,
+    "method": "similar_kernel_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "learn",
+      "--seed",
+      "1031",
+      "--method",
+      "similar_kernel_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 75.83773048600415,
+    "log": "checkpoints/go14_v2/logs/learn-similar_kernel_adaptive-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1009,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1009",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 73.8826257599867,
+    "log": "checkpoints/go14_v2/logs/games-shared_free-1009.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1013,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1013",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 96.9811531919986,
+    "log": "checkpoints/go14_v2/logs/games-shared_free-1013.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1019,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1019",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 105.81375628098613,
+    "log": "checkpoints/go14_v2/logs/games-shared_free-1019.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1031,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1031",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 136.23252267797943,
+    "log": "checkpoints/go14_v2/logs/games-shared_free-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1021,
+    "method": "shared_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1021",
+      "--method",
+      "shared_free"
+    ],
+    "exit_code": 0,
+    "seconds": 148.7343580860179,
+    "log": "checkpoints/go14_v2/logs/games-shared_free-1021.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1009,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 190.75912617699942,
+    "log": "checkpoints/go14_v2/logs/games-spatial_free-1009.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1013,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 157.19030280102743,
+    "log": "checkpoints/go14_v2/logs/games-spatial_free-1013.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1021,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 131.26914220803883,
+    "log": "checkpoints/go14_v2/logs/games-spatial_free-1021.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1019,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 163.043992530962,
+    "log": "checkpoints/go14_v2/logs/games-spatial_free-1019.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1009,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 139.11689637001837,
+    "log": "checkpoints/go14_v2/logs/games-spatial_current-1009.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1031,
+    "method": "spatial_free",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_free"
+    ],
+    "exit_code": 0,
+    "seconds": 171.96121525595663,
+    "log": "checkpoints/go14_v2/logs/games-spatial_free-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1013,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 181.12559663399588,
+    "log": "checkpoints/go14_v2/logs/games-spatial_current-1013.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1019,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 144.93079446000047,
+    "log": "checkpoints/go14_v2/logs/games-spatial_current-1019.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1021,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 156.69344902801095,
+    "log": "checkpoints/go14_v2/logs/games-spatial_current-1021.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1009,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 118.40737315296428,
+    "log": "checkpoints/go14_v2/logs/games-spatial_adaptive-1009.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1031,
+    "method": "spatial_current",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_current"
+    ],
+    "exit_code": 0,
+    "seconds": 170.9372407029732,
+    "log": "checkpoints/go14_v2/logs/games-spatial_current-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1013,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 173.39152645296417,
+    "log": "checkpoints/go14_v2/logs/games-spatial_adaptive-1013.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1019,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 129.45229170902167,
+    "log": "checkpoints/go14_v2/logs/games-spatial_adaptive-1019.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1021,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 151.89485684002284,
+    "log": "checkpoints/go14_v2/logs/games-spatial_adaptive-1021.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1009,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 131.0743885639822,
+    "log": "checkpoints/go14_v2/logs/games-spatial_aligned-1009.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1031,
+    "method": "spatial_adaptive",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_adaptive"
+    ],
+    "exit_code": 0,
+    "seconds": 162.63616459304467,
+    "log": "checkpoints/go14_v2/logs/games-spatial_adaptive-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1013,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 172.8081900650286,
+    "log": "checkpoints/go14_v2/logs/games-spatial_aligned-1013.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1021,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 145.50068772002123,
+    "log": "checkpoints/go14_v2/logs/games-spatial_aligned-1021.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1019,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 176.7103556910297,
+    "log": "checkpoints/go14_v2/logs/games-spatial_aligned-1019.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1009,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1009",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 131.9873394399765,
+    "log": "checkpoints/go14_v2/logs/games-spatial_frozen-1009.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1031,
+    "method": "spatial_aligned",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_aligned"
+    ],
+    "exit_code": 0,
+    "seconds": 149.5896235560067,
+    "log": "checkpoints/go14_v2/logs/games-spatial_aligned-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1013,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1013",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 138.7173052050057,
+    "log": "checkpoints/go14_v2/logs/games-spatial_frozen-1013.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1019,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1019",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 101.35270375700202,
+    "log": "checkpoints/go14_v2/logs/games-spatial_frozen-1019.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1031,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1031",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 118.85574275499675,
+    "log": "checkpoints/go14_v2/logs/games-spatial_frozen-1031.log"
+  },
+  {
+    "stage": "games",
+    "seed": 1021,
+    "method": "spatial_frozen",
+    "command": [
+      "/home/spikebai/anaconda3/envs/torch2/bin/python3",
+      "experiments/go14_readability.py",
+      "--stage",
+      "games",
+      "--seed",
+      "1021",
+      "--method",
+      "spatial_frozen"
+    ],
+    "exit_code": 0,
+    "seconds": 131.01383647997864,
+    "log": "checkpoints/go14_v2/logs/games-spatial_frozen-1021.log"
+  }
+]

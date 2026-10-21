@@ -1,0 +1,15 @@
+{
+  "method": "shared_free",
+  "seed": 1021,
+  "verified": true,
+  "checkpoint_sha256": "9cb9b314813c841578ad3cfa6e0c35ee4f3169a8107d4e53be7213b3629d090c",
+  "learning_sha256": "933923e4e87cf070be6409b00bf735b47cd50f5a9781e23e17b3b01f5c76e187",
+  "constraint_tensor_bytes": 0,
+  "optimizer_tensor_bytes": 260744,
+  "optimizer_steps": [
+    192
+  ],
+  "policy_probability_max_error": 2.9802322387695312e-08,
+  "policy_raw_pass_error": 9.313225746154785e-10,
+  "verifier_sha256": "f566f8959f2513fa1c38e221de9df8edaddea211aea02b01743202dd894bd694"
+}

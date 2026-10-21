@@ -1,0 +1,10 @@
+{
+  "python": "3.11.11",
+  "pytorch": "2.8.0+cu128",
+  "device": "cpu",
+  "threads_per_experiment": 1,
+  "maximum_parallel_training_jobs": 6,
+  "parallel_audit_workers": 2,
+  "cpu": "Intel Core i5-10400, 6 cores / 12 logical CPUs",
+  "timing_note": "Wall times under concurrent training, verification and read-only probes; not isolated latency benchmarks."
+}

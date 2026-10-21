@@ -1,0 +1,10 @@
+{
+  "method": "shared_free",
+  "seed": 1009,
+  "verified": true,
+  "complete_games": 24,
+  "full_matches_reproduced": 1,
+  "decisions_reproduced": 44,
+  "games_sha256": "a2e1fe3d6f39ee2ccef72acf49aa551b5cbfb9310d6e7629b2deddbadd5ab20f",
+  "verifier_sha256": "df118b7b7e5c4eb1d37630a52a2265dfaae601eb882115e40d9dbf92122ef826"
+}
