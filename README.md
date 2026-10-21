@@ -9,6 +9,7 @@
 > 186 项根测试通过，完整棋谱独立重放，检查点搜索重现通过。此研究保留既有默认行为，没有宣称实现 RSI。
 > [完整研究结果](analysis/go13_report.md)、[数学推导](analysis/go13_math.md)、[固定协议](analysis/go13_plan.md)、
 > [补充协议](analysis/go13_transfer_plan.md)、[CodeRecoder 保护回执](analysis/results/go13_protection.json)。
+> [离线 HTML 解释报告](analysis/go13_report.html)：含 62 个编号公式、逐步推导、结果对照与两个互动示例。下载后用浏览器打开；可用 <code>python3 scripts/build_go13_report.py</code> 重建。
 
 > **前轮：有限反馈与长信用实验 Go12（2026-10-21）**：完成并核验 **2,780 局完整棋谱**，七个方案各评估 **240 局**。
 > 在共同的 24 局教师预训练后，用 16 局在线自博弈学习；统一 16 次搜索模拟、深度 8。

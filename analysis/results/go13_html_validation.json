@@ -1,0 +1,232 @@
+{
+  "verified_utc": "2026-10-21T01:25:41.563089+00:00",
+  "scope": "Documentation and visualization only; no model changes, new training, or changes to frozen Go13 results.",
+  "artifact_sha256": {
+    "README.md": "a03834fa5c4318051d949516e718dff3fc5a8eba768fe36a3cc59d420f84f752",
+    "analysis/go13_explained.md": "2e8e8f014e89a6fddcfb068ea22f6e6a43ec8aad3e56d43f2e4b2b3168749d8a",
+    "analysis/go13_report.html": "9e17f1f23b9ebef224725d2a6437414bf05f8dcbfbef1bc91c5604aaa66f6cbe",
+    "analysis/go13_html_assets/report.css": "5a43d9445626bcc7718b096f9c85793696867fbc6b10f460a8f447014676b622",
+    "analysis/go13_html_assets/report.js": "486f4b9c871905ac3aab3cc4b58994341bc2a349ce03e512d702d493685abbf1",
+    "scripts/build_go13_report.py": "4c31bd89c08460e291ef4b54eda1ecae5c9b0c63b6395c2482e05b6921700dee",
+    "analysis/figures/go13_html_desktop.png": "bd8408f5c1517be8697953d461062c1b35d0943c828ec18eadf694e57c5eb384",
+    "analysis/figures/go13_html_math.png": "82834ff6e66c712995f9f9983c6ad5c275aebdc85025506f02ec2ca376b1a2f5",
+    "analysis/figures/go13_html_mobile.png": "be420538298bfb493bd061ec54d3168e16cf61ad3fff0cc19b3727896d8ee569"
+  },
+  "browser": "Headless Chrome 155; direct file URL; offline context",
+  "browser_checks": {
+    "errors": [],
+    "remoteRequests": [],
+    "checks": {
+      "62_display_equations": true,
+      "unique_ids_and_resolved_navigation": true,
+      "valid_details_structure": true,
+      "embedded_assets_loaded": true,
+      "desktop_no_horizontal_page_overflow": true,
+      "no_unconverted_tex": true,
+      "two_seven_method_result_tables": true,
+      "expand_all": true,
+      "collapse_all": true,
+      "print_expands_proofs": true,
+      "print_restores_reading_state": true,
+      "toc_moves_focus": true,
+      "decay_value_64": true,
+      "keyboard_slider": true,
+      "zero_retention": true,
+      "curvature_rejects_tangent": true,
+      "curvature_accepts_interior": true,
+      "zero_curvature_accepts_first": true,
+      "download_filename": true,
+      "mobile_toc_collapsed": true,
+      "mobile_no_horizontal_page_overflow": true,
+      "mobile_toc_opens": true,
+      "mobile_equations_scroll_locally": true,
+      "print_hides_navigation": true,
+      "no_script_errors_or_remote_requests": true
+    },
+    "dom": {
+      "math": 239,
+      "displayMath": 62,
+      "duplicateIds": [],
+      "missingTargets": [],
+      "invalidSummary": false,
+      "externalAssets": 0,
+      "loadedImages": true,
+      "proofs": 13,
+      "desktopOverflow": false,
+      "unresolvedMath": false,
+      "tableRows": [
+        7,
+        7
+      ],
+      "inputHashes": 18
+    },
+    "mobile": {
+      "page": 390,
+      "viewport": 390
+    }
+  },
+  "standalone_and_print_checks": {
+    "standaloneWithoutJavaScript": {
+      "math": 239,
+      "equations": 62,
+      "imagesLoaded": true,
+      "title": "正交环如何学会历史",
+      "hasResearchConclusion": true,
+      "remoteRequests": []
+    },
+    "print": {
+      "hiddenProofs": 0,
+      "pageOverflow": false,
+      "sidebarHidden": true,
+      "displayEquations": 62
+    }
+  },
+  "derivation_examples_and_build_checks": {
+    "orthogonal_projection_transport": {
+      "max_error": 3.3306690738754696e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "leaked_state_and_covector_norm": {
+      "max_error": 2.220446049250313e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "nonorthogonal_pullback_feasibility": {
+      "max_error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "shear_not_commuting": {
+      "residual": 0.7071067811865476,
+      "passed": true
+    },
+    "similarity_metric_orthogonality": {
+      "max_error": 1.9984014443252818e-15,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "similarity_product_bounds": {
+      "minimum_singular_value": 0.7322726975666783,
+      "maximum_singular_value": 1.4493469440505424,
+      "passed": true
+    },
+    "single_halfspace_projection": {
+      "max_error": 5.551115123125783e-17,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "adam_preconditioner_counterexample": {
+      "gradient_dot": 0.0,
+      "scaled_gradient_dot": 1.0,
+      "passed": true
+    },
+    "finite_step_curvature_examples": {
+      "cases": [
+        {
+          "kappa": 2.0,
+          "direction_y": 0.0,
+          "accepted": null,
+          "last_checked_margin": -1.9531250000000004e-05
+        },
+        {
+          "kappa": 2.0,
+          "direction_y": 0.12,
+          "accepted": {
+            "halvings": 4,
+            "alpha": 0.0625,
+            "margin": 0.0024999999999999988
+          },
+          "last_checked_margin": 0.0024999999999999988
+        },
+        {
+          "kappa": 0.0,
+          "direction_y": 0.0,
+          "accepted": {
+            "halvings": 0,
+            "alpha": 1,
+            "margin": 0.0
+          },
+          "last_checked_margin": 0.0
+        }
+      ],
+      "passed": true
+    },
+    "decay_display_rounding": {
+      "max_error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "shared_write_rank_example": {
+      "shape": [
+        96,
+        8
+      ],
+      "rank": 8,
+      "passed": true,
+      "scope": "Illustrative matrices only; actual research diagnostic is unchanged"
+    },
+    "observability_gramian_identity": {
+      "max_error": 2.842170943040401e-14,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    "shared_parameter_chain_expansion": {
+      "max_error": 8.881784197001252e-16,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "deterministic_html_rebuild": {
+      "sha256": "9e17f1f23b9ebef224725d2a6437414bf05f8dcbfbef1bc91c5604aaa66f6cbe",
+      "passed": true
+    },
+    "exported_data_matches_frozen_sources": {
+      "hashed_inputs": 18,
+      "passed": true
+    }
+  },
+  "frozen_research": {
+    "baseline_commit": "0e78808751f563bdfdfd50ef1cf405b943c8da98",
+    "tracked_research_files_checked": 310,
+    "differences": [],
+    "passed": true
+  },
+  "unrelated_preexisting_edits_preserved": [
+    ".serena/project.yml",
+    "paper/README.md",
+    "paper/compile.sh",
+    "paper/mqr_arxiv.pdf",
+    "paper/mqr_arxiv.tex"
+  ],
+  "syntax_checks": [
+    "python3 -m py_compile scripts/build_go13_report.py",
+    "node --check analysis/go13_html_assets/report.js"
+  ],
+  "research_test_suite_rerun": false,
+  "research_test_count_from_prior_validation": 186,
+  "print_check": {
+    "temporary_pdf_pages": 35,
+    "committed_pdf": false
+  },
+  "visual_inspection": {
+    "desktop": [
+      1440,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "inspected": [
+      "desktop title and navigation",
+      "MathML derivation",
+      "curvature diagram",
+      "mobile title and formulas"
+    ]
+  },
+  "screenshots": [
+    "analysis/figures/go13_html_desktop.png",
+    "analysis/figures/go13_html_math.png",
+    "analysis/figures/go13_html_mobile.png"
+  ]
+}
